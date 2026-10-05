@@ -5,7 +5,7 @@
       "domain": "import-export",
       "evidence": [
         "EVID-EXP-000003",
-        "EVID-DLL-000365"
+        "EVID-DLL-000383"
       ],
       "id": "format.export.container.001",
       "text": "A Barsa .metaexport file is GZip-compressed .NET BinaryFormatter output whose root object is a System.Data.DataSet, carried as an XSD string plus an XML DiffGram string. The XML declares utf-16 but the bytes are UTF-8.",
@@ -15,8 +15,8 @@
       "confidence": "CrossVerified",
       "domain": "import-export",
       "evidence": [
-        "EVID-DLL-000366",
-        "EVID-DLL-000367"
+        "EVID-DLL-000384",
+        "EVID-DLL-000385"
       ],
       "id": "import.system.entrypoint.001",
       "text": "BixHelper.Import(string, ImportOptions) is the façade; NewImportManager.Import(ImportOptions) is the engine. ImportOptions carries Simulate, IsClone, AddMissedReferences and writes back out_IdFixer and out_DataSet.",
@@ -27,7 +27,7 @@
       "domain": "import-export",
       "evidence": [
         "EVID-EXP-000004",
-        "EVID-DLL-000368"
+        "EVID-DLL-000386"
       ],
       "id": "import.system.idremap.001",
       "text": "The package carries a $IdEmbeddingFields control table whose rows are (TableName, ColumnName, OperationalType, FieldType) with OperationalType in {pk, fk, idpattern}. FixIdForImport.Init/FixAll consume it. Whether a specific id survives unchanged is Unknown.",
@@ -37,7 +37,7 @@
       "confidence": "Observed",
       "domain": "system-reconstruction",
       "evidence": [
-        "EVID-DLL-000369"
+        "EVID-DLL-000387"
       ],
       "id": "import.system.order.001",
       "text": "NewImportManager.Import invokes, in body order: DeserializeDataSetFromFile, FixIdForImport, clone fixups, ImportManager_Structure.AfterImport, ObjectReferenceBuilder.RecreateForAll, MissedReferenceFinder, then writes the import audit end timestamp. Per-table write order is Unknown.",
@@ -47,7 +47,7 @@
       "confidence": "CrossVerified",
       "domain": "import-export",
       "evidence": [
-        "EVID-DLL-000370",
+        "EVID-DLL-000388",
         "EVID-EXP-000005"
       ],
       "id": "export.system.entrypoint.001",
@@ -58,8 +58,8 @@
       "confidence": "CrossVerified",
       "domain": "system-reconstruction",
       "evidence": [
-        "EVID-DLL-000371",
-        "EVID-DLL-000372"
+        "EVID-DLL-000389",
+        "EVID-DLL-000390"
       ],
       "id": "roundtrip.clone.001",
       "text": "BixHelper.Clone runs Export then Import with ImportOptions.IsClone set, proving the format round-trips within the product. ImportCloneManager.GetFromNewIdMap(long) exposes the old-to-new id map.",
@@ -69,7 +69,7 @@
       "confidence": "Observed",
       "domain": "import-export",
       "evidence": [
-        "EVID-DLL-000373"
+        "EVID-DLL-000391"
       ],
       "id": "import.preview.tree.001",
       "text": "NewImportManager.GetImportData returns IActiveDataSource, the same interface the export tree consumes. ImportTreeForm renders it against DbDataSource.GetCurrentDb() with change icons, so a package can be diffed against the live system before applying.",
@@ -80,7 +80,7 @@
       "domain": "entities-fields-relations",
       "evidence": [
         "EVID-EXP-000006",
-        "EVID-DLL-000374"
+        "EVID-DLL-000392"
       ],
       "id": "format.dynamic.tables.001",
       "text": "User-defined entities store rows in dyn_<n> and m0<n>_<name> tables with positional F1..Fn columns. $Data_TypeDefDbNames and $Data_FieldDefDbNames map TypeDef and FieldDef ids to those physical names. A reader must resolve through them rather than hard-coding table names.",
@@ -90,7 +90,7 @@
       "confidence": "Verified",
       "domain": "import-export",
       "evidence": [
-        "EVID-DLL-000375"
+        "EVID-DLL-000393"
       ],
       "id": "limits.obfuscation.001",
       "text": "Barsa.Meta.DataExchange.dll has private and internal members renamed to #Xx identifiers. Public API names survive. Internal behaviour is therefore Unknown unless it is visible as a call edge to a named member.",
@@ -100,7 +100,7 @@
       "confidence": "Unknown",
       "domain": "import-export",
       "evidence": [
-        "EVID-DLL-000376"
+        "EVID-DLL-000394"
       ],
       "id": "limits.atomicity.001",
       "text": "Whether import runs in a transaction and rolls back on failure could not be established. The confirmation dialog warns that without a backup there is no way back, which is suggestive but is a UI string, not proof.",
@@ -116,9 +116,9 @@
   ],
   "counts": {
     "assemblies": 364,
-    "capabilities": 9,
+    "capabilities": 13,
     "chunks": 10,
-    "evidenceItems": 382,
+    "evidenceItems": 400,
     "exportPackages": 2
   },
   "generated": "2026-10-05",

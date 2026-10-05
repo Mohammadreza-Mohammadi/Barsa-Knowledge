@@ -120,4 +120,4 @@ Unknown.
 
 ## Symmetry with the importer
 
-See `evidence/cross-validation.md` and `scenarios/export-system.md`.
+See `evidence/cross-validation.md` and `scenarios/export-system-legacy.md`.

@@ -1,0 +1,2341 @@
+{
+  "answerEnums": {
+    "Barsa.Meta.DataExchange.AiBatchErrorPolicy": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.AiBatchErrorPolicy",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "ContinueIndependent",
+          "value": 0
+        },
+        {
+          "name": "StopBatch",
+          "value": 1
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.AiBatchStatus": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.AiBatchStatus",
+      "looksLikeFlags": true,
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": 0
+        },
+        {
+          "name": "PartiallySucceeded",
+          "value": 1
+        },
+        {
+          "name": "Failed",
+          "value": 2
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.AiChangeOperation": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.AiChangeOperation",
+      "looksLikeFlags": true,
+      "members": [
+        {
+          "name": "Create",
+          "value": 0
+        },
+        {
+          "name": "Update",
+          "value": 1
+        },
+        {
+          "name": "Delete",
+          "value": 2
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.AiCommandStatus": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.AiCommandStatus",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Planned",
+          "value": 0
+        },
+        {
+          "name": "Succeeded",
+          "value": 1
+        },
+        {
+          "name": "Failed",
+          "value": 2
+        },
+        {
+          "name": "Conflict",
+          "value": 3
+        },
+        {
+          "name": "SkippedDependency",
+          "value": 4
+        },
+        {
+          "name": "SkippedPolicy",
+          "value": 5
+        },
+        {
+          "name": "Unsupported",
+          "value": 6
+        },
+        {
+          "name": "VerificationFailed",
+          "value": 7
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.AiSemanticReferenceLifecycle": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.AiSemanticReferenceLifecycle",
+      "looksLikeFlags": true,
+      "members": [
+        {
+          "name": "StructuralRequired",
+          "value": 0
+        },
+        {
+          "name": "PostCreateConfig",
+          "value": 1
+        },
+        {
+          "name": "FinalWiring",
+          "value": 2
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.BixJsonExportMode": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.BixJsonExportMode",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Semantic",
+          "value": 0
+        },
+        {
+          "name": "FullStructured",
+          "value": 1
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.BixJsonExportSelection": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.BixJsonExportSelection",
+      "looksLikeFlags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": 0
+        },
+        {
+          "name": "Semantic",
+          "value": 1
+        },
+        {
+          "name": "FullStructured",
+          "value": 2
+        },
+        {
+          "name": "Knowledge",
+          "value": 4
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.Helper.CompareChangeTypeEnum": {
+      "assembly": "Barsa.Meta.DataExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.Helper.CompareChangeTypeEnum",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "NoChange",
+          "value": 0
+        },
+        {
+          "name": "Edited",
+          "value": 1
+        },
+        {
+          "name": "New",
+          "value": 2
+        },
+        {
+          "name": "Deleted",
+          "value": 3
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.JsonExportNodeOutputKind": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.JsonExportNodeOutputKind",
+      "looksLikeFlags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": 0
+        },
+        {
+          "name": "Folder",
+          "value": 1
+        },
+        {
+          "name": "File",
+          "value": 2
+        },
+        {
+          "name": "Inline",
+          "value": 4
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.JsonExportRelationMatchMode": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.JsonExportRelationMatchMode",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Exact",
+          "value": 0
+        },
+        {
+          "name": "Contains",
+          "value": 1
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.SemanticApplyClass": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.SemanticApplyClass",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Hardcoded",
+          "value": 0
+        },
+        {
+          "name": "Dynamic",
+          "value": 1
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.SemanticPropertyClassification": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.SemanticPropertyClassification",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Writable",
+          "value": 0
+        },
+        {
+          "name": "Derived",
+          "value": 1
+        },
+        {
+          "name": "ReconstructionOnly",
+          "value": 2
+        },
+        {
+          "name": "ReadOnly",
+          "value": 3
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.SemanticPropertyKind": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.SemanticPropertyKind",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Scalar",
+          "value": 0
+        },
+        {
+          "name": "Enum",
+          "value": 1
+        },
+        {
+          "name": "Reference",
+          "value": 2
+        },
+        {
+          "name": "RawJson",
+          "value": 3
+        },
+        {
+          "name": "Embedded",
+          "value": 4
+        },
+        {
+          "name": "Collection",
+          "value": 5
+        },
+        {
+          "name": "Ordering",
+          "value": 6
+        },
+        {
+          "name": "Logic",
+          "value": 7
+        },
+        {
+          "name": "Other",
+          "value": 8
+        }
+      ]
+    },
+    "Barsa.Meta.DataExchange.SemanticResolutionStatus": {
+      "assembly": "Barsa.Meta.SemanticExchange",
+      "confidence": "Verified",
+      "enum": "Barsa.Meta.DataExchange.SemanticResolutionStatus",
+      "looksLikeFlags": false,
+      "members": [
+        {
+          "name": "Unresolved",
+          "value": 0
+        },
+        {
+          "name": "Resolved",
+          "value": 1
+        },
+        {
+          "name": "ResolvedWithAmbiguity",
+          "value": 2
+        },
+        {
+          "name": "Unsupported",
+          "value": 3
+        }
+      ]
+    }
+  },
+  "binaryDecoders": {
+    "ActivityDefInfo": {
+      "implementation": "SerializeActivityDefInfo"
+    },
+    "ActorDefInfo": {
+      "implementation": "SerializeActorDefInfo"
+    },
+    "ChoiceInfo": {
+      "implementation": "SerializeChoiceInfo"
+    },
+    "FieldInfo": {
+      "implementation": "SerializeFieldInfo"
+    },
+    "MetaCondition": {
+      "implementation": "SerializeMetaCondition"
+    },
+    "MetaSystemSettings": {
+      "implementation": "SerializeMetaSystemSettings"
+    },
+    "ReportData": {
+      "implementation": "SerializeReportData"
+    },
+    "TypeDefSettings": {
+      "implementation": "SerializeTypeDefSettings"
+    },
+    "TypeView": {
+      "implementation": "SerializeTypeView"
+    },
+    "VariableDefInfo": {
+      "implementation": "SerializeVariableDefInfo"
+    },
+    "WorkflowDefInfo": {
+      "implementation": "SerializeWorkflowDefInfo"
+    },
+    "WorkflowDiagramSimple": {
+      "implementation": "SerializeWorkflowDiagramSimple"
+    }
+  },
+  "decoderTargets": [
+    {
+      "decoder": "FieldInfo",
+      "field": "Settings",
+      "implementation": "SerializeFieldInfo",
+      "recordType": "Barsa.Meta.FieldDef"
+    },
+    {
+      "decoder": "MetaSystemSettings",
+      "field": "Settings",
+      "implementation": "SerializeMetaSystemSettings",
+      "recordType": "Barsa.Meta.MetaSystem"
+    },
+    {
+      "decoder": "MetaSystemSettings",
+      "field": "SettingsBytes",
+      "implementation": "SerializeMetaSystemSettings",
+      "recordType": "Barsa.Meta.MetaSystem"
+    },
+    {
+      "decoder": "ReportData",
+      "field": "ReportData",
+      "implementation": "SerializeReportData",
+      "recordType": "Barsa.Meta.Report"
+    },
+    {
+      "decoder": "TypeDefSettings",
+      "field": "Settings",
+      "implementation": "SerializeTypeDefSettings",
+      "recordType": "Barsa.Meta.TypeDef"
+    },
+    {
+      "decoder": "TypeView",
+      "field": "TypeViewBlob",
+      "implementation": "SerializeTypeView",
+      "recordType": "Barsa.Meta.TypeViewEntity"
+    },
+    {
+      "decoder": "ActivityDefInfo",
+      "field": "InternalData",
+      "implementation": "SerializeActivityDefInfo",
+      "recordType": "Barsa.Workflow.ActivityDef"
+    },
+    {
+      "decoder": "ChoiceInfo",
+      "field": "InternalData",
+      "implementation": "SerializeChoiceInfo",
+      "recordType": "Barsa.Workflow.ChoiceDef"
+    },
+    {
+      "decoder": "ActorDefInfo",
+      "field": "InternalData",
+      "implementation": "SerializeActorDefInfo",
+      "recordType": "Barsa.Workflow.WorkflowActorDef"
+    },
+    {
+      "decoder": "WorkflowDiagramSimple",
+      "field": "DiagramData2",
+      "implementation": "SerializeWorkflowDiagramSimple",
+      "recordType": "Barsa.Workflow.WorkflowDef"
+    },
+    {
+      "decoder": "WorkflowDefInfo",
+      "field": "InternalData",
+      "implementation": "SerializeWorkflowDefInfo",
+      "recordType": "Barsa.Workflow.WorkflowDef"
+    },
+    {
+      "decoder": "VariableDefInfo",
+      "field": "InternalData",
+      "implementation": "SerializeVariableDefInfo",
+      "recordType": "Barsa.Workflow.WorkflowVariableDef"
+    },
+    {
+      "decoder": "MetaCondition",
+      "field": "Condition$BINARY",
+      "implementation": "SerializeMetaCondition",
+      "recordType": "MetaCondition"
+    }
+  ],
+  "engine": {
+    "binary": {
+      "onDecodeError": "error-marker",
+      "unknownBinary": "omit"
+    },
+    "largeCode": {
+      "extensionRule": {
+        "defaultExtension": ".cs",
+        "map": {
+          "1": ".sql",
+          "11": ".js",
+          "4": ".js"
+        },
+        "sourceField": "CodeLayer"
+      },
+      "mode": "file",
+      "thresholdChars": 1000
+    },
+    "omitDefault": true,
+    "omitNull": true,
+    "unknownField": "keep",
+    "unknownRecordType": "include",
+    "unknownSerializedType": "include"
+  },
+  "enums": {
+    "Barsa.Meta.AggreationTypeEnum": {
+      "1": "Count",
+      "10": "First",
+      "2": "Sum",
+      "3": "Min",
+      "4": "Max",
+      "5": "Avg",
+      "7": "StringConcat",
+      "8": "Exists",
+      "9": "Not_Exists"
+    },
+    "Barsa.Meta.BarsaNavigatorStyle2": {
+      "0": "Navigator",
+      "1": "Listbar",
+      "2": "Toolbox",
+      "3": "OutlookNavigationPane",
+      "4": "VisualStudio2005Toolbox"
+    },
+    "Barsa.Meta.BarsaNavigatorViewStyle2": {
+      "0": "Default",
+      "1": "XP",
+      "2": "XPNavigator",
+      "3": "Office2000",
+      "4": "Office2003",
+      "5": "VisualStudio2005",
+      "6": "Office2007"
+    },
+    "Barsa.Meta.CalendarTypeEnum": {
+      "0": "Default",
+      "1": "HijriShamsi",
+      "2": "Gregorian"
+    },
+    "Barsa.Meta.ChartTypeEnum": {
+      "0": "Columns",
+      "1": "ColumnsInverse",
+      "2": "Pie"
+    },
+    "Barsa.Meta.CombinationOperator": {
+      "0": "All",
+      "1": "Any"
+    },
+    "Barsa.Meta.ComparisonOperator": {
+      "0": "AdvancedTextSearch2"
+    },
+    "Barsa.Meta.DisplayTypeEnum": {
+      "1": "Toolbar",
+      "2": "Button"
+    },
+    "Barsa.Meta.EditTypeEnum": {
+      "1": "NoEdit",
+      "2": "FullEdit",
+      "3": "OnlyEditByCode"
+    },
+    "Barsa.Meta.EnumTypeEnum": {
+      "0": "Single",
+      "1": "MultiSelection"
+    },
+    "Barsa.Meta.ExecutaionTimeEnum": {
+      "0": "None",
+      "1": "AfterCreate",
+      "2": "AfterUpdate",
+      "4": "AfterFormLoad",
+      "8": "NewObject"
+    },
+    "Barsa.Meta.ExecuteTargetEnum": {
+      "1": "SingleObject",
+      "2": "ListObject",
+      "4": "ContextMenu"
+    },
+    "Barsa.Meta.FieldInfoTypeEnum": {
+      "0": "IntInfo",
+      "10": "CommandInfo",
+      "11": "PicturesInfo",
+      "12": "RelationInfo",
+      "13": "HistoryInfo",
+      "14": "RelationInfoReverse_AksListi",
+      "15": "CreatorUserInfo",
+      "16": "CreationDateInfo",
+      "17": "LastUpdateDateInfo",
+      "18": "ReminderInfo",
+      "19": "RichStringInfo",
+      "2": "StringInfo",
+      "20": "ConvertCommandInfo",
+      "21": "RelationInfoSingleReverse_AksTakiListi",
+      "22": "DialCommandInfo",
+      "23": "FindContactCommandInfo",
+      "24": "SequenceCommandInfo",
+      "25": "CurrencyInfo",
+      "26": "SinglePictureInfo",
+      "27": "WordReportCommandInfo",
+      "28": "HierarchicalInfo",
+      "29": "TimeSpanInfo",
+      "3": "DateInfo",
+      "30": "ReportInfo",
+      "31": "FileInfo",
+      "32": "WordFileInfo",
+      "33": "PictureFileInfo",
+      "34": "GaugeInfo",
+      "35": "CodeInfo",
+      "36": "WorkCenterInfo",
+      "37": "IsDeletedInfo",
+      "38": "RowNumberInfo",
+      "39": "BinaryInfo",
+      "40": "ReverseMetaObjectInfo_AksTakiTaki",
+      "41": "ColorInfo",
+      "42": "IconInfo",
+      "43": "RefreshFieldCommandInfo",
+      "44": "ReferenceFieldInfo",
+      "45": "SearchCommandInfo",
+      "46": "OrderInfo",
+      "5": "BoolInfo",
+      "55": "InheritanceInfo",
+      "56": "InterfaceInfo",
+      "57": "InheritanceChildInfo",
+      "58": "CustomFieldInfo",
+      "59": "RecordSignInfo",
+      "6": "EnumInfo",
+      "7": "UserInfo",
+      "8": "CategoryInfo",
+      "9": "MetaObjectInfo"
+    },
+    "Barsa.Meta.FolderType": {
+      "0": "MainRoot",
+      "12": "ReportFolder",
+      "3": "ReportRoot",
+      "9": "Report"
+    },
+    "Barsa.Meta.FormulaTypeEnum": {
+      "1": "Code",
+      "2": "Query"
+    },
+    "Barsa.Meta.GridAlternateRowModeEnum": {
+      "0": "None",
+      "1": "OneSpace"
+    },
+    "Barsa.Meta.GridViewStyleEnum": {
+      "-1": "Default",
+      "0": "ListView",
+      "1": "CardView"
+    },
+    "Barsa.Meta.GroupStyle2": {
+      "0": "Default",
+      "1": "SmallImages",
+      "2": "SmallImagesWithText",
+      "3": "LargeImages",
+      "4": "LargeImagesWithText",
+      "5": "LargeImagesWithTextBelow",
+      "6": "ControlContainer"
+    },
+    "Barsa.Meta.IconDisplayTypeEnum": {
+      "0": "NoImage",
+      "1": "Image",
+      "2": "ImageAndText"
+    },
+    "Barsa.Meta.IconSize": {
+      "0": "Small",
+      "1": "Large"
+    },
+    "Barsa.Meta.ImportActionType": {
+      "0": "Whole",
+      "1": "DontOverride"
+    },
+    "Barsa.Meta.InheritanceTypeEnum": {
+      "1": "BasedOnParentRelation",
+      "2": "IndependentOfParent"
+    },
+    "Barsa.Meta.LoadType": {
+      "0": "WindowsClient",
+      "1": "BusinessLogic"
+    },
+    "Barsa.Meta.MetaCodeLanguage": {
+      "0": "Default",
+      "1": "CSharp",
+      "2": "JavaScript",
+      "3": "Sql",
+      "4": "Xml",
+      "5": "CSS",
+      "6": "Html",
+      "7": "Json",
+      "8": "Python",
+      "9": "PHP"
+    },
+    "Barsa.Meta.MetaCodeLayer": {
+      "0": "Default",
+      "1": "Db",
+      "11": "Web2Ui",
+      "2": "Bl",
+      "3": "Ui",
+      "4": "WebUi",
+      "5": "Bl_Wrapper",
+      "6": "Ui_Wrapper",
+      "7": "Expression"
+    },
+    "Barsa.Meta.MetaCodeType": {
+      "0": "Default",
+      "1": "Expression",
+      "2": "SystemCode",
+      "3": "Query"
+    },
+    "Barsa.Meta.MyGaugeDirection": {
+      "0": "Incrementing",
+      "1": "Decrementing"
+    },
+    "Barsa.Meta.MyGaugeType": {
+      "0": "Type1",
+      "1": "Type2",
+      "3": "Type3"
+    },
+    "Barsa.Meta.MyPictureBoxSizeMode": {
+      "0": "Normal",
+      "1": "StretchImage",
+      "2": "AutoSize",
+      "3": "CenterImage"
+    },
+    "Barsa.Meta.NamingRuleTypeEnum": {
+      "0": "Default",
+      "1": "Fingilish"
+    },
+    "Barsa.Meta.NumberTypeEnum": {
+      "0": "Float",
+      "1": "Long",
+      "2": "Decimal"
+    },
+    "Barsa.Meta.PassParentFormType": {
+      "0": "Disabled",
+      "1": "Always",
+      "2": "Enabled_Conditional"
+    },
+    "Barsa.Meta.RelationSingleReverseViewType": {
+      "0": "SelectionList",
+      "4": "PopupForm"
+    },
+    "Barsa.Meta.RelationType": {
+      "0": "Composition",
+      "1": "Aggrigation",
+      "2": "None"
+    },
+    "Barsa.Meta.RelationTypeEnum": {
+      "0": "One",
+      "1": "OneToOne",
+      "2": "OneToMany",
+      "3": "ManyToOne",
+      "4": "ManyToMany"
+    },
+    "Barsa.Meta.RelationViewType": {
+      "0": "SelectionList",
+      "1": "CheckedList",
+      "2": "CheckedCombo",
+      "3": "LinearListBox",
+      "4": "PopupForm"
+    },
+    "Barsa.Meta.RelationViewTypeEnum": {
+      "0": "Default",
+      "1": "ReportView",
+      "2": "SimpleList",
+      "3": "RadioBox",
+      "4": "SelectionList"
+    },
+    "Barsa.Meta.ReportPagingType": {
+      "0": "Default",
+      "1": "None",
+      "2": "Always",
+      "3": "Automatic"
+    },
+    "Barsa.Meta.ReportTypeEnum": {
+      "0": "ViewResults",
+      "1": "Statistics",
+      "10": "ForumView",
+      "11": "Dashboard",
+      "2": "TreeView",
+      "3": "MatrixView",
+      "4": "CalendarView",
+      "5": "PrintView",
+      "6": "HetrogeniousTree",
+      "7": "HetrogeniousTree_NoneGraphical",
+      "8": "GauntView",
+      "9": "FormView"
+    },
+    "Barsa.Meta.RichInfoTypeEnum": {
+      "0": "RichTextFormat",
+      "1": "Html"
+    },
+    "Barsa.Meta.RightToLeftEnum": {
+      "0": "Inherit",
+      "1": "Yes",
+      "2": "No"
+    },
+    "Barsa.Meta.SingleRelationViewFormTypeEnum": {
+      "0": "Show",
+      "1": "ShowReadOnly",
+      "2": "Hide"
+    },
+    "Barsa.Meta.SingleValueDefinitionTypeEnum": {
+      "0": "ConstantValue",
+      "1": "Code",
+      "2": "Report"
+    },
+    "Barsa.Meta.TimeSpanFormat": {
+      "1": "HourMin",
+      "4": "DayHourMin",
+      "6": "HourMinLong",
+      "7": "DayHourMinLong"
+    },
+    "Barsa.Meta.TypeDefBaseInfoTypeEnum": {
+      "0": "None",
+      "1": "Select",
+      "2": "Condition",
+      "3": "AllBasicInfo"
+    },
+    "Barsa.Meta.TypeDefDbType": {
+      "0": "Normal",
+      "1": "ViewOnly"
+    },
+    "Barsa.Meta.TypeDefTypeEnum": {
+      "0": "Normal",
+      "2": "Meta"
+    },
+    "Barsa.Meta.ValueType": {
+      "0": "Constant",
+      "1": "Parameter"
+    },
+    "Barsa.Meta.ViewTypeEnum": {
+      "0": "ComboBox",
+      "1": "RadioButton"
+    },
+    "Barsa.Workflow.ActorDefAssignmentType": {
+      "0": "None",
+      "1": "OnFirstUsage",
+      "2": "OnEachUsage"
+    },
+    "Barsa.Workflow.ChildGetterTypeEnum": {
+      "1": "Report",
+      "2": "Field",
+      "3": "Code"
+    },
+    "Barsa.Workflow.DiagramType": {
+      "0": "Activity",
+      "1": "BPMN",
+      "2": "BPMN2"
+    },
+    "Barsa.Workflow.OtherUserAccessTypeEnum": {
+      "0": "DefaultEditForm",
+      "1": "DefaultViewForm",
+      "2": "NoAccess"
+    },
+    "Barsa.Workflow.WorkflowStartTypeEnum": {
+      "1": "None",
+      "2": "CreateNewForm",
+      "3": "UseExistingForm"
+    }
+  },
+  "legacyTableMap": {
+    "Barsa.Meta.BRRule": "met_RuleDef",
+    "Barsa.Meta.FieldDef": "met_FieldDef",
+    "Barsa.Meta.Folder": "met_Folder",
+    "Barsa.Meta.MailViewGroup": "met_MailViewGroup",
+    "Barsa.Meta.MetaAssembly": "met_Assembly",
+    "Barsa.Meta.MetaCode": "met_MetaCode",
+    "Barsa.Meta.MetaCommand": "met_MetaCommand",
+    "Barsa.Meta.MetaFieldDefRelation": "met_MetaFieldDefRelation",
+    "Barsa.Meta.MetaSystem": "met_MetaSystem",
+    "Barsa.Meta.MetaUserControl": "met_MetaUserControl",
+    "Barsa.Meta.RelationDef": "met_RelationDef",
+    "Barsa.Meta.Report": "met_Report",
+    "Barsa.Meta.TypeDef": "met_TypeDef",
+    "Barsa.Meta.TypeDefAccessService": "met_TypeDefAccessService",
+    "Barsa.Meta.TypeDefAccessTemplate": "met_TypeDefAccessTemplate",
+    "Barsa.Meta.TypeViewEntity": "met_TypeViewEntity",
+    "Barsa.Meta.TypeViewUsingLocation": "met_TypeViewUsingLocation",
+    "Barsa.Workflow.ActivityDef": "wfl_ActivityDef",
+    "Barsa.Workflow.ChoiceDef": "wfl_ChoiceDef",
+    "Barsa.Workflow.WorkflowActorDef": "wfl_WorkflowActorDef",
+    "Barsa.Workflow.WorkflowDef": "wfl_WorkflowDef",
+    "Barsa.Workflow.WorkflowVariableDef": "wfl_WorkflowVariableDef"
+  },
+  "observedInArtifacts": [],
+  "packaging": {
+    "includeUnmappedRecords": false,
+    "omitRelations": [
+      "اطلاعات سيستم"
+    ],
+    "relationFiles": [
+      {
+        "file": "[دستور].json",
+        "match": "exact",
+        "relation": "MetaCommand"
+      }
+    ],
+    "relationGroups": [
+      {
+        "folder": "[موجوديت]",
+        "items": "file",
+        "match": "exact",
+        "relation": "MetaTypeDef"
+      },
+      {
+        "folder": "[فرآيند]",
+        "items": "file",
+        "match": "exact",
+        "relation": "فرآيند"
+      },
+      {
+        "folder": "[فرآيند]",
+        "items": "file",
+        "match": "exact",
+        "relation": "فرآیند"
+      },
+      {
+        "folder": "[فرآيند]",
+        "items": "file",
+        "match": "contains",
+        "relation": "Workflow"
+      },
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "MetaCode"
+      },
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "كد"
+      },
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "کد"
+      },
+      {
+        "folder": "[پوشه اصلی]",
+        "items": "child-files",
+        "match": "exact",
+        "relation": "پوشه اصلی"
+      },
+      {
+        "folder": "[گزارش]",
+        "items": "file",
+        "match": "exact",
+        "relation": "MetaReport"
+      }
+    ],
+    "systemRecordFile": "[سيستم].json",
+    "unmappedRecordsFile": "unmappedRecords.json"
+  },
+  "profileVersion": 15,
+  "recordTypes": [
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 11,
+      "keptFields": [
+        "Caption",
+        "Description",
+        "EventList",
+        "EventListNode",
+        "Id",
+        "InternalText",
+        "IsDefault",
+        "IsDisabled",
+        "Title",
+        "TypeDefId"
+      ],
+      "legacyTable": "met_RuleDef",
+      "omittedFields": [
+        "DisplayString"
+      ],
+      "output": "auto",
+      "recordType": "Barsa.Meta.BRRule",
+      "referenceFields": [
+        "TypeDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "Settings",
+          "FieldInfo"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 16,
+      "keptFields": [
+        "JsonProperty",
+        "Settings",
+        "caption",
+        "dbName",
+        "id",
+        "orderNumber",
+        "دسترسی ساختار",
+        "دستور پويا",
+        "رابطه",
+        "كد",
+        "گزارش تجمیعی",
+        "گزارش فیلد"
+      ],
+      "legacyTable": "met_FieldDef",
+      "omittedFields": [
+        "$caption",
+        "fieldInfoType",
+        "relationType",
+        "typeDefId"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Meta.FieldDef",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "FolderType",
+          "Barsa.Meta.FolderType"
+        ]
+      ],
+      "fieldCount": 16,
+      "keptFields": [
+        "ContainingTypeDefId",
+        "FolderType",
+        "Icon",
+        "IconName",
+        "IsDeleted",
+        "MetaFolder",
+        "Name",
+        "OrderNo",
+        "ParentId",
+        "ReportId",
+        "id",
+        "دسترسی ساختار",
+        "گزارش"
+      ],
+      "legacyTable": "met_Folder",
+      "omittedFields": [
+        "$caption",
+        "ChildrenCount",
+        "Path"
+      ],
+      "output": "folder",
+      "recordType": "Barsa.Meta.Folder",
+      "referenceFields": [
+        "ContainingTypeDefId",
+        "ParentId",
+        "ReportId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 6,
+      "keptFields": [
+        "Description",
+        "IsDefault",
+        "Name",
+        "SystemId",
+        "id"
+      ],
+      "legacyTable": "met_MailViewGroup",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "file",
+      "recordType": "Barsa.Meta.MailViewGroup",
+      "referenceFields": [
+        "SystemId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "Type",
+          "Barsa.Meta.LoadType"
+        ]
+      ],
+      "fieldCount": 8,
+      "keptFields": [
+        "ContentBytes",
+        "Description",
+        "Id",
+        "IsActive",
+        "IsAutoLoad",
+        "Name",
+        "Type"
+      ],
+      "legacyTable": "met_Assembly",
+      "omittedFields": [
+        "SystemId"
+      ],
+      "output": "auto",
+      "recordType": "Barsa.Meta.MetaAssembly",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "CodeLayer",
+          "Barsa.Meta.MetaCodeLayer"
+        ]
+      ],
+      "fieldCount": 6,
+      "keptFields": [
+        "$caption",
+        "AddressDisplayString",
+        "Code",
+        "CodeLayer",
+        "TargetObjectId",
+        "id"
+      ],
+      "legacyTable": "met_MetaCode",
+      "omittedFields": [],
+      "output": "inline",
+      "recordType": "Barsa.Meta.MetaCode",
+      "referenceFields": [
+        "TargetObjectId"
+      ],
+      "transformFields": [
+        [
+          "Code",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "ButtonSize",
+          "Barsa.Meta.IconSize"
+        ],
+        [
+          "Location",
+          "auto"
+        ]
+      ],
+      "fieldCount": 13,
+      "keptFields": [
+        "ButtonSize",
+        "Caption",
+        "HasSecurity",
+        "IconImage",
+        "IconName",
+        "IsGlobal",
+        "Location",
+        "SystemId",
+        "TargetId",
+        "id",
+        "دسترسی ساختار",
+        "دستور پويا"
+      ],
+      "legacyTable": "met_MetaCommand",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "file",
+      "recordType": "Barsa.Meta.MetaCommand",
+      "referenceFields": [
+        "SystemId",
+        "TargetId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 5,
+      "keptFields": [
+        "FieldDefId",
+        "Id",
+        "TargetFieldDefId",
+        "TargetTypeDefId",
+        "TypeDefId"
+      ],
+      "legacyTable": "met_MetaFieldDefRelation",
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "Barsa.Meta.MetaFieldDefRelation",
+      "referenceFields": [
+        "FieldDefId",
+        "TargetFieldDefId",
+        "TargetTypeDefId",
+        "TypeDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "Settings",
+          "MetaSystemSettings"
+        ],
+        [
+          "SettingsBytes",
+          "MetaSystemSettings"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 14,
+      "keptFields": [
+        "Caption",
+        "IsInactive",
+        "Settings",
+        "SettingsBytes",
+        "SystemKey",
+        "SystemLocationType",
+        "Version",
+        "iconName",
+        "id",
+        "runCodeAtStartup",
+        "showInCartable"
+      ],
+      "legacyTable": "met_MetaSystem",
+      "omittedFields": [
+        "$caption",
+        "orderNumber",
+        "rootFolderId"
+      ],
+      "output": "folder",
+      "recordType": "Barsa.Meta.MetaSystem",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 5,
+      "keptFields": [
+        "Assembly",
+        "ClassName",
+        "Id",
+        "Name",
+        "ShowInNavigator"
+      ],
+      "legacyTable": "met_MetaUserControl",
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "Barsa.Meta.MetaUserControl",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "RelationType",
+          "Barsa.Meta.RelationType"
+        ]
+      ],
+      "fieldCount": 12,
+      "keptFields": [
+        "DestTypeId",
+        "Max",
+        "RelationType",
+        "ReverseTitle",
+        "SourceFieldDefId",
+        "SourceTypeId",
+        "Title",
+        "destTypeExtraString",
+        "id",
+        "isBilateral",
+        "sourceTypeExtraString"
+      ],
+      "legacyTable": "met_RelationDef",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "file",
+      "recordType": "Barsa.Meta.RelationDef",
+      "referenceFields": [
+        "DestTypeId",
+        "SourceFieldDefId",
+        "SourceTypeId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "ReportData",
+          "ReportData"
+        ]
+      ],
+      "enumFields": [
+        [
+          "AccessLevel",
+          "auto"
+        ],
+        [
+          "reportType",
+          "Barsa.Meta.ReportTypeEnum"
+        ],
+        [
+          "scopeType",
+          "auto"
+        ]
+      ],
+      "fieldCount": 17,
+      "keptFields": [
+        "AccessLevel",
+        "Descrioption",
+        "JsonProperty",
+        "Name",
+        "ReportData",
+        "SearchObjectId",
+        "activityDefId",
+        "iconName",
+        "id",
+        "isInsideView",
+        "reportType",
+        "scopeType",
+        "systemId",
+        "كد",
+        "گزارش تجمیع"
+      ],
+      "legacyTable": "met_Report",
+      "omittedFields": [
+        "$caption",
+        "SecurityDescriptor"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Meta.Report",
+      "referenceFields": [
+        "SearchObjectId",
+        "activityDefId",
+        "systemId"
+      ],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [
+        [
+          "Settings",
+          "TypeDefSettings"
+        ]
+      ],
+      "enumFields": [
+        [
+          "dbType",
+          "Barsa.Meta.TypeDefDbType"
+        ],
+        [
+          "isExternalType",
+          "auto"
+        ]
+      ],
+      "fieldCount": 30,
+      "keptFields": [
+        "ApplicationId",
+        "Barsa.Meta.TypeDefAccessService",
+        "DbName",
+        "DefaultFieldId",
+        "IsDeleted",
+        "MetaFieldDef",
+        "MetaTypeViewEntity",
+        "Settings",
+        "caption",
+        "dbType",
+        "defaultReportId",
+        "hasSecurity",
+        "iconName",
+        "id",
+        "isDynamic",
+        "isExternalType",
+        "parentid",
+        "previewFieldId",
+        "sakooTypeId",
+        "امكان شيء",
+        "كد",
+        "محاسبه فيلد وابسته",
+        "نوع تكرار",
+        "گزارش فیلد",
+        "گزارش پیشفرض"
+      ],
+      "legacyTable": "met_TypeDef",
+      "omittedFields": [
+        "$caption",
+        "CreationDate",
+        "LocalId",
+        "deleted_eorgIdTypePart",
+        "systemId"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Meta.TypeDef",
+      "referenceFields": [
+        "ApplicationId",
+        "DefaultFieldId",
+        "defaultReportId",
+        "parentid",
+        "previewFieldId",
+        "sakooTypeId"
+      ],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [
+        [
+          "HasAccessLevel",
+          "auto"
+        ]
+      ],
+      "fieldCount": 8,
+      "keptFields": [
+        "DefaultForCreator",
+        "DefinesOnClass",
+        "Description",
+        "HasAccessLevel",
+        "Name",
+        "id",
+        "typeDefId"
+      ],
+      "legacyTable": "met_TypeDefAccessService",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Meta.TypeDefAccessService",
+      "referenceFields": [
+        "typeDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 6,
+      "keptFields": [
+        "Description",
+        "Id",
+        "IsDefault",
+        "Name",
+        "ServiceList",
+        "TypeDefId"
+      ],
+      "legacyTable": "met_TypeDefAccessTemplate",
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "Barsa.Meta.TypeDefAccessTemplate",
+      "referenceFields": [
+        "TypeDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "TypeViewBlob",
+          "TypeView"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 7,
+      "keptFields": [
+        "Name",
+        "ParentId",
+        "TypeViewBlob",
+        "id",
+        "گزارش فیلد"
+      ],
+      "legacyTable": "met_TypeViewEntity",
+      "omittedFields": [
+        "$caption",
+        "TypeDefId"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Meta.TypeViewEntity",
+      "referenceFields": [
+        "ParentId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 7,
+      "keptFields": [
+        "Id",
+        "LocationId",
+        "LocationName",
+        "LocationTagId",
+        "LocationTagName",
+        "Name",
+        "ViewId"
+      ],
+      "legacyTable": "met_TypeViewUsingLocation",
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "Barsa.Meta.TypeViewUsingLocation",
+      "referenceFields": [
+        "LocationId",
+        "LocationTagId",
+        "ViewId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 6,
+      "keptFields": [
+        "DESCRIPTION",
+        "NAME",
+        "OWNERUSERID",
+        "SystemId",
+        "id"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "file",
+      "recordType": "Barsa.Spl.Security.SecurityGroup",
+      "referenceFields": [
+        "OWNERUSERID",
+        "SystemId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "InternalData",
+          "ActivityDefInfo"
+        ]
+      ],
+      "enumFields": [
+        [
+          "ActivityType",
+          "Barsa.Workflow.ActivityDefTypeEnum"
+        ],
+        [
+          "SubType",
+          "auto"
+        ]
+      ],
+      "fieldCount": 12,
+      "keptFields": [
+        "ActivityType",
+        "CAIntermediateEnd",
+        "Description",
+        "InternalData",
+        "SubKey1",
+        "SubKey2",
+        "SubType",
+        "Title",
+        "id",
+        "workflowDefId",
+        "گزارش زیرفرآیند"
+      ],
+      "legacyTable": "wfl_ActivityDef",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Workflow.ActivityDef",
+      "referenceFields": [
+        "workflowDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "InternalData",
+          "ChoiceInfo"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 11,
+      "keptFields": [
+        "Description",
+        "FromActivityId",
+        "InternalData",
+        "NextActivityId",
+        "OutputIndex",
+        "Title",
+        "WorkflowDefId",
+        "id",
+        "كد",
+        "گزارش تجمیع"
+      ],
+      "legacyTable": "wfl_ChoiceDef",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Workflow.ChoiceDef",
+      "referenceFields": [
+        "FromActivityId",
+        "NextActivityId",
+        "WorkflowDefId"
+      ],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [
+        [
+          "InternalData",
+          "ActorDefInfo"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 7,
+      "keptFields": [
+        "Description",
+        "InternalData",
+        "Title",
+        "id",
+        "workflowDefId",
+        "انتساب"
+      ],
+      "legacyTable": "wfl_WorkflowActorDef",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Workflow.WorkflowActorDef",
+      "referenceFields": [
+        "workflowDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "DiagramData2",
+          "WorkflowDiagramSimple"
+        ],
+        [
+          "InternalData",
+          "WorkflowDefInfo"
+        ]
+      ],
+      "enumFields": [
+        [
+          "diagramType",
+          "Barsa.Workflow.DiagramType"
+        ]
+      ],
+      "fieldCount": 16,
+      "keptFields": [
+        "Barsa.Workflow.ChoiceDef",
+        "Description",
+        "DiagramData2",
+        "InternalData",
+        "IsActive",
+        "MetaSystemId",
+        "Title",
+        "WorkflowActivityDef",
+        "WorkflowActorDef",
+        "WorkflowVariableDef",
+        "diagramType",
+        "id",
+        "تنظيمات اتصال فعاليت فرم",
+        "دسترسی ساختار"
+      ],
+      "legacyTable": "wfl_WorkflowDef",
+      "omittedFields": [
+        "$caption",
+        "DiagramData"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Workflow.WorkflowDef",
+      "referenceFields": [
+        "MetaSystemId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "InternalData",
+          "VariableDefInfo"
+        ]
+      ],
+      "enumFields": [
+        [
+          "VariableType",
+          "auto"
+        ]
+      ],
+      "fieldCount": 7,
+      "keptFields": [
+        "Description",
+        "InternalData",
+        "Title",
+        "VariableType",
+        "id",
+        "workflowDefId"
+      ],
+      "legacyTable": "wfl_WorkflowVariableDef",
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "inline",
+      "recordType": "Barsa.Workflow.WorkflowVariableDef",
+      "referenceFields": [
+        "workflowDefId"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 4,
+      "keptFields": [
+        "$caption",
+        "ActivityDef",
+        "WorkflowDef",
+        "id"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "inline",
+      "recordType": "CAIntermediateEnd",
+      "referenceFields": [
+        "WorkflowDef"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 6,
+      "keptFields": [
+        "$caption",
+        "Help",
+        "Item",
+        "Property",
+        "SubSystem",
+        "id"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "JsonProperty",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [
+        [
+          "Condition$BINARY",
+          "MetaCondition"
+        ]
+      ],
+      "enumFields": [],
+      "fieldCount": 5,
+      "keptFields": [
+        "$caption",
+        "Condition$BINARY",
+        "id",
+        "شرط",
+        "موجوديت"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "inline",
+      "recordType": "MetaCondition",
+      "referenceFields": [
+        "موجوديت"
+      ],
+      "transformFields": [
+        [
+          "Condition$BINARY",
+          "decode-or-asset"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 0,
+      "keptFields": [],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "omit",
+      "recordType": "اطلاعات سيستم",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 9,
+      "keptFields": [
+        "id",
+        "عنوان",
+        "غيرفعال",
+        "فيلد ارتباطي به هدف",
+        "موجوديت امكان",
+        "موجوديت هدف",
+        "نحوه نمايش",
+        "گزارش امكان"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "auto",
+      "recordType": "امكان شيء",
+      "referenceFields": [
+        "فيلد ارتباطي به هدف",
+        "موجوديت امكان",
+        "موجوديت هدف",
+        "گزارش امكان"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 7,
+      "keptFields": [
+        "$caption",
+        "id",
+        "زيرفرم [relation]",
+        "كمكي1",
+        "نحوه محاسبه",
+        "نوع"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "زيرفرم"
+      ],
+      "output": "auto",
+      "recordType": "انتخاب انجام دهنده",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 18,
+      "keptFields": [
+        "Variable",
+        "WorkflowDef",
+        "id",
+        "آيكون دكمه [relation]",
+        "امكان پر كردن يادداشت",
+        "شرط نمايش [relation]",
+        "فرم مورد استفاده",
+        "قواعد كاري",
+        "متن پيغام",
+        "موجوديت مرتبط",
+        "نقش دريافت كننده بعدي",
+        "نمايش تأييديه",
+        "نمايش دريافت كننده بعدي",
+        "نمايش پيغام",
+        "يادداشت اجباري",
+        "گزارش دريافت كننده بعدي"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "آيكون دكمه",
+        "شرط نمايش"
+      ],
+      "output": "auto",
+      "recordType": "تنظيمات اتصال فعاليت فرم",
+      "referenceFields": [
+        "Variable",
+        "WorkflowDef",
+        "فرم مورد استفاده",
+        "موجوديت مرتبط",
+        "گزارش دريافت كننده بعدي"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 6,
+      "keptFields": [
+        "id",
+        "تعريف دستور",
+        "تنظيمات [relation]",
+        "توضيحات",
+        "پدر"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "تنظيمات"
+      ],
+      "output": "auto",
+      "recordType": "دستور پويا",
+      "referenceFields": [
+        "پدر"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 4,
+      "keptFields": [
+        "$caption",
+        "id",
+        "زيرسيستم",
+        "فرآيند"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "دستور-اجراي فرآيند",
+      "referenceFields": [
+        "زيرسيستم",
+        "فرآيند"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 3,
+      "keptFields": [
+        "$caption",
+        "id",
+        "كد"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "دستور-اجراي كد منطق كاري",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 4,
+      "keptFields": [
+        "$caption",
+        "id",
+        "كد وب",
+        "كد ويندوز"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "دستور-اجراي كد واسط كاربري",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "كد وب",
+          "code-file-if-large"
+        ],
+        [
+          "كد ويندوز",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 3,
+      "keptFields": [
+        "$caption",
+        "id",
+        "نوع"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "دستور-ايجاد مشابه",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 3,
+      "keptFields": [
+        "$caption",
+        "id",
+        "فرمول"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "دستور-نمايش پيغام",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "فرمول",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 9,
+      "keptFields": [
+        "$caption",
+        "id",
+        "سيستم",
+        "غيرفعال",
+        "ليست فيلدهاي وابسته",
+        "موجوديت مبدأ",
+        "موجوديت وابسته",
+        "گزارش بدست آوردن اشياء وابسته [relation]"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "گزارش بدست آوردن اشياء وابسته"
+      ],
+      "output": "auto",
+      "recordType": "محاسبه فيلد وابسته",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 3,
+      "keptFields": [
+        "$caption",
+        "id",
+        "در نظر گرفتن اولين سمت كاربر در صورت چند سمتي"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "محاسبه-سمت آغاز كننده فرآيند",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 2,
+      "keptFields": [
+        "id",
+        "انتخاب سمت"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "محاسبه-سمت ثابت",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 5,
+      "keptFields": [
+        "$caption",
+        "id",
+        "فرم فرآيند",
+        "كد",
+        "كمكي1"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "محاسبه-فرمول محاسبه",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "كد",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 5,
+      "keptFields": [
+        "$caption",
+        "id",
+        "فرم فرآيند",
+        "فيلد",
+        "كمكي1"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "محاسبه-فيلد فرم",
+      "referenceFields": [
+        "فيلد"
+      ],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 2,
+      "keptFields": [
+        "id",
+        "انتخاب كاربر"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "محاسبه-كاربر ثابت",
+      "referenceFields": [],
+      "transformFields": []
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 8,
+      "keptFields": [
+        "id",
+        "ترتيب",
+        "عنوان",
+        "كد بدست آوردن زمان بعدي",
+        "كد شرط تاريخ",
+        "محدوده",
+        "موجوديت تنظيمات"
+      ],
+      "legacyTable": null,
+      "omittedFields": [
+        "$caption"
+      ],
+      "output": "auto",
+      "recordType": "نوع تكرار",
+      "referenceFields": [],
+      "transformFields": [
+        [
+          "كد بدست آوردن زمان بعدي",
+          "code-file-if-large"
+        ],
+        [
+          "كد شرط تاريخ",
+          "code-file-if-large"
+        ]
+      ]
+    },
+    {
+      "decoderFields": [],
+      "enumFields": [],
+      "fieldCount": 7,
+      "keptFields": [
+        "$caption",
+        "id",
+        "توضيحات",
+        "زيرسيستم",
+        "كد منطق",
+        "كد پوششي",
+        "وابسته به"
+      ],
+      "legacyTable": null,
+      "omittedFields": [],
+      "output": "auto",
+      "recordType": "وابستگي كد سيستم",
+      "referenceFields": [
+        "زيرسيستم",
+        "وابسته به"
+      ],
+      "transformFields": [
+        [
+          "كد منطق",
+          "code-file-if-large"
+        ],
+        [
+          "كد پوششي",
+          "code-file-if-large"
+        ]
+      ]
+    }
+  ],
+  "schemaVersion": "3.0",
+  "serializedTypes": [
+    "Barsa.Meta.AdvanceFilterHelper",
+    "Barsa.Meta.AdvancedParameterValue",
+    "Barsa.Meta.AskParameter",
+    "Barsa.Meta.BRRule",
+    "Barsa.Meta.BRUniqueConstraint",
+    "Barsa.Meta.BinaryInfo",
+    "Barsa.Meta.BoolInfo",
+    "Barsa.Meta.CalendarData2",
+    "Barsa.Meta.ChartData",
+    "Barsa.Meta.CodeInfo",
+    "Barsa.Meta.ColorInfo",
+    "Barsa.Meta.Column",
+    "Barsa.Meta.Column_AdvancedFormula",
+    "Barsa.Meta.Column_CaseItem",
+    "Barsa.Meta.CommandInfo",
+    "Barsa.Meta.ComplexCondition",
+    "Barsa.Meta.ComplexValue",
+    "Barsa.Meta.ConvertCommandInfo",
+    "Barsa.Meta.CreationDateInfo",
+    "Barsa.Meta.CreatorUserInfo",
+    "Barsa.Meta.CurrencyInfo",
+    "Barsa.Meta.CustomFieldInfo",
+    "Barsa.Meta.DashboardData",
+    "Barsa.Meta.DateInfo",
+    "Barsa.Meta.DefaultFieldDefEx",
+    "Barsa.Meta.DialCommandInfo",
+    "Barsa.Meta.Enum2.EnumItem",
+    "Barsa.Meta.EnumInfo",
+    "Barsa.Meta.Extra.HetTree.LayoutSetting",
+    "Barsa.Meta.Extra.Print.PrintReportObjectSyle",
+    "Barsa.Meta.Extra.Print.PrintReportSetting",
+    "Barsa.Meta.FieldDefAccess",
+    "Barsa.Meta.FieldGroup",
+    "Barsa.Meta.FieldInfoBase+FieldDbTypeInfo",
+    "Barsa.Meta.FieldItem",
+    "Barsa.Meta.FieldItemAggregateReport",
+    "Barsa.Meta.FieldListSettings",
+    "Barsa.Meta.FieldNotFoundException",
+    "Barsa.Meta.FieldView",
+    "Barsa.Meta.FileInfo",
+    "Barsa.Meta.FileInfo_FileSize",
+    "Barsa.Meta.FileInfo_FileText",
+    "Barsa.Meta.FlashFileInfo",
+    "Barsa.Meta.FormulaClass",
+    "Barsa.Meta.ForumData",
+    "Barsa.Meta.GaugeInfo",
+    "Barsa.Meta.GauntData",
+    "Barsa.Meta.General_TypeManager",
+    "Barsa.Meta.GlobalParameter",
+    "Barsa.Meta.Group",
+    "Barsa.Meta.HetTreeRelationItem",
+    "Barsa.Meta.HierarchicalInfo",
+    "Barsa.Meta.HierarchicalInfo_NodeCount",
+    "Barsa.Meta.HierarchicalInfo_Nodes",
+    "Barsa.Meta.HistoryInfo",
+    "Barsa.Meta.ICondition",
+    "Barsa.Meta.IconInfo",
+    "Barsa.Meta.IdFieldInfo",
+    "Barsa.Meta.InheritanceChildInfo",
+    "Barsa.Meta.InheritanceInfo",
+    "Barsa.Meta.IntInfo",
+    "Barsa.Meta.InterfaceInfo",
+    "Barsa.Meta.IsDeletedInfo",
+    "Barsa.Meta.JoinAlias",
+    "Barsa.Meta.KeyValueCollection",
+    "Barsa.Meta.LastUpdateDateInfo",
+    "Barsa.Meta.LocalParameter",
+    "Barsa.Meta.MetaList_TypeManager",
+    "Barsa.Meta.MetaObjectInfo",
+    "Barsa.Meta.MetaObjectInfo_Type",
+    "Barsa.Meta.MetaSystemSettings",
+    "Barsa.Meta.OrderInfo",
+    "Barsa.Meta.Parameter",
+    "Barsa.Meta.PictureFileInfo",
+    "Barsa.Meta.PicturesInfo",
+    "Barsa.Meta.PicturesInfo+GroupItem",
+    "Barsa.Meta.PredefinedCondition",
+    "Barsa.Meta.RecordSignInfo",
+    "Barsa.Meta.ReferenceFieldInfo",
+    "Barsa.Meta.RefreshFieldCommandInfo",
+    "Barsa.Meta.RelationInfo",
+    "Barsa.Meta.RelationInfoReverse",
+    "Barsa.Meta.RelationInfoSingleReverse",
+    "Barsa.Meta.ReminderInfo",
+    "Barsa.Meta.ReportData",
+    "Barsa.Meta.ReportDataParamDesign",
+    "Barsa.Meta.ReportExtraFilter",
+    "Barsa.Meta.ReportFormatCondition",
+    "Barsa.Meta.ReportFormatStyle",
+    "Barsa.Meta.ReportInfo",
+    "Barsa.Meta.ReportNoPersistData",
+    "Barsa.Meta.ReportQueryInfo",
+    "Barsa.Meta.ReverseMetaObjectInfo",
+    "Barsa.Meta.RichStringInfo",
+    "Barsa.Meta.RowNumberInfo",
+    "Barsa.Meta.SearchCommandInfo",
+    "Barsa.Meta.SecurityFieldDefEx",
+    "Barsa.Meta.SecurityInfo",
+    "Barsa.Meta.SelfFieldDefEx",
+    "Barsa.Meta.SequenceInfo",
+    "Barsa.Meta.SimpleFieldDefEx",
+    "Barsa.Meta.SingleCondition",
+    "Barsa.Meta.SinglePictureInfo",
+    "Barsa.Meta.SingleValueDefinition",
+    "Barsa.Meta.Sort",
+    "Barsa.Meta.StringInfo",
+    "Barsa.Meta.StringInfo+StringDbTypeInfo",
+    "Barsa.Meta.StructureEntitySettingsClass",
+    "Barsa.Meta.SystemItemGroup",
+    "Barsa.Meta.TimeSpanFormats",
+    "Barsa.Meta.TimeSpanInfo",
+    "Barsa.Meta.TypeDefSettings",
+    "Barsa.Meta.TypeView",
+    "Barsa.Meta.TypeViewEntity",
+    "Barsa.Meta.TypeViewEntityList",
+    "Barsa.Meta.TypeViewFormSettings",
+    "Barsa.Meta.TypeViewLayoutSettings",
+    "Barsa.Meta.UserInfo",
+    "Barsa.Meta.VirtualFieldDefEx",
+    "Barsa.Meta.WordFileInfo",
+    "Barsa.Meta.WordReportCommandInfo",
+    "Barsa.Meta.WorkCenterInfo",
+    "Barsa.Meta.WorkflowAccessInfo",
+    "Barsa.Spl.DateRange",
+    "Barsa.Workflow.ActorDefInfo",
+    "Barsa.Workflow.AssignRoleUserActivityDefInfo",
+    "Barsa.Workflow.ChoiceInfo",
+    "Barsa.Workflow.ConditionActivityDefInfo",
+    "Barsa.Workflow.ConditionChoiceInfo",
+    "Barsa.Workflow.CustomActivityDefInfo",
+    "Barsa.Workflow.ExecuteCodeActivityDefInfo",
+    "Barsa.Workflow.FinishActivityDefInfo",
+    "Barsa.Workflow.ForkActivityDefInfo",
+    "Barsa.Workflow.GenerateFormActivityDefInfo",
+    "Barsa.Workflow.JoinActivityDefInfo",
+    "Barsa.Workflow.MetaObjectInfo_Workflow",
+    "Barsa.Workflow.ReminderSetActivityDefInfo",
+    "Barsa.Workflow.RunWebServiceActivityDefInfo",
+    "Barsa.Workflow.SendEmailActivityDefInfo",
+    "Barsa.Workflow.SendFaxActivityDefInfo",
+    "Barsa.Workflow.SendFormActivityDefInfo",
+    "Barsa.Workflow.SendMailActivityDefInfo",
+    "Barsa.Workflow.SendSmsActivityDefInfo",
+    "Barsa.Workflow.SimpleFormActivityDefInfo",
+    "Barsa.Workflow.SimpleFormActivity_Addhoc",
+    "Barsa.Workflow.SimpleFormChoiceInfo",
+    "Barsa.Workflow.StartActivityDefInfo",
+    "Barsa.Workflow.StartByEventActivityDefInfo",
+    "Barsa.Workflow.SubProcessActivityDefInfo",
+    "Barsa.Workflow.SuspendActivityDefInfo",
+    "Barsa.Workflow.VariableDefInfo",
+    "Barsa.Workflow.WaitEventActivityDefInfo",
+    "Barsa.Workflow.WaitTimeActivityDefInfo",
+    "Barsa.Workflow.WorkflowActivityRunFieldDefEx",
+    "Barsa.Workflow.WorkflowDefInfo",
+    "Meta01.MO_MetaFolder",
+    "Meta01.MO_MetaSystem",
+    "Meta01.MO_MetaTypeDef",
+    "Meta01.MO_نوع_فعاليت_پيشرفته",
+    "Meta01.MO_گروه_جعبه_ابزار",
+    "System.Collections.ArrayList",
+    "System.Collections.Hashtable",
+    "System.DBNull",
+    "System.Int64[]",
+    "System.String[]"
+  ],
+  "source": "embedded resource in Barsa.Meta.SemanticExchange, read without executing Barsa code"
+}

@@ -1,4 +1,5 @@
 {
+  "aiNormalized": [],
   "collections": {
     "$schema": "./normalized-system-model.schema.json",
     "code": {
@@ -146,7 +147,7 @@
       ],
       "sourceTable": "met_Report"
     },
-    "schemaVersion": "2.0",
+    "schemaVersion": "3.0",
     "system": {
       "observedColumns": [
         "Caption",
@@ -182,6 +183,258 @@
       "status": "Unknown"
     }
   },
+  "legacyNormalized": [
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 147,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": true,
+          "rowCount": 9,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "Verified"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 199,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 1040,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 212,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": true,
+          "rowCount": 28,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "Verified"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": true,
+          "rowCount": 78,
+          "sourceTable": "met_Relation",
+          "status": "Verified"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 258,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 2,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 134,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 147,
+        "commands": 9,
+        "entities": 199,
+        "fields": 1040,
+        "navigation": 212,
+        "relationDefs": 28,
+        "relations": 80,
+        "reports": 258,
+        "system": 2,
+        "views": 134,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "NewMeta01.metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.197",
+          "Export Time": "2026-06-16T00:01:19.8636417+03:30",
+          "Export Version Time": "1405/03/25 23:00:44",
+          "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta01.metaexport",
+          "Other Info": "تيم توليد شركت برسا نوين راي",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+        },
+        "sha256": "b421fa6fcf30b2748d1db901727fd6d004e20d21c84484758581243646bd901e",
+        "tableCount": 67
+      }
+    },
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 131,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": true,
+          "rowCount": 10,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "Verified"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 129,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 711,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 136,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": true,
+          "rowCount": 15,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "Verified"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": true,
+          "rowCount": 1880,
+          "sourceTable": "met_Relation",
+          "status": "Verified"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 155,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 91,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 131,
+        "commands": 10,
+        "entities": 129,
+        "fields": 711,
+        "navigation": 136,
+        "relationDefs": 15,
+        "relations": 1914,
+        "reports": 155,
+        "system": 3,
+        "views": 91,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "NewMeta02.metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.190",
+          "Export Time": "2026-04-19T10:34:21.8095821+03:30",
+          "Export Version Time": "1405/01/29 11:20:49",
+          "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta02.metaexport",
+          "Other Info": "تيم توليد شركت برسا نوين راي",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+        },
+        "sha256": "77fb320e6515d84cfcd7c128979d8407db70eab471ba3c16c07bfdd9198cd16f",
+        "tableCount": 76
+      }
+    }
+  ],
   "reconstructionOrder": [
     {
       "confidence": "Observed",
@@ -226,5 +479,5 @@
       "target": "Missed reference resolution"
     }
   ],
-  "schemaVersion": "2.0"
+  "schemaVersion": "3.0"
 }

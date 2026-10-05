@@ -1,0 +1,15 @@
+{
+  "assessments": [],
+  "candidatePairs": [],
+  "declaredPairs": [],
+  "levels": [
+    "Exact",
+    "Partial",
+    "Candidate",
+    "Different",
+    "Unknown"
+  ],
+  "note": "No AiExport artifact is present in source/, so no cross-format pair could be assessed.",
+  "rule": "Spec v3 section 39: two exports are compared in full only when their selection scope is equivalent. Equal filenames prove nothing.",
+  "schemaVersion": "3.0"
+}

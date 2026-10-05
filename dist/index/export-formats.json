@@ -1,0 +1,1012 @@
+{
+  "aiImportVerdict": {
+    "answer": "A write-back path exists, but it is not a symmetric importer for the AiExport document.",
+    "notUnsupported": "Per spec section 91 this is recorded as 'a different write model', not as 'AiExport cannot be imported'.",
+    "question": "Does Barsa.AiExport have an importer?",
+    "whatExists": {
+      "confidence": "Verified",
+      "engine": [
+        "AiChangePlanner.Build",
+        "AiBatchExecutor.Apply",
+        "AiRuntimeVerifier.FinalReadBackAndVerify"
+      ],
+      "entryPoints": [
+        "BixWriteHelper.ValidateBatch(string)",
+        "BixWriteHelper.ParseBatch(string) : AiChangeBatch",
+        "BixWriteHelper.BuildPlan(AiChangeBatch|string) : AiChangePlan",
+        "BixWriteHelper.ApplyPlan(AiChangePlan) : AiApplyResult"
+      ],
+      "operations": [
+        "Create",
+        "Update",
+        "Delete"
+      ],
+      "providers": [
+        "Barsa.Meta.DataExchange.AiBusinessRuleChangeProvider",
+        "Barsa.Meta.DataExchange.AiDynamicCommandChangeProvider",
+        "Barsa.Meta.DataExchange.AiDynamicObjectChangeProvider",
+        "Barsa.Meta.DataExchange.AiEntityChangeProvider",
+        "Barsa.Meta.DataExchange.AiFieldChangeProvider",
+        "Barsa.Meta.DataExchange.AiFolderChangeProvider",
+        "Barsa.Meta.DataExchange.AiGenericChangeProvider",
+        "Barsa.Meta.DataExchange.AiListRelationChangeProvider",
+        "Barsa.Meta.DataExchange.AiRelationChangeProvider",
+        "Barsa.Meta.DataExchange.AiReportChangeProvider",
+        "Barsa.Meta.DataExchange.AiSingleRelationChangeProvider",
+        "Barsa.Meta.DataExchange.AiSystemChangeProvider",
+        "Barsa.Meta.DataExchange.AiUniqueConstraintChangeProvider",
+        "Barsa.Meta.DataExchange.AiViewChangeProvider",
+        "Barsa.Meta.DataExchange.AiWorkflowChangeProvider"
+      ]
+    },
+    "whatIsNotEstablished": [
+      "Whether an AiExport projection document can be submitted to ApplyPlan unchanged. The input type is AiChangeBatch, which is a different document; no code path was found converting one to the other.",
+      "Whether the HTTP surface in Barsa.Ai.Host.exe is the only caller of the write path, or whether the system builder UI exposes it too."
+    ]
+  },
+  "apiFormatMap": [
+    {
+      "api": "BixHelper.Export(ObjectReferenceSelection, string, bool, int, bool)",
+      "callPath": [
+        "BixHelper.Export",
+        "NewExportManager.Export",
+        "SerializationHelper2.BinarySerializeToFile"
+      ],
+      "compression": "GZip (Barsa.Spl.SerializationUtil+CompressionType)",
+      "confidence": "CrossVerified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata",
+        "CallGraph",
+        "ExportSample"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "note": "The two supplied .metaexport samples match this pipeline byte for byte.",
+      "physicalFormat": "GZip",
+      "serializer": "BinaryFormatter via SerializationHelper2",
+      "variant": "Legacy.DataSet.BinaryFormatter"
+    },
+    {
+      "api": "BixHelper.Import(string, ImportOptions)",
+      "callPath": [
+        "BixHelper.Import",
+        "NewImportManager.Import",
+        "SerializationHelper2.DeserializeDataSetFromFile"
+      ],
+      "compression": "GZip",
+      "confidence": "CrossVerified",
+      "direction": "import",
+      "evidence": [
+        "AssemblyMetadata",
+        "CallGraph",
+        "ExportSample"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "note": "Reads exactly what BixHelper.Export writes.",
+      "physicalFormat": "GZip",
+      "serializer": "BinaryFormatter via SerializationHelper2",
+      "variant": "Legacy.DataSet.BinaryFormatter"
+    },
+    {
+      "api": "BixHelper.ExportJson(ObjectReferenceSelection, string, BixJsonExportSelection, bool, bool)",
+      "callPath": [
+        "BixHelper.ExportJson",
+        "NewExportManager.Export  (the same legacy DataSet collector)",
+        "callback builds SemanticExportContext{DataSet, ExportFilePath}",
+        "BixJsonExportManager.SaveSelectedJson",
+        "JsonExportDocumentBuilder.BuildInitialDocument",
+        "JsonExportPackageWriter.Save"
+      ],
+      "compression": "ZIP when the target path is a .zip, otherwise none",
+      "confidence": "CrossVerified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata",
+        "CallGraph",
+        "MemberRef",
+        "StringLiteral"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "The hand-off is a delegate call, so the proof that it lands on BixJsonExportManager.SaveSelectedJson is the MemberRef row in Barsa.Meta.DataExchange, not the call opcode.",
+      "physicalFormat": "PlainJson or ZIP, decided by the output path",
+      "serializer": "Newtonsoft.Json via JsonExportDocumentBuilder",
+      "variant": "AiExport.SingleJson / AiExport.ZipJsonPackage"
+    },
+    {
+      "api": "BixHelper.ExportAiDiagnosticSnapshot(...)",
+      "callPath": [
+        "BixHelper.ExportAiDiagnosticSnapshot",
+        "NewExportManager.Export",
+        "BixSnapshotManager.SaveSnapshot"
+      ],
+      "compression": "ZIP",
+      "confidence": "Verified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata",
+        "CallGraph",
+        "MemberRef"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "Writes a snapshot package that BixSnapshotManager can diff.",
+      "physicalFormat": "ZIP",
+      "serializer": "Newtonsoft.Json via BixSnapshotManager",
+      "variant": "AiExport snapshot package"
+    },
+    {
+      "api": "BixJsonExportManager.SaveInitialJson(SemanticExportContext[, JsonExportOptions])",
+      "callPath": [
+        "SaveInitialJson",
+        "JsonExportDocumentBuilder.BuildInitialDocument",
+        "JsonExportPackageWriter.Save"
+      ],
+      "compression": "ZIP when the path is a .zip",
+      "confidence": "Verified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata",
+        "StringLiteral"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "Rejects anything but profileVersion 15: 'Semantic runtime export accepts only profileVersion=15.'",
+      "physicalFormat": "PlainJson or ZIP",
+      "serializer": "Newtonsoft.Json",
+      "variant": "AiExport.SingleJson"
+    },
+    {
+      "api": "BixJsonExportManager.SaveFullStructuredJson(SemanticExportContext)",
+      "callPath": [
+        "SaveFullStructuredJson",
+        "JsonExportOptions.CreateFullStructured",
+        "JsonExportDocumentBuilder.BuildInitialDocument"
+      ],
+      "compression": "ZIP when the path is a .zip",
+      "confidence": "Verified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "Emits manifest.representation = 'fullStructured'; the semantic representation omits that key.",
+      "physicalFormat": "PlainJson or ZIP",
+      "serializer": "Newtonsoft.Json",
+      "variant": "AiExport full-structured representation"
+    },
+    {
+      "api": "BixJsonExportManager.SaveMultiProjectionPackage(SemanticExportContext)",
+      "callPath": [
+        "SaveMultiProjectionPackage",
+        "CloneContext",
+        "CopyProjectionEntries"
+      ],
+      "compression": "ZIP containing semantic.zip and full.zip",
+      "confidence": "Verified",
+      "direction": "export",
+      "evidence": [
+        "AssemblyMetadata",
+        "StringLiteral"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "Its manifest is a different shape: packageType 'barsa-json-export', formatVersion, and representations ['semantic','fullStructured']. A reader must not expect the AiExport manifest keys here.",
+      "physicalFormat": "ZIP",
+      "serializer": "Newtonsoft.Json plus ZipArchive",
+      "variant": "AiExport.MultiProjectionPackage"
+    },
+    {
+      "api": "BixWriteHelper.ValidateBatch / ParseBatch / BuildPlan / ApplyPlan",
+      "callPath": [
+        "BixWriteHelper.ValidateBatch",
+        "ParseBatch -> AiChangeBatch",
+        "BuildPlan -> AiChangePlan",
+        "ApplyPlan -> AiApplyResult",
+        "AiBatchExecutor.Apply",
+        "Ai*ChangeProvider.Apply"
+      ],
+      "compression": "none",
+      "confidence": "Verified",
+      "direction": "import (write-back)",
+      "evidence": [
+        "AssemblyMetadata",
+        "CallGraph",
+        "StringLiteral"
+      ],
+      "logicalFormat": "Barsa.AiChangeBatch",
+      "note": "This is the write path on the AI side, and it is NOT the inverse of ExportJson: it consumes an AiChangeBatch of create/update/delete operations, not an AiExport projection. Whether an AiExport document can be fed back in unchanged is Unknown.",
+      "physicalFormat": "PlainJson",
+      "serializer": "Newtonsoft.Json",
+      "variant": "AiChangeBatch change-plan document"
+    },
+    {
+      "api": "BixSnapshotManager.CompareSnapshots / CompareSemanticPackages",
+      "callPath": [
+        "CompareSemanticPackages",
+        "ReadSemanticPackageFiles",
+        "CompareFileMaps",
+        "CompareJson"
+      ],
+      "compression": "ZIP",
+      "confidence": "Verified",
+      "direction": "compare",
+      "evidence": [
+        "AssemblyMetadata",
+        "StringLiteral"
+      ],
+      "logicalFormat": "Barsa.AiExport",
+      "note": "A JSON-level diff engine for AiExport packages.",
+      "physicalFormat": "ZIP",
+      "serializer": "Newtonsoft.Json",
+      "variant": "AiExport snapshot or semantic package"
+    }
+  ],
+  "atomicity": [
+    {
+      "atomic": "Unknown",
+      "basis": "No transaction scope was recovered; IL was read as a flat opcode stream. The import confirmation dialog warns that without a backup there is no way back, which is suggestive but is a UI string, not proof.",
+      "confidence": "Unknown",
+      "path": "Legacy import (NewImportManager.Import)"
+    },
+    {
+      "atomic": "No",
+      "basis": "AiBatchStatus has a PartiallySucceeded member and AiBatchErrorPolicy offers ContinueIndependent alongside StopBatch, so a batch is explicitly allowed to half apply. Per-command outcomes include Conflict, SkippedDependency, SkippedPolicy and VerificationFailed.",
+      "batchStatus": [
+        {
+          "name": "Succeeded",
+          "value": 0
+        },
+        {
+          "name": "PartiallySucceeded",
+          "value": 1
+        },
+        {
+          "name": "Failed",
+          "value": 2
+        }
+      ],
+      "commandStatus": [
+        {
+          "name": "Planned",
+          "value": 0
+        },
+        {
+          "name": "Succeeded",
+          "value": 1
+        },
+        {
+          "name": "Failed",
+          "value": 2
+        },
+        {
+          "name": "Conflict",
+          "value": 3
+        },
+        {
+          "name": "SkippedDependency",
+          "value": 4
+        },
+        {
+          "name": "SkippedPolicy",
+          "value": 5
+        },
+        {
+          "name": "Unsupported",
+          "value": 6
+        },
+        {
+          "name": "VerificationFailed",
+          "value": 7
+        }
+      ],
+      "confidence": "Verified",
+      "errorPolicy": [
+        {
+          "name": "ContinueIndependent",
+          "value": 0
+        },
+        {
+          "name": "StopBatch",
+          "value": 1
+        }
+      ],
+      "path": "AI write-back (BixWriteHelper.ApplyPlan)"
+    }
+  ],
+  "detected": [
+    {
+      "confidence": "Verified",
+      "encoding": "binary",
+      "errors": [],
+      "extension": ".metaexport",
+      "fileName": "NewMeta01.metaexport",
+      "legacyMarkers": [
+        "BinaryFormatterHeader",
+        "System.Data.DataSet",
+        "XmlDiffGram"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "manifest": null,
+      "path": "source/NewMeta01.metaexport",
+      "physicalFormat": "GZip",
+      "sha256": "b421fa6fcf30b2748d1db901727fd6d004e20d21c84484758581243646bd901e",
+      "size": 2448133,
+      "variant": "Legacy.DataSet.BinaryFormatter",
+      "warnings": []
+    },
+    {
+      "confidence": "Verified",
+      "encoding": "binary",
+      "errors": [],
+      "extension": ".metaexport",
+      "fileName": "NewMeta02.metaexport",
+      "legacyMarkers": [
+        "BinaryFormatterHeader",
+        "System.Data.DataSet",
+        "XmlDiffGram"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "manifest": null,
+      "path": "source/NewMeta02.metaexport",
+      "physicalFormat": "GZip",
+      "sha256": "77fb320e6515d84cfcd7c128979d8407db70eab471ba3c16c07bfdd9198cd16f",
+      "size": 2308588,
+      "variant": "Legacy.DataSet.BinaryFormatter",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "1-MoEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/+ منطق کاری/1-MoEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "b9535035022d200ab53bb1d2f667f2921da68c266cf7778735832ec55e6bbe52",
+      "size": 721,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "10-BusinessPartialClass.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/+ منطق کاری/10-BusinessPartialClass.xml",
+      "physicalFormat": "XML",
+      "sha256": "8c5c75e4197cca7515d6c1e2c61003b87f778f32bc3bfade2d28603c5723c033",
+      "size": 456,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "2-ReportEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/+ منطق کاری/2-ReportEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "64893955780efcba6b40a22a7a8a1da0e44419ebf217d30699b0121d6baed49f",
+      "size": 867,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "3-SystemEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/+ منطق کاری/3-SystemEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "f774455f5d96382351c5821edd53aac37a24306bbdea4c0144e82284e104a4e7",
+      "size": 545,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "4-WorkflowActivityEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/+ منطق کاری/4-WorkflowActivityEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "c48d509d1f3c8d97cc2a17705201c1497edd01fdc6bdb3a209930ed30e819d72",
+      "size": 851,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "1- FieldEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/1- FieldEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "43c758953c49134b8ea8589d1030838e94b8fee35b487775172d09ed28c88152",
+      "size": 792,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "2- FormEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/2- FormEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "f1850e0797b9da5a6ba380206178a993c603f05ad91664fe82dd5be4e824ecf2",
+      "size": 791,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "3- CommandEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/3- CommandEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "bde50afe0462ae12a814037b4c2bcbb2f5336ff0fa6c5fcb6fd3b255a8257809",
+      "size": 529,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "4- ReportEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/4- ReportEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "a570ee67ebb9fd06c38fb1adc28378fc91679616340ec4ffd7cb95ddd927403e",
+      "size": 986,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "5- SystemEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/5- SystemEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "41d0b23fda15951ab4648ad9586751b1fd1fb5c12ca8a6fdf91baba3105fa734",
+      "size": 591,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "6- WorkflowActivityEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - وب/6- WorkflowActivityEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "88fd95eb1e98b235c2d21d86cf51b773ff9c99994390211e90ccebbdf1d05c8a",
+      "size": 777,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "1-FieldEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/1-FieldEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "d4e73996a58ffbe9af8ad73ee37102a53be0fe9733caa2921bb4ee73f406da05",
+      "size": 846,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "2-FormEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/2-FormEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "20618564c13fef09ee7bfbb6dddc8841426361449fef4b2392c635c586db4e94",
+      "size": 713,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "3-CommandEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/3-CommandEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "333540d603df3bf1a1f49a7c89f7ac4928aa4924b854886038f186dfd68bbe41",
+      "size": 578,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "4- ReportEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/4- ReportEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "64893955780efcba6b40a22a7a8a1da0e44419ebf217d30699b0121d6baed49f",
+      "size": 867,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "5-SystemEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/5-SystemEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "f774455f5d96382351c5821edd53aac37a24306bbdea4c0144e82284e104a4e7",
+      "size": 545,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "6-WorkflowActivityEventPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/- واسط کاربری - ویندوز/6-WorkflowActivityEventPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "4af3a798265bc940111f2f31608695877f0c83e0a4844ddbd5a9b18f653d2deb",
+      "size": 851,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "1-ReferenceSystem.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/1-ReferenceSystem.xml",
+      "physicalFormat": "XML",
+      "sha256": "ac65d674434aa9a2ee63dbb14b879c2c8c6ccaf0cd47be987464ebce5c538ec3",
+      "size": 337,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "4-ReferenceCallWebService.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/4-ReferenceCallWebService.xml",
+      "physicalFormat": "XML",
+      "sha256": "6bd54524033599878640e40c69dc1b07f9968054e3b5de448342c150356871d2",
+      "size": 503,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "5-StartWorkflow.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/5-StartWorkflow.xml",
+      "physicalFormat": "XML",
+      "sha256": "42e09fca4572ba29aab3ae28e372f57e707dcd4fb595a84ae561d7f37c56221c",
+      "size": 553,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "6-UseParameter.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/6-UseParameter.xml",
+      "physicalFormat": "XML",
+      "sha256": "f9a2a0bbc1da4c79d9135f97727de0fb6ddc29501b082fa02a2f62299e9b89d6",
+      "size": 406,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "7-GetTypeDefPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/7-GetTypeDefPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "390ee5390c113d7428b59c1547ead3dd79390a8562322c6d65ed57de49b8f8bb",
+      "size": 494,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "8-GetFieldDefPattern.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/Code Editor/Patterns v3/سایر/8-GetFieldDefPattern.xml",
+      "physicalFormat": "XML",
+      "sha256": "84a7d1aa20e042333cbe10a019b7040e7d7c934d792f62dd83a97a46064f1a5c",
+      "size": 612,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "emoticons.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/chat/Smilies/emoticons.xml",
+      "physicalFormat": "XML",
+      "sha256": "d9fe3c984eeb89ef689a587cfd27c7a7d1664f081d1e66701877b36c812588b0",
+      "size": 36849,
+      "variant": "Unknown",
+      "warnings": []
+    },
+    {
+      "confidence": "Unknown",
+      "encoding": null,
+      "errors": [],
+      "extension": ".xml",
+      "fileName": "SmilySyntax.xml",
+      "logicalFormat": "Unknown",
+      "manifest": null,
+      "path": "source/Resources/chat/SmilySyntax.xml",
+      "physicalFormat": "XML",
+      "sha256": "5c5396074b7050052840033e4db7bb6e957d44234593d47626713288442424fb",
+      "size": 107,
+      "variant": "Unknown",
+      "warnings": []
+    }
+  ],
+  "diffStates": {
+    "confidence": "Verified",
+    "diffBeforeApply": true,
+    "enum": "Barsa.Meta.DataExchange.Helper.CompareChangeTypeEnum",
+    "fedBy": [
+      "NewImportManager.GetImportData(ImportOptions) : IActiveDataSource",
+      "DbDataSource.GetCurrentDb()"
+    ],
+    "members": [
+      {
+        "name": "NoChange",
+        "value": 0
+      },
+      {
+        "name": "Edited",
+        "value": 1
+      },
+      {
+        "name": "New",
+        "value": 2
+      },
+      {
+        "name": "Deleted",
+        "value": 3
+      }
+    ],
+    "note": "There is no Conflict state on the legacy side. The AI write path has one, in AiCommandStatus.",
+    "question": "What states does the legacy import preview show?",
+    "renderedBy": "Barsa.Meta.Extra.Ui.Win.Editor.ImportTreeControl.GetChangeIcon(CompareChangeTypeEnum) : Bitmap"
+  },
+  "families": [
+    {
+      "confidence": "CrossVerified",
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "payloadType": "System.Data.DataSet",
+      "physicalFormats": [
+        "GZip"
+      ],
+      "producer": "Barsa.Meta.DataExchange",
+      "reader": "SerializationHelper2.DeserializeDataSetFromFile",
+      "serializer": "System.Runtime.Serialization BinaryFormatter",
+      "variants": [
+        "Legacy.DataSet.BinaryFormatter"
+      ],
+      "writer": "SerializationHelper2.BinarySerializeToFile"
+    },
+    {
+      "confidence": "Verified",
+      "logicalFormat": "Barsa.AiExport",
+      "payloadType": "tree + manifest",
+      "physicalFormats": [
+        "PlainJson",
+        "ZIP"
+      ],
+      "producer": "Barsa.Meta.SemanticExchange",
+      "profileVersion": 15,
+      "reader": null,
+      "serializer": "Newtonsoft.Json",
+      "variants": [
+        "AiExport.SingleJson",
+        "AiExport.ZipJsonPackage",
+        "AiExport.MultiProjectionPackage"
+      ],
+      "writer": "BixJsonExportManager.SaveSelectedJson"
+    },
+    {
+      "confidence": "Verified",
+      "logicalFormat": "Barsa.AiChangeBatch",
+      "payloadType": "AiChangeBatch",
+      "physicalFormats": [
+        "PlainJson"
+      ],
+      "producer": "external (an agent or tool)",
+      "profileVersion": 15,
+      "reader": "BixWriteHelper.ParseBatch",
+      "serializer": "Newtonsoft.Json",
+      "variants": [
+        "AiChangeBatch"
+      ],
+      "writer": null
+    }
+  ],
+  "profileVersion": {
+    "answer": "It is the version of the AI Export Profile: a JSON rule document embedded in Barsa.Meta.SemanticExchange that drives the whole AiExport projection. It is not a payload schema version, and the runtime hard-gates on 15.",
+    "embeddedProfiles": [
+      {
+        "assembly": "Barsa.Meta.SemanticExchange",
+        "binaryDecoders": 12,
+        "enums": 54,
+        "isSchema": false,
+        "profileVersion": 14,
+        "recordTypes": 44,
+        "relationGroups": 9,
+        "resource": "Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.json",
+        "serializedTypes": 165,
+        "sizeBytes": 217950
+      },
+      {
+        "assembly": "Barsa.Meta.SemanticExchange",
+        "binaryDecoders": 0,
+        "enums": 0,
+        "isSchema": true,
+        "profileVersion": 14,
+        "recordTypes": 0,
+        "relationGroups": 0,
+        "resource": "Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.schema.json",
+        "serializedTypes": 0,
+        "sizeBytes": 7138
+      },
+      {
+        "assembly": "Barsa.Meta.SemanticExchange",
+        "binaryDecoders": 12,
+        "enums": 54,
+        "isSchema": false,
+        "profileVersion": 15,
+        "recordTypes": 44,
+        "relationGroups": 9,
+        "resource": "Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.v15.json",
+        "serializedTypes": 165,
+        "sizeBytes": 217950
+      },
+      {
+        "assembly": "Barsa.Meta.SemanticExchange",
+        "binaryDecoders": 0,
+        "enums": 0,
+        "isSchema": true,
+        "profileVersion": 15,
+        "recordTypes": 0,
+        "relationGroups": 0,
+        "resource": "Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.v15.schema.json",
+        "serializedTypes": 0,
+        "sizeBytes": 7142
+      }
+    ],
+    "gates": [
+      {
+        "confidence": "Verified",
+        "literal": "profileVersion must be 15. v14 and older profiles are historical/frozen artifacts and are not executable input.",
+        "site": "AiExportProfileLoader.Validate"
+      },
+      {
+        "confidence": "Verified",
+        "literal": "Semantic runtime export accepts only profileVersion=15.",
+        "site": "BixJsonExportManager.SaveInitialJson"
+      },
+      {
+        "confidence": "Verified",
+        "literal": "Runtime accepts only explicit profileVersion=15 input.",
+        "site": "BixWriteHelper.ValidateBatch"
+      },
+      {
+        "confidence": "Verified",
+        "literal": "Unsupported profileVersion=... Runtime accepts only profileVersion=15; v14 and older are historical/frozen artifacts.",
+        "site": "AiChangePlanner.Build"
+      },
+      {
+        "confidence": "Verified",
+        "literal": "Runtime accepts only profileVersion=15; v14 and older are historical/frozen artifacts.",
+        "site": "AiBatchExecutionContext.SetProfileVersion"
+      },
+      {
+        "confidence": "Verified",
+        "literal": "Runtime verifier accepts only profileVersion=15 plans.",
+        "site": "AiRuntimeVerifier.FinalReadBackAndVerify"
+      }
+    ],
+    "observedVersions": [
+      14,
+      15
+    ],
+    "profileSections": [
+      "binaryDecoders",
+      "engine",
+      "enums",
+      "packaging",
+      "profileVersion",
+      "recordTypes",
+      "serializedTypes"
+    ],
+    "question": "What is profileVersion, and what does 15 mean?",
+    "stillUnknown": [
+      "How the number is expected to evolve. That v14 and v15 are identical apart from the number shows the bump was a gate change, not a schema change, but says nothing about v16."
+    ],
+    "v14AndV15DifferOnlyInVersionNumber": true
+  },
+  "schemaVersion": "3.0",
+  "variantSwitch": {
+    "answer": "Not two APIs. One document pipeline, where per-node output rules decide whether a node stays inline or becomes its own file, and the output path's extension decides whether the resulting directory is zipped.",
+    "mechanisms": [
+      {
+        "confidence": "Verified",
+        "detail": "JsonExportNodeOutputKind controls each node: Inline keeps it inside the parent document, File and Folder make it a separate artifact. JsonExportPackageWriter.GetNodeOutput reads it.",
+        "evidence": [
+          "AssemblyMetadata",
+          "EnumMembers"
+        ],
+        "isFlags": true,
+        "mechanism": "Per-node output kind",
+        "members": [
+          {
+            "name": "None",
+            "value": 0
+          },
+          {
+            "name": "Folder",
+            "value": 1
+          },
+          {
+            "name": "File",
+            "value": 2
+          },
+          {
+            "name": "Inline",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "confidence": "Verified",
+        "detail": "The embedded profile's packaging section names the folder layout directly: relationGroups give a folder per relation with items 'file' or 'child-files', relationFiles give a single file per relation, and systemRecordFile names the system document.",
+        "evidence": [
+          "EmbeddedResource"
+        ],
+        "isFlags": null,
+        "mechanism": "Profile packaging rules",
+        "members": null
+      },
+      {
+        "confidence": "Observed",
+        "detail": "JsonExportPackageWriter.CreatePortableZipFromDirectory and BixJsonExportManager.IsZipFilePath show the writer materializes a directory and then zips it only when the requested path is a .zip.",
+        "evidence": [
+          "AssemblyMetadata"
+        ],
+        "isFlags": null,
+        "mechanism": "Output path extension",
+        "members": null
+      },
+      {
+        "confidence": "Verified",
+        "detail": "BixJsonExportSelection is a flags enum, so one call can ask for several representations at once; when more than one is requested SaveMultiProjectionPackage wraps semantic.zip and full.zip in an outer ZIP.",
+        "evidence": [
+          "AssemblyMetadata",
+          "EnumMembers",
+          "StringLiteral"
+        ],
+        "isFlags": true,
+        "mechanism": "Requested representation",
+        "members": [
+          {
+            "name": "None",
+            "value": 0
+          },
+          {
+            "name": "Semantic",
+            "value": 1
+          },
+          {
+            "name": "FullStructured",
+            "value": 2
+          },
+          {
+            "name": "Knowledge",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "modeEnum": [
+      {
+        "name": "Semantic",
+        "value": 0
+      },
+      {
+        "name": "FullStructured",
+        "value": 1
+      }
+    ],
+    "question": "Why is one AiExport a single JSON file and another a ZIP?",
+    "stillUnknown": [
+      "Which option the two artifacts described in the specification were produced with. No AiExport sample is present in source/, so this cannot be attributed to a specific call."
+    ]
+  }
+}

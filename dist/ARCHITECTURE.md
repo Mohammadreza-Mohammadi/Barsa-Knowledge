@@ -13,8 +13,13 @@ graph TD
   BL --> META["Metadata layer<br/>TypeDef / FieldDef / RelationDef"]
   BL --> RPT["Reporting<br/>Barsa.Meta.Report + Stimulsoft"]
   META --> DB["Database access<br/>Barsa.Spl.DbHelper"]
-  DX["Import / Export<br/>Barsa.Meta.DataExchange"] --> META
+  DX["DataExchange<br/>Barsa.Meta.DataExchange"] --> META
   DX --> DB
+  DX --> LEG["Legacy MetaExport<br/>GZip + BinaryFormatter + DataSet"]
+  DX --> SEM["Barsa.Meta.SemanticExchange"]
+  SEM --> AIE["Barsa.AiExport<br/>single JSON or ZIP package"]
+  SEM --> CB["AiChangeBatch<br/>write-back plans"]
+  HOST["Barsa.Ai.Host.exe<br/>HTTP surface"] --> SEM
   CORE["Core runtime<br/>Barsa.Spl"] --> DB
   UI --> DX
 ```
@@ -56,8 +61,27 @@ DevExpress-style control suites plus its own `Barsa.SPL.Win.*` family.
 (`Stimulsoft.Report.dll` and friends). See `domains/reporting.md` and
 `domains/stimulsoft.md`.
 
-## Import / Export — `Barsa.Meta.DataExchange.dll`
+## Data exchange — two assemblies, two formats
 
-The subject of this pack's deepest analysis. A single façade,
-`BixHelper`, fronts a matched `NewExportManager` / `NewImportManager` pair.
-See `domains/import-export.md`.
+The subject of this pack's deepest analysis.
+
+`Barsa.Meta.DataExchange.dll` holds the legacy half and the public façade.
+`BixHelper` fronts a matched `NewExportManager` / `NewImportManager` pair, and
+`SerializationHelper2` is the GZip + BinaryFormatter writer and reader.
+
+`Barsa.Meta.SemanticExchange.dll` holds the AiExport half: the JSON projection
+(`BixJsonExportManager`, `JsonExportDocumentBuilder`, `JsonExportPackageWriter`),
+the change-plan write path (`BixWriteHelper`, `AiChangePlanner`,
+`AiBatchExecutor` and fourteen `Ai*ChangeProvider` types), and the package diff
+engine (`BixSnapshotManager`).
+
+It declares its types in the `Barsa.Meta.DataExchange` *namespace* while being a
+separate assembly, and the dependency runs DataExchange → SemanticExchange.
+A namespace-scoped search finds nothing, which is worth knowing before trusting
+any search of this codebase.
+
+`Barsa.Ai.Host.exe` puts an HTTP surface (`AiHttpServer`) over the semantic
+engine: plan, apply, lint, snapshot-diff and knowledge read/write.
+
+See `domains/data-exchange.md`, `domains/legacy-metaexport.md`,
+`domains/ai-export.md` and `formats/`.

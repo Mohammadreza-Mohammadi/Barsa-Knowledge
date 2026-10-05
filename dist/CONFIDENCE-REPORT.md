@@ -56,7 +56,7 @@ fully documented and the internals are not.
 Both supplied `.metaexport` files report the same `Source Db`. Structural
 differences between them therefore show *feature* variation, not *version* or
 *deployment* variation. No table has been called optional on the strength of a
-single sample; see `formats/export-json-schema.md`.
+single sample; see `formats/legacy-dataset-variance.md`.
 
 ### 4. Nothing was executed
 

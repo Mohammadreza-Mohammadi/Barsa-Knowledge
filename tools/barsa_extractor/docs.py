@@ -96,25 +96,43 @@ packages in `source/`. It answers, without reopening a DLL:
 
 ## Headline findings
 
-1. The export format is **GZip → .NET `BinaryFormatter` → `System.Data.DataSet`**,
-   carried as an XSD plus a DiffGram. See `formats/export-package.md`.
-2. Export and import are a **symmetric pair** behind one façade,
-   `Barsa.Meta.DataExchange.BixHelper`. See `scenarios/export-system.md` and
-   `scenarios/import-system.md`.
-3. The package carries its own ID-remapping instructions in the
-   `$IdEmbeddingFields` control table, which the importer's `FixIdForImport`
-   consumes. See `formats/id-reference-model.md`.
-4. `Barsa.Meta.DataExchange.dll` is **name-obfuscated**: public API names survive,
-   private members are renamed to `#Xx`. See `CONFIDENCE-REPORT.md`.
+1. Barsa has **two export format families**, not one:
+   - `Barsa.LegacyMetaExport` — GZip → .NET `BinaryFormatter` → `System.Data.DataSet`,
+     written and read by `Barsa.Meta.DataExchange`.
+   - `Barsa.AiExport` — JSON, single document or ZIP package, produced by
+     `Barsa.Meta.SemanticExchange` at `profileVersion` 15.
+   A third document type, `AiChangeBatch`, exists on the write side.
+   See `formats/format-detection.md`.
+2. Both families share **one collection engine**. `BixHelper.ExportJson` runs the
+   same `NewExportManager.Export` the legacy path runs, then projects the
+   resulting `DataSet` to JSON. So AiExport cannot carry source data the legacy
+   DataSet did not collect. See `formats/ai-export.md`.
+3. The AiExport specification **ships inside the binary**: a 218 KB JSON profile
+   embedded in `Barsa.Meta.SemanticExchange` declares every record type, the
+   legacy table it comes from, every field rule, 54 expanded enums and 12 binary
+   decoders. See `formats/ai-export-profile-version.md`.
+4. Read-back is **asymmetric**. Legacy has a real importer
+   (`NewImportManager.Import`). The AI side has a change-plan executor
+   (`BixWriteHelper.ApplyPlan`) that consumes an `AiChangeBatch`, not an AiExport
+   projection. See `scenarios/import-system-ai-json.md`.
+5. The legacy package carries its own ID-remap instructions in
+   `$IdEmbeddingFields`, consumed by `FixIdForImport`. AiExport instead resolves
+   semantic selectors at apply time. See `comparison/id-mapping-differences.json`.
+6. `Barsa.Meta.DataExchange.dll` is name-obfuscated;
+   `Barsa.Meta.SemanticExchange.dll` is **not**. See `CONFIDENCE-REPORT.md`.
 
 ## Reading order
 
 | Start here | For |
 |---|---|
+| `REANALYSIS-REPORT.md` | what changed from the previous pass, and why |
 | `ARCHITECTURE.md` | the layer map |
-| `formats/export-package.md` | the on-disk package |
-| `scenarios/import-system.md` | how a system is rebuilt |
-| `evidence/cross-validation.md` | what is proven from two or more sources |
+| `formats/format-detection.md` | telling the formats apart |
+| `formats/legacy-metaexport.md` | the legacy container |
+| `formats/ai-export.md` | the JSON family and its profile |
+| `comparison/legacy-vs-ai-export.md` | how the two relate |
+| `scenarios/import-system-legacy.md` | how a system is rebuilt |
+| `evidence/cross-validation.md` | what two or more sources confirm |
 | `CONFIDENCE-REPORT.md` | how far to trust each area |
 
 ## Confidence ordering
@@ -206,8 +224,13 @@ graph TD
   BL --> META["Metadata layer<br/>TypeDef / FieldDef / RelationDef"]
   BL --> RPT["Reporting<br/>Barsa.Meta.Report + Stimulsoft"]
   META --> DB["Database access<br/>Barsa.Spl.DbHelper"]
-  DX["Import / Export<br/>Barsa.Meta.DataExchange"] --> META
+  DX["DataExchange<br/>Barsa.Meta.DataExchange"] --> META
   DX --> DB
+  DX --> LEG["Legacy MetaExport<br/>GZip + BinaryFormatter + DataSet"]
+  DX --> SEM["Barsa.Meta.SemanticExchange"]
+  SEM --> AIE["Barsa.AiExport<br/>single JSON or ZIP package"]
+  SEM --> CB["AiChangeBatch<br/>write-back plans"]
+  HOST["Barsa.Ai.Host.exe<br/>HTTP surface"] --> SEM
   CORE["Core runtime<br/>Barsa.Spl"] --> DB
   UI --> DX
 ```
@@ -249,11 +272,30 @@ DevExpress-style control suites plus its own `Barsa.SPL.Win.*` family.
 (`Stimulsoft.Report.dll` and friends). See `domains/reporting.md` and
 `domains/stimulsoft.md`.
 
-## Import / Export — `Barsa.Meta.DataExchange.dll`
+## Data exchange — two assemblies, two formats
 
-The subject of this pack's deepest analysis. A single façade,
-`BixHelper`, fronts a matched `NewExportManager` / `NewImportManager` pair.
-See `domains/import-export.md`.
+The subject of this pack's deepest analysis.
+
+`Barsa.Meta.DataExchange.dll` holds the legacy half and the public façade.
+`BixHelper` fronts a matched `NewExportManager` / `NewImportManager` pair, and
+`SerializationHelper2` is the GZip + BinaryFormatter writer and reader.
+
+`Barsa.Meta.SemanticExchange.dll` holds the AiExport half: the JSON projection
+(`BixJsonExportManager`, `JsonExportDocumentBuilder`, `JsonExportPackageWriter`),
+the change-plan write path (`BixWriteHelper`, `AiChangePlanner`,
+`AiBatchExecutor` and fourteen `Ai*ChangeProvider` types), and the package diff
+engine (`BixSnapshotManager`).
+
+It declares its types in the `Barsa.Meta.DataExchange` *namespace* while being a
+separate assembly, and the dependency runs DataExchange → SemanticExchange.
+A namespace-scoped search finds nothing, which is worth knowing before trusting
+any search of this codebase.
+
+`Barsa.Ai.Host.exe` puts an HTTP surface (`AiHttpServer`) over the semantic
+engine: plan, apply, lint, snapshot-diff and knowledge read/write.
+
+See `domains/data-exchange.md`, `domains/legacy-metaexport.md`,
+`domains/ai-export.md` and `formats/`.
 """)
 
 
@@ -342,7 +384,7 @@ fully documented and the internals are not.
 Both supplied `.metaexport` files report the same `Source Db`. Structural
 differences between them therefore show *feature* variation, not *version* or
 *deployment* variation. No table has been called optional on the strength of a
-single sample; see `formats/export-json-schema.md`.
+single sample; see `formats/legacy-dataset-variance.md`.
 
 ### 4. Nothing was executed
 
@@ -524,8 +566,9 @@ def _domains(x, d):
 
 def _formats(x, d):
     if not x.packages:
-        _write(d, "formats/export-package.md",
-               "# Export package\n\n_No export package was supplied._\n")
+        _write(d, "formats/legacy-dataset-tables.md",
+               "# Legacy DataSet: table families\n\n"
+               "_No legacy .metaexport package was supplied._\n")
         return
     p0 = x.packages[0]
     cmp_ = x.package_comparison
@@ -536,7 +579,7 @@ def _formats(x, d):
                          p.header.get("Export Time", "?")[:10],
                          len(p.tables), sum(p.row_counts.values())])
 
-    _write(d, "formats/export-package.md", f"""# Export package format
+    _write(d, "formats/legacy-dataset-tables.md", f"""# Legacy DataSet: table families
 
 {BANNER}
 **Confidence: CrossVerified.** The container was read byte-for-byte from both
@@ -638,14 +681,14 @@ files. Both supplied samples have `PageCount = 1`, so multi-page layout is
 **Observed** from the binary and **not** demonstrated by a sample.
 """)
 
-    _export_json_schema(x, d, cmp_)
+    _legacy_table_variance(x, d, cmp_)
     _entity_formats(x, d)
     _id_reference_model(x, d)
     _import_compatibility(x, d)
 
 
-def _export_json_schema(x, d, cmp_):
-    lines = [f"""# Export package semantic catalogue
+def _legacy_table_variance(x, d, cmp_):
+    lines = [f"""# Legacy DataSet: cross-sample variance
 
 {BANNER}
 One section per table family, with the Barsa type it corresponds to and the
@@ -722,7 +765,7 @@ feature.
 `Unknown` in the Barsa type or consumer column means no evidence tied that table
 to a named type or import step. It does not mean the table is unused.
 """)
-    _write(d, "formats/export-json-schema.md", "\n".join(lines) + "\n")
+    _write(d, "formats/legacy-dataset-variance.md", "\n".join(lines) + "\n")
 
 
 def _entity_formats(x, d):
@@ -1299,7 +1342,7 @@ def _scenarios(x, d):
             out.extend(chain(c, depth, seen, indent + 1))
         return out
 
-    _write(d, "scenarios/export-system.md", f"""# Scenario: export a system
+    _write(d, "scenarios/export-system-legacy.md", f"""# Scenario: export a system (legacy MetaExport)
 
 {BANNER}
 ## Preconditions
@@ -1398,10 +1441,10 @@ supplied samples for the resulting file shape.
 **Observed** for the internal stage order. **Unknown** for exclusion rules.
 """)
 
-    _write(d, "scenarios/import-system.md", f"""# Scenario: import a system
+    _write(d, "scenarios/import-system-legacy.md", f"""# Scenario: import a system (legacy MetaExport)
 
 {BANNER}
-This is the direct counterpart of `export-system.md`, and the answer to "can the
+This is the direct counterpart of `export-system-legacy.md`, and the answer to "can the
 same package be read back in and rebuilt?" — yes.
 
 ## Preconditions
@@ -1522,7 +1565,7 @@ both supplied samples for the input shape.
 version gating.
 """)
 
-    _write(d, "scenarios/reconstruct-system.md", f"""# Scenario: reconstruct a system from a package
+    _write(d, "scenarios/clone-system-legacy.md", f"""# Scenario: clone and reconstruct a system (legacy MetaExport)
 
 {BANNER}
 "Can a Barsa system be rebuilt from an export package alone?"
@@ -1848,7 +1891,7 @@ Unknown.
 
 ## Symmetry with the {anti}
 
-See `evidence/cross-validation.md` and `scenarios/{direction}-system.md`.
+See `evidence/cross-validation.md` and `scenarios/{direction}-system-legacy.md`.
 """
 
 

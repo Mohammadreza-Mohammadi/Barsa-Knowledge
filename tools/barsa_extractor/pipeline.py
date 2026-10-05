@@ -6,9 +6,17 @@ import re
 import sys
 import time
 
+from . import compare as cmp_mod
 from . import evidence as ev
+from . import exchange_model as xm
+from . import normalize as nz
+from .ai_export import AiExportArtifact
+from .ai_profile import discover_profiles, executable_profile
 from .cli_metadata import TYPEDEF, METHODDEF
 from .export_package import ExportPackage, compare, id_reference_model
+from .format_detect import (
+    LOGICAL_AI, LOGICAL_LEGACY, detect, normalize_manifest,
+)
 from .il_analysis import (
     analyze_method, classify_string, extract_sql, invert_calls, redact,
     SQL_RE,
@@ -18,7 +26,12 @@ from .inventory import (
     is_barsa_owned, priority_score,
 )
 
-SCHEMA_VERSION = "2.0"
+SCHEMA_VERSION = "3.0"
+UNKNOWN_FMT = "Unknown"
+
+# Files worth running content detection over. Everything else in source/ is
+# resources and binaries; sniffing them wastes time and tells us nothing.
+DETECT_EXTENSIONS = (".metaexport", ".zip", ".json", ".gz", ".xml")
 
 # Deep IL analysis is limited to Barsa-owned assemblies (spec sections 49-50);
 # third-party assemblies are inventoried and indexed only.
@@ -62,6 +75,14 @@ DOMAIN_TERMS = {
     "import-export": ("Export", "Import", "BixHelper", "DataExchange",
                       "ObjectReferenceSelection", "FixIdForImport",
                       "ExportSession", "metaexport"),
+    "data-exchange": ("BixHelper", "BixJsonExportManager", "BixWriteHelper",
+                      "BixSnapshotManager", "NewExportManager",
+                      "NewImportManager", "SerializationHelper2"),
+    "legacy-metaexport": ("NewExportManager", "NewImportManager",
+                          "SerializationHelper2", "FixIdForImport",
+                          "ExportSession", "ImportOptions", "DataFetcher"),
+    "ai-export": ("AiExport", "JsonExport", "Semantic", "AiChange", "AiBatch",
+                  "AiPlan", "BixJson", "AiRuntime", "AiReport", "AiField"),
     "system-reconstruction": ("ImportManager", "ExportManager", "Reconstruct",
                               "Clone", "IdMap", "ObjectReferenceBuilder"),
 }
@@ -102,6 +123,9 @@ class Extractor:
         self.phase3_index()
         self.phase4_il()
         self.phase6_exports()
+        self.phase6b_formats()
+        self.phase7_exchange_model()
+        self.phase8_normalize_and_compare()
         self.phase9_crossvalidate()
         self.phase10_normalized_model()
         self.phase11_capabilities()
@@ -260,6 +284,167 @@ class Extractor:
         self.id_model = id_reference_model(self.packages) if self.packages else []
         self.log("phase6: %d export packages, %d id-model entries"
                  % (len(self.packages), len(self.id_model)))
+
+    # -- v3: formats, exchange model, normalization -------------------------
+
+    def phase6b_formats(self):
+        """Spec v3 sections 3 and 88: detect every artifact by content."""
+        self.formats = []
+        self.ai_artifacts = []
+        for e in self.inputs:
+            if not e["path"].lower().endswith(DETECT_EXTENSIONS):
+                continue
+            rec = detect(e["absPath"])
+            rec["path"] = e["path"]
+            self.formats.append(rec)
+            if rec["logicalFormat"] == LOGICAL_AI:
+                art = AiExportArtifact(e["absPath"], rec)
+                self.ai_artifacts.append(art)
+                self.ledger.add("ExportSample",
+                                "AiExport artifact %s (%s)"
+                                % (e["name"], art.variant), e["path"])
+            for err in rec["errors"]:
+                self.errors.append({"stage": "format_detect",
+                                    "file": e["path"],
+                                    "error": "%s: %s" % (err["kind"],
+                                                         err["message"])})
+        self.format_warnings = [
+            {"path": r["path"], **w}
+            for r in self.formats for w in r["warnings"]]
+        counts = {}
+        for r in self.formats:
+            key = "%s / %s" % (r["logicalFormat"], r["variant"])
+            counts[key] = counts.get(key, 0) + 1
+        self.format_counts = counts
+        if not self.ai_artifacts:
+            self.missing_inputs.append(
+                "an AiExport artifact (JSON or ZIP) in source/exports/ai-json/")
+        self.log("phase6b: %d artifacts detected %s"
+                 % (len(self.formats), counts))
+
+    def phase7_exchange_model(self):
+        """Spec v3 sections 12-14, 20-27: re-derive the exchange model."""
+        paths = [e["absPath"] for e in self.inputs if e["kind"] == "Assembly"]
+        self.profiles, prof_errors = discover_profiles(paths)
+        for err in prof_errors:
+            self.errors.append({"stage": "ai_profile", "file": err["assembly"],
+                                "error": err["error"]})
+        self.live_profile = executable_profile(self.profiles)
+        for p in self.profiles:
+            self.ledger.add("AssemblyMetadata",
+                            "embedded AI export profile v%s (%d record types)"
+                            % (p.profile_version, len(p.record_types)),
+                            "%s :: %s" % (p.assembly, p.resource))
+
+        # Index the exchange assemblies by display name for enum and ref work.
+        self.exchange_asms = {}
+        for key, rec in self.assemblies.items():
+            if rec["assemblyName"] in xm.EXCHANGE_ASSEMBLIES:
+                self.exchange_asms[rec["assemblyName"]] = self.asm_objects[key]
+        self.answer_enums = xm.collect_enums(self.exchange_asms)
+        for name, info in self.answer_enums.items():
+            self.ledger.add("AssemblyMetadata",
+                            "enum %s = %s" % (name, ", ".join(
+                                m["name"] for m in info["members"])),
+                            info["assembly"])
+
+        self.memberrefs = {}
+        for name, asm in self.exchange_asms.items():
+            self.memberrefs[name] = xm.cross_assembly_memberrefs(
+                asm, ("BixJsonExportManager", "BixSnapshotManager",
+                      "BixWriteHelper", "SemanticExportContext"))
+        self.api_formats = xm.api_format_map(
+            self.exchange_asms, self.calls, self.memberrefs)
+        self.ai_import = xm.ai_import_verdict(self.exchange_asms,
+                                              self.answer_enums)
+        self.variant_switch = xm.variant_switch(self.answer_enums,
+                                                self.live_profile)
+        self.profile_version = xm.profile_version_findings(
+            self.profiles, self.live_profile)
+        self.diff_states = xm.diff_states(self.answer_enums)
+        self.atomicity = xm.atomicity_findings(self.answer_enums)
+        self.log("phase7: %d profiles, %d answer enums, %d api rows"
+                 % (len(self.profiles), len(self.answer_enums),
+                    len(self.api_formats)))
+
+    def phase8_normalize_and_compare(self):
+        """Spec v3 sections 39-54: normalize both families, then compare."""
+        self.normalized_legacy = []
+        for pkg in self.packages:
+            try:
+                self.normalized_legacy.append(nz.from_legacy(pkg))
+            except Exception as exc:
+                self.errors.append({"stage": "NormalizationError",
+                                    "file": pkg.path,
+                                    "error": "%s: %s" % (type(exc).__name__, exc)})
+        self.normalized_ai = []
+        for art in self.ai_artifacts:
+            try:
+                self.normalized_ai.append(
+                    nz.from_ai_export(art, self.live_profile))
+            except Exception as exc:
+                self.errors.append({"stage": "NormalizationError",
+                                    "file": art.path,
+                                    "error": "%s: %s" % (type(exc).__name__, exc)})
+
+        self.declared_pairs = self._load_declared_pairs()
+        self.pairs = cmp_mod.candidate_pairs(
+            self.packages, self.ai_artifacts, self.declared_pairs)
+        self.comparisons = []
+        for pair in self.pairs:
+            pkg = next((p for p in self.packages
+                        if p.path.endswith(pair["legacy"])), None)
+            art = next((a for a in self.ai_artifacts
+                        if a.path.endswith(pair["aiExport"])), None)
+            if pkg is None or art is None:
+                continue
+            scope = cmp_mod.scope_equivalence(
+                cmp_mod.legacy_selection_roots(pkg),
+                cmp_mod.ai_selection_roots(art),
+                declared=pair.get("declaredScope"))
+            lenv = nz.from_legacy(pkg)
+            aenv = nz.from_ai_export(art, self.live_profile)
+            per_concept = {}
+            diffs = []
+            if scope["level"] in (cmp_mod.SCOPE_EXACT, cmp_mod.SCOPE_PARTIAL):
+                for coll in nz.EMPTY_ENVELOPE_KEYS:
+                    matches = cmp_mod.match_collection(lenv.get(coll),
+                                                       aenv.get(coll))
+                    if matches is None:
+                        continue
+                    per_concept[coll] = matches
+                    for m in matches:
+                        if m["strength"] == cmp_mod.MATCH_UNMATCHED or \
+                                m["matchedOn"] == "caption":
+                            diffs.append({"concept": coll,
+                                          **cmp_mod.classify_difference(
+                                              m, scope["level"])})
+            self.comparisons.append({
+                "pair": pair,
+                "scope": scope,
+                "coverage": cmp_mod.coverage(lenv, aenv, scope),
+                "differences": diffs,
+                "comparedConcepts": sorted(per_concept),
+            })
+        self.log("phase8: %d legacy normalized, %d ai normalized, %d pairs"
+                 % (len(self.normalized_legacy), len(self.normalized_ai),
+                    len(self.pairs)))
+
+    def _load_declared_pairs(self):
+        """Optional source/exports/pairs.json (spec v3 section 41)."""
+        for e in self.inputs:
+            if e["name"].lower() != "pairs.json":
+                continue
+            try:
+                with open(e["absPath"], encoding="utf-8") as fh:
+                    data = json.load(fh)
+                if isinstance(data, list):
+                    return data
+            except Exception as exc:
+                self.errors.append({"stage": "ScopeMatchError",
+                                    "file": e["path"],
+                                    "error": "%s: %s" % (type(exc).__name__, exc)})
+        return []
 
     # -- cross validation ---------------------------------------------------
 
@@ -517,84 +702,164 @@ class Extractor:
         return edges
 
     def phase11_capabilities(self):
-        """Spec sections 32-33: one entry per capability with real entry points."""
-        def find(pred):
+        """Spec v3 section 59: capabilities are format-aware, not generic."""
+        def find(type_suffix, names):
             return sorted({"%s::%s" % (m["declaringType"], m["name"])
-                           for m in self.methods if pred(m)})
+                           for m in self.methods
+                           if m["declaringType"].endswith(type_suffix)
+                           and m["name"] in names})
 
-        def cap(cid, entry_points, sources, requires=(), risks=()):
+        def sem(type_suffix, names):
+            """Members of SemanticExchange, which is index-only in methods."""
+            asm = self.exchange_asms.get("Barsa.Meta.SemanticExchange")
+            if asm is None:
+                return []
+            out = []
+            for rid in range(1, asm.row_count(TYPEDEF) + 1):
+                tn = asm.type_full_name(rid) or ""
+                if not tn.endswith(type_suffix):
+                    continue
+                start_m, end_m = asm.type_method_range(rid)
+                for m in range(start_m, end_m):
+                    nm = asm.method_name(m)
+                    if nm in names:
+                        out.append("%s::%s" % (tn, nm))
+            return sorted(set(out))
+
+        def cap(cid, fmt, entry_points, sources, requires=(), risks=(),
+                note=None):
             return {
                 "id": cid,
+                "format": fmt,
                 "status": ev.from_source_count(sources),
                 "entryPoints": entry_points,
                 "evidence": sorted(sources),
                 "requires": list(requires),
                 "risks": list(risks),
+                "note": note,
             }
 
         caps = []
-        exp = find(lambda m: m["declaringType"].endswith("BixHelper")
-                   and m["name"] == "Export")
-        imp = find(lambda m: m["declaringType"].endswith("BixHelper")
-                   and m["name"] in ("Import", "ImportWithProgress"))
-        clone = find(lambda m: m["declaringType"].endswith("BixHelper")
-                     and m["name"] in ("Clone", "CloneById"))
-        info = find(lambda m: m["declaringType"].endswith("BixHelper")
-                    and m["name"] == "GetInfo")
-        extract = find(lambda m: m["declaringType"].endswith("BixHelper")
-                       and m["name"] == "ExtractData")
-        jsonexp = find(lambda m: m["declaringType"].endswith("BixHelper")
-                       and m["name"] in ("ExportJson", "ExportInitialJson"))
-        if exp:
-            caps.append(cap("System.Export", exp,
-                            ["AssemblyMetadata", "CallGraph", "ExportSample",
-                             "ExporterCode"],
-                            requires=["An ObjectReferenceSelection built from the "
-                                      "export tree", "A live database connection"],
-                            risks=["Package may contain production data"]))
-        if imp:
-            caps.append(cap("System.Import", imp,
-                            ["AssemblyMetadata", "CallGraph", "ExportSample",
-                             "ImporterCode"],
-                            requires=["A .metaexport file", "ImportOptions"],
-                            risks=["Writes metadata to the target database",
-                                   "Rollback behaviour not established statically"]))
-        if clone:
-            caps.append(cap("System.Clone", clone,
-                            ["AssemblyMetadata", "CallGraph", "ExporterCode",
-                             "ImporterCode"],
-                            requires=["Source object ids"],
-                            risks=["Creates new object identities"]))
-        if info:
-            caps.append(cap("Package.ReadHeader", info,
-                            ["AssemblyMetadata", "CallGraph", "ExportSample"]))
-        if extract:
-            caps.append(cap("Package.PreviewTree", extract,
-                            ["AssemblyMetadata", "CallGraph", "ExportSample"],
-                            requires=["ImportOptions.FirstFilePath"]))
-        if jsonexp:
-            caps.append(cap("System.ExportJson", jsonexp,
-                            ["AssemblyMetadata", "CallGraph"],
-                            risks=["No JSON sample supplied; on-disk shape unverified"]))
-        mie_exp = find(lambda m: m["declaringType"].endswith("MieExportManagerAll"))
-        mie_imp = find(lambda m: m["declaringType"].endswith("MieImportManager"))
+        legacy_export = find("BixHelper", ("Export",))
+        legacy_import = find("BixHelper", ("Import", "ImportWithProgress"))
+        legacy_clone = find("BixHelper", ("Clone", "CloneById"))
+        legacy_header = find("BixHelper", ("GetInfo",))
+        legacy_preview = find("BixHelper", ("ExtractData",))
+        json_export = find("BixHelper", ("ExportJson", "ExportInitialJson"))
+        snapshot = find("BixHelper", ("ExportAiDiagnosticSnapshot",))
+
+        if legacy_export:
+            caps.append(cap(
+                "DataExchange.Legacy.Export", LOGICAL_LEGACY, legacy_export,
+                ["AssemblyMetadata", "CallGraph", "ExportSample",
+                 "ExporterCode"],
+                requires=["An ObjectReferenceSelection from the export tree",
+                          "A live database connection"],
+                risks=["The package may contain production data"]))
+        if legacy_import:
+            caps.append(cap(
+                "DataExchange.Legacy.Import", LOGICAL_LEGACY, legacy_import,
+                ["AssemblyMetadata", "CallGraph", "ExportSample",
+                 "ImporterCode"],
+                requires=["A .metaexport file", "ImportOptions"],
+                risks=["Writes metadata to the target database",
+                       "Atomicity is not established"]))
+        if legacy_clone:
+            caps.append(cap(
+                "DataExchange.Legacy.Clone", LOGICAL_LEGACY, legacy_clone,
+                ["AssemblyMetadata", "CallGraph", "ExporterCode",
+                 "ImporterCode"],
+                requires=["Source object ids"],
+                risks=["Creates new object identities"],
+                note="Chains Export into Import with ImportOptions.IsClone."))
+        if legacy_preview:
+            caps.append(cap(
+                "DataExchange.Legacy.PreviewDiff", LOGICAL_LEGACY,
+                legacy_preview + find("ImportTreeControl", ("GetChangeIcon",)),
+                ["AssemblyMetadata", "CallGraph", "ExportSample"],
+                requires=["ImportOptions.FirstFilePath"],
+                note=("Renders the package against the live database with "
+                      "CompareChangeTypeEnum states.")))
+        if legacy_header:
+            caps.append(cap(
+                "DataExchange.Legacy.ReadHeader", LOGICAL_LEGACY, legacy_header,
+                ["AssemblyMetadata", "CallGraph", "ExportSample"]))
+
+        if json_export:
+            caps.append(cap(
+                "DataExchange.AiExport.Export", LOGICAL_AI,
+                json_export + sem("BixJsonExportManager",
+                                  ("SaveInitialJson", "SaveFullStructuredJson",
+                                   "SaveSelectedJson")),
+                ["AssemblyMetadata", "CallGraph", "ExporterCode"],
+                requires=["An ObjectReferenceSelection",
+                          "The embedded profile at profileVersion 15"],
+                risks=["No AiExport sample was supplied, so the on-disk result "
+                       "is described from the writer and the profile, not from "
+                       "an artifact"],
+                note=("Reuses the legacy DataSet collector and then projects "
+                      "that DataSet to JSON.")))
+        if snapshot:
+            caps.append(cap(
+                "DataExchange.AiExport.Snapshot", LOGICAL_AI, snapshot,
+                ["AssemblyMetadata", "CallGraph"],
+                note="Writes a package BixSnapshotManager can diff."))
+        write_back = sem("BixWriteHelper",
+                         ("ValidateBatch", "ParseBatch", "BuildPlan",
+                          "ApplyPlan", "SerializePlan", "SerializeResult"))
+        if write_back:
+            caps.append(cap(
+                "DataExchange.AiExport.ApplyChangeBatch", "Barsa.AiChangeBatch",
+                write_back,
+                ["AssemblyMetadata", "CallGraph", "StringLiteral"],
+                requires=["An AiChangeBatch document at profileVersion 15"],
+                risks=["A batch can partially apply: AiBatchStatus has "
+                       "PartiallySucceeded"],
+                note=("This is the AI-side write path. It is NOT a symmetric "
+                      "importer for an AiExport projection; see "
+                      "REANALYSIS-REPORT.md.")))
+        snap_cmp = sem("BixSnapshotManager",
+                       ("CompareSnapshots", "CompareSemanticPackages"))
+        if snap_cmp:
+            caps.append(cap(
+                "DataExchange.AiExport.ComparePackages", LOGICAL_AI, snap_cmp,
+                ["AssemblyMetadata", "StringLiteral"]))
+        knowledge = sem("BixKnowledgeHelper",
+                        ("ReadAiKnowledge", "WriteAiKnowledge",
+                         "ReadHumanKnowledge", "WriteHumanKnowledge",
+                         "ResolveKnowledgeTarget"))
+        if knowledge:
+            caps.append(cap(
+                "DataExchange.AiKnowledge.ReadWrite", "Barsa.AiKnowledge",
+                knowledge, ["AssemblyMetadata", "CallGraph"],
+                note=("Exposed over HTTP by Barsa.Ai.Host.exe; storage "
+                      "semantics were not analysed.")))
+
+        mie_exp = find("MieExportManagerAll", ("ExportAll",))
+        mie_imp = find("MieImportManager", ("ImportFolder", "ImportFolderSimple",
+                                            "ImportFile",
+                                            "GetImportingFileList"))
         if mie_exp:
-            caps.append(cap("Mie.ExportAll", mie_exp,
-                            ["AssemblyMetadata", "CallGraph"]))
+            caps.append(cap("DataExchange.Mie.ExportAll", UNKNOWN_FMT, mie_exp,
+                            ["AssemblyMetadata", "CallGraph"],
+                            note="MIE is a separate exchange path; its on-disk "
+                                 "format was not established."))
         if mie_imp:
-            caps.append(cap("Mie.Import", mie_imp,
+            caps.append(cap("DataExchange.Mie.Import", UNKNOWN_FMT, mie_imp,
                             ["AssemblyMetadata", "CallGraph"]))
-        rep = find(lambda m: m["declaringType"].endswith("ExportReportHelper"))
+        rep = find("ExportReportHelper", ("Export", "ExportTable"))
         if rep:
-            caps.append(cap("Report.Export", rep,
+            caps.append(cap("Reporting.Export", UNKNOWN_FMT, rep,
                             ["AssemblyMetadata", "CallGraph"]))
         self.capabilities = caps
 
     # -- generation ---------------------------------------------------------
 
     def phase13_generate(self):
+        from . import docs_v3
         from .docs import write_all
         write_all(self)
+        docs_v3.write_all(self)
 
     def phase14_validate(self):
         """Spec section 78."""
