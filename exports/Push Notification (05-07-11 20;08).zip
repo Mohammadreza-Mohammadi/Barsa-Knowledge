@@ -1,0 +1,4150 @@
+﻿{
+  "tree": [
+    {
+      "$type": "system",
+      "id": 7097413550000000101,
+      "selector": "#Push Notification",
+      "Caption": "Push Notification",
+      "Settings": {
+        "DefaultCodeNamespace": "PushNotification",
+        "DbPrefix": "dyn"
+      },
+      "runCodeAtStartup": true,
+      "Version": "3.0.7",
+      "دسترسی ساختار": [],
+      "MetaTypeDef": [
+        {
+          "$type": "entity",
+          "id": 1082413500000010130,
+          "selector": "#WhatsAppClient",
+          "caption": "WhatsAppClient",
+          "DbName": "dyn_300",
+          "Settings": {
+            "DefaultEditViewId": "#نمای اصلی",
+            "RuleList": [
+              {
+                "type": "businessRule",
+                "caption": "نمایش QR Code",
+                "key": "~112011",
+                "events": [
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#QR Code"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "operator": "equal",
+                      "field": "#QR Generated",
+                      "value": "true",
+                      "customCodeExecutePerRow": true
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#QR Code"
+                        ],
+                        "visible": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": true,
+                    "actions": [
+                      {
+                        "type": "reverse"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "businessRule",
+                "caption": "فعال و غیرفعال Initialize",
+                "key": "~099195",
+                "events": [
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#Initialized"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "operator": "equal",
+                      "field": "#Initialized",
+                      "value": "false",
+                      "customCodeExecutePerRow": true
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#Initialize"
+                        ],
+                        "enabled": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": true,
+                    "actions": [
+                      {
+                        "type": "reverse"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "businessRule",
+                "caption": "عدم نمایش فیلدهای منطقی",
+                "key": "~075248",
+                "events": [
+                  {
+                    "type": "form",
+                    "event": "dataPopulated"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "all": []
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#IsReady",
+                          "#QR Generated",
+                          "#Disconnected",
+                          "#Auth Success"
+                        ],
+                        "visible": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "businessRule",
+                "caption": "Auth Faiulre Message",
+                "key": "~149033",
+                "events": [
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#Auth Failure Message"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "operator": "isNull",
+                      "field": "#Auth Failure Message",
+                      "value": null,
+                      "customCodeExecutePerRow": true
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#Auth Failure Message"
+                        ],
+                        "visible": false
+                      }
+                    ]
+                  },
+                  {
+                    "else": true,
+                    "actions": [
+                      {
+                        "type": "reverse"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "businessRule",
+                "caption": "فعال و عدم فعال Logout",
+                "key": "~240094",
+                "events": [
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#Auth Success"
+                  },
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#Disconnected"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "all": [
+                        {
+                          "operator": "equal",
+                          "field": "#Auth Success",
+                          "value": "true",
+                          "customCodeExecutePerRow": true
+                        },
+                        {
+                          "operator": "equal",
+                          "field": "#Disconnected",
+                          "value": "false",
+                          "customCodeExecutePerRow": true
+                        }
+                      ]
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#Logout"
+                        ],
+                        "enabled": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": true,
+                    "actions": [
+                      {
+                        "type": "reverse"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "businessRule",
+                "caption": "فعال و عدم فعال Destroy",
+                "key": "~178124",
+                "events": [
+                  {
+                    "type": "field",
+                    "event": "valueChanged",
+                    "field": "#Initialized"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "operator": "equal",
+                      "field": "#Initialized",
+                      "value": "true",
+                      "customCodeExecutePerRow": true
+                    },
+                    "actions": [
+                      {
+                        "type": "field",
+                        "fields": [
+                          "#Destroy"
+                        ],
+                        "enabled": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": true,
+                    "actions": [
+                      {
+                        "type": "reverse"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 1082413510000010261,
+              "selector": "#ClientId",
+              "caption": "ClientId",
+              "dbName": "ClientId",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "isReadOnly": true,
+              "isLeftToRight": true,
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "code",
+                "code": "return Guid.NewGuid().ToString();"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010264,
+              "selector": "#QR Code",
+              "caption": "QR Code",
+              "dbName": "QrCode",
+              "orderNumber": 5,
+              "fieldType": "longText",
+              "isReadOnly": true,
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010266,
+              "selector": "#IsReady",
+              "caption": "IsReady",
+              "dbName": "IsReady",
+              "orderNumber": 6,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010267,
+              "selector": "#Auth Failure Message",
+              "caption": "Auth Failure Message",
+              "dbName": "F6",
+              "orderNumber": 7,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": 1000,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010268,
+              "selector": "#Auth Success",
+              "caption": "Auth Success",
+              "dbName": "F7",
+              "orderNumber": 8,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010270,
+              "selector": "#Disconnected",
+              "caption": "Disconnected",
+              "dbName": "F8",
+              "orderNumber": 11,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010271,
+              "selector": "#Initialize",
+              "caption": "Initialize",
+              "dbName": "F9",
+              "orderNumber": 9,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "button",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010272,
+              "selector": "#Logout",
+              "caption": "Logout",
+              "dbName": "F10",
+              "orderNumber": 10,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "button",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010274,
+              "selector": "#QR Generated",
+              "caption": "QR Generated",
+              "dbName": "F11",
+              "orderNumber": 12,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010275,
+              "selector": "#Initialized",
+              "caption": "Initialized",
+              "dbName": "F12",
+              "orderNumber": 14,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010277,
+              "selector": "#Destroy",
+              "caption": "Destroy",
+              "dbName": "F13",
+              "orderNumber": 13,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "button",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010278,
+              "selector": "#IsDestroyed",
+              "caption": "IsDestroyed",
+              "dbName": "F14",
+              "orderNumber": 15,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071974,
+              "selector": "#Disabled",
+              "caption": "Disabled",
+              "dbName": "Disabled",
+              "orderNumber": 16,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071975,
+              "selector": "#ServerAddress",
+              "caption": "ServerAddress",
+              "dbName": "ServerAddress",
+              "orderNumber": 17,
+              "fieldType": "string",
+              "isLeftToRight": true,
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071983,
+              "selector": "#Title",
+              "caption": "Title",
+              "dbName": "Title",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000072032,
+              "selector": "#گروهای شماره",
+              "caption": "گروهای شماره",
+              "dbName": "NumberGroups",
+              "orderNumber": 18,
+              "fieldType": "reverseSingleListRelation",
+              "jsonProperty": null,
+              "destinationField": "#WhatsappGroup|WhatsAppClient",
+              "isComposed": true,
+              "viewType": "selectionList",
+              "reportId": "#رابطه WhatsappGroup",
+              "گزارش فیلد": [
+                {
+                  "$type": "report",
+                  "id": 7097413530000040475,
+                  "selector": "#رابطه WhatsappGroup",
+                  "name": "رابطه WhatsappGroup",
+                  "entity": "#WhatsappGroup",
+                  "reportType": "list",
+                  "columns": [
+                    {
+                      "field": "#نام",
+                      "alias": "نام"
+                    },
+                    {
+                      "field": "#توضیحات گروه",
+                      "alias": "توضیحات گروه"
+                    },
+                    {
+                      "field": "#تاریخ ایجاد",
+                      "alias": "تاریخ ایجاد"
+                    },
+                    {
+                      "field": "#اعضا",
+                      "alias": "اعضا"
+                    },
+                    {
+                      "field": "#سرور",
+                      "alias": "سرور"
+                    },
+                    {
+                      "field": "#آیدی گروه",
+                      "alias": "آیدی گروه"
+                    }
+                  ],
+                  "condition": {
+                    "all": []
+                  },
+                  "joinAliases": [],
+                  "immediateExecute": false,
+                  "systemId": "#Push Notification"
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072040,
+              "selector": "#Load Groups",
+              "caption": "Load Groups",
+              "dbName": "F15",
+              "orderNumber": 19,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "button",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 1082413700000000112,
+              "selector": "#نمای اصلی",
+              "name": "نمای اصلی",
+              "definition": {
+                "selectedRules": [
+                  "#[businessRule]نمایش QR Code",
+                  "#[businessRule]فعال و غیرفعال Initialize",
+                  "#[businessRule]عدم نمایش فیلدهای منطقی",
+                  "#[businessRule]Auth Faiulre Message",
+                  "#[businessRule]فعال و عدم فعال Logout",
+                  "#[businessRule]فعال و عدم فعال Destroy"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 1082413500000010147,
+          "selector": "#WhatsAppProvider",
+          "caption": "WhatsAppProvider",
+          "DbName": "dyn_319",
+          "Settings": {
+            "BaseInfoType": 3,
+            "DefaultEditViewId": "#نمای 1",
+            "ImportAction": 1
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 1082413510000010345,
+              "selector": "#پدر",
+              "caption": "پدر",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "inheritance",
+              "isReadOnly": true,
+              "jsonProperty": null,
+              "target": "#پیام رسان|TemplateRunnerProvider",
+              "isOneToOne": true,
+              "isComposed": true,
+              "hideCombo": true,
+              "viewRelatedFormType": "show",
+              "parentField": "#پیام رسان|TemplateRunnerProvider|فرزند",
+              "baseOnParentRelation": true
+            },
+            {
+              "$type": "field",
+              "id": 1082413510000010346,
+              "selector": "#ServerAddress",
+              "caption": "ServerAddress",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "isLeftToRight": true,
+              "jsonProperty": null
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 1082413700000000119,
+              "selector": "#نمای 1",
+              "name": "نمای 1",
+              "definition": {}
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000000117,
+          "selector": "#IMessage",
+          "caption": "IMessage",
+          "DbName": "dyn_100",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000000211,
+              "selector": "#محتوا",
+              "caption": "محتوا",
+              "dbName": "Content",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000000224,
+              "selector": "#فرزند",
+              "caption": "فرزند",
+              "dbName": "Inheritance",
+              "orderNumber": 3,
+              "fieldType": "inheritanceChild",
+              "isReadOnly": true,
+              "jsonProperty": null,
+              "target": {
+                "objectType": "entity",
+                "unsupported": true,
+                "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+              },
+              "isOneToOne": true,
+              "isComposed": true,
+              "hideCombo": true,
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000229,
+              "selector": "#زمان ایجاد",
+              "caption": "زمان ایجاد",
+              "dbName": "CreationDate",
+              "orderNumber": 4,
+              "fieldType": "creationDate",
+              "jsonProperty": null,
+              "dateFormat": "yyyy/MM/dd",
+              "timeFormat": "HH:mm",
+              "relativeFormat": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000230,
+              "selector": "#کاربر ایجاد کننده",
+              "caption": "کاربر ایجاد کننده",
+              "dbName": "CreatorUser",
+              "orderNumber": 5,
+              "fieldType": "creatorUser",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000234,
+              "selector": "#وضعیت ارسال",
+              "caption": "وضعیت ارسال",
+              "dbName": "SentStatus",
+              "orderNumber": 7,
+              "fieldType": "enum",
+              "jsonProperty": null,
+              "values": [
+                {
+                  "value": 1,
+                  "caption": "ارسال شده"
+                },
+                {
+                  "value": 2,
+                  "caption": "در انتظار ارسال"
+                },
+                {
+                  "value": 3,
+                  "caption": "ارسال نشد"
+                }
+              ]
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000000235,
+              "selector": "#کاربر گیرنده",
+              "caption": "کاربر گیرنده",
+              "dbName": "F5",
+              "orderNumber": 8,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#@SplUser",
+              "viewRelatedFormType": "show"
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000000121,
+          "selector": "#NotificationMessage",
+          "caption": "NotificationMessage",
+          "DbName": "dyn_107",
+          "Settings": {
+            "DefaultEditViewId": "#نمای 1"
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 7097413510000000228,
+              "selector": "#IMessage",
+              "caption": "IMessage",
+              "dbName": "IMessage",
+              "orderNumber": 17,
+              "fieldType": "inheritance",
+              "isReadOnly": true,
+              "jsonProperty": null,
+              "target": "#IMessage",
+              "isOneToOne": true,
+              "isComposed": true,
+              "hideCombo": true,
+              "viewRelatedFormType": "show",
+              "parentField": "#IMessage|فرزند",
+              "baseOnParentRelation": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000237,
+              "selector": "#Title",
+              "caption": "Title",
+              "dbName": "Title",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000241,
+              "selector": "#Icon",
+              "caption": "Icon",
+              "dbName": "Icon",
+              "orderNumber": 6,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000242,
+              "selector": "#Status",
+              "caption": "Status",
+              "dbName": "Status",
+              "orderNumber": 7,
+              "fieldType": "enum",
+              "jsonProperty": null,
+              "values": [
+                {
+                  "value": 1,
+                  "caption": "success"
+                },
+                {
+                  "value": 2,
+                  "caption": "information"
+                },
+                {
+                  "value": 3,
+                  "caption": "warrning"
+                },
+                {
+                  "value": 4,
+                  "caption": "error"
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000243,
+              "selector": "#Unread",
+              "caption": "Unread",
+              "dbName": "Unread",
+              "orderNumber": 9,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "true"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000244,
+              "selector": "#Subject",
+              "caption": "Subject",
+              "dbName": "Subject",
+              "orderNumber": 10,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "formula": {
+                "type": "code",
+                "code": "string.IsNullOrEmpty( {Subject} ) ?  {Title} : {Subject} ",
+                "executionTime": [
+                  "afterUpdate"
+                ]
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000575,
+              "selector": "#Priority",
+              "caption": "Priority",
+              "dbName": "Priority",
+              "orderNumber": 11,
+              "fieldType": "enum",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "3"
+              },
+              "values": [
+                {
+                  "value": 1,
+                  "caption": "بالا"
+                },
+                {
+                  "value": 2,
+                  "caption": "متوسط"
+                },
+                {
+                  "value": 3,
+                  "caption": "پایین"
+                }
+              ]
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000000585,
+              "selector": "#RelatedMo",
+              "caption": "RelatedMo",
+              "dbName": "RelatedMo",
+              "orderNumber": 13,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": {
+                "objectType": "entity",
+                "unsupported": true,
+                "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+              },
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000000586,
+              "selector": "#MetaTypeDef",
+              "caption": "MetaTypeDef",
+              "dbName": "MetaTypeDef",
+              "orderNumber": 15,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "formula": {
+                "type": "code",
+                "code": "var relatedMo = mo.GetFieldValue_MetaObject(\"RelatedMo\");\r\nif (relatedMo == null)\r\n\treturn 0;\r\nreturn relatedMo.TypeDefId;",
+                "executionTime": [
+                  "afterCreate",
+                  "afterUpdate"
+                ]
+              },
+              "target": "#Meta01|MetaTypeDef",
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000592,
+              "selector": "#Actions",
+              "caption": "Actions",
+              "dbName": "Actions",
+              "orderNumber": 18,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000595,
+              "selector": "#RelatedMoNama",
+              "caption": "RelatedMoNama",
+              "dbName": "RelatedMoNama",
+              "orderNumber": 19,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000596,
+              "selector": "#ChoiceList",
+              "caption": "ChoiceList",
+              "dbName": "ChoiceList",
+              "orderNumber": 20,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000597,
+              "selector": "#HideShowButton",
+              "caption": "HideShowButton",
+              "dbName": "HideShowButton",
+              "orderNumber": 21,
+              "fieldType": "bool",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000598,
+              "selector": "#HideDeleteButton",
+              "caption": "HideDeleteButton",
+              "dbName": "HideDeleteButton",
+              "orderNumber": 22,
+              "fieldType": "bool",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000599,
+              "selector": "#OverflowButtons",
+              "caption": "OverflowButtons",
+              "dbName": "OverflowButtons",
+              "orderNumber": 23,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "true"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000611,
+              "selector": "#UiActions",
+              "caption": "UiActions",
+              "dbName": "UiActions",
+              "orderNumber": 24,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000612,
+              "selector": "#Tag",
+              "caption": "Tag",
+              "dbName": "Tag",
+              "orderNumber": 25,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000629,
+              "selector": "#Expire",
+              "caption": "Expire",
+              "dbName": "Expire",
+              "orderNumber": 26,
+              "fieldType": "date",
+              "jsonProperty": null,
+              "dateFormat": "yyyy/MM/dd",
+              "timeFormat": "HH:mm"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010915,
+              "selector": "#Image",
+              "caption": "Image",
+              "dbName": "Image",
+              "orderNumber": 27,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": 800
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010916,
+              "selector": "#Vibrate",
+              "caption": "Vibrate",
+              "dbName": "Vibrate",
+              "orderNumber": 28,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010917,
+              "selector": "#Silent",
+              "caption": "Silent",
+              "dbName": "Silent",
+              "orderNumber": 29,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "true"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000011134,
+              "selector": "#ShowPopup",
+              "caption": "ShowPopup",
+              "dbName": "ShowPopup",
+              "orderNumber": 30,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "true"
+              }
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071993,
+              "selector": "#تاریخ ایجاد",
+              "caption": "تاریخ ایجاد",
+              "dbName": "CreationDateOnly",
+              "orderNumber": 31,
+              "fieldType": "date",
+              "jsonProperty": null,
+              "formula": {
+                "type": "code",
+                "code": " {IMessage}.{زمان ایجاد} ",
+                "executionTime": [
+                  "afterUpdate"
+                ]
+              },
+              "dateFormat": "yyyy/MM/dd",
+              "timeFormat": "",
+              "relativeFormat": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000082741,
+              "selector": "#حذف همه",
+              "caption": "حذف همه",
+              "dbName": "F1",
+              "orderNumber": 34,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "listObject"
+              ],
+              "listStateAlways": true,
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000477,
+                  "definitionId": 1005020170000000106,
+                  "settingsId": 7097020200000000129,
+                  "settings": [
+                    {
+                      "id": 7097020200000000129,
+                      "type": "دستور-اجرای کد واسط کاربری",
+                      "كد وب": "Bw.Msg.YesNo('آیا از حذف اعلان ها مطمئن هستید؟', 'حذف اعلان ها', function(buttonId){\r\n   if (buttonId == 'yes')\r\n\t\tBw.RunBlMethod(\"PushNotification_RemoveAll\");\r\n   });\r\n"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000082742,
+              "selector": "#حذف همه بجز امروز",
+              "caption": "حذف همه بجز امروز",
+              "dbName": "F2",
+              "orderNumber": 33,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "listObject"
+              ],
+              "listStateAlways": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000476,
+                  "definitionId": 1005020170000000106,
+                  "settingsId": 7097020200000000130,
+                  "settings": [
+                    {
+                      "id": 7097020200000000130,
+                      "type": "دستور-اجرای کد واسط کاربری",
+                      "كد وب": "Bw.Msg.YesNo('آیا از حذف اعلان ها مطمئن هستید؟', 'حذف اعلان ها بجز امروز', function (buttonId) {\r\n\tif (buttonId == 'yes')\r\n\t\tBw.RunBlMethod(\"PushNotification_RemoveAll_ExceptToday\");\r\n});\r\n"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000082743,
+              "selector": "#حذف همه بجز این هفته",
+              "caption": "حذف همه بجز این هفته",
+              "dbName": "F3",
+              "orderNumber": 32,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "listObject"
+              ],
+              "listStateAlways": true,
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000475,
+                  "definitionId": 1005020170000000106,
+                  "settingsId": 7097020200000000131,
+                  "settings": [
+                    {
+                      "id": 7097020200000000131,
+                      "type": "دستور-اجرای کد واسط کاربری",
+                      "كد وب": "Bw.Msg.YesNo('آیا از حذف اعلان ها مطمئن هستید؟', 'حذف اعلان ها بجز این هفته', function (buttonId) {\r\n\tif (buttonId == 'yes')\r\n\t\tBw.RunBlMethod(\"PushNotification_RemoveAll_ExceptThisWeek\");\r\n});\r\n"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 7097413700000000117,
+              "selector": "#نمای 1",
+              "name": "نمای 1",
+              "definition": {}
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000000129,
+          "selector": "#SmsMessage",
+          "caption": "SmsMessage",
+          "DbName": "dyn_128",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000000264,
+              "selector": "#Text",
+              "caption": "Text",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000265,
+              "selector": "#ToNumber",
+              "caption": "ToNumber",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000000279,
+              "selector": "#IMessage",
+              "caption": "IMessage",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "inheritance",
+              "isReadOnly": true,
+              "jsonProperty": null,
+              "target": "#IMessage",
+              "isOneToOne": true,
+              "isComposed": true,
+              "hideCombo": true,
+              "viewRelatedFormType": "show",
+              "parentField": "#IMessage|فرزند",
+              "baseOnParentRelation": true
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000000131,
+          "selector": "#SenderDemo",
+          "caption": "SenderDemo",
+          "DbName": "dyn_101",
+          "Settings": {
+            "DefaultEditViewId": "#نمای 1"
+          },
+          "iconName": "Barsa2:F_Bsc_alarm",
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000000283,
+              "selector": "#Title",
+              "caption": "Title",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000284,
+              "selector": "#Content",
+              "caption": "Content",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000285,
+              "selector": "#Send",
+              "caption": "Send",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000156,
+                  "definitionId": 1005020170000000106,
+                  "settingsId": 7097020200000000100,
+                  "settings": [
+                    {
+                      "id": 7097020200000000100,
+                      "type": "دستور-اجرای کد واسط کاربری",
+                      "caption": "Util.RunBlMethod(\"Te",
+                      "كد ويندوز": "Util.RunBlMethod(\"TestSendNotification\",mo);",
+                      "كد وب": "Bw.RunBlMethod(\"TestSendNotification\",mo);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000590,
+              "selector": "#تایید",
+              "caption": "تایید",
+              "dbName": "F4",
+              "orderNumber": 4,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000160,
+                  "definitionId": 1005020170000000102,
+                  "settingsId": 7097020220000000102,
+                  "settings": [
+                    {
+                      "id": 7097020220000000102,
+                      "type": "دستور-نمایش پیغام",
+                      "caption": "\"Ok\"",
+                      "فرمول": "\"Ok\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000000594,
+              "selector": "#رد",
+              "caption": "رد",
+              "dbName": "F5",
+              "orderNumber": 5,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000161,
+                  "definitionId": 1005020170000000102,
+                  "settingsId": 7097020220000000103,
+                  "settings": [
+                    {
+                      "id": 7097020220000000103,
+                      "type": "دستور-نمایش پیغام",
+                      "caption": "\"رد\"",
+                      "فرمول": "\"رد\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000010881,
+              "selector": "#User",
+              "caption": "User",
+              "dbName": "F6",
+              "orderNumber": 6,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#@SplUser",
+              "viewRelatedFormType": "show"
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 7097413700000000137,
+              "selector": "#نمای 1",
+              "name": "نمای 1",
+              "definition": {}
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000010182,
+          "selector": "#PushNotificationOption",
+          "caption": "PushNotificationOption",
+          "DbName": "dyn_214",
+          "Settings": {
+            "BaseInfoType": 3
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000010823,
+              "selector": "#PublicKey",
+              "caption": "PublicKey",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010824,
+              "selector": "#PrivateKey",
+              "caption": "PrivateKey",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000010183,
+          "selector": "#UserSubscription",
+          "caption": "UserSubscription",
+          "DbName": "dyn_215",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000010825,
+              "selector": "#Endpoint",
+              "caption": "Endpoint",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000010826,
+              "selector": "#Keys",
+              "caption": "Keys",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "reverseSingleListRelation",
+              "jsonProperty": null,
+              "destinationField": "#SubscriptionKey|Subscription",
+              "isComposed": true,
+              "viewType": "selectionList"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010831,
+              "selector": "#کاربر ایجاد کننده",
+              "caption": "کاربر ایجاد کننده",
+              "dbName": "CreatorUser",
+              "orderNumber": 3,
+              "fieldType": "creatorUser",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010844,
+              "selector": "#Token",
+              "caption": "Token",
+              "dbName": "F3",
+              "orderNumber": 4,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000010184,
+          "selector": "#SubscriptionKey",
+          "caption": "SubscriptionKey",
+          "DbName": "dyn_216",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 7097413510000010827,
+              "selector": "#Subscription",
+              "caption": "Subscription",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#UserSubscription",
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010829,
+              "selector": "#Key",
+              "caption": "Key",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010830,
+              "selector": "#Value",
+              "caption": "Value",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000010193,
+          "selector": "#نوتیفیکشن",
+          "caption": "نوتیفیکشن",
+          "DbName": "dyn_222",
+          "Settings": {
+            "DefaultEditViewId": "#نمای اصلی",
+            "RuleList": [
+              {
+                "type": "businessRule",
+                "key": "~166105",
+                "events": [
+                  {
+                    "type": "form",
+                    "event": "beforeSave"
+                  }
+                ],
+                "hasConditions": true,
+                "branches": [
+                  {
+                    "condition": {
+                      "operator": "equal",
+                      "field": "#پایان عملیات تست قواعد",
+                      "value": "true",
+                      "customCodeExecutePerRow": true
+                    },
+                    "actions": [
+                      {
+                        "type": "showMessage",
+                        "messageType": "okCancel",
+                        "position": "popup",
+                        "evaluate": "code",
+                        "code": "\r\nif(true)\r\n    return \"Message\";\r\nelse\r\n    return null;//ignore show message!\r\n"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000010889,
+              "selector": "#عنوان",
+              "caption": "عنوان",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010890,
+              "selector": "#محتوا",
+              "caption": "محتوا",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000010892,
+              "selector": "#شی مرتبط",
+              "caption": "شی مرتبط",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": {
+                "objectType": "entity",
+                "unsupported": true,
+                "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+              },
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000010894,
+              "selector": "#کاربر",
+              "caption": "کاربر",
+              "dbName": "F4",
+              "orderNumber": 4,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#@SplUser",
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000010896,
+              "selector": "#دستورات",
+              "caption": "دستورات",
+              "dbName": "F5",
+              "orderNumber": 5,
+              "fieldType": "reverseSingleListRelation",
+              "jsonProperty": null,
+              "destinationField": "#دستورنوتیفیکشن|نوتیفیکشن",
+              "isComposed": true,
+              "viewType": "selectionList"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010901,
+              "selector": "#ارسال نوتیفیکشن",
+              "caption": "ارسال نوتیفیکشن",
+              "dbName": "F6",
+              "orderNumber": 6,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true,
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000220,
+                  "definitionId": 1005020170000000106,
+                  "settingsId": 7097020200000000109,
+                  "settings": [
+                    {
+                      "id": 7097020200000000109,
+                      "type": "دستور-اجرای کد واسط کاربری",
+                      "كد وب": "debugger;\r\nBw.RunBlMethod(\"SendNotification\",context.Mo);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000011013,
+              "selector": "#پایان عملیات تست قواعد",
+              "caption": "پایان عملیات تست قواعد",
+              "dbName": "F7",
+              "orderNumber": 7,
+              "fieldType": "bool",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000011026,
+              "selector": "#اطلاعات کالا",
+              "caption": "اطلاعات کالا",
+              "dbName": "F8",
+              "orderNumber": 8,
+              "fieldType": "reportRelation",
+              "jsonProperty": null,
+              "icon": "Barsa:OF_CustomTableOfContentsGallery",
+              "reportId": "#رابطه اطلاعات کالا",
+              "target": "#تست|اطلاعات کالا",
+              "گزارش فیلد": [
+                {
+                  "$type": "report",
+                  "id": 7097413530000010217,
+                  "selector": "#رابطه اطلاعات کالا",
+                  "name": "رابطه اطلاعات کالا",
+                  "entity": "#اطلاعات کالا",
+                  "reportType": "form",
+                  "columns": [
+                    {
+                      "field": "#عنوان و کد کالا",
+                      "alias": "عنوان و کد کالا"
+                    },
+                    {
+                      "field": "#عنوان",
+                      "alias": "عنوان"
+                    },
+                    {
+                      "field": "#کد",
+                      "alias": "کد"
+                    },
+                    {
+                      "field": "#زمان ایجاد",
+                      "alias": "زمان ایجاد"
+                    },
+                    {
+                      "field": "#کاربر ایجاد کننده",
+                      "alias": "کاربر ایجاد کننده"
+                    },
+                    {
+                      "field": "#متن پیشرفته",
+                      "alias": "متن پیشرفته"
+                    }
+                  ],
+                  "condition": {
+                    "all": []
+                  },
+                  "joinAliases": [],
+                  "typeView": "#رابطه اطلاعات کالا",
+                  "immediateExecute": false,
+                  "systemId": "#Push Notification"
+                }
+              ]
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000011106,
+              "selector": "#اطلاعات کالاص",
+              "caption": "اطلاعات کالاص",
+              "dbName": "F9",
+              "orderNumber": 9,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#تست|اطلاعات کالا",
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000051709,
+              "selector": "#ثبت درخواست",
+              "caption": "ثبت درخواست",
+              "dbName": "F10",
+              "orderNumber": 10,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "contextMenu"
+              ],
+              "listStateAlways": true,
+              "listStateSingleSelect": true,
+              "اجراي الگو": [
+                {
+                  "id": 7097023930000000925,
+                  "$type": "اجرای الگو",
+                  "$caption": "FormToolbarButton",
+                  "الگو": 1011023910000000218,
+                  "شيء": 7097413510000051709,
+                  "پارامترها": 7097023990000000244,
+                  "پارامترها [relation]": [
+                    {
+                      "id": 7097023990000000244,
+                      "$type": "ButtonSetting",
+                      "$caption": "emphasized",
+                      "FdType": 1,
+                      "Icon": "accept",
+                      "Show Tooltip": true
+                    }
+                  ]
+                }
+              ],
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000281,
+                  "definitionId": 1005020170000000102,
+                  "settingsId": 7097020220000000120,
+                  "settings": [
+                    {
+                      "id": 7097020220000000120,
+                      "type": "دستور-نمایش پیغام",
+                      "caption": "\"bbbb\"",
+                      "فرمول": "\"bbbb\""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000051710,
+              "selector": "#فایل تصویر",
+              "caption": "فایل تصویر",
+              "dbName": "F11",
+              "orderNumber": 11,
+              "fieldType": "pictureFile",
+              "jsonProperty": null,
+              "sizeMode": "stretchImage"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000051712,
+              "selector": "#ارسال به کارشناس",
+              "caption": "ارسال به کارشناس",
+              "dbName": "F12",
+              "orderNumber": 12,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "contextMenu"
+              ],
+              "listStateAlways": true,
+              "listStateSingleSelect": true,
+              "اجراي الگو": [
+                {
+                  "id": 7097023930000000926,
+                  "$type": "اجرای الگو",
+                  "$caption": "FormToolbarButton",
+                  "الگو": 1011023910000000218,
+                  "شيء": 7097413510000051712,
+                  "پارامترها": 7097023990000000246,
+                  "پارامترها [relation]": [
+                    {
+                      "id": 7097023990000000246,
+                      "$type": "ButtonSetting",
+                      "$caption": "negative",
+                      "FdType": 4,
+                      "Icon": "decline",
+                      "Show Tooltip": true
+                    }
+                  ]
+                }
+              ],
+              "dynamicCommands": [
+                {
+                  "id": 7097020190000000282,
+                  "definitionId": 1005020170000000102,
+                  "settingsId": 7097020220000000119,
+                  "settings": [
+                    {
+                      "id": 7097020220000000119,
+                      "type": "دستور-نمایش پیغام",
+                      "caption": "\"aaa\"",
+                      "فرمول": "\"aaa\""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 7097413700000000145,
+              "selector": "#نمای اصلی",
+              "name": "نمای اصلی",
+              "definition": {
+                "selectedRules": [
+                  "#[businessRule]\\~166105"
+                ]
+              },
+              "اجراي الگو": [
+                {
+                  "id": 7097023930000000383,
+                  "$type": "اجرای الگو",
+                  "$caption": "UiFormPanel",
+                  "الگو": 1013023910000000178,
+                  "شيء": 7097413700000000145,
+                  "پارامترها": 7097023880000000109,
+                  "پارامترها [relation]": [
+                    {
+                      "id": 7097023880000000109,
+                      "$type": "FormPanelSetting",
+                      "$caption": "BarsaFormSideContent",
+                      "LayoutComponent": 7097023930000000382,
+                      "دكمه ارسال": 7097023930000000415,
+                      "دكمه ذخيره": 7097023930000000416,
+                      "دكمه انصراف": 7097023930000000417,
+                      "LayoutComponent [relation]": [
+                        {
+                          "id": 7097023930000000382,
+                          "$type": "اجرای الگو",
+                          "$caption": "BarsaFormSideContent",
+                          "الگو": 7097023910000000116,
+                          "پارامترها": 7097028250000000102,
+                          "پارامترها [relation]": [
+                            {
+                              "id": 7097028250000000102,
+                              "$type": "BarsaFormSideContentSetting",
+                              "$caption": "Side Content",
+                              "عنوان گروه يا تب بخش كناري": "Side Content",
+                              "عنوان گروه يا تب اصلي": "Main Content",
+                              "عدم نمايش عنوان بخش كناري": true,
+                              "عدم نمايش عنوان بخش اصلي": true,
+                              "رنگ پس زمينه": "var(--fdCard_Background_Color)",
+                              "طول تب اصلي": "80%"
+                            }
+                          ]
+                        }
+                      ],
+                      "دكمه ارسال [relation]": [
+                        {
+                          "id": 7097023930000000415,
+                          "$type": "اجرای الگو",
+                          "پارامترها": 0,
+                          "پارامترها [relation]": []
+                        }
+                      ],
+                      "دكمه ذخيره [relation]": [
+                        {
+                          "id": 7097023930000000416,
+                          "$type": "اجرای الگو",
+                          "پارامترها": 0,
+                          "پارامترها [relation]": []
+                        }
+                      ],
+                      "دكمه انصراف [relation]": [
+                        {
+                          "id": 7097023930000000417,
+                          "$type": "اجرای الگو",
+                          "پارامترها": 0,
+                          "پارامترها [relation]": []
+                        }
+                      ],
+                      "FormLayoutItemSetting": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "view",
+              "id": 7097413700000000146,
+              "selector": "#نمای ردیف زیر فرم گزارش",
+              "name": "نمای ردیف زیر فرم گزارش",
+              "definition": {}
+            },
+            {
+              "$type": "view",
+              "id": 7097413700000000150,
+              "selector": "#گزارش مرتبط",
+              "name": "گزارش مرتبط",
+              "definition": {}
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000010194,
+          "selector": "#دستورنوتیفیکشن",
+          "caption": "دستورنوتیفیکشن",
+          "DbName": "dyn_223",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 7097413510000010897,
+              "selector": "#نوتیفیکشن",
+              "caption": "نوتیفیکشن",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#نوتیفیکشن",
+              "viewRelatedFormType": "show"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010898,
+              "selector": "#عنوان",
+              "caption": "عنوان",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010899,
+              "selector": "#آیکن",
+              "caption": "آیکن",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000010900,
+              "selector": "#وضعیت",
+              "caption": "وضعیت",
+              "dbName": "F4",
+              "orderNumber": 4,
+              "fieldType": "enum",
+              "jsonProperty": null,
+              "values": [
+                {
+                  "value": 2,
+                  "caption": "transparent"
+                },
+                {
+                  "value": 5,
+                  "caption": "attention"
+                },
+                {
+                  "value": 4,
+                  "caption": "negative"
+                },
+                {
+                  "value": 7,
+                  "caption": "poistive"
+                },
+                {
+                  "value": 6,
+                  "caption": "ghost"
+                },
+                {
+                  "value": 1,
+                  "caption": "emphasized"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050389,
+          "selector": "#MessageData",
+          "caption": "MessageData",
+          "DbName": "dyn_369",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000071964,
+              "selector": "#Content",
+              "caption": "Content",
+              "dbName": "Content",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071965,
+              "selector": "#ToContacts",
+              "caption": "ToContacts",
+              "dbName": "ToContacts",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071967,
+              "selector": "#زمان ایجاد",
+              "caption": "زمان ایجاد",
+              "dbName": "CreationDate",
+              "orderNumber": 3,
+              "fieldType": "creationDate",
+              "jsonProperty": null,
+              "dateFormat": "yyyy/MM/dd",
+              "timeFormat": ""
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071969,
+              "selector": "#کاربر ایجاد کننده",
+              "caption": "کاربر ایجاد کننده",
+              "dbName": "CreatorUser",
+              "orderNumber": 4,
+              "fieldType": "creatorUser",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071970,
+              "selector": "#SentToWebService",
+              "caption": "SentToWebService",
+              "dbName": "SentToWebService",
+              "orderNumber": 5,
+              "fieldType": "bool",
+              "jsonProperty": null
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050390,
+          "selector": "#WhatsappSettings",
+          "caption": "WhatsappSettings",
+          "DbName": "dyn_370",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000071971,
+              "selector": "#عنوان",
+              "caption": "عنوان",
+              "dbName": "Title",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071972,
+              "selector": "#آدرس وب سرویس واتس اپ",
+              "caption": "آدرس وب سرویس واتس اپ",
+              "dbName": "WebServerAddress",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "isLeftToRight": true,
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071973,
+              "selector": "#غیرفعال",
+              "caption": "غیرفعال",
+              "dbName": "Disabled",
+              "orderNumber": 5,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000071982,
+              "selector": "#کلاینت واتس اپ",
+              "caption": "کلاینت واتس اپ",
+              "dbName": "WhatsappClient",
+              "orderNumber": 4,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#WhatsAppClient"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072012,
+              "selector": "#برای نوتیفیکشن",
+              "caption": "برای نوتیفیکشن",
+              "dbName": "IsForNotification",
+              "orderNumber": 6,
+              "fieldType": "bool",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072013,
+              "selector": "#آدرس سایت",
+              "caption": "آدرس سایت",
+              "dbName": "HostDomain",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "isLeftToRight": true,
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "https://portal.barsasoft.com"
+              }
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050391,
+          "selector": "#سرویس دهنده واتس اپ",
+          "caption": "سرویس دهنده واتس اپ",
+          "DbName": "dyn_371",
+          "Settings": {
+            "DefaultEditViewId": "#نمای 1"
+          },
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000071978,
+              "selector": "#سیاست ها",
+              "caption": "سیاست ها",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "relation",
+              "id": 7097413510000071981,
+              "selector": "#رابطه ارث بری",
+              "caption": "رابطه ارث بری",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "inheritance",
+              "isReadOnly": true,
+              "jsonProperty": null,
+              "target": "#زیرساخت ارسال و دریافت|سرویس دهنده ارسال و دریافت",
+              "isOneToOne": true,
+              "isComposed": true,
+              "hideCombo": true,
+              "viewRelatedFormType": "show",
+              "parentField": "#زیرساخت ارسال و دریافت|سرویس دهنده ارسال و دریافت|فرزند",
+              "baseOnParentRelation": true
+            }
+          ],
+          "MetaTypeViewEntity": [
+            {
+              "$type": "view",
+              "id": 7097413700000020216,
+              "selector": "#نمای 1",
+              "name": "نمای 1",
+              "definition": {}
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050392,
+          "selector": "#NotificationMessageGroup",
+          "caption": "NotificationMessageGroup",
+          "DbName": "dyn_372",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000071986,
+              "selector": "#زمان ایجاد",
+              "caption": "زمان ایجاد",
+              "dbName": "CreationDate",
+              "orderNumber": 1,
+              "fieldType": "date",
+              "jsonProperty": null,
+              "dateFormat": "yyyy/MM/dd",
+              "timeFormat": "",
+              "relativeFormat": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071987,
+              "selector": "#تعداد",
+              "caption": "تعداد",
+              "dbName": "RecordCount",
+              "orderNumber": 2,
+              "fieldType": "float",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071988,
+              "selector": "#موضوع",
+              "caption": "موضوع",
+              "dbName": "Subject",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071989,
+              "selector": "#اولویت",
+              "caption": "اولویت",
+              "dbName": "Priority",
+              "orderNumber": 4,
+              "fieldType": "enum",
+              "jsonProperty": null,
+              "values": [
+                {
+                  "value": 1,
+                  "caption": "بالا"
+                },
+                {
+                  "value": 2,
+                  "caption": "متوسط"
+                },
+                {
+                  "value": 3,
+                  "caption": "پایین"
+                }
+              ]
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000071990,
+              "selector": "#خوانده نشده",
+              "caption": "خوانده نشده",
+              "dbName": "UnreadCount",
+              "orderNumber": 5,
+              "fieldType": "int",
+              "jsonProperty": null
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050394,
+          "selector": "#شماره واتس اپ اعضا",
+          "caption": "شماره واتس اپ اعضا",
+          "DbName": "dyn_374",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 7097413510000072009,
+              "selector": "#SplUser",
+              "caption": "SplUser",
+              "dbName": "SplUser",
+              "orderNumber": 1,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#@SplUser"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072010,
+              "selector": "#شماره واتس اپ",
+              "caption": "شماره واتس اپ",
+              "dbName": "F1",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072014,
+              "selector": "#غیرفعال",
+              "caption": "غیرفعال",
+              "dbName": "Disabled",
+              "orderNumber": 3,
+              "fieldType": "bool",
+              "jsonProperty": null,
+              "defaultValue": {
+                "type": "constantValue",
+                "value": "false"
+              }
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050401,
+          "selector": "#WhatsappGroup",
+          "caption": "WhatsappGroup",
+          "DbName": "dyn_367",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "relation",
+              "id": 7097413510000072033,
+              "selector": "#WhatsAppClient",
+              "caption": "WhatsAppClient",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "singleRelation",
+              "jsonProperty": null,
+              "target": "#WhatsAppClient"
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072034,
+              "selector": "#نام",
+              "caption": "نام",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072035,
+              "selector": "#اعضا",
+              "caption": "اعضا",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072036,
+              "selector": "#آیدی گروه",
+              "caption": "آیدی گروه",
+              "dbName": "GroupId",
+              "orderNumber": 4,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072037,
+              "selector": "#تاریخ ایجاد",
+              "caption": "تاریخ ایجاد",
+              "dbName": "F4",
+              "orderNumber": 5,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072038,
+              "selector": "#سرور",
+              "caption": "سرور",
+              "dbName": "F5",
+              "orderNumber": 6,
+              "fieldType": "string",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072039,
+              "selector": "#توضیحات گروه",
+              "caption": "توضیحات گروه",
+              "dbName": "F6",
+              "orderNumber": 7,
+              "fieldType": "string",
+              "jsonProperty": null
+            }
+          ]
+        },
+        {
+          "$type": "entity",
+          "id": 7097413500000050410,
+          "selector": "#تست ارسال فایل",
+          "caption": "تست ارسال فایل",
+          "DbName": "dyn_380",
+          "Settings": {},
+          "MetaFieldDef": [
+            {
+              "$type": "field",
+              "id": 7097413510000072072,
+              "selector": "#گیرندگان",
+              "caption": "گیرندگان",
+              "dbName": "F1",
+              "orderNumber": 1,
+              "fieldType": "string",
+              "jsonProperty": null,
+              "maximumLength": -1,
+              "isMultiline": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072073,
+              "selector": "#فایل",
+              "caption": "فایل",
+              "dbName": "F2",
+              "orderNumber": 2,
+              "fieldType": "file",
+              "jsonProperty": null
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072074,
+              "selector": "#ارسال به واتس اپ گیرندگان",
+              "caption": "ارسال به واتس اپ گیرندگان",
+              "dbName": "F3",
+              "orderNumber": 3,
+              "fieldType": "command",
+              "jsonProperty": null,
+              "displayType": "toolbar",
+              "executeTarget": [
+                "singleObject",
+                "singleObject"
+              ],
+              "listStateSingleSelect": true
+            },
+            {
+              "$type": "field",
+              "id": 7097413510000072075,
+              "selector": "#متن ارسالی با فایل",
+              "caption": "متن ارسالی با فایل",
+              "dbName": "F4",
+              "orderNumber": 4,
+              "fieldType": "string",
+              "jsonProperty": null
+            }
+          ]
+        }
+      ],
+      "اطلاعات سيستم": [
+        {
+          "id": 7097020460000000101,
+          "$type": "اطلاعات سیستم",
+          "$caption": "Push Notification",
+          "عنوان": "Push Notification",
+          "زيرسيستم": 7097413550000000101,
+          "نسخه سيستم": [
+            {
+              "id": 7097020470000000103,
+              "$type": "نسخه سیستم",
+              "$caption": "0.1",
+              "شماره نسخه": "0.1",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "تاريخ ايجاد": "2023-12-26T13:21:02.8770000"
+            },
+            {
+              "id": 7097020470000000109,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.141",
+              "شماره نسخه": "2.3.141",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "تاريخ ايجاد": "2026-05-03T15:20:01.1430000"
+            },
+            {
+              "id": 7097020470000000119,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.146",
+              "شماره نسخه": "2.3.146",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000109,
+              "تاريخ ايجاد": "2026-05-20T14:09:24.6470000"
+            },
+            {
+              "id": 7097020470000000122,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.147",
+              "شماره نسخه": "2.3.147",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000119,
+              "تاريخ ايجاد": "2026-05-23T16:04:36.0500000"
+            },
+            {
+              "id": 7097020470000000125,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.148",
+              "شماره نسخه": "2.3.148",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000122,
+              "تاريخ ايجاد": "2026-05-24T14:37:25.5500000"
+            },
+            {
+              "id": 7097020470000000128,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.149",
+              "شماره نسخه": "2.3.149",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000125,
+              "تاريخ ايجاد": "2026-05-31T15:23:24.4300000"
+            },
+            {
+              "id": 7097020470000000132,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.154",
+              "شماره نسخه": "2.3.154",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000128,
+              "تاريخ ايجاد": "2026-06-09T13:07:51.6300000"
+            },
+            {
+              "id": 7097020470000000136,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.157",
+              "شماره نسخه": "2.3.157",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000132,
+              "تاريخ ايجاد": "2026-06-16T13:41:19.2100000"
+            },
+            {
+              "id": 7097020470000000139,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.159",
+              "شماره نسخه": "2.3.159",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000136,
+              "تاريخ ايجاد": "2026-06-30T10:29:03.9130000"
+            },
+            {
+              "id": 7097020470000000143,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.163",
+              "شماره نسخه": "2.3.163",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000139,
+              "تاريخ ايجاد": "2026-07-19T12:53:36.0670000"
+            },
+            {
+              "id": 7097020470000000146,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.164",
+              "شماره نسخه": "2.3.164",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000143,
+              "تاريخ ايجاد": "2026-07-25T16:44:04.8670000"
+            },
+            {
+              "id": 7097020470000000149,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.165",
+              "شماره نسخه": "2.3.165",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000146,
+              "تاريخ ايجاد": "2026-07-28T18:04:47.3730000"
+            },
+            {
+              "id": 7097020470000000152,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.166",
+              "شماره نسخه": "2.3.166",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000149,
+              "تاريخ ايجاد": "2026-07-29T17:24:22.6230000"
+            },
+            {
+              "id": 7097020470000000155,
+              "$type": "نسخه سیستم",
+              "$caption": "2.3.167",
+              "شماره نسخه": "2.3.167",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000152,
+              "تاريخ ايجاد": "2026-08-01T15:14:53.6330000"
+            },
+            {
+              "id": 7097020470000000160,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.0",
+              "شماره نسخه": "3.0.0",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000155,
+              "تاريخ ايجاد": "2026-08-09T17:35:06.9270000"
+            },
+            {
+              "id": 7097020470000000165,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.1",
+              "شماره نسخه": "3.0.1",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000160,
+              "تاريخ ايجاد": "2026-08-18T12:58:30.6370000"
+            },
+            {
+              "id": 7097020470000000166,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.2",
+              "شماره نسخه": "3.0.2",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000165,
+              "تاريخ ايجاد": "2026-08-20T10:11:55.0700000"
+            },
+            {
+              "id": 7097020470000000171,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.3",
+              "شماره نسخه": "3.0.3",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000166,
+              "تاريخ ايجاد": "2026-08-25T18:38:20.5970000"
+            },
+            {
+              "id": 7097020470000000174,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.4",
+              "شماره نسخه": "3.0.4",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000171,
+              "تاريخ ايجاد": "2026-08-29T18:28:16.3100000"
+            },
+            {
+              "id": 7097020470000000177,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.5",
+              "شماره نسخه": "3.0.5",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000174,
+              "تاريخ ايجاد": "2026-09-01T16:48:51.1800000"
+            },
+            {
+              "id": 7097020470000000179,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.6",
+              "شماره نسخه": "3.0.6",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000177,
+              "تاريخ ايجاد": "2026-09-07T09:10:26.5130000"
+            },
+            {
+              "id": 7097020470000000183,
+              "$type": "نسخه سیستم",
+              "$caption": "3.0.7",
+              "شماره نسخه": "3.0.7",
+              "سيستم مرتبط": 7097020460000000101,
+              "BackwardCompatible": true,
+              "ForwardCompatible": true,
+              "نسخه قبلي": 7097020470000000179,
+              "تاريخ ايجاد": "2026-09-13T11:53:47.1300000"
+            }
+          ]
+        }
+      ],
+      "وب سرويس خروجي": [
+        {
+          "id": 7097021430000000102,
+          "$type": "وب سرویس خروجی",
+          "$caption": "WhatsAppEvents",
+          "نام": "WhatsAppEvents",
+          "كنترل دسترسي دارد": false,
+          "متد": 2,
+          "فرمت داده ها": 1,
+          "كد": "\r\nusing Barsa.Spl;\r\nusing System;\r\nusing System.Linq;\r\nusing System.Collections.Generic;\r\n\r\n\r\nnamespace Barsa.Meta\r\n{\r\n\t[BarsaWebService]\r\n\tclass WebService1\r\n\t{\r\n\t\t[BarsaWebService]\r\n\t\tpublic int WhatsAppEvents(string eventName, string data, string clientId)\r\n\t\t{\r\n\t\t\t//Start of formula\r\n\t\t\tUtil.RunBlMethod(\"OnWhatsAppEvents\", eventName, data, clientId);\r\n\r\n\t\t\t//End of formula\r\n\t\t\treturn 0;\r\n\t\t}\r\n\t}\r\n}\r\n",
+          "زيرسيستم": 7097413550000000101,
+          "بدون احراز هويت": true,
+          "احراز هويت": 1005020300000000100,
+          "پارامتر وب سرويس خروجي": [
+            {
+              "id": 7097021450000000104,
+              "$type": "پارامتر وب سرویس خروجی",
+              "$caption": "WhatsAppEvents",
+              "وب سرويس خروجي": 7097021430000000102,
+              "عنوان": "eventName",
+              "نوع": 1005020050000000100,
+              "خروجي": false,
+              "ليست": false,
+              "نام كلاس": "Barsa.Meta."
+            },
+            {
+              "id": 7097021450000000105,
+              "$type": "پارامتر وب سرویس خروجی",
+              "$caption": "WhatsAppEvents",
+              "وب سرويس خروجي": 7097021430000000102,
+              "عنوان": "data",
+              "نوع": 1005020050000000100,
+              "خروجي": false,
+              "ليست": false,
+              "نام كلاس": "Barsa.Meta."
+            },
+            {
+              "id": 7097021450000000106,
+              "$type": "پارامتر وب سرویس خروجی",
+              "$caption": "WhatsAppEvents",
+              "وب سرويس خروجي": 7097021430000000102,
+              "عنوان": "clientId",
+              "نوع": 1005020050000000100,
+              "خروجي": false,
+              "ليست": false,
+              "نام كلاس": "Barsa.Meta."
+            }
+          ]
+        }
+      ],
+      "پوشه اصلی": [
+        {
+          "$type": "navigationRoot",
+          "kind": "root",
+          "دسترسی ساختار": [],
+          "MetaFolder": [
+            {
+              "$type": "navigationPage",
+              "name": "Push Notification",
+              "kind": "page",
+              "order": 10151,
+              "دسترسی ساختار": [],
+              "items": [
+                {
+                  "$type": "navigationGroup",
+                  "name": "Base",
+                  "kind": "group",
+                  "order": 10118,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10119,
+                      "report": "#IMessage",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "Messages",
+                  "kind": "group",
+                  "order": 10120,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10121,
+                      "report": "#NotificationMessage",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10131,
+                      "report": "#SmsMessage",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "Settings",
+                  "kind": "group",
+                  "order": 10130,
+                  "دسترسی ساختار": []
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "Services",
+                  "kind": "group",
+                  "order": 10134,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10148,
+                      "report": "#یافتن کاربرآنلاین",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10149,
+                      "report": "#در انتظار ارسال",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "SendDemo",
+                  "kind": "group",
+                  "order": 10135,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10136,
+                      "report": "#SenderDemo",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10191,
+                      "report": "#نوتیفیکشن",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "PushNotification",
+                  "kind": "group",
+                  "order": 10173,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10174,
+                      "report": "#PushNotificationOption",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10175,
+                      "report": "#UserSubscription",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10176,
+                      "report": "#SubscriptionKey",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "Remove_Reports",
+                  "kind": "group",
+                  "order": 30490,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 30491,
+                      "report": "#_RemoveAll_NotificationMessage",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 30492,
+                      "report": "#_RemoveAll_ExceptToday_NotificationMessage",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 30493,
+                      "report": "#_RemoveAll_ExceptThisWeek_NotificationMessage",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 30527,
+                      "report": "#_FindNotificationByRelatedMoAndReciever",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "navigationPage",
+              "name": "Whatsapp",
+              "kind": "page",
+              "order": 20361,
+              "دسترسی ساختار": [],
+              "items": [
+                {
+                  "$type": "navigationGroup",
+                  "name": "پایه",
+                  "kind": "group",
+                  "order": 20362,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 10139,
+                      "report": "#WhatsAppClients",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20345,
+                      "report": "#Provider",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20346,
+                      "report": "#MessageData",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20347,
+                      "report": "#WhatsappSettings",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20349,
+                      "report": "#سرویس دهنده واتس اپ",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20350,
+                      "report": "#سرویس‎دهنده پیامک",
+                      "دسترسی ساختار": []
+                    },
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20360,
+                      "report": "#_Barsa_WhatsappPhoneNumber",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "navigationGroup",
+                  "name": "تست",
+                  "kind": "group",
+                  "order": 20378,
+                  "دسترسی ساختار": [],
+                  "items": [
+                    {
+                      "$type": "navigationReport",
+                      "kind": "report",
+                      "order": 20379,
+                      "report": "#تست ارسال فایل",
+                      "دسترسی ساختار": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "autoRoot": true
+        }
+      ],
+      "كد": [
+        {
+          "id": 7097413820000000106,
+          "$type": "Barsa.Meta.MetaCode",
+          "$caption": "کد زیرسیستم(منطق کار",
+          "SystemId": 7097413550000000101,
+          "ParentCodeId": 0,
+          "CodeLocation": 2,
+          "CodeLayer": "Bl",
+          "CodeLanguage": 1,
+          "TargetObjectId": 7097413550000000101,
+          "Code": "using System;\r\nusing System.Collections.Generic;\r\nusing System.Text;\r\nusing System.Linq;\r\nusing System.Reflection;\r\nusing System.Drawing;\r\nusing System.Threading.Tasks;\r\nusing System.Text.RegularExpressions;\r\nusing Barsa.Spl;\r\nusing Barsa.Meta;\r\n//@Newtonsoft.Json.dll\r\nusing Barsa.Workflow;\r\n\r\n\r\n//@QRCoder.dll\r\nusing QRCoder;\r\n\r\n//@@System.Net.Http.dll\r\n//@System.Web.Http.dll\r\n//@Newtonsoft.Json.dll\r\n//@Castle.Core.dll\r\n//@Winista.MimeDetect.dll\r\n\r\n//@Barsa.Web.Infrastructure.dll\r\nusing Barsa.Web.Infrastructure.Notification;\r\nusing Barsa.Web.Infrastructure.Workflow;\r\nusing Barsa.Web.Infrastructure;\r\nusing System.Net.Http;\r\nusing System.Web.Http;\r\n\r\nusing Newtonsoft.Json;\r\nusing Newtonsoft.Json.Serialization;\r\n\r\n\r\nusing PushNotification;\r\nnamespace PushNotification\r\n{\r\n\r\n\r\n\t[MetaEventClass(System_Push_Notification.cs_Caption)]\r\n\tpublic class Main\r\n\t{\r\n\r\n#region Push Notification \r\n\t\tpublic class GroupsMoList\r\n\t\t{\r\n\t\t\tpublic Barsa.Meta.Ui.ExtWeb.JDict DateGroups;\r\n\t\t\tpublic Barsa.Meta.Ui.ExtWeb.JDict SubjectGroups;\r\n\t\t\tpublic Barsa.Meta.Ui.ExtWeb.JDict PriorityGroups;\r\n\t\t}\r\n\t\tstatic string SystemPortalName = \"پورتال برسانوین‌رای\";\r\n\t\tstatic string NotificationSettingTypeDefName = \"UserNotificationSetting\";\r\n\r\n\t\t//[MetaEvent(MetaEventTopics.System_Startup)]\r\n\t\t//public static void OnMainControlConstructed(object sender, MetaEventArgs e)\r\n\t\t//{\r\n\t\t//}\r\n\r\n\t\t//[MetaEvent(\"Type Caption\", MetaEventTopics.MetaObject_BeforeUpdate)]\r\n\t\t//public static void OnType_BeforeUpdate(object sender, MetaEventArgs e)\r\n\t\t//{\r\n\t\t//}\r\n\r\n\r\n\r\n\t\t[MetaEvent(\"NotificationMessage\", MetaEventTopics.MetaObject_BeforeDelete)]\r\n\t\tpublic static void OnMetaObject_NotificationMessage_MetaObject_BeforeDelete(object sender, MetaEventArgs e)\r\n\t\t{\r\n\t\t\tMO_NotificationMessage mo = (MetaObject) sender;\r\n\t\t\ttry\r\n\t\t\t{\r\n\t\t\t\t_SendNotifcationReportRefresh(mo, \"PublishMoDelete\");\r\n\t\t\t\t_SendNotificationRefreshUnreadCount(mo);\r\n\t\t\t}catch\r\n\t\t\t{\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\t[MetaEvent(\"NotificationMessage\", MetaEventTopics.MetaObject_AfterUpdate)]\r\n\t\tpublic static void OnMetaObject_NotificationMessage_MetaObject_AfterUpdate(object sender, MetaEventArgs e)\r\n\t\t{\r\n\t\t\tMO_NotificationMessage mo = (MetaObject) sender;\r\n\t\t\t_SendNotifcationReportRefresh(mo, \"PublishMoUpdate\");\r\n\t\t\t_SendNotificationRefreshUnreadCount(mo);\r\n\t\t}\r\n\r\n\t\tpublic static void PushNotification_RemoveAll()\r\n\t\t{\r\n\t\t\t_RemoveAllNotifications(\"_RemoveAll_NotificationMessage\");\r\n\t\t}\r\n\t\tpublic static void PushNotification_RemoveAll_ExceptThisWeek()\r\n\t\t{\r\n\t\t\t_RemoveAllNotifications(\"_RemoveAll_ExceptThisWeek_NotificationMessage\");\r\n\t\t}\r\n\r\n\t\tpublic static void PushNotification_RemoveAll_ExceptToday()\r\n\t\t{\r\n\t\t\t_RemoveAllNotifications(\"_RemoveAll_ExceptToday_NotificationMessage\");\r\n\t\t}\r\n\r\n\t\tprivate static void _RemoveAllNotifications(string reportName)\r\n\t\t{\r\n\t\t\tvar rep = Report.LoadByName(reportName);\r\n\t\t\tvar molist = rep.Execute();\r\n\t\t\tif (molist.Count<1)\r\n\t\t\t\treturn ;\r\n\t\t\tnew BulkManager().BulkDelete(molist);\r\n\t\t\t_SendNotificationRefreshUnreadCountByUser(Util.CurrentUserId);\r\n\r\n\t\t\tvar report = Report.LoadByName(\"_Barsa_User_NotificationMessages\");\r\n\t\t\t_SendNotificationRefreshReportByUser(Util.CurrentUserId, report.Id);\r\n\t\t}\r\n\t\tpublic static void RemoveNotificationMessageByRelatedMoAndReciever(long relatedMo, long userId)\r\n\t\t{\r\n\t\t\tvar rep = Report.LoadByName(\"_FindNotificationByRelatedMoAndReciever\");\r\n\t\t\trep.ReportDataObject.SetAskParameterValues(relatedMo, userId);\r\n\t\t\tvar mo = rep.ExecuteFirst();\r\n\t\t\tif (mo == null)\r\n\t\t\t\treturn ;\r\n\t\t\tmo.Delete();\r\n\r\n\t\t\t_SendNotifcationReportRefresh(mo, \"PublishMoDelete\");\r\n\t\t\t_SendNotificationRefreshUnreadCount(mo);\r\n\t\t}\r\n\t\tpublic static void SetReadAllNotifications()\r\n\t\t{\r\n\t\t\tvar report = Report.LoadByName(\"_User_Unread_Notifications\");\r\n\t\t\tvar molist = report.Execute();\r\n\t\t\tforeach (MetaObject mo in molist)\r\n\t\t\t{\r\n\t\t\t\tMO_NotificationMessage message = mo;\r\n\t\t\t\tmessage.Unread = false;\r\n\t\t\t\tmessage.CRUD();\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tpublic static void RemoveNotificationMessage(string tag)\r\n\t\t{\r\n\t\t\tvar notificationMessage = (MO_NotificationMessage) MO_NotificationMessage.TypeDef.SelectFirstObjectBy(MO_NotificationMessage.cf_Tag, tag);\r\n\t\t\tif (notificationMessage == null)\r\n\t\t\t{\r\n\t\t\t\treturn ;\r\n\t\t\t}\r\n\t\t\tnotificationMessage.Object.Delete();\r\n\t\t}\r\n\t\tpublic static void SetReadNotificationMessageByTag(string tag)\r\n\t\t{\r\n\t\t\tvar notificationMessage = (MO_NotificationMessage) MO_NotificationMessage.TypeDef.SelectFirstObjectBy(MO_NotificationMessage.cf_Tag, tag);\r\n\t\t\tif (notificationMessage == null)\r\n\t\t\t\treturn ;\r\n\t\t\tnotificationMessage.Unread = false;\r\n\t\t\tnotificationMessage.CRUD();\r\n\t\t}\r\n\t\tpublic static void SetReadNotificationMessage(long moId)\r\n\t\t{\r\n\t\t\tvar notificationMessage = (MO_NotificationMessage) MetaObject.LoadById(moId);\r\n\t\t\tnotificationMessage.Unread = false;\r\n\t\t\tnotificationMessage.CRUD();\r\n\t\t}\r\n\t\tpublic static void SendNotification(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_نوتیفیکشن notif = (MO_نوتیفیکشن) mo;\r\n\t\t\tvar actions = new List<NotificationBaseAction>();\r\n\t\t\tforeach (MetaObject cmd in notif.دستورات)\r\n\t\t\t{\r\n\t\t\t\tMO_دستورنوتیفیکشن cmdNotif = (MO_دستورنوتیفیکشن) cmd;\r\n\t\t\t\tactions.Add(new NotificationBaseAction()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tTitle = cmdNotif.عنوان,\r\n\t\t\t\t\tIcon = cmdNotif.آیکن,\r\n\t\t\t\t\tStatus = (ActionButtonStatus) cmdNotif.وضعیت\r\n\t\t\t\t\t});\r\n\t\t\t}\r\n\t\t\tSendMoNotification(notif.شی_مرتبط_MetaObject, \"\", notif.عنوان, notif.محتوا, new []\r\n\t\t\t\t{\r\n\t\t\t\t\tnotif.کاربر\r\n\t\t\t\t}, actions);\r\n\t\t}\r\n\t\tpublic static void SetNotificationViewed(string[] tags)\r\n\t\t{\r\n\t\t\tif (tags.Length<1)\r\n\t\t\t{\r\n\t\t\t\treturn ;\r\n\t\t\t}\r\n\t\t\tvar list = tags.JoinAsText(\",\", x =>\"'\" + x + \"'\");\r\n\t\t\tvar sql = \"update {0} set {1}={2} where {3} in ({4})\".ReplaceParameters\r\n\t\t\t\t(\r\n\t\t\t\t\tMO_NotificationMessage.TypeDef.DbName,\r\n\t\t\t\t\tMO_NotificationMessage.f_Unread.DbName,\r\n\t\t\t\t\t0,\r\n\t\t\t\t\tMO_NotificationMessage.f_Tag.DbName,\r\n\t\t\t\t\tlist\r\n\t\t\t\t);\r\n\t\t\tDbHelper.ExecuteSql(sql, false);\r\n\r\n\t\t}\r\n\t\tpublic static NotificationActionResult ExecuteNotificationAction(string tag, string actionTitle)\r\n\t\t{\r\n\r\n\t\t\tvar notificationMessage = (MO_NotificationMessage) MO_NotificationMessage.TypeDef.SelectFirstObjectBy(MO_NotificationMessage.cf_Tag, tag, new string[]\r\n\t\t\t\t{\r\n\t\t\t\t\tMO_NotificationMessage.cf_IMessage, MO_IMessage.cf_کاربر_گیرنده\r\n\t\t\t\t}, Util.CurrentUserId);\r\n\t\t\tif (notificationMessage == null)\r\n\t\t\t{\r\n\t\t\t\tSplLogger.WriteLine(string.Format(\"ExecuteNotificationAction can not find notification message with tag and user {0}\", tag));\r\n\t\t\t\treturn null;\r\n\t\t\t}\r\n\t\t\tvar message = (MO_IMessage) notificationMessage.IMessage_MetaObject;\r\n\r\n\t\t\tvar mo = notificationMessage.RelatedMo<1 ? null:MetaObject.LoadById(notificationMessage.RelatedMo);\r\n\t\t\tNotificationActionResult result = new NotificationActionResult()\r\n\t\t\t{\r\n\t\t\t\tMo = mo\r\n\t\t\t};\r\n\t\t\tif (actionTitle == \"show\" && notificationMessage.RelatedMo>0)\r\n\t\t\t{\r\n\t\t\t\tresult.ShowFormSetting = new ShowFormSetting()\r\n\t\t\t\t{\r\n\t\t\t\t\tMoId = WebUtil.EncodeId(notificationMessage.RelatedMo),\r\n\t\t\t\t\tViewName = string.IsNullOrEmpty(notificationMessage.RelatedMoNama) ? string.Empty :notificationMessage.RelatedMoNama\r\n\t\t\t\t};\r\n\t\t\t}\r\n\t\t\telse if (!string.IsNullOrEmpty(notificationMessage.Actions))\r\n\t\t\t{\r\n\t\t\t\tvar actions = JsonConvert.DeserializeObject<IList<NotificationActionCommandInfo>>(notificationMessage.Actions);\r\n\t\t\t\tvar dynamicCommand = actions.FirstOrDefault(c =>c.Title == actionTitle);\r\n\t\t\t\tif (dynamicCommand != null)\r\n\t\t\t\t{\r\n\t\t\t\t\t//\tvar methodResult = ReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Meta.Ui.ExtWeb.Service.CommandService\", \"GetCommandJs\", WebUtil.DecodeId(dynamicCommand.Id), mo);\r\n\t\t\t\t\t//\tstring jsCode = JsonConvert.SerializeObject(methodResult);\r\n\t\t\t\t\tresult.DynamicCommandId = dynamicCommand.Id;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\telse if (!string.IsNullOrEmpty(notificationMessage.ChoiceList))\r\n\t\t\t{\r\n\t\t\t\tvar actions = JsonConvert.DeserializeObject<IList<NotificationActionWorkflowData>>(notificationMessage.ChoiceList);\r\n\t\t\t\tvar choiceDef = actions.FirstOrDefault(c =>c.Title == actionTitle);\r\n\t\t\t\tif (choiceDef != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tChoiceDefDTO choice = new ChoiceDefDTO()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tActivityDefId = WebUtil.DecodeId(choiceDef.ActivityDefId),\r\n\t\t\t\t\t\t ActivityRunId = WebUtil.DecodeId(choiceDef.ActivityRunId),\r\n\t\t\t\t\t\t ChoiceDefId = WebUtil.DecodeId(choiceDef.ChoiceDefId),\r\n\t\t\t\t\t\t Title = choiceDef.Title\r\n\t\t\t\t\t};\r\n\t\t\t\t\tReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Meta.Ui.ExtWeb.Service.Workflow94Service\", \"ChoiceSelect\", choice, MetaObject.LoadById(notificationMessage.RelatedMo));\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\tnotificationMessage.Unread = false;\r\n\t\t\tnotificationMessage.CRUD();\r\n\t\t\treturn result;\r\n\r\n\t\t}\r\n\t\tpublic static void SendMoNotificationByExpire(MetaObject mo, string relatedMoNama, string title, string content, long[] userIds, IEnumerable<NotificationBaseAction> listOfActions, DateTime expireAt, NotificationAction notificationAction = null, string tag = \"\")\r\n\t\t{\r\n\t\t\tstring uiActions;\r\n\t\t\tvar actions = NotificationHelper.GetCommandsInfo(mo, listOfActions, out uiActions);\r\n\t\t\tMO_NotificationMessage new_notification = null;\r\n\r\n\t\t\tfor (var i = 0; i<userIds.Length; i++)\r\n\t\t\t{\r\n\t\t\t\tvar enablePopup = _isUserEnableNotificationPopup(userIds[i], null);\r\n\t\t\t\tnew_notification = CreateNotificationMessage(new NotificationMessage\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tRelatedMo = mo,\r\n\t\t\t\t\t\tRelatedMoNama = relatedMoNama,\r\n\t\t\t\t\t\tTitle = title,\r\n\t\t\t\t\t\tContent = content,\r\n\t\t\t\t\t\tStatus = NotificationStatus.Success.EnumToLong(),\r\n\t\t\t\t\t\tActions = actions,\r\n\t\t\t\t\t\tChoiceList = string.Empty,\r\n\t\t\t\t\t\tPriority = NotificationPriority.Low.EnumToLong(),\r\n\t\t\t\t\t\tUiActions = uiActions,\r\n\t\t\t\t\t\tOverflowButtons = true,\r\n\t\t\t\t\t\tSplUser = userIds[i],\r\n\t\t\t\t\t\tExpireAt = expireAt\r\n\t\t\t\t\t}, tag, enablePopup);\r\n\t\t\t}\r\n\t\t\tif (new_notification != null)\r\n\t\t\t{\r\n\t\t\t\tSendPopupNotification(userIds, new_notification, notificationAction);\r\n\t\t\t}\r\n\t\t}\r\n\t\tpublic static void SendMoNotification(MetaObject mo, string relatedMoNama, string title, string content, long[] userIds, IEnumerable<NotificationBaseAction> listOfActions, NotificationAction notificationAction = null, string tag = \"\")\r\n\t\t{\r\n\t\t\tSendMoNotificationByExpire(mo, relatedMoNama, title, content, userIds, listOfActions, DateTime.Now.AddDays(1), notificationAction, tag);\r\n\t\t}\r\n\t\tpublic static void SendWorkflowNotification(MetaObject moRadifCartable, MetaObject mo, long[] userIds, NotificationAction notificationAction)\r\n\t\t{\r\n\t\t\tvar tag = moRadifCartable == null ? Guid.NewGuid().ToString() :moRadifCartable.GetFieldValue<string>(\"Tag\");\r\n\t\t\tWorkflowFormData workflowFormData;\r\n\t\t\tstring uiActions;\r\n\t\t\tint actionCount;\r\n\t\t\tvar choiceList = string.Empty;\r\n\t\t\tif (SessionMgr.UserIdOr0 == 0)\r\n\t\t\t{\r\n\t\t\t\tusing (SessionMgr.ChangeUserId(userIds[0]))\r\n\t\t\t\t{\r\n\t\t\t\t\tchoiceList = NotificationHelper.GetWorkflowChoiceDefsInfo(mo, out workflowFormData, out uiActions, out actionCount);\r\n\t\t\t\t}\r\n\t\t\t}else\r\n\t\t\t{\r\n\t\t\t\tchoiceList = NotificationHelper.GetWorkflowChoiceDefsInfo(mo, out workflowFormData, out uiActions, out actionCount);\r\n\t\t\t}\r\n\t\t\tbool isRemoveFromCartable = notificationAction.ActionType == NotificationActionType.Remove;\r\n\t\t\tif (isRemoveFromCartable)\r\n\t\t\t{\r\n\t\t\t\tchoiceList = string.Empty;\r\n\t\t\t\tuiActions = string.Empty;\r\n\t\t\t\tvar moListOfMessage = MO_NotificationMessage.TypeDef.SelectObjectListBy(\"Tag\", tag);\r\n\r\n\t\t\t\tforeach (MetaObject moMessage in moListOfMessage)\r\n\t\t\t\t{\r\n\r\n\t\t\t\t\t//TODO notify user's message to remove it from zangoleh\r\n\t\t\t\t\tMO_NotificationMessage notificationMessage = moMessage;\r\n\t\t\t\t\tMO_IMessage messageMo = MetaObject.LoadById(notificationMessage.IMessage);\r\n\r\n\t\t\t\t\t//\t\t\t\t\tReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Meta.Ui.ExtWeb.NotificationManager\", \"PublishMoDelete\", notificationMessage.Object, null, message.کاربر_گیرنده, false);\r\n\t\t\t\t\tmoMessage.Delete();\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\tstring activityDefCaption = workflowFormData == null ? null: workflowFormData.ActivityDef.Caption;\r\n\t\t\tMO_NotificationMessage new_notification = null;\r\n\r\n\t\t\tuserIds = userIds.Distinct().ToArray();\r\n\t\t\tfor (var i = 0; i<userIds.Length; i++)\r\n\t\t\t{\r\n\r\n\t\t\t\tvar enablePopup = _isUserEnableNotificationPopup(userIds[i], moRadifCartable);\r\n\t\t\t\tnew_notification = CreateNotificationMessage(new NotificationMessage\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tRelatedMo = moRadifCartable,\r\n\t\t\t\t\t\tRelatedMoNama = string.Empty,\r\n\t\t\t\t\t\tTitle = string.Format(\"{0}: {1}\", activityDefCaption, mo.TypeDef.Caption),\r\n\t\t\t\t\t\tContent = notificationAction.ActionType == NotificationActionType.Add ? \"به کارتابل شما اضافه شد.\" : \"از کارتابل شما خارج شد.\",\r\n\t\t\t\t\t\tStatus = NotificationStatus.Success.EnumToLong(),\r\n\t\t\t\t\t\tActions = string.Empty,\r\n\t\t\t\t\t\tChoiceList = choiceList,\r\n\t\t\t\t\t\tUiActions = uiActions,\r\n\t\t\t\t\t\tPriority = NotificationPriority.High.EnumToLong(),\r\n\t\t\t\t\t\tHideShowButton = isRemoveFromCartable ? true:false,\r\n\t\t\t\t\t\tHideDeleteButton = false,\r\n\t\t\t\t\t\tOverflowButtons = actionCount> 2 && isRemoveFromCartable? true:false,\r\n\t\t\t\t\t\tSubject = activityDefCaption,\r\n\t\t\t\t\t\tSplUser = userIds[i]\r\n\t\t\t\t\t}, tag, enablePopup);\r\n\t\t\t}\r\n\r\n\t\t\tif (new_notification != null)\r\n\t\t\t{\r\n\r\n\t\t\t\tSendPopupNotification(userIds, new_notification, notificationAction);\r\n\t\t\t}\r\n\t\t}\r\n\r\n#region Test\t\t\r\n\t\tpublic static void TestSendNotification(MetaObject mo) // Test\r\n\t\t{\r\n\r\n\t\t\tif (mo.IsNew)\r\n\t\t\t\tmo.CRUD();\r\n\t\t\tTest1_Notification(mo);// simple mo\r\n\t\t\t//Test2_Notification();// mo in workflow\t\r\n\t\t}\r\n\r\n\t\tprivate static void Test2_Notification()\r\n\t\t{\r\n\t\t\tvar mo = MetaObject.LoadById(7097025700000000544);\r\n\t\t\tSendWorkflowNotification(null, mo, new []\r\n\t\t\t\t{\r\n\t\t\t\t\tSessionMgr.UserId\r\n\t\t\t\t}, null);\r\n\t\t}\r\n\t\tprivate static void Test1_Notification(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_SenderDemo senderDemo = mo;\r\n\t\t\tSendMoNotification(mo, \"نمای 1\", senderDemo.Title, senderDemo.Content, new []\r\n\t\t\t\t{\r\n\t\t\t\t\tsenderDemo.User\r\n\t\t\t\t}, new List<NotificationBaseAction>()\r\n\t\t\t\t{\r\n\t\t\t\t\tnew NotificationBaseAction()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tTitle = \"تایید\",\r\n\t\t\t\t\t\tIcon = \"accept\",\r\n\t\t\t\t\t\tStatus = ActionButtonStatus.Ghost\r\n\t\t\t\t\t},\r\n\t\t\t\tnew NotificationBaseAction()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tTitle = \"رد\",\r\n\t\t\t\t\t\tIcon = \"decline\",\r\n\t\t\t\t\t\tStatus = ActionButtonStatus.Negative\r\n\t\t\t\t\t}\r\n\t\t\t\t});\r\n\t\t}\r\n\t\tpublic static MO_NotificationMessage CreateNotificationMessage(NotificationMessage notificationMessage, string tag = \"\", bool enablePopup = true)\r\n\t\t{\r\n\t\t\tvar iconUrl = string.Empty;\r\n\t\t\ttry\r\n\t\t\t{\r\n\t\t\t\tif (notificationMessage.RelatedMo != null)\r\n\t\t\t\t\ticonUrl = ReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Meta.Ui.ExtWeb.IconUrlHelper\", \"GetIconUrl_TypeDef\", notificationMessage.RelatedMo.TypeDef, true, 256).ToString();\r\n\t\t\t\t// ممکن کاربر لاگین شده ی وجود نداشته باشه و اینکدر آیدی به خطا بخوره\r\n\t\t\t}catch\r\n\t\t\t{\r\n\t\t\t}\r\n\t\t\tvar offlineUserReport = Report.LoadByName(\"یافتن کاربرآنلاین\");\r\n\t\t\tofflineUserReport.ReportDataObject.SetAskParameterValues(notificationMessage.SplUser);\r\n\t\t\tvar vaziatErsal = MO_IMessage.وضعیت_ارسال_Values.ارسال_شده;\r\n\t\t\tif (offlineUserReport.ExecuteFirst() == null)\r\n\t\t\t{\r\n\t\t\t\tvaziatErsal = MO_IMessage.وضعیت_ارسال_Values.در_انتظار_ارسال;\r\n\t\t\t}\r\n\t\t\tvar message = new MO_IMessage()\r\n\t\t\t{\r\n\t\t\t\tمحتوا = notificationMessage.Content,\r\n\t\t\t\tکاربر_گیرنده = notificationMessage.SplUser,\r\n\t\t\t\tکاربر_ایجاد_کننده = SessionMgr.UserIdOr0,\r\n\t\t\t\tوضعیت_ارسال = (long) vaziatErsal\r\n\t\t\t};\r\n\t\t\tmessage.CRUD();\r\n\t\t\tvar new_notification = new MO_NotificationMessage()\r\n\t\t\t{\r\n\t\t\t\tTitle = notificationMessage.Title,\r\n\t\t\t\tIMessage = message.Id,\r\n\t\t\t\tPriority = notificationMessage.Priority,\r\n\t\t\t\tStatus = notificationMessage.Status,\r\n\t\t\t\tIcon = iconUrl,\r\n\t\t\t\tActions = notificationMessage.Actions,\r\n\t\t\t\tChoiceList = notificationMessage.ChoiceList,\r\n\t\t\t\tUiActions = notificationMessage.UiActions,\r\n\t\t\t\tShowPopup = enablePopup,\r\n\t\t\t\tRelatedMo = notificationMessage.RelatedMo == null ? 0 :notificationMessage.RelatedMo.Id,\r\n\t\t\t\tRelatedMoNama = notificationMessage.RelatedMoNama,\r\n\t\t\t\tHideShowButton = notificationMessage.RelatedMo == null ? true: notificationMessage.HideShowButton,\r\n\t\t\t\tHideDeleteButton =\r\n\t\t\t\tstring.IsNullOrEmpty(notificationMessage.Actions) &&\r\n\t\t\t\tstring.IsNullOrEmpty(notificationMessage.ChoiceList) ? false: notificationMessage.HideDeleteButton,\r\n\t\t\t\tOverflowButtons = notificationMessage.OverflowButtons,\r\n\t\t\t\tSubject = notificationMessage.Subject,\r\n\t\t\t\tTag = !string.IsNullOrEmpty(tag) ? tag:  Guid.NewGuid().ToString()\r\n\t\t\t};\r\n\r\n\t\t\tnew_notification.CRUD();\r\n\t\t\treturn new_notification;\r\n\t\t}\r\n\t\tpublic static void ClearUserNotificationSetting(long userId)\r\n\t\t{\r\n\t\t\tEasyCache.RemoveData(EasyCacheType.Global, \"UserNotificationSetting_\" + userId);\r\n\t\t}\r\n\t\tprivate static void _SendNotificationRefreshUnreadCount(MO_NotificationMessage notificationMessage)\r\n\t\t{\r\n\t\t\tMO_IMessage message = notificationMessage.IMessage_MetaObject;\r\n\t\t\t_SendNotificationRefreshUnreadCountByUser(message.کاربر_گیرنده);\r\n\t\t}\r\n\t\tprivate static void _SendNotificationRefreshUnreadCountByUser(long userId)\r\n\t\t{\r\n\t\t\tif (!GeneralHelper.IsApplicationWebBased)\r\n\t\t\t\treturn ;\r\n\t\t\tWebUtil.InvokeWebUi(\"Barsa.Meta.Ui.ExtWeb.NotificationManager\", \"PublishWebEvent\", userId, \"RefreshNotificationUnreadCount\", null);\r\n\t\t}\r\n\t\tprivate static void _SendNotificationRefreshReportByUser(long userId, long reportId)\r\n\t\t{\r\n\t\t\tif (!GeneralHelper.IsApplicationWebBased)\r\n\t\t\t\treturn ;\r\n\r\n\t\t\tWebUtil.InvokeWebUi(\"Barsa.Meta.Ui.ExtWeb.NotificationManager\", \"PublishRefreshReport\", new []\r\n\t\t\t\t{\r\n\t\t\t\t\tuserId\r\n\t\t\t\t}, reportId);\r\n\t\t}\r\n\t\tprivate static void _SendNotifcationReportRefresh(MO_NotificationMessage mo, string notificationEventTopic)\r\n\t\t{\r\n\t\t\tif (!GeneralHelper.IsApplicationWebBased)\r\n\t\t\t\treturn ;\r\n\t\t\tMO_IMessage message = mo.IMessage_MetaObject;\r\n\t\t\tvar report = Report.LoadByName(\"_Barsa_User_NotificationMessages\");\r\n\t\t\tReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Meta.Ui.ExtWeb.NotificationManager\", notificationEventTopic, mo.Object, report, message.کاربر_گیرنده, false);\r\n\t\t}\r\n\t\tprivate static bool _isUserEnableNotificationPopup(long userId, MetaObject radifCartable)\r\n\t\t{\r\n\t\t\tbool result = EasyCache.ExecuteOnceGlobal<bool>(\"UserNotificationSetting_\" + userId, () =>\r\n\t\t\t\t{\r\n\t\t\t\t\ttry\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tvar typedef = TypeDef.GetByCaption(SystemPortalName, NotificationSettingTypeDefName);\r\n\t\t\t\t\t\tif (typedef == null)\r\n\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t\tvar notificationSetting = typedef.SelectFirstObjectBy(new []\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\t\"تنظیمات پایه\", \"کاربر\"\r\n\t\t\t\t\t\t\t}, userId);\r\n\t\t\t\t\t\tif (notificationSetting == null)\r\n\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t\tvar active = notificationSetting.GetFieldValue<bool>(\"فعال\");\r\n\t\t\t\t\t\tif (!active)\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\treturn false;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif (radifCartable == null)\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\treturn false;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tvar enableCartableGroups = notificationSetting.GetFieldValue_MetaObjectList(\"تنظیم اعلان گروه کارتابل ها\");\r\n\t\t\t\t\t\tif (enableCartableGroups.Count == 0)\r\n\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t\tforeach (MetaObject mo in enableCartableGroups)\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\tif (mo.Id == radifCartable.GetFieldValue_Long(\"گروه_کارتابل\"))\r\n\t\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\treturn false;\r\n\t\t\t\t\t}catch\r\n\t\t\t\t\t{\r\n\r\n\t\t\t\t\t}\r\n\t\t\t\t\treturn true;\r\n\t\t\t\t});\r\n\t\t\treturn result;\r\n\t\t}\r\n\t\tpublic static void SendPopupNotification(long[] userIds, MO_NotificationMessage notifMessage, NotificationAction notificationAction = null)\r\n\t\t{\r\n\t\t\t//long[] userIds,\r\n\t\t\t//string msg, \r\n\t\t\t//string title, \r\n\t\t\t//string image, \r\n\t\t\t//object mo = null,\r\n\t\t\t//string type = \"default\",\r\n\t\t\t//object uiOptions = null,\r\n\t\t\t//object otherOptions = null\t\t\r\n\r\n\r\n\t\t\tnotificationAction = notificationAction ?? new NotificationAction()\r\n\t\t\t{\r\n\r\n\t\t\t};\r\n\t\t\tMO_IMessage message = notifMessage.IMessage_MetaObject;\r\n\t\t\tReflectionHelper.RunMethod(\"Barsa.Web.Ui.dll\", \"Barsa.Web.Core.NotificationService\", \"PublishPopup\",\r\n\t\t\tuserIds.ToList(),\r\n\t\t\tmessage.محتوا,\r\n\t\t\tnotifMessage.Title,\r\n\t\t\tnotifMessage.Icon,\r\n\t\t\tnotifMessage.Object,\r\n\t\t\t\"default\",\r\n\t\t\tnull,\r\n\t\t\tnotificationAction\r\n\t\t\t);\r\n\t\t}\r\n\r\n#endregion\r\n\r\n#endregion\r\n#region Whatsapp\r\n\r\n\t\tpublic class MessageFileToSend\r\n\t\t{\r\n\t\t\tpublic string Filename\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string Base64File\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string MimeType\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string Caption\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string ToContacts\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tpublic class MessageDataToSend\r\n\t\t{\r\n\t\t\tpublic string Content\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string ToContacts\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t}\r\n\t\tstatic string NodeServerAddress = \"http://localhost:4000\";\r\n\t\tstatic bool isSetNodeServer = false;\r\n\t\tstatic string NODE_SERVER_UNAVAILABLE = \"Node server is not available.\";\r\n\r\n\t\tpublic class ClientInfo\r\n\t\t{\r\n\t\t\tpublic string ClientId\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic object Data\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\r\n\t\t[MetaEvent(\"NotificationMessage\", MetaEventTopics.MetaObject_BeforeUpdate)]\r\n\t\tpublic static void OnMetaObject_NotificationMessage_MetaObject_BeforeUpdate(object sender, MetaEventArgs e)\r\n\t\t{\r\n\t\t\tMO_NotificationMessage mo = (MetaObject) sender;\r\n\t\t\tif (mo.Object.IsNew)\r\n\t\t\t{\r\n\t\t\t\tvar message = (MO_IMessage) mo.IMessage_MetaObject;\r\n\t\t\t\tvar notificationWhatsAppSettings = (MO_WhatsappSettings) MO_WhatsappSettings.TypeDef.SelectFirstObjectBy(MO_WhatsappSettings.cf_برای_نوتیفیکشن, true, MO_WhatsappSettings.cf_غیرفعال, false);\r\n\t\t\t\tif (notificationWhatsAppSettings == null)\r\n\t\t\t\t\treturn ;\r\n\r\n\t\t\t\tvar client = (MO_WhatsAppClient) notificationWhatsAppSettings.کلاینت_واتس_اپ_MetaObject;\r\n\t\t\t\tvar date = message.Object.GetFieldCaption(\"زمان ایجاد\");\r\n\t\t\t\tvar content = message.Object.GetFieldCaption(\"محتوا\");\r\n\t\t\t\tvar user = Barsa.Spl.BasicInfo.User.LoadById(message.کاربر_ایجاد_کننده);\r\n\t\t\t\tvar recieverUser = message.کاربر_گیرنده;\r\n\t\t\t\tvar repNumber = Report.LoadByName(\"_Barsa_WhatsappPhoneNumber\");\r\n\t\t\t\tif (repNumber == null)\r\n\t\t\t\t\treturn ;\r\n\t\t\t\trepNumber.ReportDataObject.SetAskParameterValues(recieverUser);\r\n\t\t\t\tvar whatsappGirandeh = repNumber.ExecuteFirst();\r\n\t\t\t\tif (whatsappGirandeh == null)\r\n\t\t\t\t\treturn ;\r\n\t\t\t\tvar messageDataToSend = new MessageDataToSend()\r\n\t\t\t\t{\r\n\t\t\t\t\tContent = string.Format(\"{0}{1}{2}{3}{4}{5}{6}{7}{8}/#/login?notificationTag={9}&action=show\",\r\n\t\t\t\t\t\tmo.Title, System.Environment.NewLine,\r\n\t\t\t\t\t\tdate, Environment.NewLine,\r\n\t\t\t\t\t\tcontent.Replace(\"&lt;br&gt;\", string.Empty), Environment.NewLine,\r\n\t\t\t\t\t\tuser.DisplayName, Environment.NewLine,\r\n\t\t\t\t\t\tnotificationWhatsAppSettings.آدرس_سایت,\r\n\t\t\t\t\t\tmo.Tag\r\n\t\t\t\t\t\t),\r\n\t\t\t\t\tToContacts = whatsappGirandeh.GetFieldValue<string>(\"شماره واتس اپ\")\r\n\t\t\t\t};\r\n\t\t\t\tSendCommandToNodeServer(\"Send\", client.ClientId, messageDataToSend);\r\n\r\n\t\t\t}\r\n\t\t}\r\n\t\tpublic static void BarsaTestSendFileToWhatsapp(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_تست_ارسال_فایل testFile = mo;\r\n\t\t\tif (testFile.فایل == null)\r\n\t\t\t\treturn ;\r\n\t\t\tvar x = ((Barsa.SharedObjects.FileAttachmentList) testFile.فایل)[0];\r\n\t\t\tvar mimeType = Barsa.Meta.Extra.MimeTypeHelper0.GetMimeType(x.Content.Bytes);\r\n\t\t\tvar mm1 = string.Format(\"{0}/{1})\", mimeType.PrimaryType, mimeType.SubType);\r\n\t\t\tvar mm2 = Convert.ToBase64String(x.Content.Bytes);\r\n\t\t\tBarsaWhatsappSendFile(x.NameAndExtension, mm2, mm1, testFile.متن_ارسالی_با_فایل, testFile.گیرندگان);\r\n\t\t}\r\n\t\tpublic static void BarsaWhatsappSendFile(string filename, string base64File, string mimeType, string caption, string toContacts)\r\n\t\t{\r\n\t\t\t// tocontacts=091233,0922333,095454\r\n\t\t\tvar notificationWhatsAppSettings = (MO_WhatsappSettings) MO_WhatsappSettings.TypeDef.SelectFirstObjectBy(MO_WhatsappSettings.cf_برای_نوتیفیکشن, true, MO_WhatsappSettings.cf_غیرفعال, false);\r\n\t\t\tif (notificationWhatsAppSettings == null)\r\n\t\t\t\treturn ;\r\n\r\n\t\t\tvar client = (MO_WhatsAppClient) notificationWhatsAppSettings.کلاینت_واتس_اپ_MetaObject;\r\n\r\n\t\t\tvar messageFileToSend = new MessageFileToSend()\r\n\t\t\t{\r\n\t\t\t\tFilename = filename,\r\n\t\t\t\tBase64File = base64File,\r\n\t\t\t\tMimeType = mimeType,\r\n\t\t\t\tCaption = caption,\r\n\t\t\t\tToContacts = toContacts\r\n\t\t\t};\r\n\t\t\tSendCommandToNodeServer(\"SendFile\", client.ClientId, messageFileToSend);\r\n\t\t}\r\n\t\tpublic static void LoadGroups(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_WhatsAppClient client = mo;\r\n\t\t\tSendCommandToNodeServer(\"loadgroups\", client.ClientId);\r\n\t\t}\r\n\t\tpublic static void Initialize(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_WhatsAppClient client = mo;\r\n\t\t\tSendCommandToNodeServer(\"initialize\", client.ClientId);\r\n\t\t}\r\n\t\tpublic static void Logout(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_WhatsAppClient client = mo;\r\n\t\t\tSendCommandToNodeServer(\"logout\", client.ClientId);\r\n\t\t}\r\n\t\tpublic static void Destroy(MetaObject mo)\r\n\t\t{\r\n\t\t\tMO_WhatsAppClient client = mo;\r\n\t\t\tSendCommandToNodeServer(\"destroy\", client.ClientId);\r\n\t\t}\r\n\r\n\t\tpublic static void CheckWhatsAppServerOnline(MetaObject mo)\r\n\t\t{\r\n\t\t\tvar isOnline = IsNodeServerOnline();\r\n\t\t\tif (!isOnline)\r\n\t\t\t{\r\n\t\t\t\tthrow new MetaException(NODE_SERVER_UNAVAILABLE);\r\n\t\t\t}\r\n\t\t}\r\n\t\tprivate static bool IsNodeServerOnline()\r\n\t\t{\r\n\t\t\tvar isOnline = false;\r\n\t\t\tusing (var httpClient = new HttpClient())\r\n\t\t\t{\r\n\t\t\t\thttpClient.Timeout = TimeSpan.FromSeconds(10);\r\n\r\n\t\t\t\thttpClient.BaseAddress = new Uri(NodeServerAddress);\r\n\t\t\t\ttry\r\n\t\t\t\t{\r\n\t\t\t\t\tvar response = httpClient.GetAsync(\"/\").Result;\r\n\t\t\t\t\tresponse.EnsureSuccessStatusCode();\r\n\t\t\t\t\tisOnline = false;\r\n\t\t\t\t}\r\n\t\t\t\tcatch (HttpRequestException httpEx)\r\n\t\t\t\t{\r\n\r\n\t\t\t\t\tSplLogger.WriteError(httpEx, \"Node server is offline.\");\r\n\r\n\t\t\t\t}\r\n\t\t\t\tcatch (Exception err)\r\n\t\t\t\t{\r\n\t\t\t\t\tSplLogger.WriteError(err, \"error in IsNodeServerOnline.\");\r\n\r\n\t\t\t\t}\r\n\t\t\t};\r\n\t\t\treturn isOnline;\r\n\t\t}\r\n\t\tpublic static async Task SendCommandToNodeServer(string commandName, string clientId, object data = null)\r\n\t\t{\r\n\t\t\tif (!isSetNodeServer)\r\n\t\t\t{\r\n\t\t\t\tisSetNodeServer = true;\r\n\t\t\t\tvar x = (MO_WhatsappSettings) MO_WhatsappSettings.TypeDef.SelectFirstObjectBy(MO_WhatsappSettings.cf_برای_نوتیفیکشن, true);\r\n\t\t\t\tif (x == null)\r\n\t\t\t\t\tNodeServerAddress = string.Empty;\r\n\t\t\t\telse\r\n\t\t\t\t\tNodeServerAddress = x.آدرس_وب_سرویس_واتس_اپ;\r\n\t\t\t}\r\n\t\t\tif (string.IsNullOrEmpty(NodeServerAddress))\r\n\t\t\t\treturn ;\r\n\t\t\tusing (var httpClient = new HttpClient())\r\n\t\t\t{\r\n\t\t\t\tvar jsonContent = JsonConvert.SerializeObject(new ClientInfo()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tClientId = clientId,\r\n\t\t\t\t\t\tData = data\r\n\t\t\t\t\t}, new JsonSerializerSettings()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tContractResolver = new CamelCasePropertyNamesContractResolver()\r\n\t\t\t\t\t});\r\n\t\t\t\thttpClient.Timeout = TimeSpan.FromSeconds(5);\r\n\t\t\t\thttpClient.BaseAddress = new Uri(NodeServerAddress);\r\n\t\t\t\tvar content = new StringContent(jsonContent, Encoding.UTF8, \"application/json\");\r\n\t\t\t\tvar response = await httpClient.PostAsync(string.Format(\"{0}\", commandName), content);\r\n\t\t\t\tif (response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)\r\n\t\t\t\t{\r\n\t\t\t\t\tthrow new MetaException(NODE_SERVER_UNAVAILABLE);\r\n\t\t\t\t}\r\n\t\t\t};\r\n\t\t}\r\n\t\tpublic static async Task SendInitalizAllClientToServer(IEnumerable<string> clientIds)\r\n\t\t{\r\n\t\t\tusing (var httpClient = new HttpClient())\r\n\t\t\t{\r\n\t\t\t\tvar jsonContent = JsonConvert.SerializeObject(clientIds, new JsonSerializerSettings()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tContractResolver = new CamelCasePropertyNamesContractResolver()\r\n\t\t\t\t\t});\r\n\t\t\t\thttpClient.BaseAddress = new Uri(NodeServerAddress);\r\n\t\t\t\tvar content = new StringContent(jsonContent, Encoding.UTF8, \"application/json\");\r\n\t\t\t\tvar t = httpClient.PostAsync(\"initalizeAllClient\", content).Result;\r\n\t\t\t};\r\n\t\t}\r\n\r\n\t\tpublic static void OnWhatsAppEvents(string eventName, string data, string clientId)\r\n\t\t{\r\n\t\t\tMO_WhatsAppClient client = MO_WhatsAppClient.TypeDef.SelectFirstObjectBy(\"ClientId\", clientId);\r\n\t\t\tif (client == null)\r\n\t\t\t\tthrow new MetaException(string.Format(\"WhatsApp Client:{0} Not Found.\", clientId));\r\n\t\t\tswitch (eventName)\r\n\t\t\t{\r\n\t\t\t\tcase \"start\":\r\n\t\t\t\t\tOnServerStart();\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"initialized\":\r\n\t\t\t\t\tOnClientInitialized(client);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"qr\":\r\n\t\t\t\t\tOnClientQr(client, data);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"authenticated\":\r\n\t\t\t\t\tOnClientAuthenticated(client);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"ready\":\r\n\t\t\t\t\tOnClientIsReady(client);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"disconnected\":\r\n\t\t\t\t\tOnClientDisconnected(client);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"message\":\r\n\t\t\t\t\tOnClientMessageArrived(client, data);\r\n\t\t\t\t\tbreak;\r\n\t\t\t\tcase \"groupsLoaded\":\r\n\t\t\t\t\tOnGroupsLoaded(client, data);\r\n\t\t\t\t\tbreak;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tprivate static void OnServerStart()\r\n\t\t{\r\n\t\t\tvar clients = MO_WhatsAppClient.TypeDef.SelectObjectListBy(MO_WhatsAppClient.cf_Disabled, false);\r\n\r\n\t\t\tList<string> clientIds = new List<string>();\r\n\t\t\tforeach (MetaObject mo in clients)\r\n\t\t\t{\r\n\t\t\t\tMO_WhatsAppClient client = mo;\r\n\t\t\t\tclientIds.Add(client.ClientId);\r\n\t\t\t}\r\n\t\t\tSendInitalizAllClientToServer(clientIds);\r\n\t\t}\r\n\t\tprivate static void OnGroupsLoaded(MO_WhatsAppClient client, string data)\r\n\t\t{\r\n\t\t\tvar groups = JsonConvert.DeserializeObject<IList<GroupChat>>(data);\r\n\t\t\tvar x = client.گروهای_شماره;\r\n\t\t\tx.DeleteAllFromDb();\r\n\t\t\tx.AcceptChanges();\r\n\t\t\tMetaObjectList molist = new MetaObjectList();\r\n\t\t\tforeach (var groupW in groups)\r\n\t\t\t{\r\n\t\t\t\tmolist.Add(new MO_WhatsappGroup()\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tاعضا = groupW.Participants,\r\n\t\t\t\t\tآیدی_گروه = groupW.SerializedId,\r\n\t\t\t\t\tتاریخ_ایجاد = groupW.CreatedAt,\r\n\t\t\t\t\tسرور = groupW.Server,\r\n\t\t\t\t\tتوضیحات_گروه = groupW.Description,\r\n\t\t\t\t\tنام = groupW.User\r\n\t\t\t\t\t});\r\n\t\t\t}\r\n\t\t\tclient.گروهای_شماره.Add(molist);\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\t\tprivate static void OnClientMessageArrived(MO_WhatsAppClient client, string data)\r\n\t\t{\r\n\r\n\t\t}\r\n\t\tprivate static void OnClientDisconnected(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\tResetClient(client);\r\n\t\t\tclient.Disconnected = true;\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\t\tprivate static void OnClientIsReady(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\tclient.IsReady = true;\r\n\t\t\tSetClientNotDiscounected(client);\r\n\t\t\tSetClientQrCode(client, string.Empty);\r\n\t\t\tclient.QR_Generated = false;\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\t\tprivate static void OnClientAuthenticated(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\tclient.Auth_Success = true;\r\n\t\t\tSetClientNotDiscounected(client);\r\n\t\t\tclient.Initialized = true;\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\t\tprivate static void OnClientQr(MO_WhatsAppClient client, string qrCodeString)\r\n\t\t{\r\n\r\n\t\t\t//TODO set image qr code\t\t\t\r\n\t\t\tQRCodeGenerator qrg = new QRCodeGenerator();\r\n\t\t\tvar qrCodeData = qrg.CreateQrCode(qrCodeString, QRCodeGenerator.ECCLevel.Q);\r\n\r\n\t\t\tBase64QRCode qrCode = new Base64QRCode(qrCodeData);\r\n\t\t\tstring qrCodeImageAsBase64 = qrCode.GetGraphic(20);\r\n\r\n\t\t\tstring richText = string.Format(\"<html><body><img  width='400px' height='400px' src=data:image/png;base64,{0} /></body></html>\", qrCodeImageAsBase64);\r\n\t\t\tSetClientQrCode(client, richText);\r\n\r\n\t\t\tSetClientNotDiscounected(client);\r\n\t\t\tclient.QR_Generated = true;\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\t\tprivate static void OnClientInitialized(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\t//TODO set image qr code\r\n\t\t\tclient.Initialized = true;\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\r\n\t\tprivate static void ResetClient(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\tclient.Auth_Success = false;\r\n\t\t\tclient.Auth_Failure_Message = string.Empty;\r\n\t\t\tclient.IsReady = false;\r\n\t\t\tclient.Initialized = false;\r\n\t\t\tclient.QR_Generated = false;\r\n\t\t\tSetClientQrCode(client, string.Empty);\r\n\t\t\tclient.CRUD();\r\n\t\t}\r\n\r\n\t\tprivate static void SetClientNotDiscounected(MO_WhatsAppClient client)\r\n\t\t{\r\n\t\t\tclient.Initialized = true;\r\n\t\t\tclient.Disconnected = false;\r\n\t\t}\r\n\t\tprivate static void SetClientQrCode(MO_WhatsAppClient client, string richText)\r\n\t\t{\r\n\t\t\tRichStringInfo fdInfo = client.Object.TypeDef.GetFieldInfoByCaption<RichStringInfo>(\"QR Code\");\r\n\t\t\tfdInfo.SetRichValue(client, richText);\r\n\t\t}\r\n\t\tpublic class GroupChat\r\n\t\t{\r\n\t\t\tpublic string CreatedAt\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string User\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string Server\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string SerializedId\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string Description\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t\tpublic string Participants\r\n\t\t\t{\r\n\t\t\t\tget; set;\r\n\t\t\t}\r\n\t\t}\r\n\r\n#endregion\r\n\r\n\t}\r\n\r\n}\r\n",
+          "ParameterTypeDefId": 0,
+          "HelperId": 0,
+          "ExtractorTypeId": 1001413500000001355,
+          "LastModifiedDate": "2023-02-21T16:28:33.0100000",
+          "Status": 1
+        },
+        {
+          "id": 7097413820000010181,
+          "$type": "Barsa.Meta.MetaCode",
+          "$caption": "کد زیرسیستم(واسط کار",
+          "SystemId": 7097413550000000101,
+          "ParentCodeId": 0,
+          "CodeLocation": 2,
+          "CodeLayer": "Web2Ui",
+          "CodeLanguage": 2,
+          "TargetObjectId": 7097413550000000101,
+          "Code": "//%[MetaControlEvent(\"WhatsAppClient\", \"Destroy\", \"ToolClick\")]\r\nthis.Form_WhatsAppClient_Destroy_ToolClick = function (sender, e) {\r\n\tBw.RunBlMethod(\"Destroy\", e.Mo);\r\n}\r\n\r\n//%[MetaControlEvent(\"WhatsAppClient\", \"Logout\", \"ToolClick\")]\r\nthis.Form_WhatsAppClient_Logout_ToolClick = function (sender, e) {\r\n\tBw.RunBlMethod(\"Logout\", e.Mo);\r\n}\r\n\r\n//%[MetaControlEvent(\"WhatsAppClient\", \"Initialize\", \"ToolClick\")]\r\nthis.Form_WhatsAppClient_Initialize_ToolClick = function (sender, e) {\r\n\tBw.RunBlMethod(\"Initialize\", e.Mo);\r\n}\r\n\r\n//%[MetaControlEvent(\"WhatsAppClient\", \"Load Groups\", \"ToolClick\")]\r\nthis.Form_WhatsAppClient_Load_Groups_ToolClick = function (sender, e) {\r\n\tBw.RunBlMethod(\"LoadGroups\", e.Mo);\r\n\tsetTimeout(function () {\r\n\t\te.Form.GetField(\"گروهای شماره\").GetInnerReport().Reload();\r\n\t}, 1500)\r\n}\r\n\r\n\r\n\r\n//%[MetaEvent(\"NotificationMessage\", BeforeLoad)]\r\nthis.OnForm_NotificationMessage_BeforeLoad = function (sender, e) {\r\n\tBw.RunBlMethodAsync( {\r\n\t\tParameters: [e.FormParams.Mo.Id],\r\n\t\tMethod: 'SetReadNotificationMessage',\r\n\t\tSuccessFn: function (result) {\r\n\t\t},\r\n\t\tFailFn: function (result) {\r\n\t\t}\r\n\t})\r\n}\r\n\r\n\r\n//%[MetaControlEvent(\"تست ارسال فایل\", \"ارسال به واتس اپ گیرندگان\", \"ToolClick\")]\r\nthis.Form_تست_ارسال_فایل_ارسال_به_واتس_اپ_گیرندگان_ToolClick = function (sender, e) {\r\n\tBw.RunBlMethod(\"BarsaTestSendFileToWhatsapp\", e.Mo);\r\n}\r\n\r\n",
+          "ParameterTypeDefId": 0,
+          "HelperId": 0,
+          "ExtractorTypeId": 1001413500000001355,
+          "LastModifiedDate": "2025-01-15T13:56:34.7670000",
+          "Status": 1
+        }
+      ],
+      "MetaReport": [
+        {
+          "$type": "report",
+          "name": "SmsMessage",
+          "entity": "#SmsMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Text",
+              "alias": "Text"
+            },
+            {
+              "field": "#ToNumber",
+              "alias": "ToNumber"
+            }
+          ],
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000010124,
+          "selector": "#SmsMessage"
+        },
+        {
+          "$type": "report",
+          "name": "SenderDemo",
+          "entity": "#SenderDemo",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "id": 7097413530000010130,
+          "selector": "#SenderDemo"
+        },
+        {
+          "$type": "report",
+          "name": "رابطه MetaFieldDef",
+          "entity": "#MetaFieldDef",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#عنوان",
+              "alias": "عنوان"
+            },
+            {
+              "field": "#نام سیستمی",
+              "alias": "نام سیستمی"
+            },
+            {
+              "field": "#موجودیت",
+              "alias": "موجودیت"
+            },
+            {
+              "field": "#نوع فیلد",
+              "alias": "نوع فیلد"
+            },
+            {
+              "field": "#شماره ترتیب",
+              "alias": "شماره ترتیب"
+            },
+            {
+              "field": "#نوع رابطه",
+              "alias": "نوع رابطه"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": "#نوع فیلد",
+                "value": "10"
+              }
+            ]
+          },
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000010135,
+          "selector": "#رابطه MetaFieldDef"
+        },
+        {
+          "$type": "report",
+          "name": "یافتن کاربرآنلاین",
+          "entity": "#جلسه سیستمی",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#کاربر",
+              "alias": "کاربر"
+            },
+            {
+              "field": "#نام کاربر",
+              "alias": "نام کاربر"
+            },
+            {
+              "field": "#نام دستگاه",
+              "alias": "نام دستگاه"
+            },
+            {
+              "field": "#IP دستگاه",
+              "alias": "IP دستگاه"
+            },
+            {
+              "field": "#زمان ورود",
+              "alias": "زمان ورود"
+            },
+            {
+              "field": "#زمان خروج",
+              "alias": "زمان خروج"
+            },
+            {
+              "field": "#زمان آخرین دسترسی",
+              "alias": "زمان آخرین دسترسی"
+            },
+            {
+              "field": "#مرورگر",
+              "alias": "مرورگر"
+            },
+            {
+              "field": "#برنامه",
+              "alias": "برنامه"
+            },
+            {
+              "field": "#توکن",
+              "alias": "توکن"
+            },
+            {
+              "field": "#فعال است",
+              "alias": "فعال است"
+            },
+            {
+              "field": "#قفل شده",
+              "alias": "قفل شده"
+            },
+            {
+              "field": "#ExtraStatics",
+              "alias": "ExtraStatics"
+            },
+            {
+              "field": "#ExtraDynamics",
+              "alias": "ExtraDynamics"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": "#کاربر",
+                "parameter": "#کاربر"
+              },
+              {
+                "operator": "isNull",
+                "field": "#زمان خروج",
+                "value": null
+              },
+              {
+                "operator": "lessThan",
+                "field": "#زمان آخرین دسترسی",
+                "parameter": "#$code"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "کاربر",
+              "caption": "پرسیده شود",
+              "field": "#کاربر",
+              "input": true,
+              "sourceOperator": "equal"
+            },
+            {
+              "name": "$code",
+              "caption": "کد",
+              "field": "#زمان آخرین دسترسی",
+              "sourceOperator": "greaterThan",
+              "code": "Util.Now.AddMinutes(5)"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000010157,
+          "selector": "#یافتن کاربرآنلاین"
+        },
+        {
+          "$type": "report",
+          "name": "در انتظار ارسال",
+          "entity": "#NotificationMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Title",
+              "alias": "Title"
+            },
+            {
+              "field": "#Icon",
+              "alias": "Icon"
+            },
+            {
+              "field": "#Status",
+              "alias": "Status"
+            },
+            {
+              "field": "#Unread",
+              "alias": "Unread"
+            },
+            {
+              "field": "#Subject",
+              "alias": "Subject"
+            },
+            {
+              "field": "#Priority",
+              "alias": "Priority"
+            },
+            {
+              "field": "#RelatedMo",
+              "alias": "RelatedMo"
+            },
+            {
+              "field": "#MetaTypeDef",
+              "alias": "MetaTypeDef"
+            },
+            {
+              "field": "#IMessage",
+              "alias": "IMessage"
+            },
+            {
+              "field": "#Actions",
+              "alias": "Actions"
+            },
+            {
+              "field": "#RelatedMoNama",
+              "alias": "RelatedMoNama"
+            },
+            {
+              "field": "#ChoiceList",
+              "alias": "ChoiceList"
+            },
+            {
+              "field": "#HideShowButton",
+              "alias": "HideShowButton"
+            },
+            {
+              "field": "#HideDeleteButton",
+              "alias": "HideDeleteButton"
+            },
+            {
+              "field": "#OverflowButtons",
+              "alias": "OverflowButtons"
+            },
+            {
+              "field": "#UiActions",
+              "alias": "UiActions"
+            },
+            {
+              "field": "#Tag",
+              "alias": "Tag"
+            },
+            {
+              "field": "#Expire",
+              "alias": "Expire"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#وضعیت ارسال"
+                  ]
+                },
+                "value": "2"
+              },
+              {
+                "operator": "greaterThan",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#زمان ایجاد"
+                  ]
+                },
+                "parameter": "#$code"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "$code",
+              "caption": "کد",
+              "field": "#IMessage|زمان ایجاد",
+              "sourceOperator": "lessThan",
+              "code": "Util.Now.AddDays(-2);"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000010158,
+          "selector": "#در انتظار ارسال"
+        },
+        {
+          "$type": "report",
+          "name": "PushNotificationOption",
+          "entity": "#PushNotificationOption",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "id": 7097413530000010187,
+          "selector": "#PushNotificationOption"
+        },
+        {
+          "$type": "report",
+          "name": "UserSubscription",
+          "entity": "#UserSubscription",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "id": 7097413530000010188,
+          "selector": "#UserSubscription"
+        },
+        {
+          "$type": "report",
+          "name": "SubscriptionKey",
+          "entity": "#SubscriptionKey",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "id": 7097413530000010189,
+          "selector": "#SubscriptionKey"
+        },
+        {
+          "$type": "report",
+          "name": "نوتیفیکشن",
+          "entity": "#نوتیفیکشن",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#عنوان",
+              "alias": "عنوان"
+            },
+            {
+              "field": "#محتوا",
+              "alias": "محتوا"
+            },
+            {
+              "field": "#شی مرتبط",
+              "alias": "شی مرتبط"
+            },
+            {
+              "field": "#کاربر",
+              "alias": "کاربر"
+            },
+            {
+              "field": "#فایل تصویر",
+              "alias": "فایل تصویر"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": "#عنوان",
+                "parameter": "#ssss"
+              },
+              {
+                "operator": "equal",
+                "field": "#عنوان",
+                "parameter": "#ddddd"
+              },
+              {
+                "operator": "inList",
+                "field": "#اطلاعات کالاص",
+                "parameter": "#لیست"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "ssss",
+              "caption": "فرم: ssss",
+              "field": "#پورتال برسانوین‌رای|جستجو:نوتیفیکشن2|ssss",
+              "valueFieldInfoType": 2,
+              "external": true
+            },
+            {
+              "name": "ddddd",
+              "caption": "فرم: ddddd",
+              "field": "#پورتال برسانوین‌رای|جستجو:نوتیفیکشن2|ddddd",
+              "valueFieldInfoType": 2,
+              "external": true
+            },
+            {
+              "name": "لیست",
+              "caption": "فرم: لیست",
+              "value": {
+                "unsupported": true,
+                "warning": "Parameter.FieldInfo is null; Semantic v15 does not infer a converter."
+              },
+              "valueFieldInfoType": 30,
+              "external": true
+            }
+          ],
+          "joinAliases": [],
+          "parameterEntity": "#پورتال برسانوین‌رای|جستجو:نوتیفیکشن2",
+          "gridShowSelectionChecks": true,
+          "typeView": "#گزارش مرتبط",
+          "parameterPanelHeight": 250,
+          "immediateExecute": true,
+          "id": 7097413530000010203,
+          "selector": "#نوتیفیکشن"
+        },
+        {
+          "$type": "report",
+          "name": "رابطه اطلاعات کالا",
+          "entity": "#اطلاعات کالا",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "form",
+          "columns": [
+            {
+              "field": "#عنوان و کد کالا",
+              "alias": "عنوان و کد کالا"
+            },
+            {
+              "field": "#عنوان",
+              "alias": "عنوان"
+            },
+            {
+              "field": "#کد",
+              "alias": "کد"
+            },
+            {
+              "field": "#زمان ایجاد",
+              "alias": "زمان ایجاد"
+            },
+            {
+              "field": "#کاربر ایجاد کننده",
+              "alias": "کاربر ایجاد کننده"
+            },
+            {
+              "field": "#متن پیشرفته",
+              "alias": "متن پیشرفته"
+            }
+          ],
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "typeView": "#رابطه اطلاعات کالا",
+          "immediateExecute": false,
+          "id": 7097413530000010217,
+          "selector": "#رابطه اطلاعات کالا"
+        },
+        {
+          "$type": "report",
+          "name": "رابطه WhatsappGroup",
+          "entity": "#WhatsappGroup",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#نام",
+              "alias": "نام"
+            },
+            {
+              "field": "#توضیحات گروه",
+              "alias": "توضیحات گروه"
+            },
+            {
+              "field": "#تاریخ ایجاد",
+              "alias": "تاریخ ایجاد"
+            },
+            {
+              "field": "#اعضا",
+              "alias": "اعضا"
+            },
+            {
+              "field": "#سرور",
+              "alias": "سرور"
+            },
+            {
+              "field": "#آیدی گروه",
+              "alias": "آیدی گروه"
+            }
+          ],
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000040475,
+          "selector": "#رابطه WhatsappGroup"
+        },
+        {
+          "$type": "report",
+          "name": "تست ارسال فایل",
+          "entity": "#تست ارسال فایل",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "condition": {
+            "all": []
+          },
+          "joinAliases": [],
+          "id": 7097413530000040487,
+          "selector": "#تست ارسال فایل"
+        },
+        {
+          "$type": "report",
+          "name": "_RemoveAll_NotificationMessage",
+          "entity": "#NotificationMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Title",
+              "alias": "Title"
+            },
+            {
+              "field": "#Icon",
+              "alias": "Icon"
+            },
+            {
+              "field": "#Status",
+              "alias": "Status"
+            },
+            {
+              "field": "#Unread",
+              "alias": "Unread"
+            },
+            {
+              "field": "#Subject",
+              "alias": "Subject"
+            },
+            {
+              "field": "#Priority",
+              "alias": "Priority"
+            },
+            {
+              "field": "#RelatedMo",
+              "alias": "RelatedMo"
+            },
+            {
+              "field": "#MetaTypeDef",
+              "alias": "MetaTypeDef"
+            },
+            {
+              "field": "#IMessage",
+              "alias": "IMessage"
+            },
+            {
+              "field": "#Actions",
+              "alias": "Actions"
+            },
+            {
+              "field": "#RelatedMoNama",
+              "alias": "RelatedMoNama"
+            },
+            {
+              "field": "#ChoiceList",
+              "alias": "ChoiceList"
+            },
+            {
+              "field": "#HideShowButton",
+              "alias": "HideShowButton"
+            },
+            {
+              "field": "#HideDeleteButton",
+              "alias": "HideDeleteButton"
+            },
+            {
+              "field": "#OverflowButtons",
+              "alias": "OverflowButtons"
+            },
+            {
+              "field": "#UiActions",
+              "alias": "UiActions"
+            },
+            {
+              "field": "#Tag",
+              "alias": "Tag"
+            },
+            {
+              "field": "#Expire",
+              "alias": "Expire"
+            },
+            {
+              "field": "#Image",
+              "alias": "Image"
+            },
+            {
+              "field": "#Vibrate",
+              "alias": "Vibrate"
+            },
+            {
+              "field": "#Silent",
+              "alias": "Silent"
+            },
+            {
+              "field": "#ShowPopup",
+              "alias": "ShowPopup"
+            },
+            {
+              "field": "#تاریخ ایجاد",
+              "alias": "تاریخ ایجاد"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#کاربر گیرنده"
+                  ]
+                },
+                "parameter": "#کاربر جاری",
+                "nullBehavior": "dontIgnore"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "کاربر جاری",
+              "caption": "کاربر جاری",
+              "kind": "context",
+              "contextValue": "currentUser"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000050673,
+          "selector": "#_RemoveAll_NotificationMessage"
+        },
+        {
+          "$type": "report",
+          "name": "_RemoveAll_ExceptToday_NotificationMessage",
+          "entity": "#NotificationMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Title",
+              "alias": "Title"
+            },
+            {
+              "field": "#Icon",
+              "alias": "Icon"
+            },
+            {
+              "field": "#Status",
+              "alias": "Status"
+            },
+            {
+              "field": "#Unread",
+              "alias": "Unread"
+            },
+            {
+              "field": "#Subject",
+              "alias": "Subject"
+            },
+            {
+              "field": "#Priority",
+              "alias": "Priority"
+            },
+            {
+              "field": "#RelatedMo",
+              "alias": "RelatedMo"
+            },
+            {
+              "field": "#MetaTypeDef",
+              "alias": "MetaTypeDef"
+            },
+            {
+              "field": "#IMessage",
+              "alias": "IMessage"
+            },
+            {
+              "field": "#Actions",
+              "alias": "Actions"
+            },
+            {
+              "field": "#RelatedMoNama",
+              "alias": "RelatedMoNama"
+            },
+            {
+              "field": "#ChoiceList",
+              "alias": "ChoiceList"
+            },
+            {
+              "field": "#HideShowButton",
+              "alias": "HideShowButton"
+            },
+            {
+              "field": "#HideDeleteButton",
+              "alias": "HideDeleteButton"
+            },
+            {
+              "field": "#OverflowButtons",
+              "alias": "OverflowButtons"
+            },
+            {
+              "field": "#UiActions",
+              "alias": "UiActions"
+            },
+            {
+              "field": "#Tag",
+              "alias": "Tag"
+            },
+            {
+              "field": "#Expire",
+              "alias": "Expire"
+            },
+            {
+              "field": "#Image",
+              "alias": "Image"
+            },
+            {
+              "field": "#Vibrate",
+              "alias": "Vibrate"
+            },
+            {
+              "field": "#Silent",
+              "alias": "Silent"
+            },
+            {
+              "field": "#ShowPopup",
+              "alias": "ShowPopup"
+            },
+            {
+              "field": "#تاریخ ایجاد",
+              "alias": "تاریخ ایجاد"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#کاربر گیرنده"
+                  ]
+                },
+                "parameter": "#کاربر جاری",
+                "nullBehavior": "dontIgnore"
+              },
+              {
+                "operator": "greaterThan",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#زمان ایجاد"
+                  ]
+                },
+                "parameter": "#امروز",
+                "nullBehavior": "dontIgnore",
+                "customSql": "CAST(A_IMessage.CreationDate AS DATE) < CAST(GETDATE() AS DATE)"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "کاربر جاری",
+              "caption": "کاربر جاری",
+              "kind": "context",
+              "contextValue": "currentUser"
+            },
+            {
+              "name": "امروز",
+              "caption": "امروز"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000050674,
+          "selector": "#_RemoveAll_ExceptToday_NotificationMessage"
+        },
+        {
+          "$type": "report",
+          "name": "_RemoveAll_ExceptThisWeek_NotificationMessage",
+          "entity": "#NotificationMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Title",
+              "alias": "Title"
+            },
+            {
+              "field": "#Icon",
+              "alias": "Icon"
+            },
+            {
+              "field": "#Status",
+              "alias": "Status"
+            },
+            {
+              "field": "#Unread",
+              "alias": "Unread"
+            },
+            {
+              "field": "#Subject",
+              "alias": "Subject"
+            },
+            {
+              "field": "#Priority",
+              "alias": "Priority"
+            },
+            {
+              "field": "#RelatedMo",
+              "alias": "RelatedMo"
+            },
+            {
+              "field": "#MetaTypeDef",
+              "alias": "MetaTypeDef"
+            },
+            {
+              "field": "#IMessage",
+              "alias": "IMessage"
+            },
+            {
+              "field": "#Actions",
+              "alias": "Actions"
+            },
+            {
+              "field": "#RelatedMoNama",
+              "alias": "RelatedMoNama"
+            },
+            {
+              "field": "#ChoiceList",
+              "alias": "ChoiceList"
+            },
+            {
+              "field": "#HideShowButton",
+              "alias": "HideShowButton"
+            },
+            {
+              "field": "#HideDeleteButton",
+              "alias": "HideDeleteButton"
+            },
+            {
+              "field": "#OverflowButtons",
+              "alias": "OverflowButtons"
+            },
+            {
+              "field": "#UiActions",
+              "alias": "UiActions"
+            },
+            {
+              "field": "#Tag",
+              "alias": "Tag"
+            },
+            {
+              "field": "#Expire",
+              "alias": "Expire"
+            },
+            {
+              "field": "#Image",
+              "alias": "Image"
+            },
+            {
+              "field": "#Vibrate",
+              "alias": "Vibrate"
+            },
+            {
+              "field": "#Silent",
+              "alias": "Silent"
+            },
+            {
+              "field": "#ShowPopup",
+              "alias": "ShowPopup"
+            },
+            {
+              "field": "#تاریخ ایجاد",
+              "alias": "تاریخ ایجاد"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#کاربر گیرنده"
+                  ]
+                },
+                "parameter": "#کاربر جاری",
+                "nullBehavior": "dontIgnore"
+              },
+              {
+                "operator": "equal",
+                "field": "#Title",
+                "value": null,
+                "customSql": "CAST(A_IMessage.CreationDate  AS DATE)< DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "کاربر جاری",
+              "caption": "کاربر جاری",
+              "kind": "context",
+              "contextValue": "currentUser"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000050675,
+          "selector": "#_RemoveAll_ExceptThisWeek_NotificationMessage"
+        },
+        {
+          "$type": "report",
+          "name": "_FindNotificationByRelatedMoAndReciever",
+          "entity": "#NotificationMessage",
+          "jsonProperty": null,
+          "sharedScope": false,
+          "reportType": "list",
+          "columns": [
+            {
+              "field": "#Title",
+              "alias": "Title"
+            },
+            {
+              "field": "#Icon",
+              "alias": "Icon"
+            },
+            {
+              "field": "#Status",
+              "alias": "Status"
+            },
+            {
+              "field": "#Unread",
+              "alias": "Unread"
+            },
+            {
+              "field": "#Subject",
+              "alias": "Subject"
+            },
+            {
+              "field": "#Priority",
+              "alias": "Priority"
+            },
+            {
+              "field": "#RelatedMo",
+              "alias": "RelatedMo"
+            },
+            {
+              "field": "#MetaTypeDef",
+              "alias": "MetaTypeDef"
+            },
+            {
+              "field": "#IMessage",
+              "alias": "IMessage"
+            },
+            {
+              "field": "#Actions",
+              "alias": "Actions"
+            },
+            {
+              "field": "#RelatedMoNama",
+              "alias": "RelatedMoNama"
+            },
+            {
+              "field": "#ChoiceList",
+              "alias": "ChoiceList"
+            },
+            {
+              "field": "#HideShowButton",
+              "alias": "HideShowButton"
+            },
+            {
+              "field": "#HideDeleteButton",
+              "alias": "HideDeleteButton"
+            },
+            {
+              "field": "#OverflowButtons",
+              "alias": "OverflowButtons"
+            },
+            {
+              "field": "#UiActions",
+              "alias": "UiActions"
+            },
+            {
+              "field": "#Tag",
+              "alias": "Tag"
+            },
+            {
+              "field": "#Expire",
+              "alias": "Expire"
+            },
+            {
+              "field": "#Image",
+              "alias": "Image"
+            },
+            {
+              "field": "#Vibrate",
+              "alias": "Vibrate"
+            },
+            {
+              "field": "#Silent",
+              "alias": "Silent"
+            },
+            {
+              "field": "#ShowPopup",
+              "alias": "ShowPopup"
+            },
+            {
+              "field": "#تاریخ ایجاد",
+              "alias": "تاریخ ایجاد"
+            }
+          ],
+          "condition": {
+            "all": [
+              {
+                "operator": "equal",
+                "field": "#RelatedMo",
+                "parameter": "#RelatedMo",
+                "nullBehavior": "dontIgnore"
+              },
+              {
+                "operator": "equal",
+                "field": {
+                  "items": [
+                    "#IMessage",
+                    "#کاربر گیرنده"
+                  ]
+                },
+                "parameter": "#کاربر گیرنده",
+                "nullBehavior": "dontIgnore"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "RelatedMo",
+              "caption": "پرسیده شود",
+              "field": "#RelatedMo",
+              "input": true,
+              "sourceOperator": "equal"
+            },
+            {
+              "name": "کاربر گیرنده",
+              "caption": "پرسیده شود",
+              "field": "#IMessage|کاربر گیرنده",
+              "input": true,
+              "sourceOperator": "equal"
+            }
+          ],
+          "joinAliases": [],
+          "immediateExecute": false,
+          "id": 7097413530000050733,
+          "selector": "#_FindNotificationByRelatedMoAndReciever"
+        }
+      ],
+      "doNotShowSystemTab": false
+    }
+  ],
+  "manifest": {
+    "format": "Barsa.AiExport",
+    "profileVersion": 15
+  }
+}
