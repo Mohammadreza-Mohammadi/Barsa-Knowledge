@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد کنترل فیلد</Title>
+	<RelatedTypes>
+		<RelatedType>FieldDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="TypeDef" Title="موجودیت" DataSource='GetTypeDefList($System$)'></Param>
+		<Param Name='FieldDef' Title="فیلد" DataSource='GetFieldDefList($TypeDef$)'></Param>
+		<Param Name="Event" Title="رویداد" DataSource='GetControlEventList($FieldDef$)'></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+		[MetaControlEvent("$TypeDef$", "$FieldDef$", "$Event$")]
+		static void Form_$TypeDef.CodeName$_$FieldDef.CodeName$_$Event.CodeName$(object sender, EventArgs e)
+		{
+			var frm = new Form_$TypeDef.CodeName$(sender);
+			//#CURSER#
+		}
+	</Code>
+</Pattern>

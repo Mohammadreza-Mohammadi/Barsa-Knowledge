@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+  <Title>بدست آوردن مقدار 'پارامتر سراسری'</Title>
+  <RelatedTypes>
+  </RelatedTypes>
+  <Params>
+    <Param Name="Parameter" Title="پارامتر" DataSource='Parameter_GetAll()'></Param>
+  </Params>
+  <Code TargetLocation='MethodBody'>var result = ParameterHelper.GetParameterValue("$Parameter.Caption$");
+</Code>
+</Pattern>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>بدست آوردن TypeDef</Title>
+	<RelatedTypes>
+		<RelatedType>TypeDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="TypeDef" Title="موجودیت" DataSource='GetTypeDefList($System$)'></Param>
+	</Params>
+	<Code TargetLocation='MethodBody'>var typeDef = TypeDef.GetByCaption("$System.Caption$", "$TypeDef$");
+//#CURSER#</Code>
+</Pattern>

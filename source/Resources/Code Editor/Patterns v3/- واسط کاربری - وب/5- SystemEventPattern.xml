@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد زیرسیستم</Title>
+	<RelatedTypes>
+		<RelatedType>MetaSystem</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="Event" Title="رویداد" DataSource='GetStringItems(BeforeSystemCreate;AfterSystemCreate;BeforeSystemSelect;AfterSystemSelect)'></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+//%[MetaEvent(MetaEventTopics.$Event.Codename$)]
+this.OnSystem_$Event.Codename$ = function(sender, e)
+{
+
+}
+	</Code>
+</Pattern>

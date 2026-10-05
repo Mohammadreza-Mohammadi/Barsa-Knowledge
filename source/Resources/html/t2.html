@@ -1,0 +1,34 @@
+﻿<tr class="header" onclick="myClick($ID$)">
+    <td align="right">
+        <img class="X" name="expander" id="img$ID$" src="close.png" />
+        <span class="titleHeader">پيام قبلي&nbsp;&nbsp;&nbsp;&nbsp;</span> فرستنده:&nbsp;
+        <span class="sender">$FROM$</span>
+    </td>
+    <td>
+        در تاريخ:&nbsp;<span class="date">&nbsp;$DATE$</span>
+    </td>
+</tr>
+<tr id="body$ID$" class="detail" style="display: block">
+    <td style="width: 100%" colspan="2" class="label">
+        <table class="X" width="100%" cellpadding="2" cellspacing="0">
+            <tr style="display: $HAVE_TO$">
+                <td class=label >
+                    &nbsp;گيرندگان اصلي
+                <td class="title" width='60%'>
+                    $TO$
+            <tr style="display: $HAVE_CC$">
+                <td class=label >
+                    &nbsp;گيرندگان رونوشت
+                <td class="title" width='60%'>
+                    $CC$
+            <tr>
+                <td class=label >
+                    &nbsp;موضوع
+                <td class="title" width='60%'>
+                    $TITLE$
+            <tr >
+                <td class="body" colspan=5>
+                    $BODY$
+        </table>
+    </td>
+</tr>

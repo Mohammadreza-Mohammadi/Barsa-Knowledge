@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد فرم</Title>
+	<RelatedTypes>
+		<RelatedType>TypeDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="TypeDef" Title="موجودیت" DataSource='GetTypeDefList($System$)'></Param>
+		<Param Name="Event" Title="رویداد" DataSource='GetStringItems(BeforeLoad;AfterLoad;BeforeCreate;AfterCreate;AfterReady;BeforeSave;AfterSave;BeforeActivityDone;BeforeDelete;BeforeClose;AfterClose;ValueChange;OkClick;CancelClick;FocusChange)'></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+//%[MetaEvent("$TypeDef$", $Event.Caption$)]
+this.OnForm_$TypeDef.CodeName$_$Event.CodeName$ = function(sender, e)
+{
+
+}
+    </Code>
+</Pattern>

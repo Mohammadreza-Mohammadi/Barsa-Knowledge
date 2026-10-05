@@ -1,0 +1,1599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<styleLibrary office2007ColorScheme="Silver" office2007CustomBlendColor="249, 214, 161">
+  <annotation>
+    <author />
+    <copyright />
+    <description>XaraName=Caramel;</description>
+    <version />
+    <permittedUsage />
+    <lastModified>2010-03-09T09:18:05</lastModified>
+  </annotation>
+  <styleSets defaultStyleSet="Default">
+    <styleSet name="Default" useOsThemes="False">
+      <checkBoxGlyphInfo>AAEAAAD/////AQAAAAAAAAAMAgAAAFxCYXJzYS5TUEwuV2luLnYyLjUsIFZlcnNpb249Mi41LjEzODg4LjEwMDMsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49NjQzNTgzOTE4ODc1NzhmNAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQwEAAAAX0JhcnNhLlNQTC5Db21tb24udjIuNSwgVmVyc2lvbj0yLjUuMTM4ODguMTAwMywgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj02NDM1ODM5MTg4NzU3OGY0BQEAAAAkQmFyc2EuU1BMLldpbi5DaGVja0JveEltYWdlR2x5cGhJbmZvBAAAAAlHbHlwaFR5cGUJR2x5cGhTaXplEkNvbWJpbmVkR2x5cGhJbWFnZQtEZXNjcmlwdGlvbgAEBAEIE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAALEJhcnNhLlNQTC5Db21tb24uU2VyaWFsaXphdGlvbi5PYmplY3RXcmFwcGVyBAAAAAIAAAAAAAAABfv///8TU3lzdGVtLkRyYXdpbmcuU2l6ZQIAAAAFd2lkdGgGaGVpZ2h0AAAICAMAAAAMAAAADAAAAAX6////LEJhcnNhLlNQTC5Db21tb24uU2VyaWFsaXphdGlvbi5PYmplY3RXcmFwcGVyAQAAAAtvYmplY3RWYWx1ZQQVU3lzdGVtLkRyYXdpbmcuQml0bWFwAwAAAAQAAAAJBwAAAAYIAAAAFkN1c3RvbSBjaGVja2JveCBnbHlwaHMFBwAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgMAAAAJCQAAAA8JAAAAgQYAAAKJUE5HDQoaCgAAAA1JSERSAAAAPAAAACQIBgAAANV5WYQAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAF/0lEQVRoQ+2ZW2ibZRjHP0UZXigMRNyFoAPBS5l4J3ozcTDRXTgFURi6myl6MUGczMMUDxs4Vhyz067r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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</checkBoxGlyphInfo>
+      <radioButtonGlyphInfo>AAEAAAD/////AQAAAAAAAAAMAgAAAFxCYXJzYS5TUEwuV2luLnYyLjUsIFZlcnNpb249Mi41LjEzODg4LjEwMDMsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49NjQzNTgzOTE4ODc1NzhmNAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQwEAAAAX0JhcnNhLlNQTC5Db21tb24udjIuNSwgVmVyc2lvbj0yLjUuMTM4ODguMTAwMywgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj02NDM1ODM5MTg4NzU3OGY0BQEAAAAnQmFyc2EuU1BMLldpbi5SYWRpb0J1dHRvbkltYWdlR2x5cGhJbmZvBAAAAAlHbHlwaFR5cGUJR2x5cGhTaXplEkNvbWJpbmVkR2x5cGhJbWFnZQtEZXNjcmlwdGlvbgAEBAEIE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAALEJhcnNhLlNQTC5Db21tb24uU2VyaWFsaXphdGlvbi5PYmplY3RXcmFwcGVyBAAAAAIAAAABAAAABfv///8TU3lzdGVtLkRyYXdpbmcuU2l6ZQIAAAAFd2lkdGgGaGVpZ2h0AAAICAMAAAAMAAAADAAAAAX6////LEJhcnNhLlNQTC5Db21tb24uU2VyaWFsaXphdGlvbi5PYmplY3RXcmFwcGVyAQAAAAtvYmplY3RWYWx1ZQQVU3lzdGVtLkRyYXdpbmcuQml0bWFwAwAAAAQAAAAJBwAAAAYIAAAAGkN1c3RvbSByYWRpbyBidXR0b24gZ2x5cGhzBQcAAAAVU3lzdGVtLkRyYXdpbmcuQml0bWFwAQAAAAREYXRhBwIDAAAACQkAAAAPCQAAAJIGAAACiVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAYAAACmwZ5SAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABhBJREFUWEfVV39olHUcfoMYm4XBAlOE/qn+2R8RgfRHYGWE9AN/UOGPQnIgQmFoLDUypUy2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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</radioButtonGlyphInfo>
+      <componentStyles>
+        <componentStyle name="BarsaCheckEditor" buttonStyle="Office2007ScrollbarButton" />
+        <componentStyle name="BarsaDayView" viewStyle="Office2007" />
+        <componentStyle name="BarsaDesktopAlert" buttonStyle="Office2007ScrollbarButton">
+          <properties>
+            <property name="Style" colorCategory="{Default}">WindowsLiveMessenger</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaExpandableGroupBox" buttonStyle="Office2007RibbonButton">
+          <properties>
+            <property name="BorderStyle" colorCategory="{Default}">HeaderDoubleSolid</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaGroupBox">
+          <properties>
+            <property name="BorderStyle" colorCategory="{Default}">HeaderDoubleSolid</property>
+            <property name="ViewStyle" colorCategory="{Default}">XP</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaMonthViewMulti" viewStyle="Office2003" />
+        <componentStyle name="BarsaMonthViewSingle" viewStyle="Office2007" useOsThemes="False" />
+        <componentStyle name="BarsaNavigationBar" buttonStyle="Office2007ScrollbarButton" useOsThemes="False" useFlatMode="False" />
+        <componentStyle name="BarsaNavigator" viewStyle="Office2007" useOsThemes="False" useFlatMode="False" />
+        <componentStyle name="BarsaNumericEditor" useFlatMode="True" />
+        <componentStyle name="BarsaStatusBar" buttonStyle="WindowsVistaToolbarButton" useOsThemes="False" useFlatMode="False">
+          <properties>
+            <property name="ViewStyle" colorCategory="{Default}">Office2003</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaTabControl" useOsThemes="False" useFlatMode="True">
+          <properties>
+            <property name="Style" colorCategory="{Default}">PropertyPage2003</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaTabStripControl">
+          <properties>
+            <property name="Style" colorCategory="{Default}">PropertyPage2003</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaThumbView" useOsThemes="False" useFlatMode="True" />
+        <componentStyle name="BarsaToolbarsManager" useOsThemes="False" useFlatMode="False">
+          <properties>
+            <property name="MenuItemSeparatorColor" colorCategory="{Default}">Tan</property>
+            <property name="MenuItemSeparatorColor2" colorCategory="{Default}">Linen</property>
+            <property name="NavigationToolSeparatorColor" colorCategory="{Default}">Tan</property>
+            <property name="NavigationToolSeparatorColor2" colorCategory="{Default}">Linen</property>
+            <property name="Style" colorCategory="{Default}">Office2007</property>
+            <property name="ToolSeparatorColor" colorCategory="{Default}">Tan</property>
+            <property name="ToolSeparatorColor2" colorCategory="{Default}">Linen</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaToolTipManager">
+          <properties>
+            <property name="DisplayStyle" colorCategory="{Default}">WindowsVista</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaTree" buttonStyle="Office2007ScrollbarButton" useOsThemes="False" useFlatMode="True">
+          <properties>
+            <property name="DisplayStyle" colorCategory="{Default}">WindowsVista</property>
+            <property name="ExpansionIndicatorImageCollapsed" colorCategory="{Default}">AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA9gAAAAKJUE5HDQoaCgAAAA1JSERSAAAADAAAAA4IBgAAABu9/ewAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7BAAAOwQG4kWvtAAAAX0lEQVQoU2P8//8/A0kApIEUTJJisGtwmb6hi4EXiM3Q5bFqgCqOBNKRBDVAFcfBNOHVAFWUBqJBCvHaAFVcAVNMUANUAcijxNkAcytJfkDTRFwooWkiLh7wJRWSkwYA1v2mo3GifywAAAAASUVORK5CYIILAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</property>
+            <property name="ExpansionIndicatorImageCollapsedHotTracked" colorCategory="{Default}">AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAArAEAAAKJUE5HDQoaCgAAAA1JSERSAAAADAAAAA4IBgAAABu9/ewAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsQAAALEAGtI711AAABFUlEQVQoU52SsUoDQRCG7y4eSRcQAiFFSCWpg5XaWMhuwPgWammdIm+WRmE3DzN74Buc30xWc9cY9ODnZmf+f2dn/y3bti3+9KngGz5I5WO6AEMHLA6p6nI65FQhGEG4BDMHcqy5H5EJ/KEpdVcEE4pLcI1gTW5PPLHaIZV2fBPEZuCjjBFcUbwFO9AaQtLcGAy6gpozT12QFYWtElm/2T+kldaIaxM8vH8WJEZ0mNPh6bizvLooj8cOcqM15Si3cB+J8zNsTPeZ/Mx6g2CTBXesF8pRbuFRUTjbwTjaIQ9dk5jSvjvDSx5ac6cZ/ndLPR8EHwQfJPuAN+ZDc/LBuuizMKcFpwWnBact1lzf6d/fUtN7S1/N9XOb26ScmAAAAABJRU5ErkJgggsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</property>
+            <property name="ExpansionIndicatorImageExpanded" colorCategory="{Default}">AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA6AAAAAKJUE5HDQoaCgAAAA1JSERSAAAADAAAAA4IBgAAABu9/ewAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7BAAAOwQG4kWvtAAAAUUlEQVQoU2P8//8/A0kApIEUTJJisGtIMR1DQ08cQykQO+EzBMUGoOKbUIxTEzYNy/BpwqUBpyZ8GrBqQtcA8jTMHzC6FDkQKAtWYuKE9jYAAFhusAVgR4tfAAAAAElFTkSuQmCCCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</property>
+            <property name="ExpansionIndicatorImageExpandedHotTracked" colorCategory="{Default}">AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAqAEAAAKJUE5HDQoaCgAAAA1JSERSAAAADAAAAA4IBgAAABu9/ewAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7BAAAOwQG4kWvtAAABEUlEQVQoU52SUYrCQBBEzRhliUYRFldIUNCfPZjfC55CYWHP4h1mrpTkM/tq7BGi7s8Gik6Gqqnu6mR934/+9dShzWrfOqEKEdmfF0F2YAL5TYA8BePKvxBx6MCk8s2c+g7WYAUKkD+JzL6oQrOuQ3cFR872QEJdMhRByGmnBFvee8MXgk/IGzCTiFZvM0GUYFGHZm/ki9UTRInkRAfdWMEgiA4I2oMRv6k/dydPe5rpFoRLDmppZ6QzVaLkdJQL30pQgk6RFuDDhk5zpHpVelEAVw4STJlBbW24ZYf1ISbl263NMI97SsuEjKhBFJ1KyEuwgFzaPkR2g82bk5LIISuIWBFo40Py4z9DrxmOL/+lX8xv+lFinN37AAAAAElFTkSuQmCCCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</property>
+            <property name="ExpansionIndicatorSize" colorCategory="{Default}">12, 14</property>
+            <property name="HideExpansionIndicators" colorCategory="{Default}">Never</property>
+            <property name="NodeConnectorColor" colorCategory="{Default}">208, 192, 168</property>
+            <property name="NodeConnectorStyle" colorCategory="{Default}">Solid</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="BarsaWeekView" viewStyle="Office2007" />
+        <componentStyle name="Inbox Form">
+          <properties>
+            <property name="BackColor" colorCategory="{Default}">254, 251, 239</property>
+          </properties>
+        </componentStyle>
+        <componentStyle name="Inbox UserControl">
+          <properties>
+            <property name="BackColor" colorCategory="{Default}">254, 251, 239</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="BarsaCalculatorEditArea" borderStyle="Solid">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaCheckEditor">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaColorPicker" borderStyle="Solid" buttonStyle="Office2007ScrollbarButton">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaComboEditor" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaComboEditPortion" borderStyle="Solid">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaCurrencyEditor" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaFontNameEditor" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaGroupBox">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="BarsaGroupBoxContentArea">
+          <states>
+            <state name="Normal" borderColor="152, 183, 186" />
+          </states>
+        </style>
+        <style role="BarsaGroupBoxHeader">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_DarkHighlight</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaGroupBoxHeaderHorizontalTop">
+          <states>
+            <state name="HotTracked" foreColor="Black" />
+          </states>
+        </style>
+        <style role="BarsaLabel">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaMaskedEdit" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaNumericEditor">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaOptionSet" borderStyle="None">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="BarsaPanel">
+          <states>
+            <state name="Normal" backColor="252, 245, 236" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaPanelBox">
+          <states>
+            <state name="Normal" backColor="252, 245, 236" backColor2="247, 241, 217" backGradientStyle="BackwardDiagonal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+            <state name="FixedColumn" foreColor="186, 217, 218" borderColor="167, 107, 14" imageBackgroundOrigin="Container" foreColorDisabled="36, 66, 79" backColorDisabled="249, 240, 201" backColorDisabled2="214, 172, 108" backGradientAlignment="Container" borderColor2="229, 219, 210" />
+            <state name="FixedRow" alphaLevel="2" backGradientAlignment="Element" />
+          </states>
+        </style>
+        <style role="BarsaProgressBar" borderStyle="Solid">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaStatusBar">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaTextEditor" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="Base">
+          <states>
+            <state name="Normal" fontName="Tahoma" fontBold="False" fontItalic="False" fontUnderline="False" fontStrikeout="False" fontSize="8.25" />
+          </states>
+        </style>
+        <style role="Button" buttonStyle="Office2007ScrollbarButton">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Gradiant_H</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Pressed">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Checked">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ComboDropDownButton" buttonStyle="Office2007ScrollbarButton" />
+        <style role="DayViewControlArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DayViewTimeSlotDescriptor">
+          <states>
+            <state name="Normal" backColor="246, 226, 188" foreColor="135, 107, 67" borderColor="224, 196, 157" backColor2="255, 243, 224" backGradientStyle="Horizontal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DesktopAlertButton">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="DesktopAlertCaptionArea">
+          <states>
+            <state name="Normal" backColor="229, 177, 0" backColor2="230, 113, 0" backGradientStyle="HorizontalWithGlassBottom50" backGradientAlignment="Element">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DesktopAlertCloseButton">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="DesktopAlertControlArea">
+          <states>
+            <state name="Normal" backColor="254, 203, 0" borderColor="96, 64, 0" backColor2="254, 127, 0" backGradientStyle="HorizontalWithGlassTop50" backGradientAlignment="Element">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DesktopAlertGripArea">
+          <states>
+            <state name="Normal" backGradientAlignment="Element">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DockManagerSplitterBar">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DockPaneCaptionHorizontal">
+          <states>
+            <state name="Normal" backColor="232, 210, 168" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>ForeColor_Dark</name>
+              </resources>
+            </state>
+            <state name="Active">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="DropDownButton">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" borderAlpha="Transparent" />
+            <state name="HotTracked" backColorAlpha="UseAlphaLevel" />
+            <state name="Pressed" backColorAlpha="UseAlphaLevel" />
+          </states>
+        </style>
+        <style role="EditorButton">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="GridCaption">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>GridColumnHeader_Normal</name>
+                <name>TreeControlArea_Normal</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridCell">
+          <states>
+            <state name="Selected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridColumnHeader">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>GridColumnHeader_Normal</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>GridColumnHeader_Hot</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridControlArea" borderStyle="Solid">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridGroupByBox">
+          <states>
+            <state name="Normal" backColor="226, 191, 137" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>GridColumnHeader_Normal</name>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridGroupByBoxColumnHeader" borderStyle="Rounded1" />
+        <style role="GridGroupByBoxPrompt" borderStyle="Rounded1">
+          <states>
+            <state name="Normal" backColor="254, 240, 215" borderColor="241, 213, 159" backColor2="254, 228, 184" backGradientStyle="GlassTop37Bright">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridHeader" borderStyle="Solid">
+          <states>
+            <state name="Normal" borderColor="153, 115, 67" />
+          </states>
+        </style>
+        <style role="GridRow">
+          <states>
+            <state name="Normal" borderColor="254, 228, 184" />
+          </states>
+        </style>
+        <style role="GridRowScrollRegionSplitBox">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>GridColumnHeader_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="GridRowSelector">
+          <states>
+            <state name="Normal" borderColor="226, 191, 137">
+              <resources>
+                <name>ForeColor_Dark</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="Link">
+          <states>
+            <state name="Normal" fontName="Tahoma">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="HotTracked" backColorAlpha="Transparent" fontUnderline="False">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MainMenubarHorizontal">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MaskLiteralChar">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MaskPromptChar">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MenuCheckMark">
+          <states>
+            <state name="Normal" foreColor="205, 170, 103" borderColor="205, 170, 103" />
+            <state name="HotTracked" borderColor="181, 255, 242" />
+            <state name="Checked" backColor="154, 247, 241" borderColor="22, 255, 216" borderAlpha="Opaque" backGradientStyle="None" borderColor3DBase="22, 255, 216" backHatchStyle="None" borderColor2="22, 255, 216">
+              <resources>
+                <name>Button_HotTracked</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MenuItem">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_Dark</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Pressed">
+              <resources>
+                <name>ForeColor_Dark</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MenuTearAwayStrip">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+            <state name="HotTracked" borderColor3DBase="Transparent">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="MonthViewSingleControlArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigationToolbarButton">
+          <states>
+            <state name="Normal" backColorDisabled="Transparent" />
+          </states>
+        </style>
+        <style role="NavigationToolbarButtonArea">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="NavigationToolbarRecentHistoryButton">
+          <states>
+            <state name="Normal" backColorDisabled="Transparent" />
+          </states>
+        </style>
+        <style role="NavigatorControlArea" borderStyle="Solid">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigatorGroupHeader">
+          <states>
+            <state name="Normal" fontSize="10">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+              </resources>
+            </state>
+            <state name="Active">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigatorGroupItemAreaOuter" borderStyle="Solid">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="NavigatorItem">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Checked">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigatorNavigationOverflowButton">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigatorNavigationOverflowButtonArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="NavigatorNavigationPaneHeader">
+          <states>
+            <state name="Normal" fontBold="True" fontSize="12" />
+          </states>
+        </style>
+        <style role="NavigatorNavigationSplitter">
+          <states>
+            <state name="Normal" backColor="227, 173, 100" foreColor="202, 153, 89" borderColor="198, 107, 6" backColor2="205, 118, 22" backGradientStyle="Vertical" />
+          </states>
+        </style>
+        <style role="OptionSetEditorItem">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="PopupGallery">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="PopupGalleryFilterBar">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+            <state name="HotTracked" foreColor="86, 218, 220">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="PopupGalleryHeader">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" backGradientStyle="None">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="PopupGalleryItemImageHighlight">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="PopupGalleryPreviewArea">
+          <states>
+            <state name="Normal" backColor="251, 233, 200" borderColor="206, 182, 144" borderAlpha="Transparent" backGradientStyle="None" borderColor3DBase="206, 182, 144" backHatchStyle="None" borderColor2="206, 182, 144" />
+          </states>
+        </style>
+        <style role="PopupMenu">
+          <states>
+            <state name="Normal" backColor="255, 252, 238" borderColor="205, 170, 103" backGradientStyle="None" backHatchStyle="None" />
+          </states>
+        </style>
+        <style role="ProgressBarFill">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="QuickAccessToolbarTop">
+          <states>
+            <state name="Normal" backColor="255, 252, 238" borderColor="Transparent" backColor2="230, 186, 125" backGradientStyle="Vertical">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonCaptionArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonGroup">
+          <states>
+            <state name="Normal" borderColor="246, 222, 188" borderColor2="206, 182, 144" />
+            <state name="HotTracked">
+              <resources>
+                <name>RibbonTabPage_Hot</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonGroupCaption">
+          <states>
+            <state name="Normal" backColor="251, 239, 220" borderColor="207, 178, 129" backColor2="230, 186, 125">
+              <resources>
+                <name>ForeColor_Disable</name>
+              </resources>
+            </state>
+            <state name="HotTracked" backColor="246, 236, 198" backColor2="214, 172, 108">
+              <resources>
+                <name>ForeColor_Dark</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonGroupItem">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Selected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Pressed" borderColor="239, 213, 160" backColorAlpha="Opaque">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="Active">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="HotTrackSelected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonGroupItemButtonGroup">
+          <states>
+            <state name="Normal" borderColor="202, 153, 89">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonTabItem">
+          <states>
+            <state name="Normal" foreColor="253, 141, 122, 105">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="Selected" backColor="225, 192, 128" foreColor="253, 77, 60, 38" borderColor="202, 153, 89" backColor2="255, 252, 238" backGradientStyle="Vertical" borderColor3DBase="251, 233, 200" borderColor2="251, 233, 200" />
+            <state name="HotTracked" backColorAlpha="Opaque">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonTabItemArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="RibbonTabPage">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>RibbonTabPage_Normal</name>
+              </resources>
+            </state>
+            <state name="Selected" borderColor="221, 196, 155" />
+          </states>
+        </style>
+        <style role="ScheduleCurrentDay">
+          <states>
+            <state name="Normal" borderColor="43, 152, 172" />
+          </states>
+        </style>
+        <style role="ScheduleDay">
+          <states>
+            <state name="Selected" borderAlpha="UseAlphaLevel">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScheduleDayHeader">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScheduleDayOfWeekHeader">
+          <states>
+            <state name="Normal" foreColor="150, 50, 22, 0" borderColor="127, 100, 63" />
+          </states>
+        </style>
+        <style role="ScheduleMonthHeader">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScheduleMoreActivityIndicatorDown">
+          <states>
+            <state name="Normal" foreColor="92, 60, 45">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScrollBarArrowVertical">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+            <state name="Pressed">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScrollBarThumbVertical">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+            <state name="Pressed">
+              <resources>
+                <name>Gradiant_V</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ScrollBarTrackSection">
+          <states>
+            <state name="Normal" backColor="245, 239, 229" backGradientStyle="None" backHatchStyle="None" />
+            <state name="Pressed" backColor="236, 250, 255" backGradientStyle="None" backHatchStyle="None" />
+          </states>
+        </style>
+        <style role="SpinButton">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" />
+            <state name="Pressed" borderAlpha="UseAlphaLevel" />
+          </states>
+        </style>
+        <style role="StatusBarButton" buttonStyle="Flat">
+          <states>
+            <state name="Normal" backColorAlpha="Opaque">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Pressed">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="Checked">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="StatusBarPanel">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="StatusBarTextPanel" borderStyle="Solid">
+          <states>
+            <state name="Normal" backColor="Transparent" borderColor="228, 179, 131" borderAlpha="Opaque" backGradientStyle="None" backHatchStyle="None" borderColor2="Office2007.MenuItemForeColor" />
+          </states>
+        </style>
+        <style role="TabClientAreaVertical">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TabControlClientArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TabControlClientAreaHorizontal">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TabControlClientArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TabItemArea">
+          <states>
+            <state name="Normal" backColor="250, 247, 241" backGradientStyle="None" backHatchStyle="None" />
+          </states>
+        </style>
+        <style role="TabItemHorizontal">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Selected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+              </resources>
+            </state>
+            <state name="HotTrackSelected" backColor="255, 244, 217">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TabItemVertical">
+          <states>
+            <state name="Normal" backGradientStyle="Horizontal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+            <state name="Selected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+              </resources>
+            </state>
+            <state name="HotTrackSelected">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TaskPaneNavigationButtonArea">
+          <states>
+            <state name="Normal" foreColor="239, 213, 160" borderColor3DBase="239, 213, 160">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TaskPaneToolbar">
+          <states>
+            <state name="Active" foreColor="86, 218, 220">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ThumbViewColumnHeader">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ThumbViewControlArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ThumbViewItem">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="Selected">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarBase">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarDockAreaTop">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarEditArea">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarHorizontal">
+          <states>
+            <state name="Normal" borderColor="202, 153, 89">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarItem">
+          <states>
+            <state name="Normal" backColorDisabled="15, 0, 0, 0" backColor2="Transparent" backColorDisabled2="Transparent" backGradientStyle="Circular">
+              <resources>
+                <name>ForeColor_Dark</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="HotTracked" borderColor3DBase="Transparent">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+            <state name="Pressed" borderColor3DBase="Transparent">
+              <resources>
+                <name>Button_Pressed</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarItemQuickCustomize">
+          <states>
+            <state name="Normal" backColor="227, 203, 165" foreColor="170, 96, 48, 0" borderAlpha="UseAlphaLevel" backColor2="183, 163, 133">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolbarVertical">
+          <states>
+            <state name="Normal" backGradientStyle="Horizontal">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="ToolTip">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Button_Pressed</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TreeControlArea">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TreeControlArea_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="TreeNode">
+          <states>
+            <state name="Normal" borderAlpha="Transparent">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="Selected" borderAlpha="UseAlphaLevel" />
+            <state name="HotTracked" borderAlpha="UseAlphaLevel" />
+            <state name="Active" borderAlpha="UseAlphaLevel" />
+          </states>
+        </style>
+        <style role="TreeNodeExpansionIndicator">
+          <states>
+            <state name="Normal" foreColor="116, 83, 46" borderColor="116, 83, 46" borderColor2="208, 192, 168" />
+            <state name="HotTracked" foreColor="0, 79, 118" />
+          </states>
+        </style>
+        <style role="ValueList">
+          <states>
+            <state name="Normal" borderColor="134, 101, 59" />
+          </states>
+        </style>
+        <style role="ValueListItem">
+          <states>
+            <state name="Normal" borderAlpha="Opaque">
+              <resources>
+                <name>ForeColor_Default</name>
+              </resources>
+            </state>
+            <state name="Selected" borderColor="111, 218, 234" borderAlpha="UseAlphaLevel" borderColor3DBase="111, 218, 234" borderColor2="111, 218, 234">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Navigator_Navigator" basedOn="Default">
+      <styles>
+        <style role="NavigatorGroupHeader">
+          <states>
+            <state name="Normal" borderAlpha="UseAlphaLevel" />
+            <state name="Active">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+            <state name="Expanded" borderAlpha="Transparent" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Navigator_VisualStudio2005Toolbox" basedOn="Default">
+      <styles>
+        <style role="NavigatorControlArea">
+          <states>
+            <state name="Normal" backColor="White" backGradientStyle="None" backHatchStyle="None" />
+          </states>
+        </style>
+        <style role="NavigatorGroupHeader">
+          <states>
+            <state name="Active">
+              <resources>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Navigator_Toolbox" basedOn="Default" />
+    <styleSet name="Lable_Title" basedOn="Default">
+      <styles>
+        <style role="BarsaLabel">
+          <states>
+            <state name="Normal" foreColor="253, 255, 255, 255" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Label_Info" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaLabel">
+          <properties>
+            <property name="BorderStyleInner" colorCategory="{Default}">Rounded3</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="BarsaLabel">
+          <states>
+            <state name="Normal" backColor="235, 255, 243" foreColor="253, 27, 44, 35" borderColor="Transparent" backColorAlpha="Opaque" backGradientStyle="None" borderColor3DBase="163, 215, 178" backHatchStyle="None" />
+            <state name="HotTracked" backColor="155, 242, 186" foreColor="253, 27, 44, 35" borderColor="Transparent" backColorAlpha="Opaque" backColor2="153, 238, 185" backGradientStyle="GlassTop37" borderColor3DBase="100, 157, 123" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="TitleControl_Normal" basedOn="Default">
+      <styles>
+        <style role="BarsaLabel">
+          <states>
+            <state name="Normal" foreColor="95, 74, 47" fontBold="True" fontSize="10" />
+          </states>
+        </style>
+        <style role="BarsaPanel">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TitleControl_Normall</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="TitleControl_Focused" basedOn="Default">
+      <styles>
+        <style role="BarsaLabel">
+          <states>
+            <state name="Normal" fontBold="True" fontSize="10">
+              <resources>
+                <name>ForeColor_DarkHighlight</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+        <style role="BarsaPanel">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>TitleControl_Focusedl</name>
+                <name>Button_HotTracked</name>
+                <name>ForeColor_DarkHighlight</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="GroupBox_WB_Explorer" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaExpandableGroupBox" buttonStyle="Office2007ScrollbarButton">
+          <properties>
+            <property name="BorderStyle" colorCategory="{Default}">None</property>
+            <property name="ViewStyle" colorCategory="{Default}">VisualStudio2005</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="BarsaGroupBox">
+          <states>
+            <state name="Normal" backColorAlpha="UseAlphaLevel" />
+          </states>
+        </style>
+        <style role="BarsaGroupBoxContentArea">
+          <states>
+            <state name="Normal" backColor="254, 248, 242" backGradientStyle="None" backHatchStyle="None" />
+          </states>
+        </style>
+        <style role="BarsaGroupBoxHeaderHorizontalTop">
+          <states>
+            <state name="Normal" backColor="235, 190, 127" backColor2="214, 162, 94" backGradientStyle="Vertical">
+              <resources>
+                <name>Button_Normal</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="GroupBox_LetterRegisterForm" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaGroupBox">
+          <properties>
+            <property name="HeaderBorderStyle" colorCategory="{Default}">Rounded3</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="BarsaGroupBox">
+          <states>
+            <state name="Normal" backColorAlpha="UseAlphaLevel" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="BarsaGroupBoxHeaderHorizontal">
+          <states>
+            <state name="Normal" borderAlpha="UseAlphaLevel">
+              <resources>
+                <name>DockArea</name>
+                <name>Button_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Panel_Wb_Container" basedOn="Default">
+      <styles>
+        <style role="BarsaPanelBox">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Panel_Wb_DockArea" basedOn="Default">
+      <styles>
+        <style role="BarsaPanelBox">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>DockArea</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Panel_Header" basedOn="Default" />
+    <styleSet name="Panel_Footer" basedOn="Default" />
+    <styleSet name="Panel_Editor" basedOn="Default">
+      <styles>
+        <style role="BarsaPanelBox">
+          <states>
+            <state name="Normal">
+              <resources>
+                <name>Editor_Normal</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="TabControl_Sakkoo_Apps" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaTabControl">
+          <properties>
+            <property name="Style" colorCategory="{Default}">VisualStudio2005</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="TabControlTabItemHorizontalTop">
+          <states>
+            <state name="Normal" alphaLevel="100" />
+            <state name="Selected" alphaLevel="255" />
+            <state name="HotTracked" alphaLevel="255" />
+            <state name="Active" alphaLevel="255" />
+            <state name="HotTrackSelected" alphaLevel="255" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="TabControl_Mail_Container" basedOn="Default">
+      <styles>
+        <style role="TabControlTabItemAreaHorizontalTop">
+          <states>
+            <state name="Normal" borderAlpha="Transparent" />
+          </states>
+        </style>
+        <style role="TabItemHorizontal">
+          <states>
+            <state name="Normal" borderAlpha="UseAlphaLevel" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="TabControl_LetterRegisterForm" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaTabControl" buttonStyle="Office2007ScrollbarButton">
+          <properties>
+            <property name="Style" colorCategory="{Default}">PropertyPage2003</property>
+            <property name="UseHotTracking" colorCategory="{Default}">True</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+    </styleSet>
+    <styleSet name="TabControl_Wizard" basedOn="Default">
+      <componentStyles>
+        <componentStyle name="BarsaTabControl">
+          <properties>
+            <property name="Style" colorCategory="{Default}">Wizard</property>
+          </properties>
+        </componentStyle>
+      </componentStyles>
+      <styles>
+        <style role="BarsaTabStripControl">
+          <states>
+            <state name="Normal" backColorAlpha="Transparent" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Tree_AsList" basedOn="Default">
+      <styles>
+        <style role="TreeNode">
+          <states>
+            <state name="HotTracked">
+              <resources>
+                <name>Button_HotTracked</name>
+                <name>Gradiant_H</name>
+              </resources>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Panel_Header_LetterRegisterForm" basedOn="Default">
+      <styles>
+        <style role="BarsaPanelBox">
+          <states>
+            <state name="Normal" imageBackgroundStyle="Stretched">
+              <imageBackground>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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</imageBackground>
+            </state>
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Lable_Info_Completed">
+      <styles>
+        <style role="BarsaLabel" borderStyle="Dotted">
+          <states>
+            <state name="Normal" backColor="218, 255, 181" borderColor="54, 164, 0" backColorAlpha="UseAlphaLevel" backColor2="138, 255, 22" backGradientStyle="GlassTop20" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+    <styleSet name="Lable_Info_Aborted">
+      <styles>
+        <style role="BarsaLabel" borderStyle="Dotted">
+          <states>
+            <state name="Normal" backColor="255, 205, 181" borderColor="141, 23, 0" backColor2="255, 99, 67" backGradientStyle="GlassTop20" />
+          </states>
+        </style>
+      </styles>
+    </styleSet>
+  </styleSets>
+  <resources>
+    <resource name="Button_HotTracked" backColor="221, 255, 238" foreColor="253, 0, 98, 114" borderColor="111, 218, 234" backColor2="153, 235, 236" borderColor2="111, 218, 234" />
+    <resource name="Button_Normal" backColor="254, 228, 185" foreColor="253, 94, 73, 46" borderColor="202, 153, 89" backColorDisabled="235, 222, 199" backColor2="235, 206, 146" backColorDisabled2="235, 225, 207" borderColor2="202, 153, 89" />
+    <resource name="Button_Pressed" backColor="173, 244, 255" foreColor="253, 0, 82, 94" borderColor="0, 189, 206" backColor2="86, 218, 220" borderColor3DBase="0, 189, 206" borderColor2="0, 189, 206" />
+    <resource name="DesktopAlertGripArea_Normal" backColor="0, 126, 128" backColor2="0, 99, 103" backGradientStyle="GlassTop50" />
+    <resource name="DockArea" backColor="251, 239, 219" borderColor="202, 153, 89" backColor2="207, 175, 106" backGradientStyle="BackwardDiagonal" backGradientAlignment="Form" />
+    <resource name="Editor_Normal" borderColor="245, 207, 153" borderColor3DBase="241, 209, 157" />
+    <resource name="ForeColor_Dark" foreColor="67, 37, 2" />
+    <resource name="ForeColor_DarkHighlight" foreColor="253, 0, 82, 94" />
+    <resource name="ForeColor_Default" foreColor="253, 0, 0, 0" />
+    <resource name="ForeColor_Disable" foreColor="253, 141, 122, 105" />
+    <resource name="Gradiant_H" backGradientStyle="GlassTop37" />
+    <resource name="Gradiant_V" backGradientStyle="GlassLeft20Bright" />
+    <resource name="GridColumnHeader_Hot" backColor="147, 234, 242" foreColor="253, 46, 93, 94" borderColor="67, 151, 153" backColor2="137, 224, 226" backGradientStyle="GlassTop50Bright" />
+    <resource name="GridColumnHeader_Normal" backColor="242, 202, 147" foreColor="253, 94, 73, 46" borderColor="153, 115, 67" backColor2="226, 191, 137" backGradientStyle="GlassTop50Bright" />
+    <resource name="RibbonTabPage_Hot" backColor="255, 252, 238" backColor2="255, 244, 211" />
+    <resource name="RibbonTabPage_Normal" backColor="255, 252, 238" backColor2="253, 226, 168" />
+    <resource name="TabControlClientArea_Normal" backColor="245, 239, 229" borderColor="228, 179, 131" />
+    <resource name="TitleControl_Focusedl" backColor="153, 235, 236" foreColor="253, 0, 98, 114" backColor2="111, 218, 234" backGradientStyle="GlassTop37" backGradientAlignment="Element" />
+    <resource name="TitleControl_Normall" backColor="254, 228, 185" foreColor="253, 77, 60, 38" borderColor="202, 153, 89" backColor2="235, 206, 146" backGradientStyle="GlassTop37" backGradientAlignment="Element" />
+    <resource name="TreeControlArea_Normal" borderColor="228, 179, 131" />
+  </resources>
+</styleLibrary>

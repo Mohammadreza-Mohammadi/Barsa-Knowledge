@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد زیرسیستم</Title>
+	<RelatedTypes>
+		<RelatedType>MetaSystem</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="Event" Title="رویداد" DataSource="GetSystemEvents()"></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+		[MetaEvent($Event.FullName$)]
+		public static void OnSystem_$Event.Codename$(object sender, MetaEventArgs e)
+		{
+			//#CURSER#
+		}
+	</Code>
+</Pattern>

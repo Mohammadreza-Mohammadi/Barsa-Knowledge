@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>بدست آوردن FieldDef</Title>
+	<RelatedTypes>
+		<RelatedType>FieldDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="TypeDef" Title="موجودیت" DataSource='GetTypeDefList($System$)'></Param>
+    <Param Name='FieldDef' Title="فیلد" DataSource='GetFieldDefList($TypeDef$)'></Param>
+  </Params>
+	<Code TargetLocation='MethodBody'>var fieldDef = FieldDef.GetByCaption("$System.Caption$", "$TypeDef$", "$FieldDef$", true);
+//#CURSER#</Code>
+</Pattern>

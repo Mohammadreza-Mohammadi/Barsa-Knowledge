@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+  <Title>اجرای 'فرآیند'</Title>
+  <RelatedTypes>
+  </RelatedTypes>
+  <Params>
+    <Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+    <Param Name="Workflow" Title="فرآیند" DataSource='GetSystemWorkflowList($System$)'></Param>
+    <!--<Param Name="Parameters" Title="پارامترها" ></Param>-->
+  </Params>
+  <Code TargetLocation='MethodBody'>WorkflowDef.Start("$System.Caption$", "$Workflow.Caption$", null, 0, 0/*mo.Id*/, null);
+</Code>
+</Pattern>

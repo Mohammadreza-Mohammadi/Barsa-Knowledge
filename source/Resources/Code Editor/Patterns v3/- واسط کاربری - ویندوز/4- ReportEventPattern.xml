@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد گزارش</Title>
+	<RelatedTypes>
+		<RelatedType>TypeDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="TypeDef" Title="موجودیت" DataSource='GetTypeDefList($System$)'></Param>
+		<Param Name="Report" Title="گزارش" DataSource='GetReportList($TypeDef$)'></Param>
+		<Param Name="Event" Title="رویداد" DataSource="GetReportEvents()"></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+		[MetaReportEvent("$", "$Report$", $Event.FullName$)]
+		public static void OnControl_$Report.CodeName$_$Event$(object sender, EventArgs e)
+		{
+			var metaEventArgs = e as MetaEventArgs;
+			//var reportOutputUnifiedControl = sender as ReportOutputUnifiedControl;
+			//#CURSER#
+		}
+	</Code>
+</Pattern>

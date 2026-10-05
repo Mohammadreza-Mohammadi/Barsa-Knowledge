@@ -1,0 +1,186 @@
+<html>
+<head>
+
+<base href='xxxxxx/' />
+
+<style>
+body
+{
+    font-family: tahoma; 
+    font-size: 8pt; 
+    border: 0; 
+    padding: 0;
+    margin: 0;
+    margin-top:3;
+    margin-bottom:4
+}
+
+div
+{
+    margin-bottom: 5;
+}
+
+table
+{
+    font-family: tahoma; 
+    font-size: 8pt; 
+    border: 0; 
+    padding: 0;
+    margin: 0;
+}
+
+.info
+{
+    color:green;
+    background-color: #f5f5f5; 
+    border-bottom-style: solid; 
+    border-bottom-width: 1;
+    border-bottom-color:#dddddd;
+    padding-bottom: 2; 
+    padding-top: 2;
+}
+
+.name
+{
+    font-weight:600;
+}
+
+.infoText
+{
+    margin-top:0;
+    margin-bottom:0;
+    color:#004400
+}
+
+.fileName
+{
+    text-decoration: underline
+}
+
+
+
+</style>
+
+<script>
+
+var currentUserId=null;
+
+function setCurrentUserId(id)
+{
+    currentUserId=id;
+}
+
+function getColor(id)
+{
+    if(currentUserId == id)
+    {
+        return " style='color:#6666ff' ";
+    }
+    else
+    {
+        return " style='color:#ff6666' ";
+    }
+}
+
+function Add(html)
+{
+//document.body.style.borderTopWidth='1';
+    var el = document.createElement("div");
+    el.innerHTML = html;//"<tr><td width='100%'>" + html + "</td></tr>";
+    el.style.borderTopWidth='1';
+    document.body.appendChild(el);
+    el.scrollIntoView(true);
+    return el;
+}
+
+function AddMessage(senderUserDisplayName, senderUserId, message)
+{
+    //alert("" + senderUserId.toString() + "," + currentUserId )
+    //alert( senderUserId.string);
+     //alert( currentUserId );
+    //alert(getColor(senderUserId) )
+
+    Add(
+    "<span class=name " + getColor(senderUserId) + " >" +
+    (senderUserDisplayName!=""?senderUserDisplayName +":":"&nbsp&nbsp")+"</span> " + message 
+    );
+}
+
+function AddInfo(msg, pic, className)
+{
+    var el = Add(
+        "<table ><tr><td width='15'>" + 
+        (pic!=null?"<img src='"+pic+"' />":"")+
+                     "</td><td class=infoText>" + 
+                     msg +
+                     "</td></tr></table>"
+     );
+   el.className = className;
+}
+
+function AddFileX(msg)
+{
+    AddInfo(msg, 'attachment.gif', 'info');
+}
+
+function AddFile_ForReceiver(senderUserDisplayName, senderUserId, fileTitle, fileId)
+{
+    var el = AddFileX(
+//"›«Ì· '<span style=' text-decoration: underline;color:Blue'>" + fileTitle + "</span>'&nbsp;"+
+"›«Ì· <span class=fileName>" + fileTitle + "</span>&nbsp;"+
+" Ê”ÿ <span class=name " + getColor(senderUserId) + ">" + senderUserDisplayName + "</span>&nbsp;"+
+"«—”«· ê—œÌœ."+
+//"<br />"+
+"&nbsp;&nbsp;&nbsp;&nbsp;"+
+"<a href='javascript:window.external.ShowFile(" + fileId + ")'>„‘«ÂœÂ</a>"+
+"&nbsp;&nbsp;&nbsp;&nbsp;"+
+"<a href='javascript:window.external.SaveFile(" + fileId + ")'>–ŒÌ—Â</a>"
+);
+}
+
+function AddFile_ForSender(senderUserDisplayName, senderUserId, fileTitle)
+{
+    var el = AddFileX(
+"›«Ì· '<span class=fileName>" + fileTitle + "</span>'&nbsp;"+
+"«—”«· ê—œÌœ."
+);
+    //el.style.fontStyle='italic';
+    //el.style. ='green';
+}
+
+    </script>
+
+</head>
+<body dir="rtl">
+<!--    <span style="font-weight: 600; color: #777777; font-style: oblique">”·«„ </span>
+-->    <!--    <br />
+    <div class=attachment>
+        <table ><tr><td width='*'>
+                    <img src='attachment.gif' /></td>
+                <td>
+                     ”Ì»‘”Ì »”‘Ì» ”‘Ì» ‘”Ì» ”‘Ì»‘”Ì »‘”Ì »”‘Ì» ‘”Ì» ‘”Ì» ”‘Ì» ”Ì‘”·«„</td>
+            </tr></table>
+    </div>
+    <br />
+-->
+    <!--    <span style="color: Green;text-align:center">´   ¬€«“ Ã·”Â   ª</span>
+-->
+</body>
+</html>
+
+<script>
+window.external.Init();
+
+//setCurrentUserId(1);
+
+//AddFile_ForSender('ﬁ«œ—“«œÂ'
+//, 323, 'test.dll', 000)
+//AddFile_ForReceiver('ﬁ«œ—“«œÂ', 23232, 'test.dll', 000)
+
+//AddMessage('·”«‰Ì', 323, '”·«„ ‘”Ì»‘”Ì»‘”Ì »‘”Ì »‘”Ì» ‘”Ì» ‘”')
+//AddMessage('·”«‰Ì', 232, '98 sadf sadf saf89sad8»”Ì »”Ì ”Ì‘ »')
+
+//AddInfo('¬€«“ Ã·”Â','start.gif' , 'info');
+////AddFileX('»”Ì» ”‘Ì» ‘”Ì »”‘Ì »‘”Ì» ')
+</script>
+

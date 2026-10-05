@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+  <Title>ارجاع کد به 'فراخوانی وب سرویس'</Title>
+  <RelatedTypes>
+  </RelatedTypes>
+  <Params>
+    <Param Name="System" Title="سیستم" DataSource="WebServiceCall_GetAllSystems()"></Param>
+    <Param Name="WebService" Title="فراخوانی وب سرویس" DataSource='WebServiceCall_GetAll($System$)'></Param>
+  </Params>
+  <Code TargetLocation='MethodBody'>//@Dynamics/WebService:$WebService.Caption$
+</Code>
+</Pattern>

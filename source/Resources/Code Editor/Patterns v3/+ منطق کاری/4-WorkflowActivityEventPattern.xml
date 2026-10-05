@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pattern>
+	<Title>رویداد فعالیت فرآیند</Title>
+	<RelatedTypes>
+		<RelatedType>ActivityDef</RelatedType>
+	</RelatedTypes>
+	<Params>
+		<Param Name="System" Title="سیستم" DataSource="GetAllSystems()"></Param>
+		<Param Name="Workflow" Title="فرآیند" DataSource='GetAllWorkflows($System$)'></Param>
+		<Param Name="Activity" Title="فعالیت" DataSource='GetActivityDefList($Workflow$)'></Param>
+		<Param Name="Event" Title="رویداد" DataSource="GetActivityEvents()"></Param>
+	</Params>
+	<Code TargetLocation='ClassMember'>
+		[MetaActivityEvent("$Workflow$", "$Activity$" , $Event.FullName$)]
+		static void OnControl_$Workflow.CodeName$_$Activity.CodeName$_$Event$(object sender, EventArgs e)
+		{
+			var metaEventArgs = e as MetaEventArgs;
+			//#CURSER#
+		}
+	</Code>
+</Pattern>
