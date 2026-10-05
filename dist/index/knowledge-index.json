@@ -4,7 +4,7 @@
       "confidence": "CrossVerified",
       "domain": "import-export",
       "evidence": [
-        "EVID-EXP-000003",
+        "EVID-EXP-000007",
         "EVID-DLL-000383"
       ],
       "id": "format.export.container.001",
@@ -26,7 +26,7 @@
       "confidence": "CrossVerified",
       "domain": "import-export",
       "evidence": [
-        "EVID-EXP-000004",
+        "EVID-EXP-000008",
         "EVID-DLL-000386"
       ],
       "id": "import.system.idremap.001",
@@ -48,7 +48,7 @@
       "domain": "import-export",
       "evidence": [
         "EVID-DLL-000388",
-        "EVID-EXP-000005"
+        "EVID-EXP-000009"
       ],
       "id": "export.system.entrypoint.001",
       "text": "BixHelper.Export(ObjectReferenceSelection, string, bool, int, bool) fronts NewExportManager.Export(MultiSubProgress, ObjectReferenceSelection, Action<ExportSaveContext>). The selection comes from the export tree via ExportDataSource : IActiveDataSource.",
@@ -79,7 +79,7 @@
       "confidence": "CrossVerified",
       "domain": "entities-fields-relations",
       "evidence": [
-        "EVID-EXP-000006",
+        "EVID-EXP-000010",
         "EVID-DLL-000392"
       ],
       "id": "format.dynamic.tables.001",
@@ -118,11 +118,23 @@
     "assemblies": 364,
     "capabilities": 13,
     "chunks": 10,
-    "evidenceItems": 400,
-    "exportPackages": 2
+    "evidenceItems": 404,
+    "exportPackages": 4
   },
   "generated": "2026-10-05",
   "inputHashes": [
+    {
+      "mvid": null,
+      "path": "/home/user/Barsa-Knowledge/exports/Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+      "sha256": "05830f35ec7cf5df7a57e7bdbb82feb8be6e05060bd8af416c757ca04116e9e0",
+      "version": "4.1.202"
+    },
+    {
+      "mvid": null,
+      "path": "/home/user/Barsa-Knowledge/exports/باركد (05-02-02 11;14).metaexport",
+      "sha256": "a207b46696de2b9e6015c2cb90b5d5de31753816c13680401623e2aafa084340",
+      "version": "4.1.189"
+    },
     {
       "mvid": null,
       "path": "/home/user/Barsa-Knowledge/source/NewMeta01.metaexport",

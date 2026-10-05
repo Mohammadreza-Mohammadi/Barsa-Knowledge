@@ -1,22 +1,18 @@
 {
-  "_note": "Illustrative document built from the first entity in NewMeta01.metaexport. Values are structural; nothing personal is copied.",
+  "_note": "Illustrative document built from the first entity in Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport. Values are structural; nothing personal is copied.",
   "code": null,
   "commands": null,
   "entities": [
     {
-      "caption": "SplLog",
-      "dbName": "Spl_Log ",
+      "caption": "RedirectReportNavigatorCommandُSetting",
+      "dbName": "dyn_230",
       "fields": [
-        "1001513510000000100",
-        "1001513510000000101",
-        "1001513510000000102",
-        "1001513510000000103",
-        "1001513510000000104"
+        "1011413510000000211"
       ],
-      "id": "1001513500000000000",
+      "id": "1011413500000000130",
       "isDeleted": false,
       "isDynamic": false,
-      "name": "Spl_Log ",
+      "name": "dyn_230",
       "parentId": "0",
       "relations": null,
       "source": {
@@ -24,84 +20,20 @@
         "exportPath": "$.MET_TYPEDEF[*]",
         "exportTable": "MET_TYPEDEF"
       },
-      "systemId": "1001513550000000100"
+      "systemId": "1013413550000000100"
     }
   ],
   "fields": [
     {
-      "caption": "شرح",
+      "caption": "ReportPageUrl",
       "dataType": null,
-      "dbName": "DESCRIPTION",
+      "dbName": "ReportPageUrl",
       "defaultValue": null,
-      "entityId": "1001513500000000000",
-      "id": "1001513510000000100",
-      "name": "DESCRIPTION",
+      "entityId": "1011413500000000130",
+      "id": "1011413510000000211",
+      "name": "ReportPageUrl",
       "nullable": null,
       "orderNumber": 1,
-      "source": {
-        "barsaType": "Barsa.Meta.FieldDef",
-        "exportPath": "$.MET_FIELDDEF[*]",
-        "exportTable": "MET_FIELDDEF"
-      }
-    },
-    {
-      "caption": "شناسه عمليات",
-      "dataType": null,
-      "dbName": "ActionId",
-      "defaultValue": null,
-      "entityId": "1001513500000000000",
-      "id": "1001513510000000101",
-      "name": "ActionId",
-      "nullable": null,
-      "orderNumber": 3,
-      "source": {
-        "barsaType": "Barsa.Meta.FieldDef",
-        "exportPath": "$.MET_FIELDDEF[*]",
-        "exportTable": "MET_FIELDDEF"
-      }
-    },
-    {
-      "caption": "زمان ثبت",
-      "dataType": null,
-      "dbName": "CreateDate",
-      "defaultValue": null,
-      "entityId": "1001513500000000000",
-      "id": "1001513510000000102",
-      "name": "CreateDate",
-      "nullable": null,
-      "orderNumber": 4,
-      "source": {
-        "barsaType": "Barsa.Meta.FieldDef",
-        "exportPath": "$.MET_FIELDDEF[*]",
-        "exportTable": "MET_FIELDDEF"
-      }
-    },
-    {
-      "caption": "شناسه شيء",
-      "dataType": null,
-      "dbName": "ObjectId",
-      "defaultValue": null,
-      "entityId": "1001513500000000000",
-      "id": "1001513510000000103",
-      "name": "ObjectId",
-      "nullable": null,
-      "orderNumber": 5,
-      "source": {
-        "barsaType": "Barsa.Meta.FieldDef",
-        "exportPath": "$.MET_FIELDDEF[*]",
-        "exportTable": "MET_FIELDDEF"
-      }
-    },
-    {
-      "caption": "طبقه بندي",
-      "dataType": null,
-      "dbName": "LogTypeId",
-      "defaultValue": null,
-      "entityId": "1001513500000000000",
-      "id": "1001513510000000104",
-      "name": "LogTypeId",
-      "nullable": null,
-      "orderNumber": 6,
       "source": {
         "barsaType": "Barsa.Meta.FieldDef",
         "exportPath": "$.MET_FIELDDEF[*]",
@@ -116,15 +48,15 @@
   "reports": null,
   "schemaVersion": "2.0",
   "system": {
-    "caption": "Meta01",
-    "id": "1001513550000000100",
+    "caption": "الگو",
+    "id": "1013413550000000100",
     "name": null,
     "source": {
       "barsaType": "Barsa.Meta.MetaSystem",
       "exportPath": "$.MET_METASYSTEM[*]",
       "exportTable": "MET_METASYSTEM"
     },
-    "version": "2.4"
+    "version": "3.0.7"
   },
   "views": null,
   "workflows": null

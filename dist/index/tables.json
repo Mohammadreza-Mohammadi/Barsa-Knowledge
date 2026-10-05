@@ -231,6 +231,12 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "MET_TYPEDEFACCESSTEMPLATE"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "MET_TYPEVIEWENTITY"
   },
   {
@@ -552,6 +558,12 @@
     "table": "Ver_MetaSystemVersion"
   },
   {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Ver_VersionDependency"
+  },
+  {
     "assemblies": [
       "source/Barsa.EmailClient.dll"
     ],
@@ -632,6 +644,12 @@
     "confidence": "Verified",
     "inExportSample": false,
     "table": "XCOR_TABLELOG"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Xcrt_108"
   },
   {
     "assemblies": [
@@ -796,6 +814,12 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_1021"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_103_3"
   },
   {
@@ -808,7 +832,25 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_108_2"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_110_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_111"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_111_1"
   },
   {
     "assemblies": [],
@@ -826,7 +868,31 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_1161"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_118"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_120"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_120_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_122"
   },
   {
     "assemblies": [],
@@ -850,13 +916,55 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_129"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1341"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_137"
   },
   {
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_138"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_139"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1401"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_141"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1413"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_143"
   },
   {
     "assemblies": [],
@@ -880,7 +988,61 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_147"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1481"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_153"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_155"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_156"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_158"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_16"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_163"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_166_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_169"
   },
   {
     "assemblies": [],
@@ -892,7 +1054,73 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_1710"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1771"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_193"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_208"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_21"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_211"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_214"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_2181"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_22"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_2271"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_23"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_2331"
   },
   {
     "assemblies": [],
@@ -904,7 +1132,19 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_253"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_261"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_262"
   },
   {
     "assemblies": [],
@@ -928,13 +1168,235 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_274"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_275"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_28"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_284"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_286"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_287"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_29"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_297"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_2981"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_302"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_303"
   },
   {
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_308"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3091"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3171"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3181"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_319"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_322"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_324"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_327"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_330"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_331"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_34"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3571"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_366"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_373"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_381"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_388"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_392"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_393"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3961"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3971"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_398"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_3981"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_40"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_41"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_423"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_424"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_43"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_431"
   },
   {
     "assemblies": [],
@@ -958,7 +1420,91 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "dyn_481"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "dyn_50"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_511"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_5311"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_5411"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_553"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_555"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_556"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_557"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_558"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_559"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_560"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_561"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_563"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_651"
   },
   {
     "assemblies": [],
@@ -989,6 +1535,42 @@
     "confidence": "Verified",
     "inExportSample": true,
     "table": "dyn_81"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_812"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_813"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_831"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_99"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_FieldSelectValue"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_LayoutHeader"
   },
   {
     "assemblies": [
@@ -1104,6 +1686,12 @@
     "assemblies": [],
     "confidence": "Verified",
     "inExportSample": true,
+    "table": "m01_File"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
     "table": "m01_JsonProperty"
   },
   {
@@ -1123,6 +1711,12 @@
     "confidence": "Verified",
     "inExportSample": true,
     "table": "m01_ObjectFeature"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_Parameter"
   },
   {
     "assemblies": [],
@@ -1982,6 +2576,48 @@
     "confidence": "Verified",
     "inExportSample": false,
     "table": "wrView"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_21"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_35"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_8"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_CallWebService"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_MethodParameter"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_ProviderWebService"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "wsm_WebServiceMethod"
   },
   {
     "assemblies": [

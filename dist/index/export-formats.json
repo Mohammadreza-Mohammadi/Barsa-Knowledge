@@ -313,6 +313,95 @@
   "detected": [
     {
       "confidence": "Verified",
+      "encoding": "utf-8-bom",
+      "errors": [],
+      "extension": ".zip",
+      "fileName": "Push Notification (05-07-11 20;08).zip",
+      "logicalFormat": "Barsa.AiExport",
+      "manifest": {
+        "format": "Barsa.AiExport",
+        "profileVersion": 15
+      },
+      "path": "exports/Push Notification (05-07-11 20;08).zip",
+      "physicalFormat": "PlainJson",
+      "rootKeys": [
+        "manifest",
+        "tree"
+      ],
+      "sha256": "650fe4b2f75c6b98f9bfda8c32b662918030153732e283131edb470b6d93a98e",
+      "size": 176021,
+      "variant": "AiExport.SingleJson",
+      "warnings": [
+        {
+          "kind": "ExtensionDoesNotMatchPhysicalFormat",
+          "message": "extension .zip but physical format is PlainJson"
+        }
+      ]
+    },
+    {
+      "confidence": "Verified",
+      "encoding": "binary",
+      "errors": [],
+      "extension": ".metaexport",
+      "fileName": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+      "legacyMarkers": [
+        "BinaryFormatterHeader",
+        "System.Data.DataSet",
+        "XmlDiffGram"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "manifest": null,
+      "path": "exports/Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+      "physicalFormat": "GZip",
+      "sha256": "05830f35ec7cf5df7a57e7bdbb82feb8be6e05060bd8af416c757ca04116e9e0",
+      "size": 6818912,
+      "variant": "Legacy.DataSet.BinaryFormatter",
+      "warnings": []
+    },
+    {
+      "confidence": "Verified",
+      "encoding": "binary",
+      "errors": [],
+      "extension": ".metaexport",
+      "fileName": "باركد (05-02-02 11;14).metaexport",
+      "legacyMarkers": [
+        "BinaryFormatterHeader",
+        "System.Data.DataSet",
+        "XmlDiffGram"
+      ],
+      "logicalFormat": "Barsa.LegacyMetaExport",
+      "manifest": null,
+      "path": "exports/باركد (05-02-02 11;14).metaexport",
+      "physicalFormat": "GZip",
+      "sha256": "a207b46696de2b9e6015c2cb90b5d5de31753816c13680401623e2aafa084340",
+      "size": 174357,
+      "variant": "Legacy.DataSet.BinaryFormatter",
+      "warnings": []
+    },
+    {
+      "confidence": "Verified",
+      "encoding": null,
+      "errors": [],
+      "extension": ".zip",
+      "fileName": "باركد (05-07-11 20;08).zip",
+      "logicalFormat": "Barsa.AiExport",
+      "manifest": {
+        "buildId": "7b3494af-3966-423d-bb94-964cbb1265c9",
+        "format": "Barsa.AiExport",
+        "producer": "Barsa.Meta.DataExchange",
+        "producerVersion": "4.1.203.0",
+        "profileVersion": 15
+      },
+      "manifestEntry": "manifest.json",
+      "path": "exports/باركد (05-07-11 20;08).zip",
+      "physicalFormat": "ZIP",
+      "sha256": "d8f559625cb43a0df11fd35237eac3be66f06935a44621e9de57fd9fd2cfddcc",
+      "size": 6209,
+      "variant": "AiExport.ZipJsonPackage",
+      "warnings": []
+    },
+    {
+      "confidence": "Verified",
       "encoding": "binary",
       "errors": [],
       "extension": ".metaexport",

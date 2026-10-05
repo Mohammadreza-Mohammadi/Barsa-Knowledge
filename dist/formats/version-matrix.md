@@ -32,6 +32,10 @@ present in `source/`, this is recorded from the specification text as
 |---|---|---|---|---|---|
 | `Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.json` | embedded profile | Barsa.Meta.SemanticExchange | 14 | n/a | n/a |
 | `Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.v15.json` | embedded profile | Barsa.Meta.SemanticExchange | 15 | n/a | n/a |
+| `exports/Push Notification (05-07-11 20;08).zip` | Barsa.AiExport | — | 15 | AiExport.SingleJson | PlainJson |
+| `exports/Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport` | Barsa.LegacyMetaExport | — | — | Legacy.DataSet.BinaryFormatter | GZip |
+| `exports/باركد (05-02-02 11;14).metaexport` | Barsa.LegacyMetaExport | — | — | Legacy.DataSet.BinaryFormatter | GZip |
+| `exports/باركد (05-07-11 20;08).zip` | Barsa.AiExport | Barsa.Meta.DataExchange | 15 | AiExport.ZipJsonPackage | ZIP |
 | `source/NewMeta01.metaexport` | Barsa.LegacyMetaExport | — | — | Legacy.DataSet.BinaryFormatter | GZip |
 | `source/NewMeta02.metaexport` | Barsa.LegacyMetaExport | — | — | Legacy.DataSet.BinaryFormatter | GZip |
 | `source/Resources/Code Editor/Patterns v3/+ منطق کاری/1-MoEventPattern.xml` | Unknown | — | — | Unknown | XML |
@@ -63,7 +67,7 @@ present in `source/`, this is recorded from the specification text as
 ## Legacy versioning
 
 The legacy package carries `$Header.Core Version`
-(4.1.190, 4.1.197)
+(4.1.189, 4.1.190, 4.1.197, 4.1.202)
 plus the `Ver_MetaSystemInfo` and `Ver_MetaSystemVersion` tables, whose columns
 include `BackwardCompatible` and `ForwardCompatible`. That the package *models*
 compatibility is Verified. Whether the importer enforces it is Unknown.

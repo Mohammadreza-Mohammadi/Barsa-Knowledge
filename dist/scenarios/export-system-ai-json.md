@@ -67,4 +67,5 @@ Writes a JSON document, or a directory that is then zipped. No database write.
 ## Confidence
 
 **Verified** for the API surface, the pipeline and the profile rules.
-**Unknown** for the resulting bytes, since no AiExport artifact was supplied.
+
+**Verified** for the resulting bytes as well: 2 artifact(s) were parsed, and the root shape, manifest keys, bracketed folder layout and per-node inline-or-file split all match what the writer and the profile predict.

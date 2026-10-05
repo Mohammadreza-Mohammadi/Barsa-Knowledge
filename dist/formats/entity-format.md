@@ -25,7 +25,7 @@ An entity in Barsa is a `TypeDef` row. `DbName` is the physical table that holds
 | `dbType` | long | yes |  |
 | `CreationDate` | dateTime | yes |  |
 | `IsDeleted` | boolean | yes | Soft-delete flag. |
-| `LocalId` | long | yes | Scope-local id; see $spl_EorgType. |
+| `LocalId` | int | yes | Scope-local id; see $spl_EorgType. |
 | `parentid` | long | yes | Inheritance parent TypeDef. |
 | `isDynamic` | boolean | yes | Whether instances live in a dyn_* table. |
 | `sakooTypeId` | long | yes |  |

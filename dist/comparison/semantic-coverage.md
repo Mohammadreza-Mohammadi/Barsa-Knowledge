@@ -7,7 +7,34 @@ Spec v3 sections 50 and 53.
 
 ## Artifact-level comparison
 
-**Not performed.** No AiExport artifact is present in `source/`, so there is no pair to compare. Per spec v3 section 54 no compatibility percentage is produced.
+| Legacy | AiExport | Concept | In legacy | In AiExport | Legacy count | AiExport count |
+|---|---|---|---|---|---|---|
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | businessRules | unknown | unknown | None | None |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | code | yes | yes | 139 | 5 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | commands | yes | unknown | 4 | None |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | entities | yes | yes | 344 | 18 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | fields | yes | yes | 2285 | 96 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | navigation | yes | yes | 181 | 34 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | relationDefs | yes | yes | 14 | 21 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | relations | yes | unknown | 193 | None |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | reports | yes | yes | 255 | 18 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | system | yes | yes | 3 | 1 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | views | yes | yes | 179 | 8 |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | webServices | unknown | unknown | None | None |
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | Push Notification (05-07-11 20;08).zip | workflows | unknown | unknown | None | None |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | businessRules | unknown | unknown | None | None |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | code | yes | yes | 3 | 1 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | commands | unknown | unknown | None | None |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | entities | yes | yes | 4 | 4 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | fields | yes | yes | 8 | 7 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | navigation | yes | yes | 7 | 6 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | relationDefs | unknown | yes | None | 1 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | relations | no | unknown | 0 | None |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | reports | yes | yes | 3 | 3 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | system | yes | yes | 1 | 1 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | views | yes | yes | 2 | 2 |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | webServices | unknown | unknown | None | None |
+| باركد (05-02-02 11;14).metaexport | باركد (05-07-11 20;08).zip | workflows | unknown | unknown | None | None |
 
 ## Schema-level coverage
 
@@ -31,7 +58,7 @@ coverage can be compared directly at the schema level.
 | `Barsa.Meta.Report` | `met_Report` | yes | CrossVerified |
 | `Barsa.Meta.TypeDef` | `met_TypeDef` | yes | CrossVerified |
 | `Barsa.Meta.TypeDefAccessService` | `met_TypeDefAccessService` | yes | CrossVerified |
-| `Barsa.Meta.TypeDefAccessTemplate` | `met_TypeDefAccessTemplate` | no | Verified |
+| `Barsa.Meta.TypeDefAccessTemplate` | `met_TypeDefAccessTemplate` | yes | CrossVerified |
 | `Barsa.Meta.TypeViewEntity` | `met_TypeViewEntity` | yes | CrossVerified |
 | `Barsa.Meta.TypeViewUsingLocation` | `met_TypeViewUsingLocation` | no | Verified |
 | `Barsa.Workflow.ActivityDef` | `wfl_ActivityDef` | no | Verified |
@@ -48,6 +75,29 @@ They may be computed, may come from elsewhere, or may be AiExport-only.
 
 `Barsa.Spl.Security.SecurityGroup`, `CAIntermediateEnd`, `JsonProperty`, `MetaCondition`, `اطلاعات سيستم`, `امكان شيء`, `انتخاب انجام دهنده`, `تنظيمات اتصال فعاليت فرم`, `دستور پويا`, `دستور-اجراي فرآيند`, `دستور-اجراي كد منطق كاري`, `دستور-اجراي كد واسط كاربري`, `دستور-ايجاد مشابه`, `دستور-نمايش پيغام`, `محاسبه فيلد وابسته`, `محاسبه-سمت آغاز كننده فرآيند`, `محاسبه-سمت ثابت`, `محاسبه-فرمول محاسبه`, `محاسبه-فيلد فرم`, `محاسبه-كاربر ثابت`, `نوع تكرار`, `وابستگي كد سيستم`
 
-## Why no percentage
+## Compatibility percentage
 
-No pair exists. A percentage would be meaningless and is therefore not produced.
+### Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport
+
+Scope: **Partial**
+
+**Not computable.** Not computable: spec section 54 requires scope Exact. Scope here is Partial, so a percentage would measure the selection difference rather than format compatibility.
+
+### باركد (05-02-02 11;14).metaexport
+
+Scope: **Exact**
+
+**89.3%** of legacy objects found a counterpart.
+
+Computable: scope is Exact and matches are on decisive keys. The figure is the share of legacy objects, across the comparable collections, that found a counterpart in the AiExport artifact. It is not a statement about data fidelity within a matched object.
+
+| Concept | Legacy objects | Matched | Percent |
+|---|---|---|---|
+| code | 3 | 1 | 33.3% |
+| entities | 4 | 4 | 100.0% |
+| fields (incl. relation fields) | 8 | 8 | 100.0% |
+| navigation | 7 | 6 | 85.7% |
+| reports | 3 | 3 | 100.0% |
+| system | 1 | 1 | 100.0% |
+| views | 2 | 2 | 100.0% |
+

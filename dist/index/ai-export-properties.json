@@ -847,7 +847,58 @@
     "Barsa.Workflow.WorkflowDef": "wfl_WorkflowDef",
     "Barsa.Workflow.WorkflowVariableDef": "wfl_WorkflowVariableDef"
   },
-  "observedInArtifacts": [],
+  "observedInArtifacts": [
+    {
+      "assetFiles": 0,
+      "errors": [],
+      "file": "Push Notification (05-07-11 20;08).zip",
+      "jsonFiles": 1,
+      "manifest": {
+        "_absentFields": [
+          "buildId",
+          "producer",
+          "producerVersion"
+        ],
+        "_source": "root.manifest",
+        "buildId": null,
+        "format": "Barsa.AiExport",
+        "formatVersion": null,
+        "packageType": null,
+        "producer": null,
+        "producerVersion": null,
+        "profileVersion": 15,
+        "representation": null,
+        "representations": null
+      },
+      "sha256": "650fe4b2f75c6b98f9bfda8c32b662918030153732e283131edb470b6d93a98e",
+      "size": 176021,
+      "typeCatalog": 19,
+      "variant": "AiExport.SingleJson"
+    },
+    {
+      "assetFiles": 0,
+      "errors": [],
+      "file": "باركد (05-07-11 20;08).zip",
+      "jsonFiles": 13,
+      "manifest": {
+        "_absentFields": [],
+        "_source": "manifest.json",
+        "buildId": "7b3494af-3966-423d-bb94-964cbb1265c9",
+        "format": "Barsa.AiExport",
+        "formatVersion": null,
+        "packageType": null,
+        "producer": "Barsa.Meta.DataExchange",
+        "producerVersion": "4.1.203.0",
+        "profileVersion": 15,
+        "representation": null,
+        "representations": null
+      },
+      "sha256": "d8f559625cb43a0df11fd35237eac3be66f06935a44621e9de57fd9fd2cfddcc",
+      "size": 6209,
+      "typeCatalog": 10,
+      "variant": "AiExport.ZipJsonPackage"
+    }
+  ],
   "packaging": {
     "includeUnmappedRecords": false,
     "omitRelations": [

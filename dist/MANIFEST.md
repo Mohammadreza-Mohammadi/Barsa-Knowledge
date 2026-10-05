@@ -10,16 +10,18 @@
 | Assembly | 376 |
 | Config | 13 |
 | Document | 24 |
-| ExportPackage | 2 |
+| ExportPackage | 4 |
 | Resource | 298 |
 | SourceCode | 2 |
 | Supplemental | 31 |
-| Unknown | 10 |
+| Unknown | 12 |
 
 ## Export packages
 
 | File | SHA-256 (first 16) | Size | Core version | Tables |
 |---|---|---|---|---|
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | 05830f35ec7cf5df | 6818912 | 4.1.202 | 144 |
+| باركد (05-02-02 11;14).metaexport | a207b46696de2b9e | 174357 | 4.1.189 | 23 |
 | NewMeta01.metaexport | b421fa6fcf30b274 | 2448133 | 4.1.197 | 67 |
 | NewMeta02.metaexport | 77fb320e6515d84c | 2308588 | 4.1.190 | 76 |
 

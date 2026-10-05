@@ -19,9 +19,16 @@ from .format_detect import (
     LOGICAL_AI, VARIANT_AI_SINGLE, VARIANT_AI_ZIP, detect, normalize_manifest,
 )
 
-# A semantic selector as SemanticSelectorCodec writes it: one or more leading
-# '#' then a bracketed, escape-aware key list.
-SELECTOR_RE = re.compile(r"^#+\[")
+# A semantic selector as SemanticSelectorCodec writes it. The common form is a
+# single '#' followed by a caption ("#گیت"); the codec only reaches for the
+# bracketed, escape-aware key list when a component needs escaping. An earlier
+# version of this reader required the bracket and so found no selectors at all
+# in real artifacts.
+SELECTOR_RE = re.compile(r"^#[^#\s]")
+
+# Properties observed to carry a selector reference rather than a value.
+SELECTOR_REF_KEYS = ("selector", "target", "entity", "field",
+                     "DefaultEditViewId", "defaultReportId", "parent")
 
 RESERVED_KEYS = ("$type", "$caption", "id", "selector", "output")
 
@@ -127,11 +134,12 @@ class AiExportArtifact:
             if src == "_assets":
                 continue
             for obj in _iter_objects(doc):
-                for key in ("selector", "target"):
-                    v = obj.get(key)
+                for key, v in obj.items():
                     if isinstance(v, str) and SELECTOR_RE.match(v):
                         found.setdefault(v, set()).add(key)
-        return [{"selector": s, "seenAs": sorted(k)}
+        return [{"selector": s, "seenAs": sorted(k),
+                 "isDeclaration": "selector" in k,
+                 "isReference": bool(set(k) - {"selector"})}
                 for s, k in sorted(found.items())]
 
     def summary(self):

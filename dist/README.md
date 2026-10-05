@@ -66,7 +66,7 @@ A consumer must not complete anything marked Unknown.
 
 | Metric | Value |
 |---|---|
-| Inputs scanned | 756 |
+| Inputs scanned | 760 |
 | Managed assemblies | 364 |
 | Native / unreadable PEs | 12 |
 | Types indexed | 219200 |
@@ -74,5 +74,5 @@ A consumer must not complete anything marked Unknown.
 | Methods with a decoded call list | 259985 |
 | Distinct string literals | 59638 |
 | SQL fragments | 334 |
-| Export packages analysed | 2 |
-| Evidence items | 384 |
+| Export packages analysed | 4 |
+| Evidence items | 388 |

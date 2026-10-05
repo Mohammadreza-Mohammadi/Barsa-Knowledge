@@ -22,11 +22,11 @@ Observed `OperationalType` values across all samples:
 
 | OperationalType (lowercased) | Occurrences | Spellings seen | Reading | Confidence |
 |---|---|---|---|---|
-| `fk` | 171 | `FK`, `fk` | Foreign key - points at another row's identity. | Verified |
-| `pk` | 137 | `PK`, `pk` | Primary key - the row's own identity. | Verified |
-| `idpattern` | 45 | `idpattern` | Column embedding one or more ids inside a larger value, such as a composite string. | Observed |
-| `bsd` | 11 | `bsd` | Unknown | Unknown |
-| `idlist` | 4 | `idlist` | Column holding several ids in one value. | Observed |
+| `fk` | 540 | `FK`, `fk` | Foreign key - points at another row's identity. | Verified |
+| `pk` | 514 | `PK`, `pk` | Primary key - the row's own identity. | Verified |
+| `idpattern` | 86 | `idpattern` | Column embedding one or more ids inside a larger value, such as a composite string. | Observed |
+| `bsd` | 21 | `bsd` | Unknown | Unknown |
+| `idlist` | 6 | `idlist` | Column holding several ids in one value. | Observed |
 
 > **Match case-insensitively.** These values appear in more than one casing in
 > the real data: `fk`, `pk`.
@@ -79,7 +79,7 @@ the clone path.
 
 | Metric | Count |
 |---|---|
-| Columns declared in `$IdEmbeddingFields` (Verified) | 138 |
-| Columns that merely *look* like ids by name (Inferred) | 43 |
+| Columns declared in `$IdEmbeddingFields` (Verified) | 248 |
+| Columns that merely *look* like ids by name (Inferred) | 47 |
 
 Full listing: `index/export-fields.json`.

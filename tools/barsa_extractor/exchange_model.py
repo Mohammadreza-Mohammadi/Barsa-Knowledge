@@ -486,6 +486,49 @@ def atomicity_findings(enums):
     ]
 
 
+def profile_coverage_gaps(profile):
+    """Record types whose field rules route code, versus those that do not.
+
+    The barcode pair exposed this: legacy carries MetaCode rows targeting the
+    system, and the AiExport of the same selection carries none. The profile
+    explains why -- Barsa.Meta.TypeDef declares a code field rule and
+    Barsa.Meta.MetaSystem does not -- so the gap is in the projection rules,
+    not in collection.
+    """
+    if profile is None:
+        return None
+    code_keys = ("كد", "کد", "Code", "MetaCode")
+    with_code, without_code = [], []
+    for name, rule in sorted(profile.record_types.items()):
+        if not isinstance(rule, dict):
+            continue
+        fields = rule.get("fields") or {}
+        if any(k in fields for k in code_keys):
+            with_code.append(name)
+        else:
+            without_code.append(name)
+    packaging = profile.packaging_rules()
+    code_groups = [g for g in packaging.get("relationGroups", [])
+                   if g.get("relation") in code_keys]
+    return {
+        "question": ("Which record types can carry code into an AiExport "
+                     "projection?"),
+        "recordTypesWithCodeFieldRule": with_code,
+        "recordTypesWithoutCodeFieldRule": without_code,
+        "codeRelationGroups": code_groups,
+        "engineUnknownField": profile.engine.get("unknownField"),
+        "finding": ("Barsa.Meta.MetaSystem has no code field rule while "
+                    "Barsa.Meta.TypeDef has one. A MetaCode row whose "
+                    "TargetObjectId is a system therefore has no declared "
+                    "route into the projection."),
+        "confidence": "Verified",
+        "limits": ("engine.unknownField is 'keep', which governs unlisted "
+                   "columns. Whether an unlisted *relation* is still traversed "
+                   "was not established, so this is a declared-rule gap rather "
+                   "than proof the exporter drops the row."),
+    }
+
+
 def importer_read_set(calls, legacy_tables):
     """Spec section 81: table -> the importer methods that touch it.
 

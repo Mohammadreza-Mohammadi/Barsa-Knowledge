@@ -78,10 +78,10 @@ else stays a `Difference`.
 
 | Difference type | Count this run |
 |---|---|
-| MissingInAiExport | 0 |
-| ExtraInAiExport | 0 |
+| MissingInAiExport | 3229 |
+| ExtraInAiExport | 27 |
 | ValueMismatch | 0 |
 | TypeMismatch | 0 |
 | RepresentationDifference | 0 |
 
-All counts are zero because no AiExport artifact was supplied.
+

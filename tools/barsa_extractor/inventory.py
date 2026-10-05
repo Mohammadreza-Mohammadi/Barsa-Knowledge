@@ -67,23 +67,39 @@ def classify_input(path):
     return "Unknown"
 
 
-def discover(source_root):
-    """Phase 1. Recursive scan; both the flat and the source/dll/ layout work."""
+def discover(source_root, extra_roots=()):
+    """Phase 1. Recursive scan of source/ plus any extra artifact roots.
+
+    Spec v3 section 1.1: inputs are found and classified where they lie. A
+    repository that keeps its exports in a top-level `exports/` rather than
+    under `source/exports/` is scanned as-is, with no file moved.
+    """
     found = []
-    for dirpath, _dirs, files in os.walk(source_root):
-        for fn in sorted(files):
-            full = os.path.join(dirpath, fn)
-            try:
-                size = os.path.getsize(full)
-            except OSError:
-                continue
-            found.append({
-                "path": os.path.relpath(full, os.path.dirname(source_root)),
-                "absPath": full,
-                "name": fn,
-                "size": size,
-                "kind": classify_input(full),
-            })
+    seen = set()
+    roots = [source_root] + [r for r in extra_roots if r]
+    base = os.path.dirname(os.path.abspath(source_root))
+    for root in roots:
+        if not os.path.isdir(root):
+            continue
+        for dirpath, _dirs, files in os.walk(root):
+            for fn in sorted(files):
+                full = os.path.join(dirpath, fn)
+                real = os.path.realpath(full)
+                if real in seen:
+                    continue
+                seen.add(real)
+                try:
+                    size = os.path.getsize(full)
+                except OSError:
+                    continue
+                rel = os.path.relpath(os.path.abspath(full), base)
+                found.append({
+                    "path": rel,
+                    "absPath": full,
+                    "name": fn,
+                    "size": size,
+                    "kind": classify_input(full),
+                })
     return sorted(found, key=lambda e: e["path"])
 
 

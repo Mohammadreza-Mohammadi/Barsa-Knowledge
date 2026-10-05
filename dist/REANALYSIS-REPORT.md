@@ -105,19 +105,12 @@ Carried forward, with what would settle each:
 
 ## Recommended next artifact
 
-In priority order:
+A pair now exists and was compared: `باركد (05-02-02 11;14).metaexport` against `باركد (05-07-11 20;08).zip`, scope **Exact**. What it cannot settle is timing.
 
-1. **A same-scope golden pair** (spec v3 sections 78-79): one small but
-   feature-complete system exported twice from the same build at the same time,
-   once legacy and once AiExport, with a `pairs.json` naming the selection. The
-   comparison pipeline in `tools/` is built and tested; it needs only the pair
-   to produce a real `comparison/` report. Without it, no compatibility
-   percentage can be computed, by design.
-2. **An `AiChangeBatch` document**, which would settle whether the AI write path
-   can consume an AiExport projection.
-3. **Decompiled `Barsa.Meta.DataExchange.dll`**, specifically
-   `NewImportManager.Import`, which is the single biggest remaining Unknown and
-   is obfuscated.
+1. **A same-build golden pair.** The current Exact pair was taken from different builds (legacy core 4.1.189 on 2026-04-22; AiExport producer 4.1.203.0), months apart. Every bug candidate it produces is therefore held as unconfirmed, because an object missing from the newer artifact may simply have been deleted in between. Re-exporting the same selection twice, back to back, on one build would convert those candidates into findings or clear them.
+2. **An `AiChangeBatch` document**, to settle whether the AI write path can consume an AiExport projection. This is now the largest open question about the AI side.
+3. **An AiExport containing a workflow and a business rule.** The profile has record types and serializers for both; no supplied artifact exercises them.
+4. **Decompiled `Barsa.Meta.DataExchange.dll`**, specifically `NewImportManager.Import`, which remains the biggest legacy-side Unknown and is obfuscated.
 
 Note on what is **not** needed: more DLLs. The current set was sufficient to
 derive the entire AiExport specification, because Barsa ships it inside the

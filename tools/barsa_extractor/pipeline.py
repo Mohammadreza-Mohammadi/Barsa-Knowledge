@@ -106,8 +106,9 @@ def _write(path, text):
 
 
 class Extractor:
-    def __init__(self, source_root, dist_root, log=print):
+    def __init__(self, source_root, dist_root, log=print, extra_roots=()):
         self.source = source_root
+        self.extra_roots = list(extra_roots)
         self.dist = dist_root
         self.log = log
         self.ledger = ev.Ledger()
@@ -134,7 +135,7 @@ class Extractor:
         return self.report
 
     def phase1_discover(self):
-        self.inputs = discover(self.source)
+        self.inputs = discover(self.source, self.extra_roots)
         kinds = {}
         for e in self.inputs:
             kinds[e["kind"]] = kinds.get(e["kind"], 0) + 1
@@ -362,6 +363,7 @@ class Extractor:
         self.profile_version = xm.profile_version_findings(
             self.profiles, self.live_profile)
         self.diff_states = xm.diff_states(self.answer_enums)
+        self.profile_gaps = xm.profile_coverage_gaps(self.live_profile)
         self.atomicity = xm.atomicity_findings(self.answer_enums)
         self.log("phase7: %d profiles, %d answer enums, %d api rows"
                  % (len(self.profiles), len(self.answer_enums),
@@ -402,33 +404,50 @@ class Extractor:
                 cmp_mod.legacy_selection_roots(pkg),
                 cmp_mod.ai_selection_roots(art),
                 declared=pair.get("declaredScope"))
+            scope["temporal"] = cmp_mod.temporal_distance(pkg, art)
             lenv = nz.from_legacy(pkg)
             aenv = nz.from_ai_export(art, self.live_profile)
             per_concept = {}
             diffs = []
             if scope["level"] in (cmp_mod.SCOPE_EXACT, cmp_mod.SCOPE_PARTIAL):
-                for coll in nz.EMPTY_ENVELOPE_KEYS:
-                    matches = cmp_mod.match_collection(lenv.get(coll),
-                                                       aenv.get(coll))
+                for label, l_nodes, a_nodes in cmp_mod.comparable_pairs(
+                        lenv, aenv):
+                    matches = cmp_mod.match_collection(l_nodes, a_nodes)
                     if matches is None:
                         continue
-                    per_concept[coll] = matches
+                    per_concept[label] = {
+                        "legacyCount": len(l_nodes),
+                        "aiCount": len(a_nodes),
+                        "matched": sum(
+                            1 for m in matches
+                            if m["strength"] != cmp_mod.MATCH_UNMATCHED),
+                        "byKey": self._count_keys(matches),
+                    }
                     for m in matches:
                         if m["strength"] == cmp_mod.MATCH_UNMATCHED or \
                                 m["matchedOn"] == "caption":
-                            diffs.append({"concept": coll,
+                            diffs.append({"concept": label,
                                           **cmp_mod.classify_difference(
-                                              m, scope["level"])})
+                                              m, scope["level"],
+                                              temporal=scope["temporal"])})
             self.comparisons.append({
                 "pair": pair,
                 "scope": scope,
-                "coverage": cmp_mod.coverage(lenv, aenv, scope),
+                "coverage": cmp_mod.coverage(lenv, aenv, scope, per_concept),
                 "differences": diffs,
-                "comparedConcepts": sorted(per_concept),
+                "comparedConcepts": per_concept,
             })
         self.log("phase8: %d legacy normalized, %d ai normalized, %d pairs"
                  % (len(self.normalized_legacy), len(self.normalized_ai),
                     len(self.pairs)))
+
+    @staticmethod
+    def _count_keys(matches):
+        out = {}
+        for m in matches:
+            k = m["matchedOn"] or "unmatched"
+            out[k] = out.get(k, 0) + 1
+        return out
 
     def _load_declared_pairs(self):
         """Optional source/exports/pairs.json (spec v3 section 41)."""
@@ -794,9 +813,14 @@ class Extractor:
                 ["AssemblyMetadata", "CallGraph", "ExporterCode"],
                 requires=["An ObjectReferenceSelection",
                           "The embedded profile at profileVersion 15"],
-                risks=["No AiExport sample was supplied, so the on-disk result "
-                       "is described from the writer and the profile, not from "
-                       "an artifact"],
+                risks=[("No AiExport artifact was supplied, so the on-disk "
+                        "result is described from the writer and the profile, "
+                        "not from an artifact")
+                       if not self.ai_artifacts else
+                       ("Confirmed against %d AiExport artifact(s); the "
+                        "variants differ in their manifest, see "
+                        "comparison/match-report.md"
+                        % len(self.ai_artifacts))],
                 note=("Reuses the legacy DataSet collector and then projects "
                       "that DataSet to JSON.")))
         if snapshot:

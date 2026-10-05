@@ -12,13 +12,13 @@ Per spec section 17, no table is called optional on one sample's evidence.
 
 | Metric | Value |
 |---|---|
-| Samples compared | 2 |
-| Tables present in every sample | 36 |
-| Tables present in only some samples | 71 |
+| Samples compared | 4 |
+| Tables present in every sample | 20 |
+| Tables present in only some samples | 193 |
 
 ### Always present
 
-`$Data_FieldDefDbNames`, `$Data_TypeDefDbNames`, `$DeletedRecords`, `$Header`, `$IdEmbeddingFields`, `$RootSelection`, `$Selection`, `$basicInfoRelation`, `$spl_EorgCenter`, `$spl_EorgType`, `MET_FIELDDEF`, `MET_FOLDER`, `MET_METACODE`, `MET_METACOMMAND`, `MET_METASYSTEM`, `MET_RELATIONDEF`, `MET_TYPEDEF`, `MET_TYPEVIEWENTITY`, `Shr_FileAttachment`, `Shr_FileAttachmentObject`, `Spl_TrusteeAccess`, `Ver_MetaSystemInfo`, `Ver_MetaSystemVersion`, `dyn_261`, `dyn_263`, `dyn_266`, `dyn_303`, `m01_127`, `m01_128`, `m01_309`, `m01_DbScript`, `m01_JsonProperty`, `m01_ObjectFeature`, `m02_GridSettings`, `met_Relation`, `met_Report`
+`$Data_FieldDefDbNames`, `$Data_TypeDefDbNames`, `$DeletedRecords`, `$Header`, `$IdEmbeddingFields`, `$RootSelection`, `$Selection`, `$basicInfoRelation`, `$spl_EorgCenter`, `$spl_EorgType`, `MET_FIELDDEF`, `MET_FOLDER`, `MET_METACODE`, `MET_METASYSTEM`, `MET_TYPEDEF`, `MET_TYPEVIEWENTITY`, `Spl_TrusteeAccess`, `Ver_MetaSystemInfo`, `m01_JsonProperty`, `met_Report`
 
 ### Variant (present in some samples only)
 
@@ -26,78 +26,178 @@ These are **not** proven optional. With two samples from one source database,
 a table missing from one sample most likely means that system does not use the
 feature.
 
-`MET_TYPEDEFACCESSSERVICE`, `Sec_SmsSettings`, `Ver_MSChangeSet`, `dyn_103_3`, `dyn_104_1`, `dyn_110_1`, `dyn_114`, `dyn_115`, `dyn_120_1`, `dyn_122_1`, `dyn_124_1`, `dyn_127_1`, `dyn_137`, `dyn_141`, `dyn_1440`, `dyn_1441`, `dyn_1442`, `dyn_166_1`, `dyn_17`, `dyn_21`, `dyn_24`, `dyn_268`, `dyn_40`, `dyn_46`, `dyn_47`, `dyn_48`, `dyn_50`, `dyn_73`, `dyn_76`, `dyn_79`, `dyn_80`, `dyn_81`, `m01_103`, `m01_129`, `m01_19`, `m01_AppConfigDef`, `m01_AppConfigValidValue`, `m01_CAToolbox`, `m01_CAType`, `m01_Culture`, `m01_DistServerCnnType`, `m01_MetaCondition`, `m01_MieSenderPolicy`, `m01_ReportCount`, `m01_Translation`, `m01_TranslationKey`, `m01_WErrorLocation`, `m02_FileType`, `m02_FileTypeGroup`, `m02_LogDef`, `m02_TextPattern`, `sec_Domain`, `sec_ExtraFolderAccessControl`, `sec_FieldConditionAccess`, `sec_FileBlackList`, `sec_InitialSettings`, `sec_LogCategory`, `sec_LogDef`, `sec_LogImportance`, `sec_LogRule`, `sec_LogRuleAction`, `sec_LogRuleCondition`, `sec_ObjectAccessService`, `sec_PasswordStrengthType`, `sec_RuleActionDef`, `sec_RuleConditionDef`, `sec_SecurityLogonMessage`, `sec_SecuritySettings`, `ulog_Settings`, `ulog_UseCase`, `xapp_service_2`
+`MET_METACOMMAND`, `MET_RELATIONDEF`, `MET_TYPEDEFACCESSSERVICE`, `MET_TYPEDEFACCESSTEMPLATE`, `Sec_SmsSettings`, `Shr_FileAttachment`, `Shr_FileAttachmentObject`, `Ver_MSChangeSet`, `Ver_MetaSystemVersion`, `Ver_VersionDependency`, `Xcrt_108`, `dyn_1021`, `dyn_103_3`, `dyn_104_1`, `dyn_108_2`, `dyn_110_1`, `dyn_111`, `dyn_111_1`, `dyn_114`, `dyn_115`, `dyn_1161`, `dyn_118`, `dyn_120`, `dyn_120_1`, `dyn_122`, `dyn_122_1`, `dyn_124_1`, `dyn_127_1`, `dyn_129`, `dyn_1341`, `dyn_137`, `dyn_138`, `dyn_139`, `dyn_1401`, `dyn_141`, `dyn_1413`, `dyn_143`, `dyn_1440`, `dyn_1441`, `dyn_1442`, `dyn_147`, `dyn_1481`, `dyn_153`, `dyn_155`, `dyn_156`, `dyn_158`, `dyn_16`, `dyn_163`, `dyn_166_1`, `dyn_169`, `dyn_17`, `dyn_1710`, `dyn_1771`, `dyn_193`, `dyn_208`, `dyn_21`, `dyn_211`, `dyn_214`, `dyn_2181`, `dyn_22`, `dyn_2271`, `dyn_23`, `dyn_2331`, `dyn_24`, `dyn_253`, `dyn_261`, `dyn_262`, `dyn_263`, `dyn_266`, `dyn_268`, `dyn_274`, `dyn_275`, `dyn_28`, `dyn_284`, `dyn_286`, `dyn_287`, `dyn_29`, `dyn_297`, `dyn_2981`, `dyn_302`, `dyn_303`, `dyn_308`, `dyn_3091`, `dyn_3171`, `dyn_3181`, `dyn_319`, `dyn_322`, `dyn_324`, `dyn_327`, `dyn_330`, `dyn_331`, `dyn_34`, `dyn_3571`, `dyn_366`, `dyn_373`, `dyn_381`, `dyn_388`, `dyn_392`, `dyn_393`, `dyn_3961`, `dyn_3971`, `dyn_398`, `dyn_3981`, `dyn_40`, `dyn_41`, `dyn_423`, `dyn_424`, `dyn_43`, `dyn_431`, `dyn_46`, `dyn_47`, `dyn_48`, `dyn_481`, `dyn_50`, `dyn_511`, `dyn_5311`, `dyn_5411`, `dyn_553`, `dyn_555`, `dyn_556`, `dyn_557`, `dyn_558`, `dyn_559`, `dyn_560`, `dyn_561`, `dyn_563`, `dyn_651`, `dyn_73`, `dyn_76`, `dyn_79`, `dyn_80`, `dyn_81`, `dyn_812`, `dyn_813`, `dyn_831`, `dyn_99`, `dyn_FieldSelectValue`, `dyn_LayoutHeader`, `m01_103`, `m01_127`, `m01_128`, `m01_129`, `m01_19`, `m01_309`, `m01_AppConfigDef`, `m01_AppConfigValidValue`, `m01_CAToolbox`, `m01_CAType`, `m01_Culture`, `m01_DbScript`, `m01_DistServerCnnType`, `m01_File`, `m01_MetaCondition`, `m01_MieSenderPolicy`, `m01_ObjectFeature`, `m01_Parameter`, `m01_ReportCount`, `m01_Translation`, `m01_TranslationKey`, `m01_WErrorLocation`, `m02_FileType`, `m02_FileTypeGroup`, `m02_GridSettings`, `m02_LogDef`, `m02_TextPattern`, `met_Relation`, `sec_Domain`, `sec_ExtraFolderAccessControl`, `sec_FieldConditionAccess`, `sec_FileBlackList`, `sec_InitialSettings`, `sec_LogCategory`, `sec_LogDef`, `sec_LogImportance`, `sec_LogRule`, `sec_LogRuleAction`, `sec_LogRuleCondition`, `sec_ObjectAccessService`, `sec_PasswordStrengthType`, `sec_RuleActionDef`, `sec_RuleConditionDef`, `sec_SecurityLogonMessage`, `sec_SecuritySettings`, `ulog_Settings`, `ulog_UseCase`, `wsm_21`, `wsm_35`, `wsm_8`, `wsm_CallWebService`, `wsm_MethodParameter`, `wsm_ProviderWebService`, `wsm_WebServiceMethod`, `xapp_service_2`
 
 ## Columns that vary across samples for a shared table
 
-_No shared table changes its column set between samples._
+| Table | Always-present columns | Variant columns |
+|---|---|---|
+| $Data_FieldDefDbNames | 3 | `Caption` |
+| $Data_TypeDefDbNames | 2 | `Caption` |
 
 ## Per-table catalogue
 
 | Path | Columns | Rows (all samples) | Barsa type | Importer consumer | Confidence |
 |---|---|---|---|---|---|
-| `$.$Data_FieldDefDbNames[*]` | 3 | 437 | Unknown | Unknown | Observed |
-| `$.$Data_TypeDefDbNames[*]` | 2 | 97 | Unknown | Unknown | Observed |
-| `$.$DeletedRecords[*]` | 11 | 188 | Unknown | Unknown | Observed |
-| `$.$Header[*]` | 7 | 2 | Unknown | Unknown | Observed |
-| `$.$IdEmbeddingFields[*]` | 4 | 368 | `(control table)` | `FixIdForImport::FixAll` | CrossVerified |
-| `$.$RootSelection[*]` | 11 | 5 | Unknown | Unknown | Observed |
-| `$.$Selection[*]` | 11 | 8075 | `Barsa.Spl.BasicInfo.ExportSession` | `ImportHelper::ImportionSelectionObjectIdCondition` | CrossVerified |
+| `$.$Data_FieldDefDbNames[*]` | 4 | 1463 | Unknown | Unknown | Observed |
+| `$.$Data_TypeDefDbNames[*]` | 3 | 220 | Unknown | Unknown | Observed |
+| `$.$DeletedRecords[*]` | 11 | 1897 | Unknown | Unknown | Observed |
+| `$.$Header[*]` | 7 | 4 | Unknown | Unknown | Observed |
+| `$.$IdEmbeddingFields[*]` | 4 | 1167 | `(control table)` | `FixIdForImport::FixAll` | CrossVerified |
+| `$.$RootSelection[*]` | 11 | 9 | Unknown | Unknown | Observed |
+| `$.$Selection[*]` | 11 | 39719 | `Barsa.Spl.BasicInfo.ExportSession` | `ImportHelper::ImportionSelectionObjectIdCondition` | CrossVerified |
 | `$.$basicInfoRelation[*]` | 6 | 36 | Unknown | Unknown | Observed |
-| `$.$spl_EorgCenter[*]` | 7 | 136 | Unknown | Unknown | Observed |
-| `$.$spl_EorgType[*]` | 10 | 941 | `Barsa.Spl.BasicInfo.EorgType` | `FixIdForImport::GetEorgTypeBySourceTypeId` | CrossVerified |
-| `$.MET_FIELDDEF[*]` | 8 | 1751 | `Barsa.Meta.FieldDef` | `FixIdForImport::FixLocalIds` | CrossVerified |
-| `$.MET_FOLDER[*]` | 12 | 348 | `Barsa.Meta.Folder` | `ObjectReferenceBuilder::FixParentCategory` | CrossVerified |
-| `$.MET_METACODE[*]` | 17 | 278 | `Barsa.Meta.MetaCode` | `NewImportManager::Import` | CrossVerified |
-| `$.MET_METACOMMAND[*]` | 10 | 19 | `Barsa.Meta.MetaCommand` | `NewImportManager::Import` | CrossVerified |
-| `$.MET_METASYSTEM[*]` | 13 | 5 | `Barsa.Meta.MetaSystem` | `NewImportManager::Import` | CrossVerified |
-| `$.MET_RELATIONDEF[*]` | 11 | 43 | `Barsa.Meta.RelationDef` | `NewImportManager::Import` | CrossVerified |
-| `$.MET_TYPEDEF[*]` | 21 | 328 | `Barsa.Meta.TypeDef` | `FixIdForImport::FixLocalIds` | CrossVerified |
-| `$.MET_TYPEDEFACCESSSERVICE[*]` | 7 | 1 | Unknown | Unknown | Verified |
-| `$.MET_TYPEVIEWENTITY[*]` | 5 | 225 | Unknown | Unknown | Verified |
+| `$.$spl_EorgCenter[*]` | 7 | 746 | Unknown | Unknown | Observed |
+| `$.$spl_EorgType[*]` | 10 | 4722 | `Barsa.Spl.BasicInfo.EorgType` | `FixIdForImport::GetEorgTypeBySourceTypeId` | CrossVerified |
+| `$.MET_FIELDDEF[*]` | 8 | 4044 | `Barsa.Meta.FieldDef` | `FixIdForImport::FixLocalIds` | CrossVerified |
+| `$.MET_FOLDER[*]` | 12 | 536 | `Barsa.Meta.Folder` | `ObjectReferenceBuilder::FixParentCategory` | CrossVerified |
+| `$.MET_METACODE[*]` | 17 | 420 | `Barsa.Meta.MetaCode` | `NewImportManager::Import` | CrossVerified |
+| `$.MET_METACOMMAND[*]` | 10 | 23 | `Barsa.Meta.MetaCommand` | `NewImportManager::Import` | CrossVerified |
+| `$.MET_METASYSTEM[*]` | 13 | 9 | `Barsa.Meta.MetaSystem` | `NewImportManager::Import` | CrossVerified |
+| `$.MET_RELATIONDEF[*]` | 11 | 57 | `Barsa.Meta.RelationDef` | `NewImportManager::Import` | CrossVerified |
+| `$.MET_TYPEDEF[*]` | 21 | 676 | `Barsa.Meta.TypeDef` | `FixIdForImport::FixLocalIds` | CrossVerified |
+| `$.MET_TYPEDEFACCESSSERVICE[*]` | 7 | 15 | Unknown | Unknown | Verified |
+| `$.MET_TYPEDEFACCESSTEMPLATE[*]` | 5 | 1 | Unknown | Unknown | Verified |
+| `$.MET_TYPEVIEWENTITY[*]` | 5 | 406 | Unknown | Unknown | Verified |
 | `$.Sec_SmsSettings[*]` | 6 | 7 | Unknown | Unknown | Verified |
-| `$.Shr_FileAttachment[*]` | 9 | 21 | Unknown | Unknown | Verified |
-| `$.Shr_FileAttachmentObject[*]` | 3 | 21 | Unknown | Unknown | Verified |
-| `$.Spl_TrusteeAccess[*]` | 5 | 2676 | Unknown | Unknown | Verified |
-| `$.Ver_MSChangeSet[*]` | 5 | 1 | Unknown | Unknown | Verified |
-| `$.Ver_MetaSystemInfo[*]` | 4 | 5 | Unknown | Unknown | Verified |
-| `$.Ver_MetaSystemVersion[*]` | 8 | 13 | Unknown | Unknown | Verified |
+| `$.Shr_FileAttachment[*]` | 9 | 49 | Unknown | Unknown | Verified |
+| `$.Shr_FileAttachmentObject[*]` | 3 | 199 | Unknown | Unknown | Verified |
+| `$.Spl_TrusteeAccess[*]` | 5 | 5270 | Unknown | Unknown | Verified |
+| `$.Ver_MSChangeSet[*]` | 5 | 3 | Unknown | Unknown | Verified |
+| `$.Ver_MetaSystemInfo[*]` | 4 | 9 | Unknown | Unknown | Verified |
+| `$.Ver_MetaSystemVersion[*]` | 8 | 89 | Unknown | Unknown | Verified |
+| `$.Ver_VersionDependency[*]` | 5 | 1 | Unknown | Unknown | Verified |
+| `$.Xcrt_108[*]` | 8 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_1021[*]` | 4 | 1 | Unknown | Unknown | Verified |
 | `$.dyn_103_3[*]` | 11 | 13 | Unknown | Unknown | Verified |
 | `$.dyn_104_1[*]` | 4 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_108_2[*]` | 11 | 7 | Unknown | Unknown | Verified |
 | `$.dyn_110_1[*]` | 5 | 9 | Unknown | Unknown | Verified |
+| `$.dyn_111[*]` | 29 | 9 | Unknown | Unknown | Verified |
+| `$.dyn_111_1[*]` | 8 | 15 | Unknown | Unknown | Verified |
 | `$.dyn_114[*]` | 8 | 2 | Unknown | Unknown | Verified |
 | `$.dyn_115[*]` | 4 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_1161[*]` | 16 | 347 | Unknown | Unknown | Verified |
+| `$.dyn_118[*]` | 2 | 19 | Unknown | Unknown | Verified |
+| `$.dyn_120[*]` | 7 | 252 | Unknown | Unknown | Verified |
 | `$.dyn_120_1[*]` | 7 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_122[*]` | 23 | 48 | Unknown | Unknown | Verified |
 | `$.dyn_122_1[*]` | 7 | 4 | Unknown | Unknown | Verified |
 | `$.dyn_124_1[*]` | 2 | 4 | Unknown | Unknown | Verified |
 | `$.dyn_127_1[*]` | 2 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_129[*]` | 6 | 7 | Unknown | Unknown | Verified |
+| `$.dyn_1341[*]` | 2 | 7 | Unknown | Unknown | Verified |
 | `$.dyn_137[*]` | 7 | 13 | Unknown | Unknown | Verified |
-| `$.dyn_141[*]` | 4 | 7 | Unknown | Unknown | Verified |
+| `$.dyn_138[*]` | 9 | 14 | Unknown | Unknown | Verified |
+| `$.dyn_139[*]` | 5 | 12 | Unknown | Unknown | Verified |
+| `$.dyn_1401[*]` | 5 | 5 | Unknown | Unknown | Verified |
+| `$.dyn_141[*]` | 7 | 18 | Unknown | Unknown | Verified |
+| `$.dyn_1413[*]` | 9 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_143[*]` | 8 | 6 | Unknown | Unknown | Verified |
 | `$.dyn_1440[*]` | 5 | 7 | Unknown | Unknown | Verified |
 | `$.dyn_1441[*]` | 3 | 7 | Unknown | Unknown | Verified |
 | `$.dyn_1442[*]` | 5 | 63 | Unknown | Unknown | Verified |
+| `$.dyn_147[*]` | 7 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_1481[*]` | 11 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_153[*]` | 28 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_155[*]` | 7 | 4 | Unknown | Unknown | Verified |
+| `$.dyn_156[*]` | 9 | 13 | Unknown | Unknown | Verified |
+| `$.dyn_158[*]` | 6 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_16[*]` | 15 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_163[*]` | 4 | 36 | Unknown | Unknown | Verified |
 | `$.dyn_166_1[*]` | 4 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_169[*]` | 48 | 11 | Unknown | Unknown | Verified |
 | `$.dyn_17[*]` | 2 | 4 | Unknown | Unknown | Verified |
+| `$.dyn_1710[*]` | 2 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_1771[*]` | 4 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_193[*]` | 10 | 62 | Unknown | Unknown | Verified |
+| `$.dyn_208[*]` | 4 | 1 | Unknown | Unknown | Verified |
 | `$.dyn_21[*]` | 2 | 5 | Unknown | Unknown | Verified |
+| `$.dyn_211[*]` | 6 | 12 | Unknown | Unknown | Verified |
+| `$.dyn_214[*]` | 3 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_2181[*]` | 5 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_22[*]` | 35 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_2271[*]` | 10 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_23[*]` | 14 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_2331[*]` | 8 | 1 | Unknown | Unknown | Verified |
 | `$.dyn_24[*]` | 2 | 3 | Unknown | Unknown | Verified |
-| `$.dyn_261[*]` | 12 | 12 | Unknown | Unknown | Verified |
-| `$.dyn_263[*]` | 5 | 32 | Unknown | Unknown | Verified |
-| `$.dyn_266[*]` | 2 | 9 | Unknown | Unknown | Verified |
+| `$.dyn_253[*]` | 24 | 6 | Unknown | Unknown | Verified |
+| `$.dyn_261[*]` | 12 | 17 | Unknown | Unknown | Verified |
+| `$.dyn_262[*]` | 2 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_263[*]` | 5 | 67 | Unknown | Unknown | Verified |
+| `$.dyn_266[*]` | 2 | 13 | Unknown | Unknown | Verified |
 | `$.dyn_268[*]` | 6 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_274[*]` | 4 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_275[*]` | 15 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_28[*]` | 16 | 12 | Unknown | Unknown | Verified |
+| `$.dyn_284[*]` | 20 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_286[*]` | 7 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_287[*]` | 4 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_29[*]` | 6 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_297[*]` | 2 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_2981[*]` | 6 | 5 | Unknown | Unknown | Verified |
+| `$.dyn_302[*]` | 5 | 2 | Unknown | Unknown | Verified |
 | `$.dyn_303[*]` | 2 | 5 | Unknown | Unknown | Verified |
+| `$.dyn_308[*]` | 4 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_3091[*]` | 9 | 6 | Unknown | Unknown | Verified |
+| `$.dyn_3171[*]` | 4 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_3181[*]` | 2 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_319[*]` | 3 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_322[*]` | 3 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_324[*]` | 9 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_327[*]` | 3 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_330[*]` | 4 | 6 | Unknown | Unknown | Verified |
+| `$.dyn_331[*]` | 2 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_34[*]` | 10 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_3571[*]` | 27 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_366[*]` | 8 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_373[*]` | 10 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_381[*]` | 10 | 8 | Unknown | Unknown | Verified |
+| `$.dyn_388[*]` | 3 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_392[*]` | 7 | 4 | Unknown | Unknown | Verified |
+| `$.dyn_393[*]` | 7 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_3961[*]` | 3 | 5 | Unknown | Unknown | Verified |
+| `$.dyn_3971[*]` | 2 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_398[*]` | 3 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_3981[*]` | 2 | 5 | Unknown | Unknown | Verified |
 | `$.dyn_40[*]` | 3 | 4 | Unknown | Unknown | Verified |
-| `$.dyn_46[*]` | 9 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_41[*]` | 10 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_423[*]` | 4 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_424[*]` | 6 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_43[*]` | 2 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_431[*]` | 9 | 2 | Unknown | Unknown | Verified |
+| `$.dyn_46[*]` | 9 | 11 | Unknown | Unknown | Verified |
 | `$.dyn_47[*]` | 3 | 5 | Unknown | Unknown | Verified |
 | `$.dyn_48[*]` | 10 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_481[*]` | 4 | 4 | Unknown | Unknown | Verified |
 | `$.dyn_50[*]` | 2 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_511[*]` | 7 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_5311[*]` | 24 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_5411[*]` | 53 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_553[*]` | 7 | 102 | Unknown | Unknown | Verified |
+| `$.dyn_555[*]` | 5 | 421 | Unknown | Unknown | Verified |
+| `$.dyn_556[*]` | 14 | 18758 | Unknown | Unknown | Verified |
+| `$.dyn_557[*]` | 15 | 13 | Unknown | Unknown | Verified |
+| `$.dyn_558[*]` | 5 | 1152 | Unknown | Unknown | Verified |
+| `$.dyn_559[*]` | 3 | 12 | Unknown | Unknown | Verified |
+| `$.dyn_560[*]` | 5 | 1862 | Unknown | Unknown | Verified |
+| `$.dyn_561[*]` | 4 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_563[*]` | 11 | 2028 | Unknown | Unknown | Verified |
+| `$.dyn_651[*]` | 7 | 13 | Unknown | Unknown | Verified |
 | `$.dyn_73[*]` | 4 | 5 | Unknown | Unknown | Verified |
 | `$.dyn_76[*]` | 3 | 3 | Unknown | Unknown | Verified |
 | `$.dyn_79[*]` | 4 | 3 | Unknown | Unknown | Verified |
 | `$.dyn_80[*]` | 5 | 1192 | Unknown | Unknown | Verified |
 | `$.dyn_81[*]` | 7 | 25 | Unknown | Unknown | Verified |
+| `$.dyn_812[*]` | 8 | 1 | Unknown | Unknown | Verified |
+| `$.dyn_813[*]` | 7 | 32 | Unknown | Unknown | Verified |
+| `$.dyn_831[*]` | 3 | 6 | Unknown | Unknown | Verified |
+| `$.dyn_99[*]` | 6 | 3 | Unknown | Unknown | Verified |
+| `$.dyn_FieldSelectValue[*]` | 3 | 18 | Unknown | Unknown | Verified |
+| `$.dyn_LayoutHeader[*]` | 16 | 8 | Unknown | Unknown | Verified |
 | `$.m01_103[*]` | 3 | 3 | Unknown | Unknown | Verified |
-| `$.m01_127[*]` | 2 | 6 | Unknown | Unknown | Verified |
-| `$.m01_128[*]` | 3 | 8 | Unknown | Unknown | Verified |
+| `$.m01_127[*]` | 2 | 8 | Unknown | Unknown | Verified |
+| `$.m01_128[*]` | 3 | 19 | Unknown | Unknown | Verified |
 | `$.m01_129[*]` | 2 | 1 | Unknown | Unknown | Verified |
 | `$.m01_19[*]` | 5 | 1 | Unknown | Unknown | Verified |
 | `$.m01_309[*]` | 2 | 5 | Unknown | Unknown | Verified |
@@ -108,21 +208,23 @@ _No shared table changes its column set between samples._
 | `$.m01_Culture[*]` | 4 | 2 | Unknown | Unknown | Verified |
 | `$.m01_DbScript[*]` | 8 | 5 | Unknown | Unknown | Verified |
 | `$.m01_DistServerCnnType[*]` | 3 | 3 | Unknown | Unknown | Verified |
-| `$.m01_JsonProperty[*]` | 5 | 7 | Unknown | Unknown | Verified |
+| `$.m01_File[*]` | 11 | 12 | Unknown | Unknown | Verified |
+| `$.m01_JsonProperty[*]` | 5 | 42 | Unknown | Unknown | Verified |
 | `$.m01_MetaCondition[*]` | 4 | 1 | Unknown | Unknown | Verified |
 | `$.m01_MieSenderPolicy[*]` | 8 | 1 | Unknown | Unknown | Verified |
-| `$.m01_ObjectFeature[*]` | 8 | 19 | Unknown | Unknown | Verified |
+| `$.m01_ObjectFeature[*]` | 8 | 22 | Unknown | Unknown | Verified |
+| `$.m01_Parameter[*]` | 13 | 1 | Unknown | Unknown | Verified |
 | `$.m01_ReportCount[*]` | 8 | 1 | Unknown | Unknown | Verified |
-| `$.m01_Translation[*]` | 4 | 40 | Unknown | Unknown | Verified |
-| `$.m01_TranslationKey[*]` | 7 | 20 | Unknown | Unknown | Verified |
+| `$.m01_Translation[*]` | 4 | 804 | Unknown | Unknown | Verified |
+| `$.m01_TranslationKey[*]` | 7 | 402 | Unknown | Unknown | Verified |
 | `$.m01_WErrorLocation[*]` | 2 | 2 | Unknown | Unknown | Verified |
 | `$.m02_FileType[*]` | 4 | 40 | Unknown | Unknown | Verified |
 | `$.m02_FileTypeGroup[*]` | 3 | 4 | Unknown | Unknown | Verified |
-| `$.m02_GridSettings[*]` | 5 | 5 | Unknown | Unknown | Verified |
+| `$.m02_GridSettings[*]` | 5 | 11 | Unknown | Unknown | Verified |
 | `$.m02_LogDef[*]` | 5 | 2 | Unknown | Unknown | Verified |
 | `$.m02_TextPattern[*]` | 6 | 5 | Unknown | Unknown | Verified |
-| `$.met_Relation[*]` | 6 | 1958 | `Barsa.Meta.Relation` | `ObjectReferenceBuilder::RecreateForAll` | CrossVerified |
-| `$.met_Report[*]` | 14 | 413 | `Barsa.Meta.Report` | `NewImportManager::Import` | CrossVerified |
+| `$.met_Relation[*]` | 6 | 2151 | `Barsa.Meta.Relation` | `ObjectReferenceBuilder::RecreateForAll` | CrossVerified |
+| `$.met_Report[*]` | 14 | 671 | `Barsa.Meta.Report` | `NewImportManager::Import` | CrossVerified |
 | `$.sec_Domain[*]` | 3 | 1 | Unknown | Unknown | Verified |
 | `$.sec_ExtraFolderAccessControl[*]` | 3 | 1 | Unknown | Unknown | Verified |
 | `$.sec_FieldConditionAccess[*]` | 5 | 1 | Unknown | Unknown | Verified |
@@ -142,6 +244,13 @@ _No shared table changes its column set between samples._
 | `$.sec_SecuritySettings[*]` | 32 | 1 | Unknown | Unknown | Verified |
 | `$.ulog_Settings[*]` | 3 | 1 | Unknown | Unknown | Verified |
 | `$.ulog_UseCase[*]` | 9 | 28 | Unknown | Unknown | Verified |
+| `$.wsm_21[*]` | 3 | 10 | Unknown | Unknown | Verified |
+| `$.wsm_35[*]` | 2 | 12 | Unknown | Unknown | Verified |
+| `$.wsm_8[*]` | 6 | 3 | Unknown | Unknown | Verified |
+| `$.wsm_CallWebService[*]` | 23 | 3 | Unknown | Unknown | Verified |
+| `$.wsm_MethodParameter[*]` | 17 | 30 | Unknown | Unknown | Verified |
+| `$.wsm_ProviderWebService[*]` | 16 | 3 | Unknown | Unknown | Verified |
+| `$.wsm_WebServiceMethod[*]` | 23 | 20 | Unknown | Unknown | Verified |
 | `$.xapp_service_2[*]` | 6 | 4 | Unknown | Unknown | Verified |
 
 `Unknown` in the Barsa type or consumer column means no evidence tied that table

@@ -130,7 +130,7 @@ families confirm it.
 
 **Risks**
 
-- No AiExport sample was supplied, so the on-disk result is described from the writer and the profile, not from an artifact
+- Confirmed against 2 AiExport artifact(s); the variants differ in their manifest, see comparison/match-report.md
 
 
 ### `DataExchange.AiExport.Snapshot`

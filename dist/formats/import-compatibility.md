@@ -9,7 +9,7 @@ without evidence.
 ## What the package declares
 
 Every package carries `$Header.Core Version`. Observed values:
-`4.1.190`, `4.1.197`.
+`4.1.189`, `4.1.190`, `4.1.197`, `4.1.202`.
 
 The samples also carry `Export Version Time` (a Jalali timestamp) and the
 `Ver_MetaSystemInfo` / `Ver_MetaSystemVersion` tables, whose columns include

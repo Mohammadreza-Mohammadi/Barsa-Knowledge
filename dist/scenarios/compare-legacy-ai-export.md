@@ -67,6 +67,6 @@ than counting it as loss.
 
 ## Current state
 
-No pair exists. `comparison/scope-equivalence.json` records that, and no compatibility percentage is produced.
+2 pair(s) assessed; see `comparison/`.
 
 To exercise it, supply a golden pair as described in `MISSING-INPUTS.md`.

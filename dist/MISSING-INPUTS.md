@@ -18,6 +18,5 @@ specific area's confidence.
 
 ## Detected this run
 
-- an AiExport artifact (JSON or ZIP) in source/exports/ai-json/
 - source/exporter/ (exporter/importer source or decompiled code)
 - source/importer/ (exporter/importer source or decompiled code)

@@ -48,6 +48,10 @@ and `JsonExportPackageWriter.WriteManifest` both write it, and
 
 | Path | Physical | Logical | Variant | Confidence | Warnings | Errors |
 |---|---|---|---|---|---|---|
+| `exports/Push Notification (05-07-11 20;08).zip` | PlainJson | Barsa.AiExport | AiExport.SingleJson | Verified | 1 |  |
+| `exports/Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport` | GZip | Barsa.LegacyMetaExport | Legacy.DataSet.BinaryFormatter | Verified |  |  |
+| `exports/باركد (05-02-02 11;14).metaexport` | GZip | Barsa.LegacyMetaExport | Legacy.DataSet.BinaryFormatter | Verified |  |  |
+| `exports/باركد (05-07-11 20;08).zip` | ZIP | Barsa.AiExport | AiExport.ZipJsonPackage | Verified |  |  |
 | `source/NewMeta01.metaexport` | GZip | Barsa.LegacyMetaExport | Legacy.DataSet.BinaryFormatter | Verified |  |  |
 | `source/NewMeta02.metaexport` | GZip | Barsa.LegacyMetaExport | Legacy.DataSet.BinaryFormatter | Verified |  |  |
 | `source/Resources/Code Editor/Patterns v3/+ منطق کاری/1-MoEventPattern.xml` | XML | Unknown | Unknown | Unknown |  |  |
@@ -76,11 +80,13 @@ and `JsonExportPackageWriter.WriteManifest` both write it, and
 | `source/Resources/chat/Smilies/emoticons.xml` | XML | Unknown | Unknown | Unknown |  |  |
 | `source/Resources/chat/SmilySyntax.xml` | XML | Unknown | Unknown | Unknown |  |  |
 
-Totals: `Barsa.LegacyMetaExport / Legacy.DataSet.BinaryFormatter` x2, `Unknown / Unknown` x25
+Totals: `Barsa.AiExport / AiExport.SingleJson` x1, `Barsa.AiExport / AiExport.ZipJsonPackage` x1, `Barsa.LegacyMetaExport / Legacy.DataSet.BinaryFormatter` x4, `Unknown / Unknown` x25
 
 ## Warnings
 
-_None._
+| Path | Kind | Message |
+|---|---|---|
+| `exports/Push Notification (05-07-11 20;08).zip` | ExtensionDoesNotMatchPhysicalFormat | extension .zip but physical format is PlainJson |
 
 ## Error model
 

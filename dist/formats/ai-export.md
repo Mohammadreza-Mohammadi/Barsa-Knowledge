@@ -175,6 +175,6 @@ stores integers. Full list: `index/ai-export-properties.json`.
 
 ## Caveat on samples
 
-No AiExport artifact is present in `source/`.
+2 AiExport artifact(s) were analysed.
 Everything above is read from the binary and the embedded profile. Where a
 statement would need an artifact to confirm, it is marked as such.

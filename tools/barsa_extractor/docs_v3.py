@@ -17,6 +17,7 @@ def write_all(x):
     _ai_docs(x, d)
     _version_matrix(x, d)
     _comparison(x, d)
+    _match_report(x, d)
     _reanalysis(x, d)
     _v3_indexes(x, d)
     _v3_scenarios(x, d)
@@ -720,6 +721,31 @@ def _comparison(x, d):
             "CrossVerified" if (table and table.lower() in legacy_tables)
             else "Verified"])
 
+    pct_lines = []
+    for c in x.comparisons:
+        cov = c["coverage"]
+        pct = cov.get("compatibilityPercentage")
+        pct_lines.append("### %s" % c["pair"]["legacy"])
+        pct_lines.append("")
+        pct_lines.append("Scope: **%s**" % c["scope"]["level"])
+        pct_lines.append("")
+        if pct is None:
+            pct_lines.append("**Not computable.** " + cov["percentageNote"])
+        else:
+            pct_lines.append("**%s%%** of legacy objects found a counterpart."
+                             % pct)
+            pct_lines.append("")
+            pct_lines.append(cov["percentageNote"])
+            pct_lines.append("")
+            pct_lines.append(_table(
+                ["Concept", "Legacy objects", "Matched", "Percent"],
+                [[b["concept"], b["legacyObjects"], b["matched"],
+                  "%s%%" % b["percent"] if b["percent"] is not None else "-"]
+                 for b in cov.get("percentageBreakdown", [])]))
+        pct_lines.append("")
+    pct_section = ("\n".join(pct_lines) if pct_lines else
+                   "No pair exists, so no percentage is produced.")
+
     _write(d, "comparison/semantic-coverage.md", f"""# Semantic coverage
 
 {BANNER}
@@ -746,9 +772,9 @@ They may be computed, may come from elsewhere, or may be AiExport-only.
 
 {", ".join("`%s`" % r["recordType"] for r in (live.record_type_rows() if live else []) if not r["legacyTable"]) or "_None._"}
 
-## Why no percentage
+## Compatibility percentage
 
-{chr(10).join("- %s: %s" % (c["pair"]["legacy"], c["coverage"]["percentageNote"]) for c in x.comparisons) if x.comparisons else "No pair exists. A percentage would be meaningless and is therefore not produced."}
+{pct_section}
 """)
 
     _write(d, "comparison/legacy-vs-ai-export.md", f"""# Legacy MetaExport versus Barsa.AiExport
@@ -841,6 +867,53 @@ else stays a `Difference`.
 
 def _reanalysis(x, d):
     live = x.live_profile
+    exact = [c for c in x.comparisons
+             if c["scope"]["level"] == "Exact"]
+    not_same_build = [c for c in exact
+                      if not (c["scope"].get("temporal") or {}).get("sameBuild")]
+    if not x.ai_artifacts:
+        next_artifact = (
+            "1. **A same-scope golden pair** (spec v3 sections 78-79): one "
+            "small but feature-complete system exported twice from the same "
+            "build at the same time, once legacy and once AiExport, with a "
+            "`pairs.json` naming the selection. The comparison pipeline in "
+            "`tools/` is built and tested; it needs only the pair.\n"
+            "2. **An `AiChangeBatch` document**, to settle whether the AI "
+            "write path can consume an AiExport projection.\n"
+            "3. **Decompiled `Barsa.Meta.DataExchange.dll`**, specifically "
+            "`NewImportManager.Import`.")
+    elif not_same_build:
+        c = not_same_build[0]
+        t = c["scope"].get("temporal") or {}
+        next_artifact = (
+            "A pair now exists and was compared: `%s` against `%s`, scope "
+            "**Exact**. What it cannot settle is timing.\n\n"
+            "1. **A same-build golden pair.** The current Exact pair was taken "
+            "from different builds (legacy core %s on %s; AiExport producer "
+            "%s), months apart. Every bug candidate it produces is therefore "
+            "held as unconfirmed, because an object missing from the newer "
+            "artifact may simply have been deleted in between. Re-exporting "
+            "the same selection twice, back to back, on one build would "
+            "convert those candidates into findings or clear them.\n"
+            "2. **An `AiChangeBatch` document**, to settle whether the AI "
+            "write path can consume an AiExport projection. This is now the "
+            "largest open question about the AI side.\n"
+            "3. **An AiExport containing a workflow and a business rule.** The "
+            "profile has record types and serializers for both; no supplied "
+            "artifact exercises them.\n"
+            "4. **Decompiled `Barsa.Meta.DataExchange.dll`**, specifically "
+            "`NewImportManager.Import`, which remains the biggest legacy-side "
+            "Unknown and is obfuscated."
+            % (c["pair"]["legacy"], c["pair"]["aiExport"],
+               t.get("legacyCoreVersion"),
+               (t.get("legacyExportTime") or "?")[:10],
+               t.get("aiProducerVersion")))
+    else:
+        next_artifact = (
+            "1. **An `AiChangeBatch` document**, to settle whether the AI "
+            "write path can consume an AiExport projection.\n"
+            "2. **An AiExport containing a workflow and a business rule.**\n"
+            "3. **Decompiled `Barsa.Meta.DataExchange.dll`**.")
     sem_types = next((r["typesCount"] for r in x.assemblies.values()
                       if r["assemblyName"] == "Barsa.Meta.SemanticExchange"),
                      "?")
@@ -949,19 +1022,7 @@ Carried forward, with what would settle each:
 
 ## Recommended next artifact
 
-In priority order:
-
-1. **A same-scope golden pair** (spec v3 sections 78-79): one small but
-   feature-complete system exported twice from the same build at the same time,
-   once legacy and once AiExport, with a `pairs.json` naming the selection. The
-   comparison pipeline in `tools/` is built and tested; it needs only the pair
-   to produce a real `comparison/` report. Without it, no compatibility
-   percentage can be computed, by design.
-2. **An `AiChangeBatch` document**, which would settle whether the AI write path
-   can consume an AiExport projection.
-3. **Decompiled `Barsa.Meta.DataExchange.dll`**, specifically
-   `NewImportManager.Import`, which is the single biggest remaining Unknown and
-   is obfuscated.
+{next_artifact}
 
 Note on what is **not** needed: more DLLs. The current set was sufficient to
 derive the entire AiExport specification, because Barsa ships it inside the
@@ -1230,7 +1291,8 @@ Writes a JSON document, or a directory that is then zipped. No database write.
 ## Confidence
 
 **Verified** for the API surface, the pipeline and the profile rules.
-**Unknown** for the resulting bytes, since no AiExport artifact was supplied.
+
+{"**Unknown** for the resulting bytes: no AiExport artifact was supplied." if not x.ai_artifacts else "**Verified** for the resulting bytes as well: " + str(len(x.ai_artifacts)) + " artifact(s) were parsed, and the root shape, manifest keys, bracketed folder layout and per-node inline-or-file split all match what the writer and the profile predict."}
 """)
 
     _write(d, "scenarios/import-system-ai-json.md", f"""# Scenario: write changes back through the AI path
@@ -1394,4 +1456,151 @@ than counting it as loss.
 {"No pair exists. `comparison/scope-equivalence.json` records that, and no compatibility percentage is produced." if not x.comparisons else "%d pair(s) assessed; see `comparison/`." % len(x.comparisons)}
 
 To exercise it, supply a golden pair as described in `MISSING-INPUTS.md`.
+""")
+
+
+def _match_report(x, d):
+    """Spec v3 sections 48-52: per-collection matching and bug classification."""
+    gaps = getattr(x, "profile_gaps", None)
+
+    bug_rows = []
+    for c in x.comparisons:
+        for dd in c["differences"]:
+            if dd["verdict"].startswith("BugCandidate"):
+                bug_rows.append([
+                    c["pair"]["legacy"][:28], dd["concept"],
+                    json.dumps(dd["legacy"] or dd["aiExport"],
+                               ensure_ascii=False),
+                    dd["verdict"]])
+
+    match_rows = []
+    for c in x.comparisons:
+        for label, info in sorted((c.get("comparedConcepts") or {}).items()):
+            if not isinstance(info, dict):
+                continue
+            match_rows.append([
+                c["pair"]["legacy"][:24], c["scope"]["level"], label,
+                info["legacyCount"], info["aiCount"], info["matched"],
+                ", ".join("%s=%d" % (k, v)
+                          for k, v in sorted(info["byKey"].items()))])
+
+    bug_note = ""
+    if bug_rows:
+        bug_note = (
+            "### Reading these\n\n"
+            "Every candidate above is marked unconfirmed because the paired "
+            "artifacts are not from one build. Scope equivalence proves the "
+            "same objects were *selected*; it says nothing about the system "
+            "being unchanged between two exports taken months apart. A "
+            "same-build golden pair would settle each one.\n")
+
+    if gaps:
+        gap_table = _table(["Aspect", "Value"], [
+            ["Record types with a code field rule",
+             len(gaps["recordTypesWithCodeFieldRule"])],
+            ["Record types without one",
+             len(gaps["recordTypesWithoutCodeFieldRule"])],
+            ["`engine.unknownField`", "`%s`" % gaps["engineUnknownField"]],
+            ["Code relation groups in packaging",
+             len(gaps["codeRelationGroups"])],
+        ])
+        with_code = ", ".join("`%s`" % t
+                              for t in gaps["recordTypesWithCodeFieldRule"])
+        gap_section = "\n".join([
+            gaps["finding"], "", gap_table, "",
+            "With a code field rule: " + (with_code or "_none_"), "",
+            "**Confidence: %s** for the rule asymmetry itself." % gaps["confidence"],
+            "", "**Limit:** " + gaps["limits"],
+        ])
+    else:
+        gap_section = "_Profile unavailable._"
+
+    repr_table = _table(
+        ["Concept", "Legacy form", "AiExport form", "Verdict"], [
+            ["Navigation", "`MET_FOLDER` rows with a `Path` column",
+             ("directory structure: a folder is a directory, a report "
+              "placement is a JSON file inside it"),
+             "RepresentationDifference"],
+            ["Field-level code",
+             "`MET_METACODE` rows keyed by `TargetObjectId`",
+             ("inline `formula.code` on the owning field, per the profile's "
+              "`code-file-if-large` transform"),
+             "RepresentationDifference"],
+            ["Relation fields",
+             "`MET_FIELDDEF` rows with `relationType` set",
+             "`relation` records nested inside the entity",
+             "RepresentationDifference"],
+        ])
+
+    _write(d, "comparison/match-report.md", f"""# Match report
+
+{BANNER}
+Spec v3 sections 48-52. Per-collection matching for every assessed pair, with
+the key each match was made on.
+
+Matching runs in passes, strongest key first, and the passes are global: every
+pair agreeing on `selector` or `id` is matched before a weaker key is
+consulted. A single-pass loop lets a weak key consume a node that had an exact
+identity match with a different node, which silently reports a present object
+as missing.
+
+`dbName` is never a bare key. A field's dbName is `F1`, `F2`, `F3` within its
+own entity and repeats across every other entity, so it is only used scoped to
+the owning record.
+
+{_table(["Pair (legacy)", "Scope", "Collection", "Legacy", "AiExport",
+         "Matched", "By key"], match_rows)
+ if match_rows else "_No pair assessed._"}
+
+## Collections compared as a union
+
+Legacy `MET_FIELDDEF` holds plain fields **and** relation fields in one table,
+while AiExport splits them into `field` and `relation` record types. Compared
+separately, every relation field reads as missing on one side and extra on the
+other. They are therefore compared as a union, which is why the row above is
+labelled "fields (incl. relation fields)".
+
+## Bug candidates
+
+A difference is promoted per spec v3 section 52 only when scope is Exact, the
+object was looked for by a decisive key the other side also carries, and the
+concept matters. An absent object has no match strength of its own, so what
+gets checked is whether it was searchable at all.
+
+{_table(["Pair", "Concept", "Object", "Verdict"], bug_rows)
+ if bug_rows else "_None._"}
+
+{bug_note}
+## Why system-level code is the interesting case
+
+{gap_section}
+
+## Representation differences that are not losses
+
+Two collections look absent on the AiExport side until the package layout is
+read properly, and this extractor now reads both.
+
+{repr_table}
+
+Matching navigation needs one more thing: Arabic and Persian letter forms are
+used interchangeably in this data. The profile itself maps both `فرآيند` and
+`فرآیند` to one folder. Names are folded before comparison, or the same folder
+reads as two objects.
+
+## Variant consistency
+
+Spec v3 section 86 asks whether both AiExport variants normalize identically.
+**They do not, for navigation.** The single-document variant emits
+`navigationGroup`, `navigationPage` and `navigationReport` records; the ZIP
+variant encodes the same information as directory structure and emits no
+navigation records at all. A consumer of AiExport has to handle both.
+
+## Manifest consistency
+
+The two variants also differ in their manifest. The ZIP package's
+`manifest.json` carries `producer`, `producerVersion` and `buildId`; the single
+document's `$.manifest` carries only `format` and `profileVersion`. So
+`JsonExportPackageWriter.AddProducerIdentity` is reached on one path and not the
+other. Spec v3 section 85 would class this as a `PackageManifestMismatch`
+candidate.
 """)

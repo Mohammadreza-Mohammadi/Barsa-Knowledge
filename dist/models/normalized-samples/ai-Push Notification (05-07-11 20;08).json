@@ -1,0 +1,2725 @@
+{
+  "_availability": {
+    "businessRules": {
+      "presentInArtifact": false,
+      "rowCount": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "code": {
+      "presentInArtifact": true,
+      "rowCount": 2,
+      "status": "Verified"
+    },
+    "commands": {
+      "presentInArtifact": false,
+      "rowCount": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "entities": {
+      "presentInArtifact": true,
+      "rowCount": 18,
+      "status": "Verified"
+    },
+    "fields": {
+      "presentInArtifact": true,
+      "rowCount": 96,
+      "status": "Verified"
+    },
+    "navigation": {
+      "presentInArtifact": true,
+      "rowCount": 34,
+      "status": "Verified"
+    },
+    "relationDefs": {
+      "presentInArtifact": true,
+      "rowCount": 21,
+      "status": "Verified"
+    },
+    "relations": {
+      "note": "Legacy met_Relation rows are instance links between objects. No AiExport $type was observed carrying those; AiExport projects relation *definitions* (as entity fields) instead. Recorded as a representation difference, not as data loss.",
+      "presentInArtifact": false,
+      "rowCount": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "reports": {
+      "presentInArtifact": true,
+      "rowCount": 18,
+      "status": "Verified"
+    },
+    "system": {
+      "presentInArtifact": true,
+      "rowCount": 1,
+      "status": "Verified"
+    },
+    "views": {
+      "presentInArtifact": true,
+      "rowCount": 8,
+      "status": "Verified"
+    },
+    "webServices": {
+      "presentInArtifact": false,
+      "rowCount": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "workflows": {
+      "presentInArtifact": false,
+      "rowCount": null,
+      "status": "NotObservedInThisArtifact"
+    }
+  },
+  "_source": {
+    "file": "Push Notification (05-07-11 20;08).zip",
+    "format": "Barsa.AiExport",
+    "jsonFiles": 1,
+    "manifest": {
+      "_absentFields": [
+        "buildId",
+        "producer",
+        "producerVersion"
+      ],
+      "_source": "root.manifest",
+      "buildId": null,
+      "format": "Barsa.AiExport",
+      "formatVersion": null,
+      "packageType": null,
+      "producer": null,
+      "producerVersion": null,
+      "profileVersion": 15,
+      "representation": null,
+      "representations": null
+    },
+    "sha256": "650fe4b2f75c6b98f9bfda8c32b662918030153732e283131edb470b6d93a98e",
+    "typeCatalog": [
+      "Barsa.Meta.MetaCode",
+      "BarsaFormSideContentSetting",
+      "ButtonSetting",
+      "FormPanelSetting",
+      "entity",
+      "field",
+      "navigationGroup",
+      "navigationPage",
+      "navigationReport",
+      "navigationRoot",
+      "relation",
+      "report",
+      "system",
+      "view",
+      "اجرای الگو",
+      "اطلاعات سیستم",
+      "نسخه سیستم",
+      "وب سرویس خروجی",
+      "پارامتر وب سرویس خروجی"
+    ],
+    "variant": "AiExport.SingleJson"
+  },
+  "_truncated_fields": {
+    "shown": 25,
+    "total": 96
+  },
+  "_truncated_navigation": {
+    "shown": 25,
+    "total": 34
+  },
+  "businessRules": null,
+  "code": [
+    {
+      "_aiType": "Barsa.Meta.MetaCode",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].كد[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کد زیرسیستم(منطق کار",
+      "id": "7097413820000000106",
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "Barsa.Meta.MetaCode",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].كد[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کد زیرسیستم(واسط کار",
+      "id": "7097413820000010181",
+      "name": null,
+      "selector": null
+    },
+    {
+      "_derivedFrom": "inlineFormula",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*].formula",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Subject",
+      "code": null,
+      "codeKind": "code",
+      "codeLength": 57,
+      "executionTime": [
+        "afterUpdate"
+      ],
+      "id": null,
+      "name": null,
+      "selector": "#Subject",
+      "targetObjectId": "7097413510000000244"
+    },
+    {
+      "_derivedFrom": "inlineFormula",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*].formula",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "MetaTypeDef",
+      "code": null,
+      "codeKind": "code",
+      "codeLength": 122,
+      "executionTime": [
+        "afterCreate",
+        "afterUpdate"
+      ],
+      "id": null,
+      "name": null,
+      "selector": "#MetaTypeDef",
+      "targetObjectId": "7097413510000000586"
+    },
+    {
+      "_derivedFrom": "inlineFormula",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*].formula",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "تاریخ ایجاد",
+      "code": null,
+      "codeKind": "code",
+      "codeLength": 25,
+      "executionTime": [
+        "afterUpdate"
+      ],
+      "id": null,
+      "name": null,
+      "selector": "#تاریخ ایجاد",
+      "targetObjectId": "7097413510000071993"
+    }
+  ],
+  "commands": null,
+  "entities": [
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "WhatsAppClient",
+      "dbName": "dyn_300",
+      "id": "1082413500000010130",
+      "isDynamic": null,
+      "name": "dyn_300",
+      "selector": "#WhatsAppClient"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "WhatsAppProvider",
+      "dbName": "dyn_319",
+      "id": "1082413500000010147",
+      "isDynamic": null,
+      "name": "dyn_319",
+      "selector": "#WhatsAppProvider"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "IMessage",
+      "dbName": "dyn_100",
+      "id": "7097413500000000117",
+      "isDynamic": null,
+      "name": "dyn_100",
+      "selector": "#IMessage"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "NotificationMessage",
+      "dbName": "dyn_107",
+      "id": "7097413500000000121",
+      "isDynamic": null,
+      "name": "dyn_107",
+      "selector": "#NotificationMessage"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SmsMessage",
+      "dbName": "dyn_128",
+      "id": "7097413500000000129",
+      "isDynamic": null,
+      "name": "dyn_128",
+      "selector": "#SmsMessage"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SenderDemo",
+      "dbName": "dyn_101",
+      "id": "7097413500000000131",
+      "isDynamic": null,
+      "name": "dyn_101",
+      "selector": "#SenderDemo"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "PushNotificationOption",
+      "dbName": "dyn_214",
+      "id": "7097413500000010182",
+      "isDynamic": null,
+      "name": "dyn_214",
+      "selector": "#PushNotificationOption"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "UserSubscription",
+      "dbName": "dyn_215",
+      "id": "7097413500000010183",
+      "isDynamic": null,
+      "name": "dyn_215",
+      "selector": "#UserSubscription"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SubscriptionKey",
+      "dbName": "dyn_216",
+      "id": "7097413500000010184",
+      "isDynamic": null,
+      "name": "dyn_216",
+      "selector": "#SubscriptionKey"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نوتیفیکشن",
+      "dbName": "dyn_222",
+      "id": "7097413500000010193",
+      "isDynamic": null,
+      "name": "dyn_222",
+      "selector": "#نوتیفیکشن"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "دستورنوتیفیکشن",
+      "dbName": "dyn_223",
+      "id": "7097413500000010194",
+      "isDynamic": null,
+      "name": "dyn_223",
+      "selector": "#دستورنوتیفیکشن"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "MessageData",
+      "dbName": "dyn_369",
+      "id": "7097413500000050389",
+      "isDynamic": null,
+      "name": "dyn_369",
+      "selector": "#MessageData"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "WhatsappSettings",
+      "dbName": "dyn_370",
+      "id": "7097413500000050390",
+      "isDynamic": null,
+      "name": "dyn_370",
+      "selector": "#WhatsappSettings"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "سرویس دهنده واتس اپ",
+      "dbName": "dyn_371",
+      "id": "7097413500000050391",
+      "isDynamic": null,
+      "name": "dyn_371",
+      "selector": "#سرویس دهنده واتس اپ"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "NotificationMessageGroup",
+      "dbName": "dyn_372",
+      "id": "7097413500000050392",
+      "isDynamic": null,
+      "name": "dyn_372",
+      "selector": "#NotificationMessageGroup"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "شماره واتس اپ اعضا",
+      "dbName": "dyn_374",
+      "id": "7097413500000050394",
+      "isDynamic": null,
+      "name": "dyn_374",
+      "selector": "#شماره واتس اپ اعضا"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "WhatsappGroup",
+      "dbName": "dyn_367",
+      "id": "7097413500000050401",
+      "isDynamic": null,
+      "name": "dyn_367",
+      "selector": "#WhatsappGroup"
+    },
+    {
+      "_aiType": "entity",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "تست ارسال فایل",
+      "dbName": "dyn_380",
+      "id": "7097413500000050410",
+      "isDynamic": null,
+      "name": "dyn_380",
+      "selector": "#تست ارسال فایل"
+    }
+  ],
+  "extensions": {
+    "note": "These $type values have no normalized-collection mapping. Most are instances of user-defined dynamic entities or UI settings objects. They are recorded here rather than dropped, and rather than being forced into a metamodel collection.",
+    "unmappedTypes": {
+      "BarsaFormSideContentSetting": {
+        "count": 1,
+        "samples": [
+          {
+            "caption": "Side Content",
+            "id": 7097028250000000102,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*].اجراي الگو[*].پارامترها [relation][*].LayoutComponent [relation][*].پارامترها [relation][*]"
+            }
+          }
+        ]
+      },
+      "ButtonSetting": {
+        "count": 2,
+        "samples": [
+          {
+            "caption": "emphasized",
+            "id": 7097023990000000244,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaFieldDef[*].اجراي الگو[*].پارامترها [relation][*]"
+            }
+          },
+          {
+            "caption": "negative",
+            "id": 7097023990000000246,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaFieldDef[*].اجراي الگو[*].پارامترها [relation][*]"
+            }
+          }
+        ]
+      },
+      "FormPanelSetting": {
+        "count": 1,
+        "samples": [
+          {
+            "caption": "BarsaFormSideContent",
+            "id": 7097023880000000109,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*].اجراي الگو[*].پارامترها [relation][*]"
+            }
+          }
+        ]
+      },
+      "اجرای الگو": {
+        "count": 7,
+        "samples": [
+          {
+            "caption": "FormToolbarButton",
+            "id": 7097023930000000925,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaFieldDef[*].اجراي الگو[*]"
+            }
+          },
+          {
+            "caption": "FormToolbarButton",
+            "id": 7097023930000000926,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaFieldDef[*].اجراي الگو[*]"
+            }
+          },
+          {
+            "caption": "UiFormPanel",
+            "id": 7097023930000000383,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*].اجراي الگو[*]"
+            }
+          },
+          {
+            "caption": "BarsaFormSideContent",
+            "id": 7097023930000000382,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*].اجراي الگو[*].پارامترها [relation][*].LayoutComponent [relation][*]"
+            }
+          },
+          {
+            "caption": null,
+            "id": 7097023930000000415,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*].اجراي الگو[*].پارامترها [relation][*].دكمه ارسال [relation][*]"
+            }
+          }
+        ]
+      },
+      "اطلاعات سیستم": {
+        "count": 1,
+        "samples": [
+          {
+            "caption": "Push Notification",
+            "id": 7097020460000000101,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*]"
+            }
+          }
+        ]
+      },
+      "نسخه سیستم": {
+        "count": 22,
+        "samples": [
+          {
+            "caption": "0.1",
+            "id": 7097020470000000103,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*].نسخه سيستم[*]"
+            }
+          },
+          {
+            "caption": "2.3.141",
+            "id": 7097020470000000109,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*].نسخه سيستم[*]"
+            }
+          },
+          {
+            "caption": "2.3.146",
+            "id": 7097020470000000119,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*].نسخه سيستم[*]"
+            }
+          },
+          {
+            "caption": "2.3.147",
+            "id": 7097020470000000122,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*].نسخه سيستم[*]"
+            }
+          },
+          {
+            "caption": "2.3.148",
+            "id": 7097020470000000125,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].اطلاعات سيستم[*].نسخه سيستم[*]"
+            }
+          }
+        ]
+      },
+      "وب سرویس خروجی": {
+        "count": 1,
+        "samples": [
+          {
+            "caption": "WhatsAppEvents",
+            "id": 7097021430000000102,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].وب سرويس خروجي[*]"
+            }
+          }
+        ]
+      },
+      "پارامتر وب سرویس خروجی": {
+        "count": 3,
+        "samples": [
+          {
+            "caption": "WhatsAppEvents",
+            "id": 7097021450000000104,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].وب سرويس خروجي[*].پارامتر وب سرويس خروجي[*]"
+            }
+          },
+          {
+            "caption": "WhatsAppEvents",
+            "id": 7097021450000000105,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].وب سرويس خروجي[*].پارامتر وب سرويس خروجي[*]"
+            }
+          },
+          {
+            "caption": "WhatsAppEvents",
+            "id": 7097021450000000106,
+            "selector": null,
+            "source": {
+              "file": "<root>",
+              "path": "$.tree[*].وب سرويس خروجي[*].پارامتر وب سرويس خروجي[*]"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "fields": [
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "ClientId",
+      "dataType": "string",
+      "dbName": "ClientId",
+      "defaultValue": {
+        "code": "return Guid.NewGuid().ToString();",
+        "type": "code"
+      },
+      "id": "1082413510000010261",
+      "name": "ClientId",
+      "nullable": null,
+      "orderNumber": 3,
+      "selector": "#ClientId"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "QR Code",
+      "dataType": "longText",
+      "dbName": "QrCode",
+      "defaultValue": null,
+      "id": "1082413510000010264",
+      "name": "QrCode",
+      "nullable": null,
+      "orderNumber": 5,
+      "selector": "#QR Code"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "IsReady",
+      "dataType": "bool",
+      "dbName": "IsReady",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010266",
+      "name": "IsReady",
+      "nullable": null,
+      "orderNumber": 6,
+      "selector": "#IsReady"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Auth Failure Message",
+      "dataType": "string",
+      "dbName": "F6",
+      "defaultValue": null,
+      "id": "1082413510000010267",
+      "name": "F6",
+      "nullable": null,
+      "orderNumber": 7,
+      "selector": "#Auth Failure Message"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Auth Success",
+      "dataType": "bool",
+      "dbName": "F7",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010268",
+      "name": "F7",
+      "nullable": null,
+      "orderNumber": 8,
+      "selector": "#Auth Success"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Disconnected",
+      "dataType": "bool",
+      "dbName": "F8",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010270",
+      "name": "F8",
+      "nullable": null,
+      "orderNumber": 11,
+      "selector": "#Disconnected"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Initialize",
+      "dataType": "command",
+      "dbName": "F9",
+      "defaultValue": null,
+      "id": "1082413510000010271",
+      "name": "F9",
+      "nullable": null,
+      "orderNumber": 9,
+      "selector": "#Initialize"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Logout",
+      "dataType": "command",
+      "dbName": "F10",
+      "defaultValue": null,
+      "id": "1082413510000010272",
+      "name": "F10",
+      "nullable": null,
+      "orderNumber": 10,
+      "selector": "#Logout"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "QR Generated",
+      "dataType": "bool",
+      "dbName": "F11",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010274",
+      "name": "F11",
+      "nullable": null,
+      "orderNumber": 12,
+      "selector": "#QR Generated"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Initialized",
+      "dataType": "bool",
+      "dbName": "F12",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010275",
+      "name": "F12",
+      "nullable": null,
+      "orderNumber": 14,
+      "selector": "#Initialized"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Destroy",
+      "dataType": "command",
+      "dbName": "F13",
+      "defaultValue": null,
+      "id": "1082413510000010277",
+      "name": "F13",
+      "nullable": null,
+      "orderNumber": 13,
+      "selector": "#Destroy"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "IsDestroyed",
+      "dataType": "bool",
+      "dbName": "F14",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "1082413510000010278",
+      "name": "F14",
+      "nullable": null,
+      "orderNumber": 15,
+      "selector": "#IsDestroyed"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Disabled",
+      "dataType": "bool",
+      "dbName": "Disabled",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "false"
+      },
+      "id": "7097413510000071974",
+      "name": "Disabled",
+      "nullable": null,
+      "orderNumber": 16,
+      "selector": "#Disabled"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "ServerAddress",
+      "dataType": "string",
+      "dbName": "ServerAddress",
+      "defaultValue": null,
+      "id": "7097413510000071975",
+      "name": "ServerAddress",
+      "nullable": null,
+      "orderNumber": 17,
+      "selector": "#ServerAddress"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Title",
+      "dataType": "string",
+      "dbName": "Title",
+      "defaultValue": null,
+      "id": "7097413510000071983",
+      "name": "Title",
+      "nullable": null,
+      "orderNumber": 1,
+      "selector": "#Title"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Load Groups",
+      "dataType": "command",
+      "dbName": "F15",
+      "defaultValue": null,
+      "id": "7097413510000072040",
+      "name": "F15",
+      "nullable": null,
+      "orderNumber": 19,
+      "selector": "#Load Groups"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "1082413500000010147",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "ServerAddress",
+      "dataType": "string",
+      "dbName": "F2",
+      "defaultValue": null,
+      "id": "1082413510000010346",
+      "name": "F2",
+      "nullable": null,
+      "orderNumber": 2,
+      "selector": "#ServerAddress"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "محتوا",
+      "dataType": "string",
+      "dbName": "Content",
+      "defaultValue": null,
+      "id": "7097413510000000211",
+      "name": "Content",
+      "nullable": null,
+      "orderNumber": 2,
+      "selector": "#محتوا"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "زمان ایجاد",
+      "dataType": "creationDate",
+      "dbName": "CreationDate",
+      "defaultValue": null,
+      "id": "7097413510000000229",
+      "name": "CreationDate",
+      "nullable": null,
+      "orderNumber": 4,
+      "selector": "#زمان ایجاد"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کاربر ایجاد کننده",
+      "dataType": "creatorUser",
+      "dbName": "CreatorUser",
+      "defaultValue": null,
+      "id": "7097413510000000230",
+      "name": "CreatorUser",
+      "nullable": null,
+      "orderNumber": 5,
+      "selector": "#کاربر ایجاد کننده"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "وضعیت ارسال",
+      "dataType": "enum",
+      "dbName": "SentStatus",
+      "defaultValue": null,
+      "id": "7097413510000000234",
+      "name": "SentStatus",
+      "nullable": null,
+      "orderNumber": 7,
+      "selector": "#وضعیت ارسال"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Title",
+      "dataType": "string",
+      "dbName": "Title",
+      "defaultValue": null,
+      "id": "7097413510000000237",
+      "name": "Title",
+      "nullable": null,
+      "orderNumber": 2,
+      "selector": "#Title"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Icon",
+      "dataType": "string",
+      "dbName": "Icon",
+      "defaultValue": null,
+      "id": "7097413510000000241",
+      "name": "Icon",
+      "nullable": null,
+      "orderNumber": 6,
+      "selector": "#Icon"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Status",
+      "dataType": "enum",
+      "dbName": "Status",
+      "defaultValue": null,
+      "id": "7097413510000000242",
+      "name": "Status",
+      "nullable": null,
+      "orderNumber": 7,
+      "selector": "#Status"
+    },
+    {
+      "_aiType": "field",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Unread",
+      "dataType": "bool",
+      "dbName": "Unread",
+      "defaultValue": {
+        "type": "constantValue",
+        "value": "true"
+      },
+      "id": "7097413510000000243",
+      "name": "Unread",
+      "nullable": null,
+      "orderNumber": 9,
+      "selector": "#Unread"
+    }
+  ],
+  "navigation": [
+    {
+      "_aiType": "navigationRoot",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationPage",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Push Notification",
+      "id": null,
+      "name": "Push Notification",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Base",
+      "id": null,
+      "name": "Base",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Messages",
+      "id": null,
+      "name": "Messages",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Settings",
+      "id": null,
+      "name": "Settings",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Services",
+      "id": null,
+      "name": "Services",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SendDemo",
+      "id": null,
+      "name": "SendDemo",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "PushNotification",
+      "id": null,
+      "name": "PushNotification",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Remove_Reports",
+      "id": null,
+      "name": "Remove_Reports",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationReport",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": null,
+      "id": null,
+      "name": null,
+      "selector": null
+    },
+    {
+      "_aiType": "navigationPage",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Whatsapp",
+      "id": null,
+      "name": "Whatsapp",
+      "selector": null
+    },
+    {
+      "_aiType": "navigationGroup",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].پوشه اصلی[*].MetaFolder[*].items[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "پایه",
+      "id": null,
+      "name": "پایه",
+      "selector": null
+    }
+  ],
+  "relationDefs": [
+    {
+      "_aiType": "relation",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "گروهای شماره",
+      "dbName": "NumberGroups",
+      "id": "7097413510000072032",
+      "name": "NumberGroups",
+      "orderNumber": 18,
+      "relationType": "reverseSingleListRelation",
+      "selector": "#گروهای شماره",
+      "targetSelector": null
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "1082413500000010147",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "پدر",
+      "dbName": "F1",
+      "id": "1082413510000010345",
+      "name": "F1",
+      "orderNumber": 1,
+      "relationType": "inheritance",
+      "selector": "#پدر",
+      "targetSelector": "#پیام رسان|TemplateRunnerProvider"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "فرزند",
+      "dbName": "Inheritance",
+      "id": "7097413510000000224",
+      "name": "Inheritance",
+      "orderNumber": 3,
+      "relationType": "inheritanceChild",
+      "selector": "#فرزند",
+      "targetSelector": {
+        "objectType": "entity",
+        "unsupported": true,
+        "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+      }
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000117",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کاربر گیرنده",
+      "dbName": "F5",
+      "id": "7097413510000000235",
+      "name": "F5",
+      "orderNumber": 8,
+      "relationType": "singleRelation",
+      "selector": "#کاربر گیرنده",
+      "targetSelector": "#@SplUser"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "IMessage",
+      "dbName": "IMessage",
+      "id": "7097413510000000228",
+      "name": "IMessage",
+      "orderNumber": 17,
+      "relationType": "inheritance",
+      "selector": "#IMessage",
+      "targetSelector": "#IMessage"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "RelatedMo",
+      "dbName": "RelatedMo",
+      "id": "7097413510000000585",
+      "name": "RelatedMo",
+      "orderNumber": 13,
+      "relationType": "singleRelation",
+      "selector": "#RelatedMo",
+      "targetSelector": {
+        "objectType": "entity",
+        "unsupported": true,
+        "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+      }
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "MetaTypeDef",
+      "dbName": "MetaTypeDef",
+      "id": "7097413510000000586",
+      "name": "MetaTypeDef",
+      "orderNumber": 15,
+      "relationType": "singleRelation",
+      "selector": "#MetaTypeDef",
+      "targetSelector": "#Meta01|MetaTypeDef"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000129",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "IMessage",
+      "dbName": "F3",
+      "id": "7097413510000000279",
+      "name": "F3",
+      "orderNumber": 3,
+      "relationType": "inheritance",
+      "selector": "#IMessage",
+      "targetSelector": "#IMessage"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000000131",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "User",
+      "dbName": "F6",
+      "id": "7097413510000010881",
+      "name": "F6",
+      "orderNumber": 6,
+      "relationType": "singleRelation",
+      "selector": "#User",
+      "targetSelector": "#@SplUser"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010183",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Keys",
+      "dbName": "F2",
+      "id": "7097413510000010826",
+      "name": "F2",
+      "orderNumber": 2,
+      "relationType": "reverseSingleListRelation",
+      "selector": "#Keys",
+      "targetSelector": null
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010184",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Subscription",
+      "dbName": "F1",
+      "id": "7097413510000010827",
+      "name": "F1",
+      "orderNumber": 1,
+      "relationType": "singleRelation",
+      "selector": "#Subscription",
+      "targetSelector": "#UserSubscription"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "شی مرتبط",
+      "dbName": "F3",
+      "id": "7097413510000010892",
+      "name": "F3",
+      "orderNumber": 3,
+      "relationType": "singleRelation",
+      "selector": "#شی مرتبط",
+      "targetSelector": {
+        "objectType": "entity",
+        "unsupported": true,
+        "warning": "Reference cannot be resolved to a Semantic v15 selector: entity."
+      }
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کاربر",
+      "dbName": "F4",
+      "id": "7097413510000010894",
+      "name": "F4",
+      "orderNumber": 4,
+      "relationType": "singleRelation",
+      "selector": "#کاربر",
+      "targetSelector": "#@SplUser"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "دستورات",
+      "dbName": "F5",
+      "id": "7097413510000010896",
+      "name": "F5",
+      "orderNumber": 5,
+      "relationType": "reverseSingleListRelation",
+      "selector": "#دستورات",
+      "targetSelector": null
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "اطلاعات کالا",
+      "dbName": "F8",
+      "id": "7097413510000011026",
+      "name": "F8",
+      "orderNumber": 8,
+      "relationType": "reportRelation",
+      "selector": "#اطلاعات کالا",
+      "targetSelector": "#تست|اطلاعات کالا"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "اطلاعات کالاص",
+      "dbName": "F9",
+      "id": "7097413510000011106",
+      "name": "F9",
+      "orderNumber": 9,
+      "relationType": "singleRelation",
+      "selector": "#اطلاعات کالاص",
+      "targetSelector": "#تست|اطلاعات کالا"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000010194",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نوتیفیکشن",
+      "dbName": "F1",
+      "id": "7097413510000010897",
+      "name": "F1",
+      "orderNumber": 1,
+      "relationType": "singleRelation",
+      "selector": "#نوتیفیکشن",
+      "targetSelector": "#نوتیفیکشن"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000050390",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "کلاینت واتس اپ",
+      "dbName": "WhatsappClient",
+      "id": "7097413510000071982",
+      "name": "WhatsappClient",
+      "orderNumber": 4,
+      "relationType": "singleRelation",
+      "selector": "#کلاینت واتس اپ",
+      "targetSelector": "#WhatsAppClient"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000050391",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه ارث بری",
+      "dbName": "F3",
+      "id": "7097413510000071981",
+      "name": "F3",
+      "orderNumber": 3,
+      "relationType": "inheritance",
+      "selector": "#رابطه ارث بری",
+      "targetSelector": "#زیرساخت ارسال و دریافت|سرویس دهنده ارسال و دریافت"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000050394",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SplUser",
+      "dbName": "SplUser",
+      "id": "7097413510000072009",
+      "name": "SplUser",
+      "orderNumber": 1,
+      "relationType": "singleRelation",
+      "selector": "#SplUser",
+      "targetSelector": "#@SplUser"
+    },
+    {
+      "_aiType": "relation",
+      "_ownerId": "7097413500000050401",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "WhatsAppClient",
+      "dbName": "F1",
+      "id": "7097413510000072033",
+      "name": "F1",
+      "orderNumber": 1,
+      "relationType": "singleRelation",
+      "selector": "#WhatsAppClient",
+      "targetSelector": "#WhatsAppClient"
+    }
+  ],
+  "relations": null,
+  "reports": [
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413510000072032",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*].گزارش فیلد[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه WhatsappGroup",
+      "customColumns": [
+        "#نام",
+        "#توضیحات گروه",
+        "#تاریخ ایجاد",
+        "#اعضا",
+        "#سرور",
+        "#آیدی گروه"
+      ],
+      "entitySelector": "#WhatsappGroup",
+      "id": "7097413530000040475",
+      "name": "رابطه WhatsappGroup",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#رابطه WhatsappGroup"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413510000011026",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaFieldDef[*].گزارش فیلد[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه اطلاعات کالا",
+      "customColumns": [
+        "#عنوان و کد کالا",
+        "#عنوان",
+        "#کد",
+        "#زمان ایجاد",
+        "#کاربر ایجاد کننده",
+        "#متن پیشرفته"
+      ],
+      "entitySelector": "#اطلاعات کالا",
+      "id": "7097413530000010217",
+      "name": "رابطه اطلاعات کالا",
+      "query": "decoded",
+      "reportType": "form",
+      "selector": "#رابطه اطلاعات کالا"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SmsMessage",
+      "customColumns": [
+        "#Text",
+        "#ToNumber"
+      ],
+      "entitySelector": "#SmsMessage",
+      "id": "7097413530000010124",
+      "name": "SmsMessage",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#SmsMessage"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SenderDemo",
+      "customColumns": null,
+      "entitySelector": "#SenderDemo",
+      "id": "7097413530000010130",
+      "name": "SenderDemo",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#SenderDemo"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه MetaFieldDef",
+      "customColumns": [
+        "#عنوان",
+        "#نام سیستمی",
+        "#موجودیت",
+        "#نوع فیلد",
+        "#شماره ترتیب",
+        "#نوع رابطه"
+      ],
+      "entitySelector": "#MetaFieldDef",
+      "id": "7097413530000010135",
+      "name": "رابطه MetaFieldDef",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#رابطه MetaFieldDef"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "یافتن کاربرآنلاین",
+      "customColumns": [
+        "#کاربر",
+        "#نام کاربر",
+        "#نام دستگاه",
+        "#IP دستگاه",
+        "#زمان ورود",
+        "#زمان خروج",
+        "#زمان آخرین دسترسی",
+        "#مرورگر",
+        "#برنامه",
+        "#توکن",
+        "#فعال است",
+        "#قفل شده",
+        "#ExtraStatics",
+        "#ExtraDynamics"
+      ],
+      "entitySelector": "#جلسه سیستمی",
+      "id": "7097413530000010157",
+      "name": "یافتن کاربرآنلاین",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#یافتن کاربرآنلاین"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "در انتظار ارسال",
+      "customColumns": [
+        "#Title",
+        "#Icon",
+        "#Status",
+        "#Unread",
+        "#Subject",
+        "#Priority",
+        "#RelatedMo",
+        "#MetaTypeDef",
+        "#IMessage",
+        "#Actions",
+        "#RelatedMoNama",
+        "#ChoiceList",
+        "#HideShowButton",
+        "#HideDeleteButton",
+        "#OverflowButtons",
+        "#UiActions",
+        "#Tag",
+        "#Expire"
+      ],
+      "entitySelector": "#NotificationMessage",
+      "id": "7097413530000010158",
+      "name": "در انتظار ارسال",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#در انتظار ارسال"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "PushNotificationOption",
+      "customColumns": null,
+      "entitySelector": "#PushNotificationOption",
+      "id": "7097413530000010187",
+      "name": "PushNotificationOption",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#PushNotificationOption"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "UserSubscription",
+      "customColumns": null,
+      "entitySelector": "#UserSubscription",
+      "id": "7097413530000010188",
+      "name": "UserSubscription",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#UserSubscription"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "SubscriptionKey",
+      "customColumns": null,
+      "entitySelector": "#SubscriptionKey",
+      "id": "7097413530000010189",
+      "name": "SubscriptionKey",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#SubscriptionKey"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نوتیفیکشن",
+      "customColumns": [
+        "#عنوان",
+        "#محتوا",
+        "#شی مرتبط",
+        "#کاربر",
+        "#فایل تصویر"
+      ],
+      "entitySelector": "#نوتیفیکشن",
+      "id": "7097413530000010203",
+      "name": "نوتیفیکشن",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#نوتیفیکشن"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه اطلاعات کالا",
+      "customColumns": [
+        "#عنوان و کد کالا",
+        "#عنوان",
+        "#کد",
+        "#زمان ایجاد",
+        "#کاربر ایجاد کننده",
+        "#متن پیشرفته"
+      ],
+      "entitySelector": "#اطلاعات کالا",
+      "id": "7097413530000010217",
+      "name": "رابطه اطلاعات کالا",
+      "query": "decoded",
+      "reportType": "form",
+      "selector": "#رابطه اطلاعات کالا"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "رابطه WhatsappGroup",
+      "customColumns": [
+        "#نام",
+        "#توضیحات گروه",
+        "#تاریخ ایجاد",
+        "#اعضا",
+        "#سرور",
+        "#آیدی گروه"
+      ],
+      "entitySelector": "#WhatsappGroup",
+      "id": "7097413530000040475",
+      "name": "رابطه WhatsappGroup",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#رابطه WhatsappGroup"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "تست ارسال فایل",
+      "customColumns": null,
+      "entitySelector": "#تست ارسال فایل",
+      "id": "7097413530000040487",
+      "name": "تست ارسال فایل",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#تست ارسال فایل"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "_RemoveAll_NotificationMessage",
+      "customColumns": [
+        "#Title",
+        "#Icon",
+        "#Status",
+        "#Unread",
+        "#Subject",
+        "#Priority",
+        "#RelatedMo",
+        "#MetaTypeDef",
+        "#IMessage",
+        "#Actions",
+        "#RelatedMoNama",
+        "#ChoiceList",
+        "#HideShowButton",
+        "#HideDeleteButton",
+        "#OverflowButtons",
+        "#UiActions",
+        "#Tag",
+        "#Expire",
+        "#Image",
+        "#Vibrate",
+        "#Silent",
+        "#ShowPopup",
+        "#تاریخ ایجاد"
+      ],
+      "entitySelector": "#NotificationMessage",
+      "id": "7097413530000050673",
+      "name": "_RemoveAll_NotificationMessage",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#_RemoveAll_NotificationMessage"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "_RemoveAll_ExceptToday_NotificationMessage",
+      "customColumns": [
+        "#Title",
+        "#Icon",
+        "#Status",
+        "#Unread",
+        "#Subject",
+        "#Priority",
+        "#RelatedMo",
+        "#MetaTypeDef",
+        "#IMessage",
+        "#Actions",
+        "#RelatedMoNama",
+        "#ChoiceList",
+        "#HideShowButton",
+        "#HideDeleteButton",
+        "#OverflowButtons",
+        "#UiActions",
+        "#Tag",
+        "#Expire",
+        "#Image",
+        "#Vibrate",
+        "#Silent",
+        "#ShowPopup",
+        "#تاریخ ایجاد"
+      ],
+      "entitySelector": "#NotificationMessage",
+      "id": "7097413530000050674",
+      "name": "_RemoveAll_ExceptToday_NotificationMessage",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#_RemoveAll_ExceptToday_NotificationMessage"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "_RemoveAll_ExceptThisWeek_NotificationMessage",
+      "customColumns": [
+        "#Title",
+        "#Icon",
+        "#Status",
+        "#Unread",
+        "#Subject",
+        "#Priority",
+        "#RelatedMo",
+        "#MetaTypeDef",
+        "#IMessage",
+        "#Actions",
+        "#RelatedMoNama",
+        "#ChoiceList",
+        "#HideShowButton",
+        "#HideDeleteButton",
+        "#OverflowButtons",
+        "#UiActions",
+        "#Tag",
+        "#Expire",
+        "#Image",
+        "#Vibrate",
+        "#Silent",
+        "#ShowPopup",
+        "#تاریخ ایجاد"
+      ],
+      "entitySelector": "#NotificationMessage",
+      "id": "7097413530000050675",
+      "name": "_RemoveAll_ExceptThisWeek_NotificationMessage",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#_RemoveAll_ExceptThisWeek_NotificationMessage"
+    },
+    {
+      "_aiType": "report",
+      "_ownerId": "7097413550000000101",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaReport[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "_FindNotificationByRelatedMoAndReciever",
+      "customColumns": [
+        "#Title",
+        "#Icon",
+        "#Status",
+        "#Unread",
+        "#Subject",
+        "#Priority",
+        "#RelatedMo",
+        "#MetaTypeDef",
+        "#IMessage",
+        "#Actions",
+        "#RelatedMoNama",
+        "#ChoiceList",
+        "#HideShowButton",
+        "#HideDeleteButton",
+        "#OverflowButtons",
+        "#UiActions",
+        "#Tag",
+        "#Expire",
+        "#Image",
+        "#Vibrate",
+        "#Silent",
+        "#ShowPopup",
+        "#تاریخ ایجاد"
+      ],
+      "entitySelector": "#NotificationMessage",
+      "id": "7097413530000050733",
+      "name": "_FindNotificationByRelatedMoAndReciever",
+      "query": "decoded",
+      "reportType": "list",
+      "selector": "#_FindNotificationByRelatedMoAndReciever"
+    }
+  ],
+  "schemaVersion": "3.0",
+  "system": [
+    {
+      "_aiType": "system",
+      "_ownerId": null,
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "Push Notification",
+      "id": "7097413550000000101",
+      "name": null,
+      "selector": "#Push Notification"
+    }
+  ],
+  "views": [
+    {
+      "_aiType": "view",
+      "_ownerId": "1082413500000010130",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای اصلی",
+      "id": "1082413700000000112",
+      "name": "نمای اصلی",
+      "selector": "#نمای اصلی"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "1082413500000010147",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای 1",
+      "id": "1082413700000000119",
+      "name": "نمای 1",
+      "selector": "#نمای 1"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000000121",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای 1",
+      "id": "7097413700000000117",
+      "name": "نمای 1",
+      "selector": "#نمای 1"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000000131",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای 1",
+      "id": "7097413700000000137",
+      "name": "نمای 1",
+      "selector": "#نمای 1"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای اصلی",
+      "id": "7097413700000000145",
+      "name": "نمای اصلی",
+      "selector": "#نمای اصلی"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای ردیف زیر فرم گزارش",
+      "id": "7097413700000000146",
+      "name": "نمای ردیف زیر فرم گزارش",
+      "selector": "#نمای ردیف زیر فرم گزارش"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000010193",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "گزارش مرتبط",
+      "id": "7097413700000000150",
+      "name": "گزارش مرتبط",
+      "selector": "#گزارش مرتبط"
+    },
+    {
+      "_aiType": "view",
+      "_ownerId": "7097413500000050391",
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.AiExport",
+        "path": "<root> :: $.tree[*].MetaTypeDef[*].MetaTypeViewEntity[*]",
+        "source": "Push Notification (05-07-11 20;08).zip"
+      },
+      "caption": "نمای 1",
+      "id": "7097413700000020216",
+      "name": "نمای 1",
+      "selector": "#نمای 1"
+    }
+  ],
+  "webServices": null,
+  "workflows": null
+}

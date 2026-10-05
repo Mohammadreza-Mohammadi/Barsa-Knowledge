@@ -42,6 +42,8 @@ belongs to the **AiExport** path, not to this one.
 
 | File | Core version | Tables | Rows | Pages |
 |---|---|---|---|---|
+| Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport | 4.1.202 | 144 | 70522 | 1 |
+| باركد (05-02-02 11;14).metaexport | 4.1.189 | 23 | 2514 | 1 |
 | NewMeta01.metaexport | 4.1.197 | 67 | 7547 | 1 |
 | NewMeta02.metaexport | 4.1.190 | 76 | 12839 | 1 |
 
