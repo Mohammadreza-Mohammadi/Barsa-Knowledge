@@ -1,0 +1,8102 @@
+{
+  "comparison": {
+    "alwaysPresentTables": [
+      "$Data_FieldDefDbNames",
+      "$Data_TypeDefDbNames",
+      "$DeletedRecords",
+      "$Header",
+      "$IdEmbeddingFields",
+      "$RootSelection",
+      "$Selection",
+      "$basicInfoRelation",
+      "$spl_EorgCenter",
+      "$spl_EorgType",
+      "MET_FIELDDEF",
+      "MET_FOLDER",
+      "MET_METACODE",
+      "MET_METACOMMAND",
+      "MET_METASYSTEM",
+      "MET_RELATIONDEF",
+      "MET_TYPEDEF",
+      "MET_TYPEVIEWENTITY",
+      "Shr_FileAttachment",
+      "Shr_FileAttachmentObject",
+      "Spl_TrusteeAccess",
+      "Ver_MetaSystemInfo",
+      "Ver_MetaSystemVersion",
+      "dyn_261",
+      "dyn_263",
+      "dyn_266",
+      "dyn_303",
+      "m01_127",
+      "m01_128",
+      "m01_309",
+      "m01_DbScript",
+      "m01_JsonProperty",
+      "m01_ObjectFeature",
+      "m02_GridSettings",
+      "met_Relation",
+      "met_Report"
+    ],
+    "perTable": {
+      "$Data_FieldDefDbNames": {
+        "alwaysPresentColumns": [
+          "DbName",
+          "Id",
+          "TypeDefId"
+        ],
+        "variantColumns": []
+      },
+      "$Data_TypeDefDbNames": {
+        "alwaysPresentColumns": [
+          "DbName",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "$DeletedRecords": {
+        "alwaysPresentColumns": [
+          "ExportSessionId",
+          "IsDeleted",
+          "Model",
+          "ObjectId",
+          "ObjectReferenceId",
+          "ObjectTitle",
+          "ObjectTypeLocalId",
+          "ParentObjectId",
+          "RelationType",
+          "RelationTypeTitle",
+          "ResponsibleObjectId"
+        ],
+        "variantColumns": []
+      },
+      "$Header": {
+        "alwaysPresentColumns": [
+          "Core Version",
+          "Export Time",
+          "Export Version Time",
+          "FileName",
+          "Other Info",
+          "PageCount",
+          "Source Db"
+        ],
+        "variantColumns": []
+      },
+      "$IdEmbeddingFields": {
+        "alwaysPresentColumns": [
+          "ColumnName",
+          "FieldType",
+          "OperationalType",
+          "TableName"
+        ],
+        "variantColumns": []
+      },
+      "$RootSelection": {
+        "alwaysPresentColumns": [
+          "ExportId",
+          "IsDeleted",
+          "Model",
+          "ObjectId",
+          "ObjectReferenceId",
+          "ObjectTitle",
+          "ObjectTypeLocalId",
+          "ParentObjectId",
+          "RelationType",
+          "RelationTypeTitle",
+          "ResponsibleObjectId"
+        ],
+        "variantColumns": []
+      },
+      "$Selection": {
+        "alwaysPresentColumns": [
+          "ExportSessionId",
+          "IsDeleted",
+          "Model",
+          "ObjectId",
+          "ObjectReferenceId",
+          "ObjectTitle",
+          "ObjectTypeLocalId",
+          "ParentObjectId",
+          "RelationType",
+          "RelationTypeTitle",
+          "ResponsibleObjectId"
+        ],
+        "variantColumns": []
+      },
+      "$basicInfoRelation": {
+        "alwaysPresentColumns": [
+          "Description",
+          "DestId",
+          "ID",
+          "RelationDefId",
+          "Role",
+          "SourceId"
+        ],
+        "variantColumns": []
+      },
+      "$spl_EorgCenter": {
+        "alwaysPresentColumns": [
+          "CreationDate",
+          "GlobalId",
+          "Id",
+          "IsDeleted",
+          "IsImported",
+          "LocalId",
+          "Name"
+        ],
+        "variantColumns": []
+      },
+      "$spl_EorgType": {
+        "alwaysPresentColumns": [
+          "CreationDate",
+          "GlobalId",
+          "Id",
+          "IsDeleted",
+          "LastSequenceId",
+          "LocalId",
+          "Model",
+          "Name",
+          "SourceType",
+          "TableName"
+        ],
+        "variantColumns": []
+      },
+      "MET_FIELDDEF": {
+        "alwaysPresentColumns": [
+          "ID",
+          "Settings",
+          "caption",
+          "dbName",
+          "fieldInfoType",
+          "orderNumber",
+          "relationType",
+          "typeDefId"
+        ],
+        "variantColumns": []
+      },
+      "MET_FOLDER": {
+        "alwaysPresentColumns": [
+          "ChildrenCount",
+          "ContainingTypeDefId",
+          "FolderType",
+          "ID",
+          "Icon",
+          "IconName",
+          "IsDeleted",
+          "Name",
+          "OrderNo",
+          "ParentId",
+          "Path",
+          "ReportId"
+        ],
+        "variantColumns": []
+      },
+      "MET_METACODE": {
+        "alwaysPresentColumns": [
+          "AddressDisplayString",
+          "AddressInTarget",
+          "AssemblyData",
+          "Code",
+          "CodeLanguage",
+          "CodeLayer",
+          "CodeLocation",
+          "Description",
+          "ExtractorTypeId",
+          "HelperId",
+          "ID",
+          "LastModifiedDate",
+          "ParameterTypeDefId",
+          "ParentCodeId",
+          "Status",
+          "SystemId",
+          "TargetObjectId"
+        ],
+        "variantColumns": []
+      },
+      "MET_METACOMMAND": {
+        "alwaysPresentColumns": [
+          "ButtonSize",
+          "Caption",
+          "HasSecurity",
+          "ID",
+          "IconImage",
+          "IconName",
+          "IsGlobal",
+          "Location",
+          "SystemId",
+          "TargetId"
+        ],
+        "variantColumns": []
+      },
+      "MET_METASYSTEM": {
+        "alwaysPresentColumns": [
+          "Caption",
+          "ID",
+          "IsInactive",
+          "Settings",
+          "SystemKey",
+          "SystemLocationType",
+          "Version",
+          "iconImage",
+          "iconName",
+          "orderNumber",
+          "rootFolderId",
+          "runCodeAtStartup",
+          "showInCartable"
+        ],
+        "variantColumns": []
+      },
+      "MET_RELATIONDEF": {
+        "alwaysPresentColumns": [
+          "DestTypeId",
+          "ID",
+          "Max",
+          "RelationType",
+          "ReverseTitle",
+          "SourceFieldDefId",
+          "SourceTypeId",
+          "Title",
+          "destTypeExtraString",
+          "isBilateral",
+          "sourceTypeExtraString"
+        ],
+        "variantColumns": []
+      },
+      "MET_TYPEDEF": {
+        "alwaysPresentColumns": [
+          "ApplicationId",
+          "CreationDate",
+          "DbName",
+          "DefaultFieldId",
+          "ID",
+          "IsDeleted",
+          "LocalId",
+          "Settings",
+          "caption",
+          "dbType",
+          "defaultReportId",
+          "deleted_eorgIdTypePart",
+          "hasSecurity",
+          "iconImage",
+          "iconName",
+          "isDynamic",
+          "isExternalType",
+          "parentid",
+          "previewFieldId",
+          "sakooTypeId",
+          "systemId"
+        ],
+        "variantColumns": []
+      },
+      "MET_TYPEVIEWENTITY": {
+        "alwaysPresentColumns": [
+          "ID",
+          "Name",
+          "ParentId",
+          "TypeDefId",
+          "TypeViewBlob"
+        ],
+        "variantColumns": []
+      },
+      "Shr_FileAttachment": {
+        "alwaysPresentColumns": [
+          "ATTACHTYPE",
+          "CONTENT",
+          "EXTENSION",
+          "FILEPATH",
+          "ID",
+          "NAME",
+          "SIZE",
+          "ZIPALGORITHM",
+          "description"
+        ],
+        "variantColumns": []
+      },
+      "Shr_FileAttachmentObject": {
+        "alwaysPresentColumns": [
+          "FILEATTACHMENTID",
+          "OBJECTID",
+          "OBJECTID2"
+        ],
+        "variantColumns": []
+      },
+      "Spl_TrusteeAccess": {
+        "alwaysPresentColumns": [
+          "ACCESSLEVEL",
+          "Hash",
+          "OBJECTID",
+          "SERVICEID",
+          "TRUSTEEID"
+        ],
+        "variantColumns": []
+      },
+      "Ver_MetaSystemInfo": {
+        "alwaysPresentColumns": [
+          "F3",
+          "Id",
+          "SystemId",
+          "Title"
+        ],
+        "variantColumns": []
+      },
+      "Ver_MetaSystemVersion": {
+        "alwaysPresentColumns": [
+          "BackwardCompatible",
+          "F12",
+          "F13",
+          "ForwardCompatible",
+          "Id",
+          "PreviousVersion",
+          "SystemInfoId",
+          "VersionNumber"
+        ],
+        "variantColumns": []
+      },
+      "dyn_261": {
+        "alwaysPresentColumns": [
+          "F1",
+          "F10",
+          "F11",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8",
+          "F9",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "dyn_263": {
+        "alwaysPresentColumns": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "dyn_266": {
+        "alwaysPresentColumns": [
+          "F2",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "dyn_303": {
+        "alwaysPresentColumns": [
+          "F1",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "m01_127": {
+        "alwaysPresentColumns": [
+          "F1",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "m01_128": {
+        "alwaysPresentColumns": [
+          "F1",
+          "F2",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "m01_309": {
+        "alwaysPresentColumns": [
+          "F1",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "m01_DbScript": {
+        "alwaysPresentColumns": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F7",
+          "F8",
+          "Id"
+        ],
+        "variantColumns": []
+      },
+      "m01_JsonProperty": {
+        "alwaysPresentColumns": [
+          "Help",
+          "Id",
+          "Item",
+          "Property",
+          "SubSystem"
+        ],
+        "variantColumns": []
+      },
+      "m01_ObjectFeature": {
+        "alwaysPresentColumns": [
+          "DispalyType",
+          "F1",
+          "F2",
+          "FeatureTypeDefId",
+          "Id",
+          "TargetTypeDefId",
+          "Title",
+          "ToTargetFieldDefId"
+        ],
+        "variantColumns": []
+      },
+      "m02_GridSettings": {
+        "alwaysPresentColumns": [
+          "Data",
+          "Id",
+          "ParentMoId",
+          "ReportId",
+          "UserId"
+        ],
+        "variantColumns": []
+      },
+      "met_Relation": {
+        "alwaysPresentColumns": [
+          "Description",
+          "DestId",
+          "ID",
+          "RelationDefId",
+          "Role",
+          "SourceId"
+        ],
+        "variantColumns": []
+      },
+      "met_Report": {
+        "alwaysPresentColumns": [
+          "AccessLevel",
+          "Descrioption",
+          "ID",
+          "Name",
+          "ReportData",
+          "SearchObjectId",
+          "SecurityDescriptor",
+          "activityDefId",
+          "iconImage",
+          "iconName",
+          "isInsideView",
+          "reportType",
+          "scopeType",
+          "systemId"
+        ],
+        "variantColumns": []
+      }
+    },
+    "sampleCount": 2,
+    "variantTables": [
+      "MET_TYPEDEFACCESSSERVICE",
+      "Sec_SmsSettings",
+      "Ver_MSChangeSet",
+      "dyn_103_3",
+      "dyn_104_1",
+      "dyn_110_1",
+      "dyn_114",
+      "dyn_115",
+      "dyn_120_1",
+      "dyn_122_1",
+      "dyn_124_1",
+      "dyn_127_1",
+      "dyn_137",
+      "dyn_141",
+      "dyn_1440",
+      "dyn_1441",
+      "dyn_1442",
+      "dyn_166_1",
+      "dyn_17",
+      "dyn_21",
+      "dyn_24",
+      "dyn_268",
+      "dyn_40",
+      "dyn_46",
+      "dyn_47",
+      "dyn_48",
+      "dyn_50",
+      "dyn_73",
+      "dyn_76",
+      "dyn_79",
+      "dyn_80",
+      "dyn_81",
+      "m01_103",
+      "m01_129",
+      "m01_19",
+      "m01_AppConfigDef",
+      "m01_AppConfigValidValue",
+      "m01_CAToolbox",
+      "m01_CAType",
+      "m01_Culture",
+      "m01_DistServerCnnType",
+      "m01_MetaCondition",
+      "m01_MieSenderPolicy",
+      "m01_ReportCount",
+      "m01_Translation",
+      "m01_TranslationKey",
+      "m01_WErrorLocation",
+      "m02_FileType",
+      "m02_FileTypeGroup",
+      "m02_LogDef",
+      "m02_TextPattern",
+      "sec_Domain",
+      "sec_ExtraFolderAccessControl",
+      "sec_FieldConditionAccess",
+      "sec_FileBlackList",
+      "sec_InitialSettings",
+      "sec_LogCategory",
+      "sec_LogDef",
+      "sec_LogImportance",
+      "sec_LogRule",
+      "sec_LogRuleAction",
+      "sec_LogRuleCondition",
+      "sec_ObjectAccessService",
+      "sec_PasswordStrengthType",
+      "sec_RuleActionDef",
+      "sec_RuleConditionDef",
+      "sec_SecurityLogonMessage",
+      "sec_SecuritySettings",
+      "ulog_Settings",
+      "ulog_UseCase",
+      "xapp_service_2"
+    ]
+  },
+  "idReferenceModel": [
+    {
+      "column": "Id",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$Data_FieldDefDbNames"
+    },
+    {
+      "column": "TypeDefId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Data_FieldDefDbNames"
+    },
+    {
+      "column": "Id",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$Data_TypeDefDbNames"
+    },
+    {
+      "column": "ExportSessionId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ObjectReferenceId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ObjectTypeLocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ParentObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ResponsibleObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$DeletedRecords"
+    },
+    {
+      "column": "ExportId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ObjectReferenceId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ObjectTypeLocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ParentObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ResponsibleObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$RootSelection"
+    },
+    {
+      "column": "ExportSessionId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Selection"
+    },
+    {
+      "column": "ObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$Selection"
+    },
+    {
+      "column": "ObjectReferenceId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Selection"
+    },
+    {
+      "column": "ObjectTypeLocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Selection"
+    },
+    {
+      "column": "ParentObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Selection"
+    },
+    {
+      "column": "ResponsibleObjectId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$Selection"
+    },
+    {
+      "column": "DestId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$basicInfoRelation"
+    },
+    {
+      "column": "ID",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$basicInfoRelation"
+    },
+    {
+      "column": "RelationDefId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$basicInfoRelation"
+    },
+    {
+      "column": "SourceId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$basicInfoRelation"
+    },
+    {
+      "column": "GlobalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$spl_EorgCenter"
+    },
+    {
+      "column": "Id",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$spl_EorgCenter"
+    },
+    {
+      "column": "LocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$spl_EorgCenter"
+    },
+    {
+      "column": "GlobalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$spl_EorgType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "identity",
+      "table": "$spl_EorgType"
+    },
+    {
+      "column": "LastSequenceId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$spl_EorgType"
+    },
+    {
+      "column": "LocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "$spl_EorgType"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_FIELDDEF"
+    },
+    {
+      "column": "typeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_FIELDDEF"
+    },
+    {
+      "column": "ContainingTypeDefId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_FOLDER"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_FOLDER"
+    },
+    {
+      "column": "ParentId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_FOLDER"
+    },
+    {
+      "column": "ReportId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_FOLDER"
+    },
+    {
+      "column": "ExtractorTypeId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "HelperId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "ParameterTypeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "ParentCodeId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "SystemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "TargetObjectId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METACODE"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_METACOMMAND"
+    },
+    {
+      "column": "SystemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METACOMMAND"
+    },
+    {
+      "column": "TargetId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_METACOMMAND"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_METASYSTEM"
+    },
+    {
+      "column": "rootFolderId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_METASYSTEM"
+    },
+    {
+      "column": "DestTypeId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "column": "SourceFieldDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "column": "SourceTypeId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "column": "ApplicationId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "DefaultFieldId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "LocalId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "defaultReportId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "parentid",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "previewFieldId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "sakooTypeId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "systemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_TYPEDEFACCESSSERVICE"
+    },
+    {
+      "column": "typeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEDEFACCESSSERVICE"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "MET_TYPEVIEWENTITY"
+    },
+    {
+      "column": "ParentId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEVIEWENTITY"
+    },
+    {
+      "column": "TypeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "MET_TYPEVIEWENTITY"
+    },
+    {
+      "column": "F5$PreviousRecordId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "Sec_SmsSettings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Sec_SmsSettings"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Shr_FileAttachment"
+    },
+    {
+      "column": "FILEATTACHMENTID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "Shr_FileAttachmentObject"
+    },
+    {
+      "column": "OBJECTID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Shr_FileAttachmentObject"
+    },
+    {
+      "column": "OBJECTID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Spl_TrusteeAccess"
+    },
+    {
+      "column": "SERVICEID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "Spl_TrusteeAccess"
+    },
+    {
+      "column": "TRUSTEEID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "Spl_TrusteeAccess"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Ver_MSChangeSet"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Ver_MetaSystemInfo"
+    },
+    {
+      "column": "SystemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "Ver_MetaSystemInfo"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "Ver_MetaSystemVersion"
+    },
+    {
+      "column": "SystemInfoId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "Ver_MetaSystemVersion"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_103_3"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_104_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_110_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_114"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_115"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_120_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_122_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_124_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_127_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_137"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_141"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_1440"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_1441"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_1442"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_166_1"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_17"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_21"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_24"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_261"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_263"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_266"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_268"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_303"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_40"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_46"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_47"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_48"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_50"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_73"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_76"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_79"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_80"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "dyn_81"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_103"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_127"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_128"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_129"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_19"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_309"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_AppConfigDef"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_AppConfigValidValue"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_CAToolbox"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_CAType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_Culture"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_DbScript"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_DistServerCnnType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_JsonProperty"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_MetaCondition"
+    },
+    {
+      "column": "RefTypeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_MetaCondition"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_MieSenderPolicy"
+    },
+    {
+      "column": "FeatureTypeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "column": "TargetTypeDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "column": "ToTargetFieldDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_ReportCount"
+    },
+    {
+      "column": "ReportId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_ReportCount"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_Translation"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_TranslationKey"
+    },
+    {
+      "column": "SystemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m01_TranslationKey"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m01_WErrorLocation"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m02_FileType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m02_FileTypeGroup"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m02_GridSettings"
+    },
+    {
+      "column": "ParentMoId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m02_GridSettings"
+    },
+    {
+      "column": "ReportId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m02_GridSettings"
+    },
+    {
+      "column": "UserId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "m02_GridSettings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m02_LogDef"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "m02_TextPattern"
+    },
+    {
+      "column": "DestId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Relation"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "met_Relation"
+    },
+    {
+      "column": "RelationDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Relation"
+    },
+    {
+      "column": "SourceId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Relation"
+    },
+    {
+      "column": "ID",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "met_Report"
+    },
+    {
+      "column": "SearchObjectId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Report"
+    },
+    {
+      "column": "activityDefId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Report"
+    },
+    {
+      "column": "systemId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "met_Report"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_Domain"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_ExtraFolderAccessControl"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_FieldConditionAccess"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_FileBlackList"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_InitialSettings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogCategory"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogDef"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogImportance"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogRule"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogRuleAction"
+    },
+    {
+      "column": "ParentRuleId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "sec_LogRuleAction"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_LogRuleCondition"
+    },
+    {
+      "column": "ParentRuleId",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "reference",
+      "table": "sec_LogRuleCondition"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_ObjectAccessService"
+    },
+    {
+      "column": "Hash$PreviousRecordId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "sec_PasswordStrengthType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_PasswordStrengthType"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_RuleActionDef"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_RuleConditionDef"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_SecurityLogonMessage"
+    },
+    {
+      "column": "Hash$PreviousRecordId",
+      "confidence": "Inferred",
+      "declaredInIdEmbeddingFields": false,
+      "role": "reference",
+      "table": "sec_SecuritySettings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "sec_SecuritySettings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "ulog_Settings"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "ulog_UseCase"
+    },
+    {
+      "column": "Id",
+      "confidence": "Verified",
+      "declaredInIdEmbeddingFields": true,
+      "role": "identity",
+      "table": "xapp_service_2"
+    }
+  ],
+  "samples": [
+    {
+      "container": [
+        "gzip",
+        "BinaryFormatter",
+        "System.Data.DataSet"
+      ],
+      "file": "NewMeta01.metaexport",
+      "fileSize": 2448133,
+      "header": {
+        "Core Version": "4.1.197",
+        "Export Time": "2026-06-16T00:01:19.8636417+03:30",
+        "Export Version Time": "1405/03/25 23:00:44",
+        "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta01.metaexport",
+        "Other Info": "تيم توليد شركت برسا نوين راي",
+        "PageCount": "1",
+        "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+      },
+      "payloadSize": 6453276,
+      "rowCounts": {
+        "$Data_FieldDefDbNames": 196,
+        "$Data_TypeDefDbNames": 43,
+        "$DeletedRecords": 115,
+        "$Header": 1,
+        "$IdEmbeddingFields": 177,
+        "$RootSelection": 2,
+        "$Selection": 2702,
+        "$basicInfoRelation": 2,
+        "$spl_EorgCenter": 68,
+        "$spl_EorgType": 472,
+        "MET_FIELDDEF": 1040,
+        "MET_FOLDER": 212,
+        "MET_METACODE": 147,
+        "MET_METACOMMAND": 9,
+        "MET_METASYSTEM": 2,
+        "MET_RELATIONDEF": 28,
+        "MET_TYPEDEF": 199,
+        "MET_TYPEDEFACCESSSERVICE": 1,
+        "MET_TYPEVIEWENTITY": 134,
+        "Shr_FileAttachment": 18,
+        "Shr_FileAttachmentObject": 18,
+        "Spl_TrusteeAccess": 1090,
+        "Ver_MetaSystemInfo": 2,
+        "Ver_MetaSystemVersion": 5,
+        "dyn_103_3": 13,
+        "dyn_104_1": 3,
+        "dyn_110_1": 9,
+        "dyn_114": 2,
+        "dyn_115": 3,
+        "dyn_120_1": 3,
+        "dyn_122_1": 4,
+        "dyn_124_1": 4,
+        "dyn_127_1": 1,
+        "dyn_1440": 7,
+        "dyn_1441": 7,
+        "dyn_1442": 63,
+        "dyn_166_1": 2,
+        "dyn_261": 10,
+        "dyn_263": 18,
+        "dyn_266": 2,
+        "dyn_268": 2,
+        "dyn_303": 4,
+        "dyn_47": 5,
+        "dyn_48": 3,
+        "dyn_50": 3,
+        "m01_103": 3,
+        "m01_127": 4,
+        "m01_128": 6,
+        "m01_129": 1,
+        "m01_19": 1,
+        "m01_309": 1,
+        "m01_AppConfigDef": 234,
+        "m01_AppConfigValidValue": 3,
+        "m01_CAToolbox": 8,
+        "m01_CAType": 11,
+        "m01_Culture": 2,
+        "m01_DbScript": 2,
+        "m01_DistServerCnnType": 3,
+        "m01_JsonProperty": 1,
+        "m01_MieSenderPolicy": 1,
+        "m01_ObjectFeature": 16,
+        "m01_Translation": 40,
+        "m01_TranslationKey": 20,
+        "m01_WErrorLocation": 2,
+        "m02_GridSettings": 1,
+        "met_Relation": 78,
+        "met_Report": 258
+      },
+      "sha256": "b421fa6fcf30b2748d1db901727fd6d004e20d21c84484758581243646bd901e",
+      "tableCount": 67
+    },
+    {
+      "container": [
+        "gzip",
+        "BinaryFormatter",
+        "System.Data.DataSet"
+      ],
+      "file": "NewMeta02.metaexport",
+      "fileSize": 2308588,
+      "header": {
+        "Core Version": "4.1.190",
+        "Export Time": "2026-04-19T10:34:21.8095821+03:30",
+        "Export Version Time": "1405/01/29 11:20:49",
+        "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta02.metaexport",
+        "Other Info": "تيم توليد شركت برسا نوين راي",
+        "PageCount": "1",
+        "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+      },
+      "payloadSize": 8403459,
+      "rowCounts": {
+        "$Data_FieldDefDbNames": 241,
+        "$Data_TypeDefDbNames": 54,
+        "$DeletedRecords": 73,
+        "$Header": 1,
+        "$IdEmbeddingFields": 191,
+        "$RootSelection": 3,
+        "$Selection": 5373,
+        "$basicInfoRelation": 34,
+        "$spl_EorgCenter": 68,
+        "$spl_EorgType": 469,
+        "MET_FIELDDEF": 711,
+        "MET_FOLDER": 136,
+        "MET_METACODE": 131,
+        "MET_METACOMMAND": 10,
+        "MET_METASYSTEM": 3,
+        "MET_RELATIONDEF": 15,
+        "MET_TYPEDEF": 129,
+        "MET_TYPEVIEWENTITY": 91,
+        "Sec_SmsSettings": 7,
+        "Shr_FileAttachment": 3,
+        "Shr_FileAttachmentObject": 3,
+        "Spl_TrusteeAccess": 1586,
+        "Ver_MSChangeSet": 1,
+        "Ver_MetaSystemInfo": 3,
+        "Ver_MetaSystemVersion": 8,
+        "dyn_137": 13,
+        "dyn_141": 7,
+        "dyn_17": 4,
+        "dyn_21": 5,
+        "dyn_24": 3,
+        "dyn_261": 2,
+        "dyn_263": 14,
+        "dyn_266": 7,
+        "dyn_303": 1,
+        "dyn_40": 4,
+        "dyn_46": 1,
+        "dyn_73": 5,
+        "dyn_76": 3,
+        "dyn_79": 3,
+        "dyn_80": 1192,
+        "dyn_81": 25,
+        "m01_127": 2,
+        "m01_128": 2,
+        "m01_309": 4,
+        "m01_DbScript": 3,
+        "m01_JsonProperty": 6,
+        "m01_MetaCondition": 1,
+        "m01_ObjectFeature": 3,
+        "m01_ReportCount": 1,
+        "m02_FileType": 40,
+        "m02_FileTypeGroup": 4,
+        "m02_GridSettings": 4,
+        "m02_LogDef": 2,
+        "m02_TextPattern": 5,
+        "met_Relation": 1880,
+        "met_Report": 155,
+        "sec_Domain": 1,
+        "sec_ExtraFolderAccessControl": 1,
+        "sec_FieldConditionAccess": 1,
+        "sec_FileBlackList": 2,
+        "sec_InitialSettings": 1,
+        "sec_LogCategory": 5,
+        "sec_LogDef": 26,
+        "sec_LogImportance": 4,
+        "sec_LogRule": 3,
+        "sec_LogRuleAction": 3,
+        "sec_LogRuleCondition": 1,
+        "sec_ObjectAccessService": 3,
+        "sec_PasswordStrengthType": 2,
+        "sec_RuleActionDef": 4,
+        "sec_RuleConditionDef": 1,
+        "sec_SecurityLogonMessage": 2,
+        "sec_SecuritySettings": 1,
+        "ulog_Settings": 1,
+        "ulog_UseCase": 28,
+        "xapp_service_2": 4
+      },
+      "sha256": "77fb320e6515d84cfcd7c128979d8407db70eab471ba3c16c07bfdd9198cd16f",
+      "tableCount": 76
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "TypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 196,
+        "NewMeta02.metaexport": 241
+      },
+      "table": "$Data_FieldDefDbNames"
+    },
+    {
+      "columns": [
+        {
+          "name": "TypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 196,
+        "NewMeta02.metaexport": 241
+      },
+      "table": "$Data_FieldDefDbNames"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 43,
+        "NewMeta02.metaexport": 54
+      },
+      "table": "$Data_TypeDefDbNames"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 43,
+        "NewMeta02.metaexport": 54
+      },
+      "table": "$Data_TypeDefDbNames"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportSessionId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 115,
+        "NewMeta02.metaexport": 73
+      },
+      "table": "$DeletedRecords"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportSessionId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 115,
+        "NewMeta02.metaexport": 73
+      },
+      "table": "$DeletedRecords"
+    },
+    {
+      "columns": [
+        {
+          "name": "Source Db",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "FileName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "PageCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Core Version",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Export Time",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "Export Version Time",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Other Info",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "$Header"
+    },
+    {
+      "columns": [
+        {
+          "name": "Source Db",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "FileName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "PageCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Core Version",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Export Time",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "Export Version Time",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Other Info",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "$Header"
+    },
+    {
+      "columns": [
+        {
+          "name": "TableName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ColumnName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "OperationalType",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "FieldType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 177,
+        "NewMeta02.metaexport": 191
+      },
+      "table": "$IdEmbeddingFields"
+    },
+    {
+      "columns": [
+        {
+          "name": "TableName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ColumnName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "OperationalType",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "FieldType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 177,
+        "NewMeta02.metaexport": 191
+      },
+      "table": "$IdEmbeddingFields"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportId",
+          "nullable": true,
+          "xsdType": "xs:decimal"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "$RootSelection"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportId",
+          "nullable": true,
+          "xsdType": "xs:decimal"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "$RootSelection"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportSessionId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2702,
+        "NewMeta02.metaexport": 5373
+      },
+      "table": "$Selection"
+    },
+    {
+      "columns": [
+        {
+          "name": "ExportSessionId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectTypeLocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ResponsibleObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ObjectReferenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ObjectTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationTypeTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2702,
+        "NewMeta02.metaexport": 5373
+      },
+      "table": "$Selection"
+    },
+    {
+      "columns": [
+        {
+          "name": "SourceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Role",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "RelationDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 34
+      },
+      "table": "$basicInfoRelation"
+    },
+    {
+      "columns": [
+        {
+          "name": "SourceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Role",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "RelationDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 34
+      },
+      "table": "$basicInfoRelation"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "GlobalId",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "IsImported",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 68,
+        "NewMeta02.metaexport": 68
+      },
+      "table": "$spl_EorgCenter"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "GlobalId",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "IsImported",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 68,
+        "NewMeta02.metaexport": 68
+      },
+      "table": "$spl_EorgCenter"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "GlobalId",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TableName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "SourceType",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LastSequenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 472,
+        "NewMeta02.metaexport": 469
+      },
+      "table": "$spl_EorgType"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "GlobalId",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TableName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "SourceType",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Model",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LastSequenceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": true,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 472,
+        "NewMeta02.metaexport": 469
+      },
+      "table": "$spl_EorgType"
+    },
+    {
+      "columns": [
+        {
+          "name": "typeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "orderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "fieldInfoType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "dbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "relationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1040,
+        "NewMeta02.metaexport": 711
+      },
+      "table": "MET_FIELDDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "typeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "orderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "fieldInfoType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "dbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "relationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1040,
+        "NewMeta02.metaexport": 711
+      },
+      "table": "MET_FIELDDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ContainingTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "OrderNo",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "FolderType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Icon",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "IconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 212,
+        "NewMeta02.metaexport": 136
+      },
+      "table": "MET_FOLDER"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ContainingTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "OrderNo",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "FolderType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Icon",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "IconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 212,
+        "NewMeta02.metaexport": 136
+      },
+      "table": "MET_FOLDER"
+    },
+    {
+      "columns": [
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentCodeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "CodeLocation",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CodeLayer",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CodeLanguage",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "TargetObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "AddressInTarget",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "AddressDisplayString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Code",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParameterTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "HelperId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ExtractorTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LastModifiedDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "Status",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "AssemblyData",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 147,
+        "NewMeta02.metaexport": 131
+      },
+      "table": "MET_METACODE"
+    },
+    {
+      "columns": [
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentCodeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "CodeLocation",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CodeLayer",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CodeLanguage",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "TargetObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "AddressInTarget",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "AddressDisplayString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Code",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParameterTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "HelperId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ExtractorTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LastModifiedDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "Status",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "AssemblyData",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 147,
+        "NewMeta02.metaexport": 131
+      },
+      "table": "MET_METACODE"
+    },
+    {
+      "columns": [
+        {
+          "name": "Caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TargetId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "IconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "Location",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "HasSecurity",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ButtonSize",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "IsGlobal",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 9,
+        "NewMeta02.metaexport": 10
+      },
+      "table": "MET_METACOMMAND"
+    },
+    {
+      "columns": [
+        {
+          "name": "Caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TargetId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "IconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "Location",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "HasSecurity",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ButtonSize",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "IsGlobal",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 9,
+        "NewMeta02.metaexport": 10
+      },
+      "table": "MET_METACOMMAND"
+    },
+    {
+      "columns": [
+        {
+          "name": "Caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "rootFolderId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "IsInactive",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "runCodeAtStartup",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "showInCartable",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SystemLocationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "orderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SystemKey",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Version",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "MET_METASYSTEM"
+    },
+    {
+      "columns": [
+        {
+          "name": "Caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "rootFolderId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "IsInactive",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "runCodeAtStartup",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "showInCartable",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SystemLocationType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "orderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SystemKey",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Version",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "MET_METASYSTEM"
+    },
+    {
+      "columns": [
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Max",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "SourceTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "isBilateral",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ReverseTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "destTypeExtraString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "sourceTypeExtraString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SourceFieldDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 28,
+        "NewMeta02.metaexport": 15
+      },
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelationType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Max",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "SourceTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "isBilateral",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ReverseTitle",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "destTypeExtraString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "sourceTypeExtraString",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SourceFieldDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 28,
+        "NewMeta02.metaexport": 15
+      },
+      "table": "MET_RELATIONDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DefaultFieldId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "systemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "previewFieldId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "hasSecurity",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "isExternalType",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "deleted_eorgIdTypePart",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "defaultReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "dbType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "parentid",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "isDynamic",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "sakooTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ApplicationId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 199,
+        "NewMeta02.metaexport": 129
+      },
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "caption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DefaultFieldId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "systemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "previewFieldId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "hasSecurity",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "isExternalType",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Settings",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "deleted_eorgIdTypePart",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "defaultReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "dbType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "CreationDate",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LocalId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "parentid",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "isDynamic",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "sakooTypeId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ApplicationId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 199,
+        "NewMeta02.metaexport": 129
+      },
+      "table": "MET_TYPEDEF"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DefinesOnClass",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "HasAccessLevel",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DefaultForCreator",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "typeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "MET_TYPEDEFACCESSSERVICE"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TypeViewBlob",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 134,
+        "NewMeta02.metaexport": 91
+      },
+      "table": "MET_TYPEVIEWENTITY"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "TypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParentId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TypeViewBlob",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 134,
+        "NewMeta02.metaexport": 91
+      },
+      "table": "MET_TYPEVIEWENTITY"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SmsService",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TemplateName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5$PreviousRecordId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 7
+      },
+      "table": "Sec_SmsSettings"
+    },
+    {
+      "columns": [
+        {
+          "name": "NAME",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "EXTENSION",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ZIPALGORITHM",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CONTENT",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "FILEPATH",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ATTACHTYPE",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "SIZE",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Shr_FileAttachment"
+    },
+    {
+      "columns": [
+        {
+          "name": "NAME",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "EXTENSION",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ZIPALGORITHM",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "CONTENT",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "FILEPATH",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ATTACHTYPE",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "SIZE",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Shr_FileAttachment"
+    },
+    {
+      "columns": [
+        {
+          "name": "OBJECTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "FILEATTACHMENTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OBJECTID2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Shr_FileAttachmentObject"
+    },
+    {
+      "columns": [
+        {
+          "name": "OBJECTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "FILEATTACHMENTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OBJECTID2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Shr_FileAttachmentObject"
+    },
+    {
+      "columns": [
+        {
+          "name": "TRUSTEEID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OBJECTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SERVICEID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ACCESSLEVEL",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Hash",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1090,
+        "NewMeta02.metaexport": 1586
+      },
+      "table": "Spl_TrusteeAccess"
+    },
+    {
+      "columns": [
+        {
+          "name": "TRUSTEEID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OBJECTID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SERVICEID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ACCESSLEVEL",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Hash",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1090,
+        "NewMeta02.metaexport": 1586
+      },
+      "table": "Spl_TrusteeAccess"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "Ver_MSChangeSet"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Ver_MetaSystemInfo"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "Ver_MetaSystemInfo"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "VersionNumber",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemInfoId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "BackwardCompatible",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ForwardCompatible",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "PreviousVersion",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F12",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "F13",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 5,
+        "NewMeta02.metaexport": 8
+      },
+      "table": "Ver_MetaSystemVersion"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "VersionNumber",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemInfoId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "BackwardCompatible",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ForwardCompatible",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "PreviousVersion",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F12",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        },
+        {
+          "name": "F13",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 5,
+        "NewMeta02.metaexport": 8
+      },
+      "table": "Ver_MetaSystemVersion"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F10",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 13,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_103_3"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_104_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 9,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_110_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_114"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_115"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4$OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "F4$Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4$ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_120_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_122_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_124_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_127_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 13
+      },
+      "table": "dyn_137"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 7
+      },
+      "table": "dyn_141"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 7,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_1440"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 7,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_1441"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 63,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_1442"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_166_1"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "dyn_17"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 5
+      },
+      "table": "dyn_21"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "dyn_24"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F10",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F11",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 10,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "dyn_261"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F10",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F11",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 10,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "dyn_261"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 14
+      },
+      "table": "dyn_263"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 18,
+        "NewMeta02.metaexport": 14
+      },
+      "table": "dyn_263"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 7
+      },
+      "table": "dyn_266"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 7
+      },
+      "table": "dyn_266"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2$OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "F2$Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2$ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_268"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "dyn_303"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "dyn_303"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "dyn_40"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "UiComponent",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "UiComponentCode",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "dyn_46"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 5,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_47"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_48"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "dyn_50"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 5
+      },
+      "table": "dyn_73"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "dyn_76"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "dyn_79"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1192
+      },
+      "table": "dyn_80"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3$OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "F3$Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3$ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 25
+      },
+      "table": "dyn_81"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_103"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "m01_127"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 4,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "m01_127"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 6,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "m01_128"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 6,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "m01_128"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_129"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_19"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "m01_309"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "m01_309"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Type",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Location",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DefaultValue",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IsDeleted",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "IsPublic",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 234,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_AppConfigDef"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Value",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Type",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_AppConfigValidValue"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 8,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_CAToolbox"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F10",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F11",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F12",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F13",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F14",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F15",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F16",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Deprecated",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "RollbackCode",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ImplementationCode",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IsDisabled",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 11,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_CAType"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DisplayName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "IsRtl",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_Culture"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "m01_DbScript"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "m01_DbScript"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 3,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_DistServerCnnType"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Item",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SubSystem",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Help",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Property",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 6
+      },
+      "table": "m01_JsonProperty"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Item",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SubSystem",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Help",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Property",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 6
+      },
+      "table": "m01_JsonProperty"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "RefTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Condition",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Condition$BINARY",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "m01_MetaCondition"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "LogRecords",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LogFiles",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LogPictures",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LogAcsess",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LogComposites",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "LogListRelations",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_MieSenderPolicy"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TargetTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "FeatureTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ToTargetFieldDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DispalyType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 16,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TargetTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "FeatureTypeDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ToTargetFieldDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DispalyType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 16,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "m01_ObjectFeature"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Filter",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Pattern",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "m01_ReportCount"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Text",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Culture",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "TranslationKey",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 40,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_Translation"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ContextKey",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "RelatedObject",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OriginalText",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SystemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "LastModified",
+          "nullable": true,
+          "xsdType": "xs:dateTime"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 20,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_TranslationKey"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 2,
+        "NewMeta02.metaexport": 0
+      },
+      "table": "m01_WErrorLocation"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 40
+      },
+      "table": "m02_FileType"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "m02_FileTypeGroup"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "UserId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Data",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentMoId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "m02_GridSettings"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ReportId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "UserId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Data",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentMoId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 1,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "m02_GridSettings"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "UserDescription",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Type",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "m02_LogDef"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 5
+      },
+      "table": "m02_TextPattern"
+    },
+    {
+      "columns": [
+        {
+          "name": "SourceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Role",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "RelationDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 78,
+        "NewMeta02.metaexport": 1880
+      },
+      "table": "met_Relation"
+    },
+    {
+      "columns": [
+        {
+          "name": "SourceId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "DestId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Role",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "RelationDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 78,
+        "NewMeta02.metaexport": 1880
+      },
+      "table": "met_Relation"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SearchObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Descrioption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SecurityDescriptor",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "AccessLevel",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ReportData",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "activityDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "reportType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "systemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "scopeType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "isInsideView",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 258,
+        "NewMeta02.metaexport": 155
+      },
+      "table": "met_Report"
+    },
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SearchObjectId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Descrioption",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SecurityDescriptor",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "AccessLevel",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "ReportData",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "activityDefId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "reportType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "iconName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "iconImage",
+          "nullable": true,
+          "xsdType": "xs:base64Binary"
+        },
+        {
+          "name": "systemId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "scopeType",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "isInsideView",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "ID",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 258,
+        "NewMeta02.metaexport": 155
+      },
+      "table": "met_Report"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "SecuritySettings",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_Domain"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_ExtraFolderAccessControl"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_FieldConditionAccess"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "sec_FileBlackList"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "EnableAdvancedSecurity",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "EncryptUserName",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "UseSha2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Confirm",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "MaxLogTableSize",
+          "nullable": true,
+          "xsdType": "xs:decimal"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_InitialSettings"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Parent",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Parent$OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:int"
+        },
+        {
+          "name": "Parent$Path",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Parent$ChildrenCount",
+          "nullable": true,
+          "xsdType": "xs:int"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 5
+      },
+      "table": "sec_LogCategory"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "DbName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "UserDescription",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Type",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Category",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Importance",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "MetaSystem",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ExceptionDef",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Description",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 26
+      },
+      "table": "sec_LogDef"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Icon",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "sec_LogImportance"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:double"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "sec_LogRule"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ActionType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParameterTargetEventDef",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParameterText",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentRuleId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "sec_LogRuleAction"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ConditionType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ParameterText",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ParentRuleId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_LogRuleCondition"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 3
+      },
+      "table": "sec_ObjectAccessService"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "Hash",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Hash$PreviousRecordId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "sec_PasswordStrengthType"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ActionCode",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "sec_RuleActionDef"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Name",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "ConditionCode",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_RuleConditionDef"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "MessageText",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "MessageText$RICH",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 2
+      },
+      "table": "sec_SecurityLogonMessage"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CanLogin",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "PasswordExpireDates",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "StrengthOfPassword",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "LogonMessage",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "ShowLogonMessageType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "FaillLoginLockType",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F5",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "SessionTimout",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "MaxOnlineUserCount",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F6",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "EnableTwoFactor",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F7",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F8",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F9",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F10",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F11",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F12",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Hash",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Hash$PreviousRecordId",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F15",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F16",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F17",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F18",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F19",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F20",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F21",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        },
+        {
+          "name": "F22",
+          "nullable": true,
+          "xsdType": "xs:long"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "sec_SecuritySettings"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 1
+      },
+      "table": "ulog_Settings"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "Title",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "CodeName",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Parameter1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Parameter2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "Parameter3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 28
+      },
+      "table": "ulog_UseCase"
+    },
+    {
+      "columns": [
+        {
+          "name": "Id",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "F1",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F2",
+          "nullable": true,
+          "xsdType": "xs:long"
+        },
+        {
+          "name": "OrderNumber",
+          "nullable": true,
+          "xsdType": "xs:double"
+        },
+        {
+          "name": "F3",
+          "nullable": true,
+          "xsdType": "xs:string"
+        },
+        {
+          "name": "F4",
+          "nullable": true,
+          "xsdType": "xs:boolean"
+        }
+      ],
+      "isControlTable": false,
+      "rowsPerSample": {
+        "NewMeta01.metaexport": 0,
+        "NewMeta02.metaexport": 4
+      },
+      "table": "xapp_service_2"
+    }
+  ]
+}

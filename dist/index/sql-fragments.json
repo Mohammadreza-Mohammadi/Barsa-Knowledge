@@ -1,0 +1,2996 @@
+[
+  {
+    "assembly": "source/Barsa.Automation.Ui.Win.dll",
+    "method": "Barsa.Automation.Ui.Win.CartableLetterListControl::GetClearUnReferencedMailsQuery",
+    "operation": "SELECT",
+    "sql": "select al.id from aut_letter al where al.id=",
+    "tables": [
+      "aut_letter"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.Ui.Win.dll",
+    "method": "Barsa.Automation.Ui.Win.CartablePishnevisLetterListControl::GetClearUnReferencedMailsQuery",
+    "operation": "SELECT",
+    "sql": "select ap.id from aut_pishnevis ap inner join aut_letter al on (ap.letterid=al.id) where ap.id=",
+    "tables": [
+      "aut_letter",
+      "aut_pishnevis"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.Ui.Win.exe",
+    "method": "Barsa.Automation.Ui.Win.CartableLetterListControl::GetClearUnReferencedMailsQuery",
+    "operation": "SELECT",
+    "sql": "select al.id from aut_letter al where al.id=",
+    "tables": [
+      "aut_letter"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.Ui.Win.exe",
+    "method": "Barsa.Automation.Ui.Win.CartablePishnevisLetterListControl::GetClearUnReferencedMailsQuery",
+    "operation": "SELECT",
+    "sql": "select ap.id from aut_pishnevis ap inner join aut_letter al on (ap.letterid=al.id) where ap.id=",
+    "tables": [
+      "aut_letter",
+      "aut_pishnevis"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update aut_FavoriteLetterInvolver set InvolverId = {0} where InvolverId = {1}",
+    "tables": [
+      "aut_FavoriteLetterInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update aut_letter set MainSenderId = {0}, RealSenderId = {0}, SenderText = N'{1}' where MainSenderId = {2}",
+    "tables": [
+      "aut_letter"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update aut_letter set toText = Replace(toText, N'{0}', N'{1}'), ccText = Replace(ccText, N'{0}', N'{1}') \r\n                  where exists (select id from aut_letterinvolver where aut_letter.id=aut_letterinvolver.letterid and \r\n                    aut_letterinvolver.InvolverId = {2})",
+    "tables": [
+      "aut_letter",
+      "aut_letterinvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update aut_letterInvolver set InvolverId = {0}, Title = N'{1}' where InvolverId = {2}",
+    "tables": [
+      "aut_letterInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update mil_mail set MainSenderId = {0}, RealSenderId = {0}, FromText = N'{1}' where MainSenderId = {2}",
+    "tables": [
+      "mil_mail"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update mil_mail set toText = Replace(toText, N'{0}', N'{1}'), ccText = Replace(ccText, N'{0}', N'{1}') \r\n                where exists (select id from mil_mailinvolver where mil_mail.id=mil_mailinvolver.mailid and \r\n                mil_mailinvolver.MailParticipantId = {2})",
+    "tables": [
+      "mil_mail",
+      "mil_mailinvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.DataAccess.ExternalPersonDa::MergePerson",
+    "operation": "UPDATE",
+    "sql": "update mil_mailInvolver set MailParticipantId = {0}, DisplayName = N'{1}' where MailParticipantId = {2}",
+    "tables": [
+      "mil_mailInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Automation.dll",
+    "method": "Barsa.Automation.LetterSearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.AppointmentProxy::LoadAll4Test",
+    "operation": "SELECT",
+    "sql": "select * from Cal_View_Appointment where creatorId = 1100005500000000135",
+    "tables": [
+      "Cal_View_Appointment"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.AppointmentProxySearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.CalendarProxyUser::NumberOfCalendarUsers",
+    "operation": "SELECT",
+    "sql": "select count(Id) from Cal_CalendarUser where CalendarId = ",
+    "tables": [
+      "Cal_CalendarUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.DataAccess.CalendarProxyUserDa::NumberOfCalendarUsers",
+    "operation": "SELECT",
+    "sql": "select count(Id) from Cal_CalendarUser where CalendarId = ",
+    "tables": [
+      "Cal_CalendarUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.DataAccess.DayOfWeekSettingTemplateDa::NumberOfCalendars",
+    "operation": "SELECT",
+    "sql": "select count(Id) from Cal_Calendar where DayOfWeekSettingTemplateId = ",
+    "tables": [
+      "Cal_Calendar"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.CalendarApp.dll",
+    "method": "Barsa.CalendarApp.DataAccess.DayOfWeekSettingTemplateDa::NumberOfSettings",
+    "operation": "SELECT",
+    "sql": "select count(Id) from Cal_DayOfWeekSetting where DayOfWeekSettingTemplateId = ",
+    "tables": [
+      "Cal_DayOfWeekSetting"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Common.SqlStrings::get_GetDbTypeQuery",
+    "operation": "SELECT",
+    "sql": "select STRINGVALUE from Spl_UserProfile where KEY='{0}'",
+    "tables": [
+      "Spl_UserProfile"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Common.SqlStrings::get_GetDbTypeQuery",
+    "operation": "SELECT",
+    "sql": "select STRINGVALUE from Spl_UserProfile where [KEY]='{0}'",
+    "tables": [
+      "Spl_UserProfile"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.FixYeAndKe::Fix",
+    "operation": "SELECT",
+    "sql": "\r\n                select \r\n                    o.name as table_name, c.name as column_name, t.name as DATA_TYPE, c.column_id, \r\n                    c.max_length as CHAR_LENGTH, c.is_nullable as NULLABLE, c.is_identity as IsIdentity\r\n                    , c.precision as DATA_PRECISION,c.scale as DATA_SCALE\r\n                    ,do.definition as DATA_DEFAULT,do.name as DEFAULT_NAME\r\n\t                , cc.definition as Computed_Formula, cc.is_persisted as isPersisted\r\n\t                , c.is_computed as isComputed\r\n                    from \r\n                    sys.objects o join sys.columns c on (o.object_id = c.object_id) join sys.types t \r\n\t                on(c.user_type_id = t.user_type_id)left join sys.default_constraints do on \r\n\t                (do.object_id = c.default_object_id) left join sys.computed_columns cc on(c.column_id = cc.column_id)\r\n                    where\r\n                    o.type='U'\r\n                        ",
+    "tables": [
+      "sys.columns",
+      "sys.computed_columns",
+      "sys.default_constraints",
+      "sys.objects",
+      "sys.types"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.FixYeAndKe::Fix",
+    "operation": "SELECT",
+    "sql": "SELECT     \r\n\t                o.object_id, o.name as table_name, s.name as schema_name\r\n                FROM         \r\n\t                sys.objects o, sys.tables t, sys.schemas s\r\n\r\n                where ",
+    "tables": [
+      "sys.objects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::AddSearch",
+    "operation": "SELECT",
+    "sql": "select * from ({0}) x where name like '%{{0}}%' and rownum<{1}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::AddSearch",
+    "operation": "SELECT",
+    "sql": "select top {0} * from ({1}) x where name like '%{{0}}%'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::ContextAutoComplete_ItemClicked",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT ORDINAL_POSITION, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '",
+    "tables": [
+      "INFORMATION_SCHEMA.COLUMNS"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::ContextAutoComplete_ItemClicked",
+    "operation": "UNKNOWN",
+    "sql": "'\r\nSELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE WHERE TABLE_NAME = '",
+    "tables": [
+      "INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::ContextAutoComplete_ItemClicked",
+    "operation": "UNKNOWN",
+    "sql": "'\r\nSELECT name, type_desc, is_unique, is_primary_key FROM sys.indexes WHERE [object_id] = OBJECT_ID('",
+    "tables": [
+      "sys.indexes"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "SELECT name FROM dbo.sysobjects WHERE type IN('FN', 'IF', 'TF')",
+    "tables": [
+      "dbo.sysobjects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select name from sys.procedures",
+    "tables": [
+      "sys.procedures"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select name from sys.tables",
+    "tables": [
+      "sys.tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select name from sys.views",
+    "tables": [
+      "sys.views"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select object_name as name, object_type as category from user_procedures",
+    "tables": [
+      "user_procedures"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select table_name as name from user_tables",
+    "tables": [
+      "user_tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.AutoCompleteHelper::DoAll",
+    "operation": "SELECT",
+    "sql": "select view_name as name from user_views",
+    "tables": [
+      "user_views"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::.cctor",
+    "operation": "UNKNOWN",
+    "sql": "\r\ndeclare @name nvarchar(1000) = N'{0}';\r\nif (Select top 1 Type From Sys.Objects Where Name = @name)='U'\r\nbegin\r\n\tdeclare @crlf nchar(2);\r\n\tset @crlf = char(13) + char(10);\r\n\tdeclare @createScript nvarchar(max)\r\n\tdeclare @tableName nvarchar(128)\r\n\tselect @tableName = @name;\r\n\t\r\n\tselect @createScript = N'CREATE TABLE [dbo].[' + @tableName + N'](' + @crlf\r\n\t\r\n\tselect @createScript = @createScript + char(9) + N'[' + sc.[name] + N'] ' +\r\n\tcase when sc.is_computed = 1 then\r\n\t    N' AS ' + cc.[definition]\r\n\telse\r\n\t    st.[name] +\r\n\t    case\r\n\t        when st.[name] in ('varchar','nvarchar','char','nchar') then '(' + case when sc.max_length = -1 then N'max' else cast(sc.max_length as varchar) end + N')'\r\n\t        when st.[name] in ('decimal','numeric') then N'(' + cast(sc.precision as varchar) + N',' + cast(sc.scale as varchar) + N')'\r\n\t        else N''\r\n\t    end +\r\n\t    case when sc.is_identity = 1 then N' IDENTITY(1,1) ' else N' ' end +\r\n\t    case when sc.is_nullable = 1 then N'NULL' else N'NOT NULL' end\r\n\tend +\r\n\tN',' + @crlf\r\n\tfrom sys.columns sc\r\n\tjoin sys.types st on st.user_type_id = sc.user_type_id\r\n\tleft outer join sys.computed_columns cc on cc.[object_id] = sc.[object_id] and cc",
+    "tables": [
+      "Sys.Objects",
+      "dbo",
+      "sys.columns",
+      "sys.computed_columns",
+      "sys.index_columns",
+      "sys.indexes",
+      "sys.types"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::GetScript_Oracle",
+    "operation": "UNKNOWN",
+    "sql": "\r\n\t\twith x as (\r\n\t\t select column_name, column_id, data_type||\r\n\t\tcase\r\n\t\twhen data_precision is not null and nvl(data_scale,0)>0 then '('||data_precision||','||data_scale||')'\r\n\t\twhen data_precision is not null and nvl(data_scale,0)=0 then '('||data_precision||')'\r\n\t\twhen data_precision is null and data_scale is not null then '(*,'||data_scale||')'\r\n\t\twhen char_length>0 then '('||char_length||')'\r\n\t\tend||decode(nullable, 'N', ' NOT NULL') as data_type\r\n\t\tfrom user_tab_columns\r\n\t\twhere table_name = N'{0}'\r\n\t\t)\r\n\t\tSELECT 'CREATE TABLE ' || N'{0}' || '(\r\n\t\t' || LISTAGG('\t' || column_name || ' ' || data_type, ',\r\n\t\t') WITHIN GROUP (ORDER BY column_id) || '\r\n\t\t)' as text\r\n\t\tfrom x\r\n",
+    "tables": [
+      "user_tab_columns",
+      "x"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::GetScript_Oracle",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT 'CREATE OR REPLACE ' || LISTAGG(Text,'') WITHIN GROUP (ORDER BY line) FROM (SELECT TEXT, line FROM user_SOURCE WHERE name = N'{0}' ) x\r\n",
+    "tables": [
+      "user_SOURCE"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::GetScript_Oracle",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT 'CREATE OR REPLACE VIEW {0} AS\r\n'||text_vc FROM USER_VIEWS WHERE VIEW_NAME = N'{0}'\r\n",
+    "tables": [
+      "USER_VIEWS"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::GetScript_Oracle",
+    "operation": "SELECT",
+    "sql": "Select object_type From user_Objects where object_name = N'",
+    "tables": [
+      "user_Objects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::SetTitle",
+    "operation": "EXECUTE",
+    "sql": "Execute SQL (",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::btnFindInAllDatabases_Click",
+    "operation": "EXEC",
+    "sql": "exec util_ForEach 'select name from sys.databases where name like N''nid_%'' and source_database_id is null', \r\n\t'select ''$name$'' db, * from [$name$].dbo.met_typedef where caption like N''%test%''',\r\n\t'select caption from [$name$].dbo.met_typedef where caption like N''%test%'''\r\n",
+    "tables": [
+      "sys.databases"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::btnGetObjectInfo_Click",
+    "operation": "EXEC",
+    "sql": "exec nid_getobjectinfo ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::btnShowSlowQueries_Click",
+    "operation": "SELECT",
+    "sql": "select top 10 * from spl_querylog where CreationDate>GETDATE()-10 and TotalTime>100",
+    "tables": [
+      "spl_querylog"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::showDeadlockToolStripMenuItem_Click",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT  L.request_session_id AS SPID, \r\n\tDB_NAME(L.resource_database_id) AS DatabaseName,\r\n\tO.Name AS LockedObjectName, \r\n\tP.object_id AS LockedObjectId, \r\n\tL.resource_type AS LockedResource, \r\n\tL.request_mode AS LockType,\r\n\tST.text AS SqlStatementText,        \r\n\tES.login_name AS LoginName,\r\n\tES.host_name AS HostName,\r\n\tTST.is_user_transaction as IsUserTransaction,\r\n\tAT.name as TransactionName,\r\n\tCN.auth_scheme as AuthenticationMethod\r\n\tFROM    sys.dm_tran_locks L\r\n    JOIN sys.partitions P ON P.hobt_id = L.resource_associated_entity_id\r\n    JOIN sys.objects O ON O.object_id = P.object_id\r\n    JOIN sys.dm_exec_sessions ES ON ES.session_id = L.request_session_id\r\n    JOIN sys.dm_tran_session_transactions TST ON ES.session_id = TST.session_id\r\n    JOIN sys.dm_tran_active_transactions AT ON TST.transaction_id = AT.transaction_id\r\n    JOIN sys.dm_exec_connections CN ON CN.session_id = ES.session_id\r\n    CROSS APPLY sys.dm_exec_sql_text(CN.most_recent_sql_handle) AS ST\r\nWHERE   resource_database_id = db_id()\r\nORDER BY L.request_session_id\r\n",
+    "tables": [
+      "sys.dm_exec_connections",
+      "sys.dm_exec_sessions",
+      "sys.dm_tran_active_transactions",
+      "sys.dm_tran_locks",
+      "sys.dm_tran_session_transactions",
+      "sys.objects",
+      "sys.partitions"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.ExecuteSqlForm::showSlowQueries2ToolStripMenuItem_Click",
+    "operation": "UNKNOWN",
+    "sql": "with x as (\r\n\tselect  \r\n\t\tsubstring(query, 1, 50) as pattern, \r\n\t\tcount(*) as count, \r\n        sum(totaltime)/1000 as sum, \r\n        avg(totaltime)/1000 as avg, \r\n\t\tmin(query) as query1, max(query) as query2, \r\n\t\tmin(stacktrace) as stack1, max(stacktrace) as stack2\r\n\tfrom \r\n\t\tspl_querylog\r\n\twhere \r\n\t\ttotaltime > 10000\r\n\t\tand creationdate between getdate() - 0 - 24./24 and getdate() - 0\r\n        --and query like '%xct_%'\r\n\tgroup by \r\n\t\tsubstring(query, 1, 50)\r\n)\r\nselect * from x\r\norder by sum desc",
+    "tables": [
+      "spl_querylog",
+      "x"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "Barsa.Deploy.Sql.QueryEditorControl::GetDataInfo_SqlServer",
+    "operation": "EXEC",
+    "sql": "exec nid_getobjectinfo ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "BarsaServerSetup.Forms.DbControlHelper::ShowPhysicalPath",
+    "operation": "SELECT",
+    "sql": "SELECT \r\n\t\t                        [type_desc]\r\n                                ,[name]\r\n                                ,[physical_name]\r\n                                ,[size]\r\n                             FROM [sys].[database_files]",
+    "tables": [
+      "sys"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "BarsaServerSetup.Forms.DbControl_Sql::GetDatabaseListQuery",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n\tdeclare @query nvarchar(max), @action nvarchar(max), @condition nvarchar(max), @unionActionInTableName nvarchar(max)\r\n\tset @query\t\t\t\t\t ='select * from sys.databases where source_database_id is null and state_desc = ''ONLINE'' and name like ''nid_%''' \r\n\tset @action \t\t\t\t ='select cast(''$name$'' as nvarchar(100)) as name, max(lastaccesstime) as lastAccessTime from [$name$].dbo.spl_session'\r\n\tset @condition \t\t\t\t ='select * from [$name$].sys.tables where name=''spl_session'''\r\n\tset @unionActionInTableName  ='{1}'\r\n\r\n\t{0}\r\n    \r\n    IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('{1}') AND type in (N'U'))\r\n    begin\r\n\t    select * from {1} order by lastAccessTime desc\r\n        drop table {1}  \r\n    end;\r\n    else\r\n    begin\r\n        select null as Name-- where 1=2\r\n    end;\r\nend;\r\n",
+    "tables": [
+      "sys.databases",
+      "sys.objects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Deploy.Common.dll",
+    "method": "BarsaServerSetup.Forms.DbControl_Sql::GetDatabaseListQuery",
+    "operation": "SELECT",
+    "sql": "select * from sys.databases where state_desc = 'ONLINE' {0} order by name",
+    "tables": [
+      "sys.databases"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.BusinessLogic.Server_مكاتبات_اداري::LoadRelatedLetters",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT l.RegUnitId,\r\n\tl.LetterType,\r\n\tisnull(l.Id,rl.Id) AS Id,\r\n\tisnull(l.LetterNo,rl.LetterNo) AS LetterNo,\r\n\tisnull(l.RelationType,rl.RelationType) AS RelationType,\r\n\tisnull(l.RegUnitNo,rl.RegUnitNo) AS RegUnitNo,\r\n\tisnull(l.Subject,rl.Subject) AS DisplayName,\r\n\trl.RelationType\r\nFROM {0}\r\n{1}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.BusinessLogic.Server_مكاتبات_اداري::LoadRelatedLetters",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT wcp.Path, '1' as WcType FROM Spl_View_ActiveWorkCenters wc \r\n\tINNER JOIN Spl_View_ActiveWorkCenters wcp ON wc.ParentId = wcp.Id \r\n\tINNER JOIN Spl_WorkCenterRelatedUsers wcu ON wcu.WcId = wc.Id \r\nWHERE wc.WcType = 1 AND wcu.UserId = '{0}' \r\nUNION \r\nSELECT wc.Path, '0' as WcType FROM Spl_View_ActiveWorkCenters wc \r\n\tINNER JOIN Spl_WorkCenterRelatedUsers wcu ON wcu.WcId = wc.Id \r\nWHERE wc.WcType = 0 AND wcu.UserId = '{0}';",
+    "tables": [
+      "Spl_View_ActiveWorkCenters",
+      "Spl_WorkCenterRelatedUsers"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.BusinessLogic.Server_مكاتبات_اداري::SearchLetters",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT DISTINCT ('[دبیرخانه: ' + l.RegUnitNo + ' | نامه: ' + l.LetterNo + ']') AS RegUnitLetterNo\r\n    ,l.Id\r\n\t,l.RegUnitId\r\n\t,reg.Name AS RegUnitName\r\n\t,l.IndicatorId\r\n\t,ind.Name AS IndicatorName\r\n\t,NULL AS RegUnitLetterDate\r\n\t,l.RegUnitNo\r\n    ,l.RegUnitDate\r\n    ,l.LetterNo\r\n    ,l.LetterDate\r\n    ,l.LetterType\r\n    ,l.Subject\r\n    ,l.Summary\r\n    ,l.AttachTypeId\r\n    ,l.HasAttachment\r\n    ,l.AttachDescription\r\n    ,l.RecieveDate\r\n    ,l.LetterSentDate\r\n    ,l.LetterTransportTypeId\r\n    ,lrt.Title AS LetterTransportTypeName\r\n    ,l.LanguageId\r\n    ,lng.FarsiTitle AS LanguageName\r\n    ,l.CategoryId\r\n    ,grp.Title AS CategoryName\r\n    ,l.SerialNo\r\n    ,l.AccessLevel\r\n    ,l.Priority\r\n    ,l.CreatorUserId\r\n    ,l.RelatedPersonText\r\n    ,l.RegistererInvolverUserId\r\n    ,l.SenderInvolversText\r\n    ,l.ToInvolversText\r\n    ,l.CcInvolversText\r\n    ,l.SignerInvolversText\r\n    ,l.LetterStateId\r\n    ,l.AutoLetterNo\r\n    ,l.FinalApproved\r\n    ,1 AS VersionTitle\r\n    ,l.IsDeleted\r\n    ,l.IsCanceled\r\n    ,l.HasReplied\r\n    ,l.CompletedLetterDate\r\n    ,l.LetterCode\r\n    ,l.ToDoText\r\n    ,l.TrackingNo\r\n    ,'' AS MailSubject\r\n    ,'' AS MailContentText\r\n    ,'' AS MailSubjectContentText\r\n   ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.BusinessLogic.Server_مكاتبات_اداري::SearchLetters",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT wcp.Path, '1' as WcType FROM Spl_View_ActiveWorkCenters wc \r\n\tINNER JOIN Spl_View_ActiveWorkCenters wcp ON wc.ParentId = wcp.Id \r\n\tINNER JOIN Spl_WorkCenterRelatedUsers wcu ON wcu.WcId = wc.Id \r\nWHERE wc.WcType = 1 AND wcu.UserId = '{0}' \r\nUNION \r\nSELECT wc.Path, '0' as WcType FROM Spl_View_ActiveWorkCenters wc \r\n\tINNER JOIN Spl_WorkCenterRelatedUsers wcu ON wcu.WcId = wc.Id \r\nWHERE wc.WcType = 0 AND wcu.UserId = '{0}';",
+    "tables": [
+      "Spl_View_ActiveWorkCenters",
+      "Spl_WorkCenterRelatedUsers"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.BusinessLogic.Server_مكاتبات_اداري::UpdateIsLastRelLetter",
+    "operation": "UNKNOWN",
+    "sql": "\r\nDECLARE\t@id BIGINT;\r\nSELECT TOP 1 @id = l.Id FROM xapp_automation_Letter l \r\n\tINNER JOIN xapp_automation_LetterState s ON s.Id = l.LetterStateId \r\nWHERE LetterCode = {0}\r\nORDER BY s.OrderNo DESC;\r\nUPDATE xapp_automation_Letter SET IsLastRelLetter = 1 WHERE Id = @id;\r\nUPDATE xapp_automation_Letter SET IsLastRelLetter = 0 WHERE LetterCode = {0} AND Id <> @id;",
+    "tables": [
+      "xapp_automation_Letter",
+      "xapp_automation_LetterState"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.OSVersionEx::get_Current",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM Win32_OperatingSystem",
+    "tables": [
+      "Win32_OperatingSystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.SakkooUtil::IsMemberOf",
+    "operation": "SELECT",
+    "sql": "SELECT TOP 1 [Id] ,[Description],[OwnerUserId],[Name] FROM [Spl_SecurityGroup] WHERE [Name] = N'{0}'",
+    "tables": [
+      "Spl_SecurityGroup"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Dynamics.dll",
+    "method": "Barsa.Dynamics.Typed_مكاتبات_اداري+Typed_دفتر_شماره_دهي::GetLetterNo",
+    "operation": "SELECT",
+    "sql": "select count(*) from [[{0}]] where [{1}] = {2} and [{3}] = {4}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.EmailClient.dll",
+    "method": "Barsa.EmailClient.Account::ValueAlreadyExists",
+    "operation": "SELECT",
+    "sql": "select count(*) from Eml_Account where Title = '{0}' and id <> {1} and userId = {2}",
+    "tables": [
+      "Eml_Account"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.EmailClient.dll",
+    "method": "Barsa.EmailClient.EmailEntity::GetInboxUnReadCount",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT count(*) FROM View_ActiveEml_Folders v\r\n\tINNER JOIN Eml_EmailEntity ee ON ee.FolderId = v.Id\r\nWHERE v.UserId = {0} and v.FolderType = {1} and ee.HasRead=0",
+    "tables": [
+      "Eml_EmailEntity",
+      "View_ActiveEml_Folders"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.EmailClient.dll",
+    "method": "Barsa.EmailClient.OtherObjects.ReceiverItem::GetQuery",
+    "operation": "SELECT",
+    "sql": "Select FullName as Title , {0} as EmailAddress from Cnt_Contact where {0} <> '' \r\n                And ({1} or {2}) And {3}",
+    "tables": [
+      "Cnt_Contact"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.Ui.Win.dll",
+    "method": "Barsa.FaxApplication.Ui.Win.Controls.CartableFaxListControl::GetClearUnReferencedMailsQuery",
+    "operation": "SELECT",
+    "sql": "select fe.id from Fax_FaxEntity fe where fe.id=",
+    "tables": [
+      "Fax_FaxEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.dll",
+    "method": "Barsa.FaxApplication.BusinessLogic.JobBusinessLogic::GetExistingJobsCount",
+    "operation": "SELECT",
+    "sql": "Select count(*) from  Fax_Job where faxEntityId = {0} and jobStatus = {1}",
+    "tables": [
+      "Fax_Job"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.dll",
+    "method": "Barsa.FaxApplication.FaxEntity::UpdateNonSetServerIdForReceivedFaxes",
+    "operation": "SELECT",
+    "sql": "select id, folderId from fax_faxEntity where faxDirectionType=1 and serverId=0",
+    "tables": [
+      "fax_faxEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.dll",
+    "method": "Barsa.FaxApplication.FaxEntity::UpdateNonSetServerIdForReceivedFaxes",
+    "operation": "UPDATE",
+    "sql": "update fax_faxentity set serverId=",
+    "tables": [
+      "fax_faxentity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.dll",
+    "method": "Barsa.FaxApplication.FaxEntitySearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.FaxApplication.dll",
+    "method": "Barsa.FaxApplication.Folder::IsExist",
+    "operation": "SELECT",
+    "sql": "Select count(*) from  View_ActiveFax_Folders where serverId = {0} ",
+    "tables": [
+      "View_ActiveFax_Folders"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixChainId",
+    "operation": "UPDATE",
+    "sql": "\r\n                UPDATE Mil_Mail SET CHAINID = CHAINID + {0}\r\n                $$$\r\n                SET IDENTITY_INSERT Mil_MailMain ON \r\n                {1}\r\n                SET IDENTITY_INSERT Mil_MailMain OFF \r\n                ",
+    "tables": [
+      "Mil_Mail"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixChainId",
+    "operation": "INSERT",
+    "sql": "INSERT INTO Mil_MailMain (Id, dummy) VALUES ({0}, 0)",
+    "tables": [
+      "Mil_MailMain"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixChainId",
+    "operation": "INSERT",
+    "sql": "INSERT INTO Mil_MailMain (Id, dummy) VALUES ({0}, 0)",
+    "tables": [
+      "Mil_MailMain"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixChainId",
+    "operation": "SELECT",
+    "sql": "select max(chainid) from dbo.Mil_Mail",
+    "tables": [
+      "dbo.Mil_Mail"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixIdTable",
+    "operation": "UNKNOWN",
+    "sql": "   SET IDENTITY_INSERT {0}_ID ON\r\n                insert into {0}_ID(id,tmp) select max(id),null from {0} having max(id) is not null ;\r\n                SET IDENTITY_INSERT {0}_ID OFF",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.InterEorg.dll",
+    "method": "Barsa.InterEorg.FixForInterEorg::FixIdTable",
+    "operation": "SELECT",
+    "sql": "select max(id) from {0}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.BusinessLogic.FolderBusinessLogic::CreateWorkfolder",
+    "operation": "SELECT",
+    "sql": "select folderid from mil_userfolder where userid = {0} and folderid = {1}",
+    "tables": [
+      "mil_userfolder"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.DataAccess.FolderDa::Update",
+    "operation": "UPDATE",
+    "sql": "update Mil_Folder set IsDeleted = {0} where Id = {1}",
+    "tables": [
+      "Mil_Folder"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.DataAccess.MailParticipantDa::Update",
+    "operation": "UPDATE",
+    "sql": "update Mil_MailParticipant set IsDeleted = {0} where Id = {1}",
+    "tables": [
+      "Mil_MailParticipant"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.Folder::LoadUserRoot",
+    "operation": "SELECT",
+    "sql": "select * from Mil_View_ActiveFolders where id in (select folderid from Mil_UserFolderAll)",
+    "tables": [
+      "Mil_UserFolderAll",
+      "Mil_View_ActiveFolders"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.Folder::LoadWithUserIdAndFoldertype",
+    "operation": "SELECT",
+    "sql": "Select Id, Name, Path, ParentId, FolderTypeId, ContentTypeId, CreatorUserId, OwnerUserId, IsShared, ShowVirtualFolders,ChildCount,IsDeleted From Mil_Folder Where OWNERUSERID = {0} and FolderTypeId = {1}  order by isdeleted",
+    "tables": [
+      "Mil_Folder"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.Mail::GetContainingFolderList",
+    "operation": "SELECT",
+    "sql": "select  f.id\r\n    from Mil_MailInvolver receivedMail left outer join Mil_folder f on (receivedMail.FolderId = f.Id)  \r\n    where  \r\n\t    (receivedMail.MailId={0}) and \r\n\t    (f.OwnerUserId={1} \r\n--    or (select AccessLevel from Mil_Mail where ID={0}) <= (select max(AccessLevel) from Spl_TrusteeAccess ta inner join Spl_TrusteeUser tu on (tu.TrusteeId= ta.TrusteeId) where ta.ObjectId = f.id  and tu.UserId = {1} and ta.ServiceId = 606) \r\n)\r\n",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailInvolver",
+      "Mil_folder",
+      "Spl_TrusteeAccess",
+      "Spl_TrusteeUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.MailDistList::LoadByName",
+    "operation": "SELECT",
+    "sql": "select * from Mil_View_ActiveMailDistList where  name={0} and ownerUserId={1}",
+    "tables": [
+      "Mil_View_ActiveMailDistList"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.MailParticipant::LoadByPerformerId",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT \r\n    ID, RECEIVEMETHOD, RECEIPTIONTYPE, RECEIVEFOLDERID, WCID, ISDEFAULT, OWNERUSERID, TITLE, BEHINDOBJECTID,IsVisible,IsDeleted\r\nFROM \r\n    Mil_MailParticipant \r\nWHERE \r\n    BEHINDOBJECTID = {0} \r\n",
+    "tables": [
+      "Mil_MailParticipant"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.MailSearch::ClearUnrefMails",
+    "operation": "UPDATE",
+    "sql": "update mil_mailinvolver set folderid=0 where id in( select mi.id from mil_mailinvolver mi inner join mil_mail m on (m.id=mi.mailid ) where mi.folderid={0} and m.mailtype={1} and not exists({2}) )",
+    "tables": [
+      "mil_mail",
+      "mil_mailinvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.MailSearch::MakeConditionBody",
+    "operation": "UNKNOWN",
+    "sql": " and (Mil_folder.OwnerUserId={0} or m.AccessLevel <= (select max(AccessLevel) from Spl_TrusteeAccess ta inner join Spl_TrusteeUser tu on (tu.TrusteeId= ta.TrusteeId) where ta.ObjectId = Mil_folder.id  and tu.UserId = {0} and ta.ServiceId = 606) )",
+    "tables": [
+      "Spl_TrusteeAccess",
+      "Spl_TrusteeUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::CreateMissedUserParticipants",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n\tu.id as UserId, u.DisplayName as UserDisplayName, f.FolderId \r\nfrom \r\n\tSpl_Users u\r\n\tinner join mil_userfolder f on (f.userid =u.id and f.Type=0)\r\nwhere \r\n\tu.IsDeleted=0 and \r\n    u.id not in (select BehindObjectId from Mil_MailParticipant p where p.IsDeleted=0)\r\n",
+    "tables": [
+      "Mil_MailParticipant",
+      "Spl_Users",
+      "mil_userfolder"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::CreateRoleParticipantAndWorkFolderAll",
+    "operation": "SELECT",
+    "sql": "\r\nselect wr.WCID as Id\r\nfrom Spl_WorkCenterRelatedUsers wr\r\ninner join Spl_WorkCenter w on(w.ID = wr.WCID)\r\nwhere w.ISDELETED = 0 and wr.RELATIONTYPE = 0\r\ngroup by wr.WCID having count(wr.wcid) > 1",
+    "tables": [
+      "Spl_WorkCenter",
+      "Spl_WorkCenterRelatedUsers"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::CreateRoleParticipantAndWorkFolderAll",
+    "operation": "SELECT",
+    "sql": "select id from spl_workcenter where isdeleted = {0} and wctype = {1}",
+    "tables": [
+      "spl_workcenter"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::FixWorkCenterWithMultiUserAll",
+    "operation": "UPDATE",
+    "sql": "update p set p.ISDELETED = 1\r\nfrom Mil_MailParticipant p\r\ninner join Spl_WorkCenterRelatedUsers wr on(p.WCID = wr.WCID and p.BEHINDOBJECTID = wr.USERID)\r\nwhere wr.WCID in({0})",
+    "tables": [
+      "Mil_MailParticipant",
+      "Spl_WorkCenterRelatedUsers",
+      "p"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::TransferAccessFromWorkCenterToSecurityGroup",
+    "operation": "UPDATE",
+    "sql": "update Spl_TrusteeAccess set TRUSTEEID = {0} where TRUSTEEID = {1}",
+    "tables": [
+      "Spl_TrusteeAccess"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::UpdateParticipatnUserToWC",
+    "operation": "UPDATE",
+    "sql": "\r\n\r\n                    update p \r\n                    \tset   p.wcid = 0 , p.title = u.displayname\r\n                    from Mil_MailParticipant p\r\n                    inner join spl_users u on (u.id = p.BEHINDOBJECTID)\r\n                    where p.ISDELETED = 0 and p.BEHINDOBJECTID <> p.WCID ",
+    "tables": [
+      "Mil_MailParticipant",
+      "p",
+      "spl_users"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::UpdateParticipatnUserToWC",
+    "operation": "UPDATE",
+    "sql": "\r\nupdate p \r\nset p.BEHINDOBJECTID = p.WCID, p.RECEIPTIONTYPE = 5, p.OWNERUSERID = 0\r\nfrom Mil_MailParticipant p\r\ninner join spl_users u on(p.BEHINDOBJECTID = u.Id)\r\nwhere p.ISDELETED = 0 and p.WCID <> 0 and p.IsVisible = 1 and p.RECEIPTIONTYPE = 0\r\nand p.ID <> (select top 1 pp.Id from Mil_MailParticipant pp where pp.ISDELETED = 0 and pp.BEHINDOBJECTID = p.BEHINDOBJECTID and pp.RECEIPTIONTYPE = 0 and IsVisible = 1 order by pp.WCID , pp.ID)\r\n\r\n",
+    "tables": [
+      "Mil_MailParticipant",
+      "p",
+      "spl_users"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.PerformerHelper::UpdateParticipatnUserToWC",
+    "operation": "UPDATE",
+    "sql": "update Mil_MailParticipant \r\n\tset Mil_MailParticipant.BEHINDOBJECTID = Mil_MailParticipant.WCID, Mil_MailParticipant.RECEIPTIONTYPE = 5, Mil_MailParticipant.RECEIVEMETHOD = 1, \r\n  Mil_MailParticipant.OWNERUSERID = 0, Mil_MailParticipant.RECEIVEFOLDERID = (SELECT f.ID FROM Mil_Folder f WHERE f.OWNERUSERID = Mil_MailParticipant.WCID and f.ID is not null and f.FOLDERTYPEID = 2)\r\nwhere Mil_MailParticipant.ISDELETED = 0 and Mil_MailParticipant.WCID <> 0 and Mil_MailParticipant.BEHINDOBJECTID <> Mil_MailParticipant.WCID ",
+    "tables": [
+      "Mil_Folder",
+      "Mil_MailParticipant"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.MailApplication.dll",
+    "method": "Barsa.MailApplication.RuleWizard::ExistsRuleForUser",
+    "operation": "SELECT",
+    "sql": "select count (rw.id) from mil_RuleWizard rw where rw.owneruserid= ",
+    "tables": [
+      "mil_RuleWizard"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Editor.PatternFunctions::GetReportList",
+    "operation": "SELECT",
+    "sql": "select * from met_report where SearchObjectId={0}",
+    "tables": [
+      "met_report"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.BusinessLogic.CodeWrapperBusinessLogic::Clear",
+    "operation": "DELETE",
+    "sql": "delete from met_MetaCodeWrapper where systemid={0}",
+    "tables": [
+      "met_MetaCodeWrapper"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.BusinessLogic.CodeWrapperBusinessLogic::Clear",
+    "operation": "DELETE",
+    "sql": "delete from met_MetaCodeWrapper where systemid={0} and layerId={1}",
+    "tables": [
+      "met_MetaCodeWrapper"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.BusinessLogic.CodeWrapperBusinessLogic::GetFromDb",
+    "operation": "SELECT",
+    "sql": "select code from met_MetaCodeWrapper where systemid={0} and layerId={1}",
+    "tables": [
+      "met_MetaCodeWrapper"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.Code.WrapperStatistics::CountAll",
+    "operation": "UNKNOWN",
+    "sql": "\r\nIF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[WrapperStatistics]') AND type in (N'U'))\r\n  DROP TABLE [dbo].[WrapperStatistics]\r\nGO\r\n\r\ncreate table WrapperStatistics(SystemName nvarchar(200), SystemId bigint, WrapperCount int, UsageCount int, UsageCountDistinct int);\r\nGO\r\n",
+    "tables": [
+      "WrapperStatistics",
+      "dbo",
+      "sys.objects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.Code.WrapperStatistics::CountAll",
+    "operation": "INSERT",
+    "sql": "insert into WrapperStatistics (systemName, systemid , wrapperCount , usageCount , usageCountDistinct ) values('{0}', {1}, {2}, {3}, {4})",
+    "tables": [
+      "WrapperStatistics"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.Code.WrapperStatistics::CountAll",
+    "operation": "SELECT",
+    "sql": "select * from met_metacode where len(code)>6",
+    "tables": [
+      "met_metacode"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.SqlStrings::Query_CodeWrapperSave",
+    "operation": "UNKNOWN",
+    "sql": "\r\nDECLARE \r\n    l_exists NUMBER;\r\nbegin\r\n    select min(1) INTO l_exists from dual WHERE exists (select id from met_MetaCodeWrapper where systemid={0} and layerId={1});\r\n    IF l_exists=1 then\r\n        update met_MetaCodeWrapper set code={2} where systemid={0} and layerId={1};\r\n    else\r\n        insert into met_MetaCodeWrapper (id,systemid,layerid,code) values(met_MetaCodeWrapper_seq.NEXTVAL, {0},{1},{2});\r\n    end IF;\r\nend;",
+    "tables": [
+      "dual",
+      "l_exists",
+      "met_MetaCodeWrapper"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.SqlStrings::Query_CodeWrapperSave",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    if exists (select id from met_MetaCodeWrapper where systemid={0} and layerId={1})\r\n        update met_MetaCodeWrapper set code={2} where systemid={0} and layerId={1};\r\n    else\r\n        insert into met_MetaCodeWrapper \r\n            (systemid,layerid,code) values({0},{1},{2});\r\nend;",
+    "tables": [
+      "met_MetaCodeWrapper"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Code.SqlStrings::Query_RemoveRedundantAttachmentsAfterImportExternalFiles",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    delete from\r\n        shr_fileattachment\r\n    where\r\n        id in \r\n        (\r\n            select \r\n                FileAttachmentId\r\n            from\r\n                shr_fileattachmentobject\r\n            where\r\n                ObjectId={0} and\r\n                FileAttachmentId<>{1}\r\n        );\r\n\r\n    delete from \r\n        shr_fileattachmentobject\r\n    where\r\n        ObjectId={0} and\r\n        FileAttachmentId<>{1};\r\nend;\r\n                    ",
+    "tables": [
+      "shr_fileattachment",
+      "shr_fileattachmentobject"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.DataAccess.MetaCodeProjectDa::DeleteAll",
+    "operation": "UNKNOWN",
+    "sql": "\r\n                        Begin\r\n                            delete from met_MetaCodeProjectDependency {0};\r\n                            delete from met_MetaCodeProject {1};\r\n                        End;",
+    "tables": [
+      "met_MetaCodeProject",
+      "met_MetaCodeProjectDependency"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.DataAccess.MetaCodeProjectDa::DeleteAll",
+    "operation": "UNKNOWN",
+    "sql": " where exists(select * from met_MetaCodeProject m where m.Id=metaCodeProjectId and m.RelatedSystemId=@Id)",
+    "tables": [
+      "met_MetaCodeProject"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Code.dll",
+    "method": "Barsa.Meta.Extra.ExternalFileResolver::GetFiles",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT\r\n    A.Id,A.FileHash,A.DisplayName, TargetType\r\nFROM\r\n    {0} A \r\n\tinner join met_MetaSystem s on (s.id=a.SystemId)\r\nWHERE\r\n    A.TargetType in ({1}) and\r\n    A.IsActive = 1 and\r\n\ts.IsInactive=0\r\n",
+    "tables": [
+      "met_MetaSystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.ApplicationTreeForm::CheckDb",
+    "operation": "SELECT",
+    "sql": "select count(*) from Nid_ForeignKeyField where tablename = N'met_MetaSystem'",
+    "tables": [
+      "Nid_ForeignKeyField"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowDiagramStatistics::GetQuery_LoadActivityDefListStatistics",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith arView as (select  AR.*, (case finishtime when null then SYSDATE else  finishtime end) as finishtime2 from wfl_activityrun ar)\r\n  SELECT \r\n    r.activityDefId,\r\n     CAST( SUM(60*60*24*(  r.FinishTime2  - r.StartTime)) AS NUMBER(19,0)) AS SumTime,\r\n    SUM(CASE WHEN r.Status IN (1,3,5) THEN 1 ELSE 0 end) AS ActiveCount,\r\n    COUNT(*) AS AllCount,\r\n    SUM(CASE WHEN r.Status = 5 THEN 1 ELSE 0 end) AS ErrorCount,\r\n\tSUM(case when r.finishtime2>rr.endtime then 1 else 0 end) OverDueCount\r\n  FROM \r\n    arView r\r\n    INNER JOIN wfl_ActivityDef ad ON (ad.id = r.activityDefId)\r\n\tLEFT JOIN BAM_ActivityRuleRun RR ON (rr.activityrunid=r.id)\r\n  WHERE \r\n\tad.workflowDefId = {0}\r\n{1}\r\n{2}\r\n  GROUP BY \r\n    r.activityDefId\r\n",
+    "tables": [
+      "BAM_ActivityRuleRun",
+      "arView",
+      "wfl_ActivityDef",
+      "wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowDiagramStatistics::GetQuery_LoadActivityDefListStatistics",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith arView as (select  AR.*, (case when finishtime is null then GetDate() else  finishtime end) as finishtime2 from wfl_activityrun ar)\r\n  SELECT \r\n    r.activityDefId,\r\n    SUM(CAST( DATEDIFF(SECOND, r.StartTime, r.FinishTime2) as bigint)) AS SumTime,\r\n    COUNT(*) AS AllCount,\r\n    SUM(CASE WHEN r.Status = 5 THEN 1 ELSE 0 end) AS ErrorCount,\r\n\tSUM(case when r.finishtime2>rr.endtime then 1 else 0 end) OverDueCount\r\n  FROM \r\n    arView r\r\n    INNER JOIN wfl_ActivityDef ad ON (ad.id = r.activityDefId)\r\n\tLEFT JOIN BAM_ActivityRuleRun RR ON (rr.activityrunid=r.id)\r\n  WHERE \r\n\tad.workflowDefId =  {0} \r\n{1}\r\n{2}\r\n  GROUP BY \r\n    r.activityDefId\r\n",
+    "tables": [
+      "BAM_ActivityRuleRun",
+      "arView",
+      "wfl_ActivityDef",
+      "wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowDiagramStatistics::GetWorkflowRunCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from wfl_workflowrun where WorkflowDefId={0}",
+    "tables": [
+      "wfl_workflowrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowDiagramStatistics::GetWorkflowRunCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from wfl_workflowrun where WorkflowDefId={0} and Status=1/*Started*/",
+    "tables": [
+      "wfl_workflowrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowDiagramStatistics::GetWorkflowSummaryData",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith wrView as (select  WR.*, (case when finishtime is null then {3} else  finishtime end) as finishtime2 from wfl_WorkflowRun wr)\r\nselect\r\n    COUNT(*) AS AllCount,\r\n    {2} AS SumTime,\r\n    SUM(CASE WHEN r.Status IN (5/*Failed*/) THEN 1 ELSE 0 end) AS FailedCount\r\nfrom\r\n    wrView r \r\nwhere\r\n    r.workflowDefId ={0}\r\n    {1}\r\n    {4}\r\n",
+    "tables": [
+      "wfl_WorkflowRun",
+      "wrView"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "method": "Barsa.Meta.Extra.Ui.Win.Diagram.WorkflowRunDiagramGenerator_Commulative::GetChoiceRunCountList",
+    "operation": "SELECT",
+    "sql": " select\r\nar.results, ar.ACTIVITYDEFID, COUNT(ar.id) as Count\r\n from wfl_activityrun ar \r\ninner JOIN\r\nwfl_activitydef ad ON (ad.ID=ar.activitydefid) \r\n  WHERE \r\nad.workflowdefid={0}  and Status = 2 group BY ar.results, ar.ACTIVITYDEFID",
+    "tables": [
+      "wfl_activitydef",
+      "wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetExportPath",
+    "operation": "SELECT",
+    "sql": "select {0} from {1} where {2}={3}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetFieldDbName",
+    "operation": "SELECT",
+    "sql": "select dbname from met_fielddef where typedefid={0} and caption=N'{1}'",
+    "tables": [
+      "met_fielddef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetImportPath",
+    "operation": "SELECT",
+    "sql": "select {0} from {1} where {2}={3}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetServerCenterId",
+    "operation": "SELECT",
+    "sql": "select id from {0} where {1} = '{2}'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetSystemId",
+    "operation": "SELECT",
+    "sql": "select id from met_MetaSystem where Caption = N'{0}'",
+    "tables": [
+      "met_MetaSystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.Helpers.ErsalKonnandeTypeDef::GetTypeDefField",
+    "operation": "SELECT",
+    "sql": "select {2} from met_typedef where systemid={0} and caption=N'{1}'",
+    "tables": [
+      "met_typedef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.SakkooActionExecuter::GetSecurityGroupIdByName",
+    "operation": "SELECT",
+    "sql": "select id from spl_securitygroup where name = {0}",
+    "tables": [
+      "spl_securitygroup"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.InterEorgUtil.exe",
+    "method": "Barsa.Meta.InterEorgUtil.SakkooActionExecuter::GetUserIdByDisplayName",
+    "operation": "SELECT",
+    "sql": "select id from spl_users where displayname = {0}",
+    "tables": [
+      "spl_users"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiInfrastructureRegistrationResolver::ResolveCaption",
+    "operation": "SELECT",
+    "sql": "select id, {0} from {1} where id = {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiInfrastructureRegistrationResolver::ResolveId",
+    "operation": "SELECT",
+    "sql": "select id, {0} from {1} where {0} = N'{2}'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Caption from met_MetaSystem where id={0}",
+    "tables": [
+      "met_MetaSystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select MetaSystemId from wfl_WorkflowDef where id={0}",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Name from met_Report where id={0}",
+    "tables": [
+      "met_Report"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Name from met_TypeViewEntity where id={0}",
+    "tables": [
+      "met_TypeViewEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Title from wfl_WorkflowDef where id={0}",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select TypeDefId from met_TypeViewEntity where id={0}",
+    "tables": [
+      "met_TypeViewEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select caption from met_FieldDef where id={0}",
+    "tables": [
+      "met_FieldDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select caption from met_TypeDef where id={0}",
+    "tables": [
+      "met_TypeDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select systemId from met_Report where id={0}",
+    "tables": [
+      "met_Report"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select systemId from met_TypeDef where id={0}",
+    "tables": [
+      "met_TypeDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.AiSemanticIdResolver::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select typeDefId from met_FieldDef where id={0}",
+    "tables": [
+      "met_FieldDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.BixJsonExportManager::GetComposeOwnershipRoutes",
+    "operation": "SELECT",
+    "sql": "select ParentObjectId, RelationType, RelationTypeTitle from spl_ObjectReference where IsDeleted=0 and ObjectId=",
+    "tables": [
+      "spl_ObjectReference"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.BixKnowledgeHelper::ReadHumanKnowledgeForSemanticExport",
+    "operation": "SELECT",
+    "sql": "select Id, RelatedObjectTypeDefId, RelatedObjectId, Content from ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.BixKnowledgeHelper::ValidateTarget",
+    "operation": "SELECT",
+    "sql": "select count(id) from ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Caption from met_MetaSystem where id={0}",
+    "tables": [
+      "met_MetaSystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select MetaSystemId from wfl_WorkflowDef where id={0}",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Name from met_Report where id={0}",
+    "tables": [
+      "met_Report"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Name from met_TypeViewEntity where id={0}",
+    "tables": [
+      "met_TypeViewEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select Title from wfl_WorkflowDef where id={0}",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select TypeDefId from met_TypeViewEntity where id={0}",
+    "tables": [
+      "met_TypeViewEntity"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select caption from met_FieldDef where id={0}",
+    "tables": [
+      "met_FieldDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select caption from met_TypeDef where id={0}",
+    "tables": [
+      "met_TypeDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select systemId from met_Report where id={0}",
+    "tables": [
+      "met_Report"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select systemId from met_TypeDef where id={0}",
+    "tables": [
+      "met_TypeDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.SemanticExchange.dll",
+    "method": "Barsa.Meta.DataExchange.SemanticRules::LoadDbRecord",
+    "operation": "SELECT",
+    "sql": "select typeDefId from met_FieldDef where id={0}",
+    "tables": [
+      "met_FieldDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Meta.ServiceHost.exe",
+    "method": "Barsa.Meta.ServiceHost.ServiceHostHelper::GetCommandLine",
+    "operation": "SELECT",
+    "sql": "SELECT CommandLine FROM Win32_Process WHERE ProcessId = {0}",
+    "tables": [
+      "Win32_Process"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.DesignerDialogs.v2.5.dll",
+    "method": "Barsa.SPL.Win.DesignerDialogs.Glyphs.GlyphInfoEditorForm::InitializeComponent",
+    "operation": "SELECT",
+    "sql": "Select a Glyph Style from the list below. Choose \"Custom Style\" to supply your own images and fully customize the appearance.",
+    "tables": [
+      "the"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.ProductsTableAdapter::InitAdapter",
+    "operation": "DELETE",
+    "sql": "DELETE FROM `Products` WHERE ((`ProductID` = ?) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `QuantityPerUnit` IS NULL) OR (`QuantityPerUnit` = ?)) AND ((? = 1 AND `UnitPrice` IS NULL) OR (`UnitPrice` = ?)) AND ((? = 1 AND `UnitsInStock` IS NULL) OR (`UnitsInStock` = ?)) AND ((? = 1 AND `UnitsOnOrder` IS NULL) OR (`UnitsOnOrder` = ?)) AND ((? = 1 AND `ReorderLevel` IS NULL) OR (`ReorderLevel` = ?)) AND ((? = 1 AND `Discontinued` IS NULL) OR (`Discontinued` = ?)) AND ((? = 1 AND `OnSale` IS NULL) OR (`OnSale` = ?)))",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.ProductsTableAdapter::InitAdapter",
+    "operation": "INSERT",
+    "sql": "INSERT INTO `Products` (`ProductName`, `QuantityPerUnit`, `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, `Discontinued`, `OnSale`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.ProductsTableAdapter::InitCommandCollection",
+    "operation": "SELECT",
+    "sql": "SELECT ProductID, ProductName, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued, OnSale FROM Products",
+    "tables": [
+      "Products"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.SuppliersTableAdapter::InitAdapter",
+    "operation": "DELETE",
+    "sql": "DELETE FROM `Suppliers` WHERE ((`SupplierID` = ?) AND ((? = 1 AND `CompanyName` IS NULL) OR (`CompanyName` = ?)) AND ((? = 1 AND `ContactName` IS NULL) OR (`ContactName` = ?)) AND ((? = 1 AND `ContactTitle` IS NULL) OR (`ContactTitle` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)) AND ((? = 1 AND `City` IS NULL) OR (`City` = ?)) AND ((? = 1 AND `Region` IS NULL) OR (`Region` = ?)) AND ((? = 1 AND `PostalCode` IS NULL) OR (`PostalCode` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `Phone` IS NULL) OR (`Phone` = ?)) AND ((? = 1 AND `Fax` IS NULL) OR (`Fax` = ?)))",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.SuppliersTableAdapter::InitAdapter",
+    "operation": "INSERT",
+    "sql": "INSERT INTO `Suppliers` (`CompanyName`, `ContactName`, `ContactTitle`, `Address`, `City`, `Region`, `PostalCode`, `Country`, `Phone`, `Fax`, `HomePage`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.JanusGridDataSetTableAdapters.SuppliersTableAdapter::InitCommandCollection",
+    "operation": "SELECT",
+    "sql": "SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax, HomePage FROM Suppliers",
+    "tables": [
+      "Suppliers"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "method": "Barsa.SPL.Win.AppStyling.Runtime.ResourceChooserDialog::InitializeComponent",
+    "operation": "SELECT",
+    "sql": "Select the items you wish to import from the list of available resources below.",
+    "tables": [
+      "the"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetAttendanceTimeForUser",
+    "operation": "UNKNOWN",
+    "sql": "and sessionId in(select Id from cht_session where {1})",
+    "tables": [
+      "cht_session"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetAttendanceTimeForUser",
+    "operation": "SELECT",
+    "sql": "select sum((isnull(datediff(second,[EnterTime],[ExitTime]),(0)))) from Cht_UserSession where\r\n                            userid={0} ",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetConferenceForUser",
+    "operation": "UNKNOWN",
+    "sql": "and sessionId in(select Id from cht_session where {1})",
+    "tables": [
+      "cht_session"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetConferenceForUser",
+    "operation": "SELECT",
+    "sql": "select count(id) from Cht_UserSession where\r\n                userid={0} ",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentAttchCountForUser",
+    "operation": "SELECT",
+    "sql": "select sum(SentAttchCount) from Cht_UserSession where\r\n                userid={0} ",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentAttchCountForUser",
+    "operation": "SELECT",
+    "sql": "select sum(SentAttchCount) from Cht_UserSession where\r\n                userid={0} and entertime between CONVERT(DATETIME, '{1}', 111) and CONVERT(DATETIME, '{2}', 111)",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentAttchCountForUser2",
+    "operation": "UNKNOWN",
+    "sql": "and sessionId in(select Id from cht_session where {1})",
+    "tables": [
+      "cht_session"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentAttchCountForUser2",
+    "operation": "SELECT",
+    "sql": "select sum(SentAttchCount) from Cht_UserSession where\r\n                userid={0} ",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentCountForUser",
+    "operation": "SELECT",
+    "sql": "select sum(SentMsgCount) from Cht_UserSession where\r\n                userid={0} ",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentCountForUser",
+    "operation": "SELECT",
+    "sql": "select sum(SentMsgCount) from Cht_UserSession where\r\n                userid={0} and entertime between CONVERT(DATETIME, '{1}', 111) and CONVERT(DATETIME, '{2}', 111)",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentCountForUser2",
+    "operation": "UNKNOWN",
+    "sql": "and sessionId in(select Id from cht_session where {1})",
+    "tables": [
+      "cht_session"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentCountForUser2",
+    "operation": "SELECT",
+    "sql": "select sum(SentMsgCount) from Cht_UserSession where\r\n                userid={0}",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.Chat.UserSession::GetSentCountMsgInDayForUser",
+    "operation": "SELECT",
+    "sql": "select sum(SentMsgCount) from Cht_UserSession where\r\n                userid={0} and entertime >= CONVERT(DATETIME, '{1}', 111) and entertime<= CONVERT(DATETIME, '{2}', 111)",
+    "tables": [
+      "Cht_UserSession"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.CustomerNeedManagement.ExternalIssueSearch::GetAsQuery",
+    "operation": "UNKNOWN",
+    "sql": " and not exists(select id from pcm_IssueRelation r where r.RelatedItemId=i.id)",
+    "tables": [
+      "pcm_IssueRelation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.CustomerNeedManagement.ExternalIssueSearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.CustomerNeedManagement.IssueSearch::GetAsQuery",
+    "operation": "UNKNOWN",
+    "sql": " and (select count(*) from pcm_IssueRelation where issueid>= {0}",
+    "tables": [
+      "pcm_IssueRelation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.CustomerNeedManagement.IssueSearch::GetAsQuery",
+    "operation": "UNKNOWN",
+    "sql": " and exists (select id from cnm_externalIssue ei, pcm_issueRelation ir where ir.issueid=i.id and ei.id=ir.relateditemid and ei.status in ({0},{1}) ) ",
+    "tables": [
+      "cnm_externalIssue"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.CustomerNeedManagement.IssueSearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.SharedObjects.BarsaPicture::LoadByObjectId",
+    "operation": "SELECT",
+    "sql": "select pics.* \r\n        from Shr_View_BarsaPicture pics \r\n\t\twhere pics.ObjectId={0} and  (pics.ObjectId2={1} or pics.ObjectId2 is null) and pics.TAGID in ({2})\r\n        order by pics.orderno",
+    "tables": [
+      "Shr_View_BarsaPicture"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.SharedObjects.BusinessLogic.FileAttachmentBusinessLogic::GetFileAttachmentCount",
+    "operation": "SELECT",
+    "sql": "select count (*) from shr_fileattachmentobject where fileattachmentid = {0} and objectid={1} and objectId2={2}",
+    "tables": [
+      "shr_fileattachmentobject"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.SharedObjects.BusinessLogic.ReminderBusinessLogic::LoadAllBetween",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    * \r\nfrom \r\n    Shr_Reminder \r\nwhere \r\n    state={0} and \r\n    RemindTime between {1}  and {2}\r\n",
+    "tables": [
+      "Shr_Reminder"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.SharedObjects.DataAccess.FileAttachmentDa::LoadByIdWithoutContent",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT \r\n\tID,\r\n\tNAME,\r\n\tEXTENSION,\r\n\tZIPALGORITHM,\r\n\tCONTENT,\r\n\tFILEPATH,\r\n\tATTACHTYPE,\r\n\tSIZE$$,\r\n\tdescription\r\nFROM \r\n\tShr_FileAttachment\r\nwhere\r\n    id={0}\r\n",
+    "tables": [
+      "Shr_FileAttachment"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.SharedObjects.dll",
+    "method": "Barsa.SharedObjects.FileAttachment::GetOwnerObjectId",
+    "operation": "SELECT",
+    "sql": "select ObjectId from Shr_FileAttachmentObject where  FILEATTACHMENTID = ",
+    "tables": [
+      "Shr_FileAttachmentObject"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Sms.dll",
+    "method": "Barsa.Sms.SmsEntitySearch::GetAsQuery",
+    "operation": "UNKNOWN",
+    "sql": " and exists(select id from sms_job j where j.SmsEntityId=entity.id and j.SentByServer={0})",
+    "tables": [
+      "sms_job"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Sms.dll",
+    "method": "Barsa.Sms.SmsEntitySearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Sms.dll",
+    "method": "Barsa.Sms.SmsFolder::IsExist",
+    "operation": "SELECT",
+    "sql": "Select count(*) from  View_ActiveSms_Folders where serverId = {0} ",
+    "tables": [
+      "View_ActiveSms_Folders"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleHelper::CompileObjects",
+    "operation": "UNKNOWN",
+    "sql": "\r\nBEGIN\r\n  FOR cur_rec IN (\r\n          select\r\n           'ALTER ' || OBJECT_TYPE || ' ' || OBJECT_NAME || ' COMPILE' as SqlText\r\n        from\r\n           user_objects\r\n        where\r\n           status = 'INVALID'\r\n        and\r\n           object_type in ('PACKAGE','FUNCTION','PROCEDURE', 'VIEW', 'TYPE')\r\n                  )\r\n  LOOP\r\n    BEGIN\r\n        EXECUTE IMMEDIATE cur_rec.SqlText;\r\n    EXCEPTION\r\n      WHEN OTHERS THEN\r\n        DBMS_OUTPUT.put_line('error: '|| CUR_REC.SqlText);\r\n    END;\r\n  END LOOP;\r\nEND;\r\n",
+    "tables": [
+      "user_objects"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleHelper::ExecuteImmediate",
+    "operation": "UNKNOWN",
+    "sql": "begin execute immediate '",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleParameterFileCache::GetParameters",
+    "operation": "SELECT",
+    "sql": "SELECT Object_Name FROM USER_PROCEDURES where Object_Name = '",
+    "tables": [
+      "USER_PROCEDURES"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleParameterFileCache::GetParameters",
+    "operation": "SELECT",
+    "sql": "select spl_GetProcedureSignature({0}) from dual",
+    "tables": [
+      "dual"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleParameterFileCache::GetParametersByFromDb",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith x as (\r\nselect \r\n\tArgument_Name || ',' || Data_Type || ',' || data_length || ',' || data_precision || ',' || IN_OUT \r\n\t\tas text, \r\n\tposition,\r\n\tfloor((position-1) / 50) as page\r\n\tfrom USER_ARGUMENTS where object_Name = N'{0}'\r\n)\r\n SELECT\r\n        listagg(cast(text as varchar2(4000)), ';')  WITHIN GROUP (ORDER BY position) AS Text, page\r\n    FROM \r\n         x\r\ngroup by page\r\norder by page\r\n",
+    "tables": [
+      "USER_ARGUMENTS",
+      "x"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Spl.Oracle.dll",
+    "method": "Barsa.Spl.OracleParameterFileCache::GetParametersByFromDb_Old",
+    "operation": "SELECT",
+    "sql": "\r\n    SELECT\r\n        listagg(\r\n            Argument_Name || ',' || Data_Type || ',' || data_length || ',' || data_precision || ',' || IN_OUT\r\n            , ';')  WITHIN GROUP (ORDER BY position) AS X\r\n    FROM \r\n        USER_ARGUMENTS \r\n    where \r\n        Object_Name = '{0}'\r\n",
+    "tables": [
+      "USER_ARGUMENTS"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "method": "Barsa.TaskApplication.TaskSearch::GetResultCount",
+    "operation": "SELECT",
+    "sql": "select count(*) from ({0}) as queryRes",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "method": "Barsa.TaskApplication.TaskSearch::getAsQueryForAssigner",
+    "operation": "UNKNOWN",
+    "sql": " LEFT OUTER JOIN (SELECT * FROM task_Assignment WHERE recipientRole = '20' AND CanceledDate IS NULL) tracker ON tracker.taskId = task.id ",
+    "tables": [
+      "task_Assignment"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "method": "Barsa.TaskApplication.TaskSearch::getAsQueryForAssigner",
+    "operation": "SELECT",
+    "sql": "select {0} from {1} {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "method": "Barsa.TaskApplication.TaskSearch::getAsQueryForWorker",
+    "operation": "UNKNOWN",
+    "sql": " LEFT OUTER JOIN (SELECT * FROM task_Assignment WHERE recipientRole = '20' AND CanceledDate IS NULL) tracker ON tracker.taskId = task.id ",
+    "tables": [
+      "task_Assignment"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "method": "Barsa.TaskApplication.TaskSearch::getAsQueryForWorker",
+    "operation": "SELECT",
+    "sql": "select {0} from {1} {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.Ui.Win.dll",
+    "method": "Barsa.Workflow.Ui.Win.FixAdvancedWorkflowSystemDataHelper::Fix_DynamicCommands2",
+    "operation": "INSERT",
+    "sql": "\r\ninsert into test_mapping\r\n\t(SourceId, DestId, DestTypeDefId)\r\nselect\t\r\n    source.id, dest.id, -106\r\nFROM\r\n    {0} source\r\n    inner join {0} dest on source.{1}=dest.{1}\r\nwhere \r\n    source.{2}={3} and\r\n    dest.{2}={4} \r\n    --and not exists (select * from test_mapping where SourceId=source.id and DestId=dest.id)\r\n",
+    "tables": [
+      "test_mapping"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.Ui.Win.dll",
+    "method": "Barsa.Workflow.Ui.Win.FixAdvancedWorkflowSystemDataHelper::GetMap",
+    "operation": "SELECT",
+    "sql": "select destid from test_mapping where sourceid={0}",
+    "tables": [
+      "test_mapping"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.Ui.Win.dll",
+    "method": "Barsa.Workflow.Ui.Win.FixAdvancedWorkflowSystemDataHelper::GetSystem",
+    "operation": "SELECT",
+    "sql": "select id from met_metasystem where caption = N'{0}'",
+    "tables": [
+      "met_metasystem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.Ui.Win.dll",
+    "method": "Barsa.Workflow.Ui.Win.Trace.WorkflowTraceManager::GetCurrentActivityRun",
+    "operation": "SELECT",
+    "sql": "select * from wfl_activityrun where workflowrunid={0} and status in ({1})",
+    "tables": [
+      "wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.Ui.Win.dll",
+    "method": "Barsa.Workflow.Ui.Win.Trace.WorkflowTraceManager::RefreshState",
+    "operation": "SELECT",
+    "sql": "select id from dbo.wfl_activityrun where workflowrunid = {0}",
+    "tables": [
+      "dbo.wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.BusinessLogic.TafvizHelperBusinessLogic::GetPerformersInsteadOfRole",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT\r\n    RA_TafvizTo.DestId as TafvizTo\r\nFROM\r\n    m01_Tafviz A \r\n    left outer join met_Relation RA_TafvizRoles on (RA_TafvizRoles.SourceId=A.Id and RA_TafvizRoles.RelationDefId={0}) \r\n    left outer join met_Relation RA_TafvizTo    on (RA_TafvizTo   .SourceId=A.Id and RA_TafvizTo   .RelationDefId={1}) \r\nWHERE\r\n    RA_TafvizRoles.DestId = {2} AND \r\n    A.IsActive = 1 AND \r\n    (\r\n        A.HasTimeLimit = 0 \r\n        OR \r\n        A.StartDate <= GETDATE() AND A.EndDate >= GETDATE()\r\n    )\r\n",
+    "tables": [
+      "m01_Tafviz",
+      "met_Relation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.BusinessLogic.TafvizHelperBusinessLogic::GetRolesUserIsInsteadOf",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT\r\n    RA_TafvizRoles.DestId as TafvizRole\r\nFROM\r\n    m01_Tafviz A \r\n    left outer join met_Relation RA_TafvizRoles on (RA_TafvizRoles.SourceId=A.Id and RA_TafvizRoles.RelationDefId={0}) \r\n    left outer join met_Relation RA_TafvizTo    on (RA_TafvizTo   .SourceId=A.Id and RA_TafvizTo   .RelationDefId={1}) \r\nWHERE\r\n    RA_TafvizTo.DestId = {2} AND \r\n    A.IsActive = 1 AND \r\n    (\r\n        A.HasTimeLimit = 0 \r\n        OR \r\n        A.StartDate <= GETDATE() AND A.EndDate >= GETDATE()\r\n    )\r\n",
+    "tables": [
+      "m01_Tafviz",
+      "met_Relation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.BusinessLogic.TafvizHelperBusinessLogic::UpdateDelegationTable",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n\r\n    delete from spl_Delegation \r\n        {2};\r\n\r\n    insert into \r\n        spl_Delegation(OwnerId,DelegateId,RuleId)\r\n    SELECT\r\n        distinct RA_TafvizRoles.DestId as OwnerId, RA_TafvizTo.DestId as DelegateId, A.Id as RuleId\r\nFROM\r\n    m01_Tafviz A \r\n    left outer join met_Relation RA_TafvizRoles on (RA_TafvizRoles.SourceId=A.Id and RA_TafvizRoles.RelationDefId={0}) \r\n    left outer join met_Relation RA_TafvizTo    on (RA_TafvizTo   .SourceId=A.Id and RA_TafvizTo   .RelationDefId={1}) \r\nWHERE\r\n    A.IsActive = 1 AND \r\n    (\r\n        A.HasTimeLimit = 0 \r\n        OR \r\n        A.StartDate <= GETDATE() AND A.EndDate >= GETDATE()\r\n    ) AND\r\n    RA_TafvizRoles.DestId is not null AND RA_TafvizTo.DestId is not null\r\n    {3};\r\nend;\r\n",
+    "tables": [
+      "m01_Tafviz",
+      "met_Relation",
+      "spl_Delegation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.Helper.VersionUpgrader_Role::Role_FixChoiceDefs_1162",
+    "operation": "SELECT",
+    "sql": "select count(*) from wfl_choicedef",
+    "tables": [
+      "wfl_choicedef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.Helper.VersionUpgrader_Role::Role_FixChoiceDefs_1162",
+    "operation": "SELECT",
+    "sql": "select count(*) from wfl_choicedef",
+    "tables": [
+      "wfl_choicedef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Meta.TafvizHelper::ApplyTafvizAll",
+    "operation": "DELETE",
+    "sql": "delete from spl_Delegation where ruleid not in (select id from m01_Tafviz)",
+    "tables": [
+      "m01_Tafviz",
+      "spl_Delegation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.ActivityDef::LoadBySubkey2",
+    "operation": "SELECT",
+    "sql": "select * from wfl_ActivityDef where Subkey2 = ",
+    "tables": [
+      "wfl_ActivityDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.ActivityRun::LoadByWorkflowRunActivityAndPrevRun",
+    "operation": "SELECT",
+    "sql": "select * from wfl_ActivityRun where workflowRunId = {0} and activityDefId = {1} and previousRuns = {2}",
+    "tables": [
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.ActivityRun::LoadByWorkflowRunActivityAndStatus",
+    "operation": "SELECT",
+    "sql": "select * from wfl_ActivityRun where workflowRunId = {0} and activityDefId = {1} and Status in ({2})",
+    "tables": [
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.ActivityRun::LoadByWorkflowRunActivityAndStatusAndPrevRun",
+    "operation": "SELECT",
+    "sql": "select * from wfl_ActivityRun where workflowRunId = {0} and activityDefId = {1} and previousRuns = {2} and Status in ( {3} )",
+    "tables": [
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.BusinessLogic.AdvancedWorkflowManagerBusinessLogic::GetManagerUserId",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    *\r\nfrom\r\n    (select \r\n        r.destid as Responsible, er.Scope, \r\n        case er.scope \r\n            when {0} then 0\r\n            when {1} then 1\r\n            when {2} then 2\r\n        end as ScopeOrder\r\n    from \r\n        met_relation r\r\n\t    inner join {4} er on (er.Id=r.SourceId)\r\n    where \r\n\t    r.RelationDefId={3} and\r\n        er.IsActive=1 and \r\n\t    er.scope in ({0},{1},{2})\r\n    ) x\r\norder by \r\n    x.ScopeOrder desc\r\n",
+    "tables": [
+      "met_relation"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.BusinessLogic.AdvancedWorkflowManagerBusinessLogic::GetPreviousSimpleFormRun",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith ActivityRun (  \r\n\tid,\r\n\tworkflowrunid,\r\n\tpreviousRuns,\r\n\tActivityDefId,\r\n    FinishTime,\r\n\tActivityType\r\n)as\r\n(\r\nselect \r\n\tr.id,\r\n\tr.workflowrunid,\r\n\tr.previousRuns,\r\n\tr.ActivityDefId,\r\n    r.FinishTime,\r\n\tad.ActivityType\r\nfrom \r\n\twfl_ActivityRun r\r\n\tinner join wfl_ActivityDef ad on(ad.ID = r.ActivityDefId)\r\n),\r\npreviousItems (id,workflowrunid,previousRuns,ActivityDefId,FinishTime,ActivityType,step,SameAsPrevious) as\r\n(\r\n\tselect \r\n\t\tr.id,\r\n\t\tr.workflowrunid,\r\n\t\tr.previousRuns,\r\n\t\tr.ActivityDefId,\r\n        r.FinishTime,\r\n\t\tr.ActivityType, \r\n\t\t1 as step,\r\n\t\t0 as SameAsPrevious\r\n\tfrom \r\n\t\tActivityRun r\r\n\twhere \r\n\t\tr.id={0}\r\n\tunion all\r\n\tselect \r\n\t\tc.id,\r\n\t\tc.workflowrunid,\r\n\t\tc.previousRuns,\r\n\t\tc.ActivityDefId, \r\n        c.FinishTime,\r\n\t\tc.ActivityType,\r\n\t\tx.step+1 as step,\r\n\t\t(case c.ActivityDefId when x.ActivityDefId then 1 else 0 end) as SameAsPrevious\r\n\tfrom \r\n\t\tActivityRun c \r\n\t\tinner join previousItems x on (c.workflowRunId=x.workflowRunId and x.previousRuns like '%'{4}'%')\r\n),\r\npreviousItemsDistinct as --not taken or returned back\r\n(\r\n\tselect \r\n\t\t*\r\n\tfrom \r\n\t\tpreviousItems x\r\n\twhere \r\n\t\t--not exists(select 1 from previousItems p where p.ActivityDefId=x.ActivityDefId and ",
+    "tables": [
+      "ActivityRun",
+      "previousItems",
+      "previousItemsDistinct",
+      "wfl_ActivityDef",
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.BusinessLogic.AdvancedWorkflowManagerBusinessLogic::GetPreviousSimpleFormRun_Oracle",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith \r\nallWFActivityRuns as\r\n (select r.id,\r\n         r.workflowrunid,\r\n         r.previousRuns,\r\n         r.ActivityDefId,\r\n         r.FinishTime,\r\n         ad.activitytype\r\n    from wfl_ActivityRun r\r\n   inner join wfl_ActivityDef ad\r\n      on (ad.ID = r.ActivityDefId)\r\n   where r.workflowRunId = (select workflowrunid from wfl_activityrun where id={0})),\r\npreviousItems as\r\n(\r\n    select \r\n        r.*,\r\n        level step\r\n    from \r\n        allWFActivityRuns r\r\n        start with r.id = {0} \r\n        CONNECT BY PRIOR  \r\n            r.previousRuns like '%' || r.id || '%'\r\n),\r\npreviousItemsDistinct as --not taken or returned back\r\n(\r\n\tselect \r\n\t\t*\r\n\tfrom \r\n\t\tpreviousItems x\r\n\twhere \r\n\t\t--not exists(select 1 from previousItems p where p.ActivityDefId=x.ActivityDefId and p.step<x.step)\r\n        not exists \r\n\t    (\r\n\t\t    select \r\n\t\t\t    h.*\r\n\t\t    from \r\n\t\t\t    /*m01_WorkflowTakeBackHistory*/{3} h\r\n\t\t\t    inner join wfl_ActivityRun afrom on (afrom.id=h.FromActivityRun)\r\n\t\t\t    inner join wfl_ActivityRun ato   on (ato  .id=h.ToActivityRun  )\r\n\t\t    where \r\n\t\t\t    h.WorkflowRun=x.workflowrunid and\r\n\t\t\t    x.FinishTime between ato.StartTime and afrom.finishtime\r\n\t    )\r\n)\r\nselect id f",
+    "tables": [
+      "allWFActivityRuns",
+      "previousItems",
+      "previousItemsDistinct",
+      "wfl_ActivityDef",
+      "wfl_ActivityRun",
+      "wfl_activityrun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.Meta2Workflow_Dependency::DeleteChoiceDefWithoutWorkflow",
+    "operation": "DELETE",
+    "sql": "delete from wfl_ChoiceDef where WorkflowDefId not in (select id from wfl_WorkflowDef)",
+    "tables": [
+      "wfl_ChoiceDef",
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_CDC::DisableAll",
+    "operation": "EXEC",
+    "sql": "EXEC sys.sp_cdc_disable_db",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_CDC::DoRollback",
+    "operation": "EXEC",
+    "sql": "exec CDC_Rollback {0};",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_CDC::DoRollback",
+    "operation": "EXEC",
+    "sql": "exec util_foreach 'select sql from cdc_RemoveSeqVal', 'exec(''$sql$'')'",
+    "tables": [
+      "cdc_RemoveSeqVal"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_CDC::InitTable",
+    "operation": "EXEC",
+    "sql": "EXEC CDC_Create {0}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_Trigger::DoRollback",
+    "operation": "EXEC",
+    "sql": "exec change_Rollback {0} , '{1}';",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_Trigger::Drop",
+    "operation": "EXEC",
+    "sql": "\r\nexec util_foreach 'select name from sys.triggers where name like `change[_]",
+    "tables": [
+      "sys.triggers"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_Trigger::Drop",
+    "operation": "UNKNOWN",
+    "sql": "[_]On%`' , 'drop trigger [$name$]'\r\ngo\r\nexec util_foreach 'select t.name from sys.tables t inner join sys.schemas s on s.schema_id=t.schema_id where s.name=`change` and t.name like `",
+    "tables": [
+      "sys.schemas",
+      "sys.tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_Trigger::Drop",
+    "operation": "UNKNOWN",
+    "sql": "`' , 'drop table change.[$name$]'\r\ngo\r\n",
+    "tables": [
+      "change."
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackHelper_Trigger::InitTable",
+    "operation": "EXEC",
+    "sql": "EXEC change_CreateForTable {0}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackManager::GetAllTablesSql",
+    "operation": "SELECT",
+    "sql": "\r\nselect dbname from met_typedef t inner join sys.tables x on x.name = t.dbname where isExternalType=0 and dbType=0 and caption!=N'تست سيف' and x.modify_date> {0} and dbname !='Xcrt_MailGroup'\r\nunion all\r\nselect name from sys.tables x where \r\n\t(name like 'wfl_%' or name like 'met_%') and name not like '%_ID' AND NAME NOT IN ('MET_HISTORY', 'met_FileVersion','Met_File' , 'met_Sequencer_Obsolute','met_ObjectReference','met_MetaCodeWrapper','met_FolderContainingObject',\t'met_TypeDefAccessTemplate_ServiceList','met_TypeViewEntity_TargetList','met_Sequencer_backup','Xcrt_MailGroup') \r\n\t and x.modify_date> {0}\r\n",
+    "tables": [
+      "met_typedef",
+      "sys.tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackManager::GetDynamicTableSettings",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    settings, dbname \r\nfrom \r\n    met_typedef x \r\n    inner join sys.tables t on t.name = x.dbname \r\n    inner join sys.schemas s on (t.schema_id = s.schema_id) \r\nwhere \r\n    s.name != 'change' and\r\n    isExternalType=0 and \r\n    dbType=0 and \r\n    dbname !='Xcrt_MailGroup' and \r\n    t.modify_date> {0}\r\n",
+    "tables": [
+      "met_typedef",
+      "sys.schemas",
+      "sys.tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.RollbackManager::GetStaticTables",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    t.name as DbName \r\nfrom \r\n    sys.tables t \r\n    inner join sys.schemas s on (t.schema_id = s.schema_id) \r\nwhere \r\n    s.name != 'change' and\r\n    t.name in (\r\n        'wfl_WorkflowEventSubscribtion',\r\n        'wfl_WorkflowRun',\r\n        'wfl_WorkflowSubProcessRunItem',\r\n        'wfl_WorkflowVariable',\r\n        'wfl_ActivityRun',\r\n        'wfl_WorkflowActor',\r\n        'wfl_WorkflowActorUser',\r\n        'wfl_WorkflowEventSubscribtion',\r\n        'wfl_WorkflowRun',\r\n        'wfl_WorkflowSubProcessRunItem',\r\n        'Met_Relation',\r\n        'wfl_WorkflowActorUser',\r\n        'Mil_Mail',\r\n        'Mil_MailContent',\r\n        --'Mil_MailContentContainer',\r\n        'Mil_MailInvolver',\r\n        'Mil_MailMain',\r\n        'spl_ObjectLock'\r\n    ) and\r\n    t.modify_date> {0}\r\n",
+    "tables": [
+      "sys.schemas",
+      "sys.tables"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_CreateChoiceDef_1160",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    FOR x IN (SELECT dummy FROM dual WHERE not EXISTS (select * from spl_EorgType where name='Barsa.Workflow.ChoiceDef' and TableName='WFL_CHOICEDEF'))  LOOP\r\n        update spl_EorgType set TableName='WFL_CHOICEDEF' where name='Barsa.Workflow.ChoiceDef';\r\n        \r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'ID', 'bigint', 'PK', 0);        \r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'WorkflowDefId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'FromActivityId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'NextActivityId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'InternalData', 'varbinary', 'bsd', 0);\r\n        INSERT INTO Nid_ForeignKeyFieldEorgType (SourceTable, Sourc",
+    "tables": [
+      "Nid_ForeignKeyField",
+      "Nid_ForeignKeyFieldEorgType",
+      "dual",
+      "spl_EorgType"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_CreateChoiceDef_1160",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    if (select count(*) from spl_EorgType where name='Barsa.Workflow.ChoiceDef' and TableName='WFL_CHOICEDEF')=0\r\n    begin\r\n        update spl_EorgType set TableName='WFL_CHOICEDEF' where name='Barsa.Workflow.ChoiceDef';\r\n        \r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'ID', 'bigint', 'PK', 0);        \r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'WorkflowDefId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'FromActivityId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'NextActivityId', 'bigint', 'FK', 0);\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'InternalData', 'varbinary', 'bsd', 0);\r\n        INSERT INTO Nid_ForeignKeyFieldEorgType (SourceTable, SourceColumn, TargetTable, isDynamic) V",
+    "tables": [
+      "Nid_ForeignKeyField",
+      "Nid_ForeignKeyFieldEorgType",
+      "spl_EorgType"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_CreateChoiceDef_1171",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    FOR x IN (SELECT dummy FROM dual WHERE not EXISTS (select * from Nid_ForeignKeyField where upper(TableName)=upper('wfl_ChoiceDef') and upper(OperationalType)='PK') )  LOOP\r\n            INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'ID', 'bigint', 'PK', 0);\r\n    end loop;    \r\nend;\r\n",
+    "tables": [
+      "Nid_ForeignKeyField",
+      "dual"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_CreateChoiceDef_1171",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    if (select count(*) from Nid_ForeignKeyField where upper(TableName)=upper('wfl_ChoiceDef') and upper(OperationalType)='PK')=0\r\n    begin\r\n        INSERT INTO Nid_ForeignKeyField ({0}TableName, ColumnName, TypeName, OperationalType, IsDynamic) VALUES ({1}'wfl_ChoiceDef', 'ID', 'bigint', 'PK', 0);\r\n    end;\r\nend;    \r\n",
+    "tables": [
+      "Nid_ForeignKeyField"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_GetActivityRunsByObjectStatusUserWorkflowDef_ForTakeBack",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n\tdistinct a.Id,a.ActivityDefId,a.WorkflowRunId,a.Status\r\nfrom \r\n\twfl_ActivityRun a\r\n\tinner join wfl_WorkflowActorUser u on (u.WorkflowActorId=a.ActorId)\r\n\tinner join wfl_ActivityDef ad on (ad.Id=a.ActivityDefId)\r\nwhere \r\n\ta.SubKey1={0} and \r\n\ta.Status={1} and \r\n\tu.UserId={2} and\r\n    ad.WorkflowDefId={3} and\r\n    not exists \r\n\t(\r\n\t\tselect \r\n\t\t\th.*\r\n\t\tfrom \r\n\t\t\t/*m01_WorkflowTakeBackHistory*/{5} h\r\n\t\t\tinner join wfl_ActivityRun afrom on (afrom.id=h.FromActivityRun)\r\n\t\t\tinner join wfl_ActivityRun ato   on (ato  .id=h.ToActivityRun  )\r\n\t\twhere \r\n\t\t\tWorkflowRun={4} and\r\n\t\t\ta.FinishTime between ato.StartTime and afrom.finishtime\r\n\t)\r\n",
+    "tables": [
+      "wfl_ActivityDef",
+      "wfl_ActivityRun",
+      "wfl_WorkflowActorUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_GetReciverInvolverByMailIdAndUser",
+    "operation": "SELECT",
+    "sql": " \r\nselect \r\n\tmi.Id as PreInvolverId, m.ChainId\r\nfrom \r\n\tmil_mailinvolver mi \r\n\tinner join mil_mail m on (m.id=mi.mailid)\r\nwhere \r\n\tm.id={0} and\r\n\tmi.INVOLVEDTYPE=0 and\r\n\tmi.USERID={1} \r\n",
+    "tables": [
+      "mil_mail",
+      "mil_mailinvolver"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_LoadActivityRunListByWorkflowRunOrdered",
+    "operation": "SELECT",
+    "sql": "select * from wfl_ActivityRun where workflowRunId={0}",
+    "tables": [
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_LoadCurrentActivityRunListForObject",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    * \r\nfrom \r\n(\r\n    select \r\n        a.Id,\r\n        a.ActivityDefId,\r\n        a.WorkflowRunId,\r\n        a.Status,\r\n        a.SubKey1,\r\n        (case when exists (select 1 from Spl_TrusteeUser where trusteeid = u.UserId and userid = @userId) then 1 else 0 end) as IsActor\r\n    from \r\n        wfl_ActivityRun a\r\n        inner join wfl_WorkflowActorUser u on u.WorkflowActorId=a.ActorId\r\n    where \r\n        {1} a.SubKey1 in ({0}) and \r\n        a.Status = 1\r\n) x\r\norder by IsActor desc\r\n",
+    "tables": [
+      "Spl_TrusteeUser",
+      "wfl_ActivityRun",
+      "wfl_WorkflowActorUser"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_WorkflowIdCaptionList",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    id, title \r\nfrom \r\n    wfl_WorkflowDef\r\nwhere \r\n    Spl_Security_HasAccess({0}, Id, {1})=1 \r\n",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_WorkflowIdCaptionList",
+    "operation": "SELECT",
+    "sql": "\r\nselect \r\n    id, title \r\nfrom \r\n    wfl_WorkflowDef\r\nwhere \r\n    dbo.Spl_Security_HasAccess({0}, Id, {1})=1\r\n",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_WorkflowRun_LoadBySystemId",
+    "operation": "SELECT",
+    "sql": "\r\nselect * from (\r\n    select \r\n        r.*,\r\n        ROW_NUMBER() OVER (order by r.id desc) x   \r\n    from \r\n        wfl_WorkflowRunView r inner join \r\n        wfl_WorkflowDef d on(d.id=r.workflowDefId)\r\n    where \r\n\t    d.MetaSystemId ={0} \r\n    )\r\n    where \r\n        x<={1}\r\n",
+    "tables": [
+      "wfl_WorkflowDef",
+      "wfl_WorkflowRunView"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.SqlStrings::Query_WorkflowRun_LoadBySystemId",
+    "operation": "SELECT",
+    "sql": "\r\nselect top {1} r.* from \r\n    wfl_WorkflowRunView r inner join \r\n    wfl_WorkflowDef d on(d.id=r.workflowDefId)\r\nwhere \r\n\td.MetaSystemId ={0} \r\norder by StartTime desc\r\n",
+    "tables": [
+      "wfl_WorkflowDef",
+      "wfl_WorkflowRunView"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowDef::GetTitleById",
+    "operation": "SELECT",
+    "sql": "select Title from wfl_WorkflowDef where id=",
+    "tables": [
+      "wfl_WorkflowDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowDef::LoadByIdVariableTypeDef",
+    "operation": "SELECT",
+    "sql": "select * from wfl_WorkflowDefView w where \r\n                exists(select id from wfl_WorkflowVariableDef v where v.workflowDefId=w.id and v.VariableType=",
+    "tables": [
+      "wfl_WorkflowDefView",
+      "wfl_WorkflowVariableDef"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowEventSubscribtion::FindMatchSubscriptions",
+    "operation": "SELECT",
+    "sql": "select * from wfl_WorkflowEventSubscribtion where eventTopic='{0}' and matchCondition={1}",
+    "tables": [
+      "wfl_WorkflowEventSubscribtion"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowEventSubscribtion::GetSubscriptions",
+    "operation": "SELECT",
+    "sql": "select * from wfl_WorkflowEventSubscribtion where eventTopic='{0}' and matchCondition={1} and TargetObjectId={2} and TargetWorkflowRunId={3}",
+    "tables": [
+      "wfl_WorkflowEventSubscribtion"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowEventSubscribtion::GetSubscriptionsByTargetObject",
+    "operation": "SELECT",
+    "sql": "select * from wfl_WorkflowEventSubscribtion where eventTopic='{0}'",
+    "tables": [
+      "wfl_WorkflowEventSubscribtion"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowReportItem_1::AddCondition",
+    "operation": "UNKNOWN",
+    "sql": " (exists (select id from wfl_ActivityRun A_ar where A_ar.workflowRunId=A_r.id and A_ar.activityDefId={0} and A_ar.Status={1}) )",
+    "tables": [
+      "wfl_ActivityRun"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowRun::LoadByObjectIdAndInheritance",
+    "operation": "SELECT",
+    "sql": "\r\nselect * from wfl_WorkflowRunView where id in(\r\n  select WorkflowRunId from wfl_WorkflowVariable where ObjectId in (",
+    "tables": [
+      "wfl_WorkflowRunView",
+      "wfl_WorkflowVariable"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowSubProcessRunItem::HasInCompleteItem",
+    "operation": "SELECT",
+    "sql": "select count(id) from wfl_WorkflowSubProcessRunItem where ParentActivityRunId={0} and IsComplete=0",
+    "tables": [
+      "wfl_WorkflowSubProcessRunItem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowSubProcessRunItem::IsCompleted",
+    "operation": "SELECT",
+    "sql": "select count(id) from wfl_WorkflowSubProcessRunItem where ParentActivityRunId={0} and SubItemId={1} and IsComplete=1",
+    "tables": [
+      "wfl_WorkflowSubProcessRunItem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowSubProcessRunItem::SelectParentActivityRun",
+    "operation": "SELECT",
+    "sql": "select ParentActivityRunId from wfl_WorkflowSubProcessRunItem where SubItemId={0} and subWorkflowRunId={1}",
+    "tables": [
+      "wfl_WorkflowSubProcessRunItem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Workflow.dll",
+    "method": "Barsa.Workflow.WorkflowSubProcessRunItem::SetCompleted",
+    "operation": "UPDATE",
+    "sql": "update wfl_WorkflowSubProcessRunItem set IsComplete=1 where ParentActivityRunId={0} and SubItemId={1}",
+    "tables": [
+      "wfl_WorkflowSubProcessRunItem"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Editors.Frames.LayoutsBase::btnXMLLoad_Click",
+    "operation": "SELECT",
+    "sql": "Select table from {0}",
+    "tables": [
+      "from"
+    ]
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Pivot.Data.OLAPDataSourceQueryBase::GetKPIValueQuery",
+    "operation": "SELECT",
+    "sql": "select {{ KPIValue(\"{0}\"), KPIGoal(\"{0}\"), KPIStatus(\"{0}\"), KPITrend(\"{0}\"), KPIWeight(\"{0}\") }} on columns from [{1}]",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.ConnectionProviderSql::CreateColumn",
+    "operation": "ALTER",
+    "sql": "alter table {0} add {1} {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.ConnectionProviderSql::CreatePrimaryKey",
+    "operation": "ALTER",
+    "sql": "alter table {0} add constraint {1} primary key ({2})",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.ConnectionProviderSql::CreateTable",
+    "operation": "CREATE",
+    "sql": "create table {0} ({1})",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.ConnectionProviderSql::get_CreateForeignKeyTemplate",
+    "operation": "ALTER",
+    "sql": "alter table {0} add constraint {1} foreign key ({2}) references {3}({4})",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.Helpers.QueryStatementToStringFormatter::Barsa.Xara.Xpo.DB.Helpers.ISqlGeneratorFormatter.FormatDelete",
+    "operation": "DELETE",
+    "sql": "delete from {0} where {1}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.Helpers.QueryStatementToStringFormatter::Barsa.Xara.Xpo.DB.Helpers.ISqlGeneratorFormatter.FormatInsert",
+    "operation": "INSERT",
+    "sql": "insert into {0}({1}) values({2})",
+    "tables": []
+  },
+  {
+    "assembly": "source/Barsa.Xara.Layout.v2.9.dll",
+    "method": "Barsa.Xara.Xpo.DB.Helpers.SubSelectSqlGenerator::GenerateSelect",
+    "operation": "SELECT",
+    "sql": "select {0} from {1}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::AddExtraQueryForMetaCartable",
+    "operation": "SELECT",
+    "sql": "select subquery.*, {0} from ({1}) subquery LEFT JOIN met_MailViewGroup g ON g.ID = subquery.MAILTYPE",
+    "tables": [
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Close_اقدام",
+    "operation": "UPDATE",
+    "sql": "UPDATE {0} SET {1} = (SELECT SYSDATE FROM DUAL), {2} = 2 WHERE {3} = 2 AND NOT EXISTS (\r\n\t\t\t\t\t\t\t\t\t\t\t\tSELECT * FROM {0} TODO WHERE TODO.{4} = {0}.{4} AND TODO.{3} = 1 AND TODO.{2} = 1)",
+    "tables": [
+      "DUAL"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Close_اقدام",
+    "operation": "UPDATE",
+    "sql": "UPDATE {0} SET {1} = (SELECT SYSDATE FROM DUAL), {2} = 2 WHERE {3} = {4}",
+    "tables": [
+      "DUAL"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Close_اقدام",
+    "operation": "UPDATE",
+    "sql": "UPDATE {0} SET {1} = GETDATE(), {2} = 2 WHERE {3} = 2 AND NOT EXISTS (\r\n\t\t\t\t\t\t\t\t\t\t\t\tSELECT * FROM {0} TODO WHERE TODO.{4} = {0}.{4} AND TODO.{3} = 1 AND TODO.{2} = 1)",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::CountPinedItems",
+    "operation": "SELECT",
+    "sql": "select count(*) from Mil_MailInvolver mi where mi.FOLDERID={0} and HasPin=1",
+    "tables": [
+      "Mil_MailInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::DeleteByMail",
+    "operation": "DELETE",
+    "sql": "DELETE FROM {0} WHERE {1} = {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Fill_ليست_اعضاء",
+    "operation": "SELECT",
+    "sql": "\r\nSELECT mp.* FROM Mil_View_ActiveMailDistList md \r\n\tINNER JOIN Mil_MailDistListMembers mdm ON (md.Id = mdm.DistListId)\r\n\tINNER JOIN Mil_MailParticipant mp ON (mdm.MailParticipantId = mp.Id)\r\nWHERE mp.ISDELETED = 0 and md.Id = {0}",
+    "tables": [
+      "Mil_MailDistListMembers",
+      "Mil_MailParticipant",
+      "Mil_View_ActiveMailDistList"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetBaseMailQuery",
+    "operation": "SELECT",
+    "sql": "\r\nselect   \r\n\ti.HasPin, m.MailNoId, m.MailNoText, i.Id as InvolverId, i.MailId, m.ChainId, i.involvedType, m.HasAttachment, \r\n\tm.FromText ,m.ToText, m.BccText, m.Subject, i.FolderId, m.SendDate, m.Importance, m.AccessLevel, m.CcText, m.ContentText, \r\n\t--t.Status as ToDoStatus, t.Title as ToDoText, t.Id as ToDoId, t.DueTime as ToDoDueTime, \r\n\ti.IconTypeId, i.HasRead, m.IsSent, m.ReferenceId, m.ReferenceId2, \r\n\tm.MailType, i.ReadDate, i.CategoryString, i.MailParticipantId  \r\nfrom \r\n\tMil_Mail m  \r\n\tinner Join Mil_MailInvolver i on (m.Id = i.MailId)\r\n\t--left outer join Shr_ToDo t on (i.Id=t.RelatedObjectId)\r\n\t{3}\r\n\tinner join Mil_MailParticipant p on(i.MAILPARTICIPANTID = p.ID)\r\n\tinner join Spl_TrusteeUserView t on(p.BEHINDOBJECTID = t.TRUSTEEID)\r\n\twhere  \r\n\t\tt.USERID = {0}\r\n\t\t{1}\r\n\t\t{2}  \r\n\t\t{4}\r\n",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailInvolver",
+      "Mil_MailParticipant",
+      "Shr_ToDo",
+      "Spl_TrusteeUserView"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetCategoryImage",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM Shr_Category",
+    "tables": [
+      "Shr_Category"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetMailSelectStatement",
+    "operation": "SELECT",
+    "sql": " SELECT {0} AS TypeDefId, mp.ID, mp.RECEIPTIONTYPE, mp.TITLE, isnull(u.ID, 0) AS UserId \r\n                                 FROM Mil_MailParticipant mp LEFT JOIN Spl_Users u ON u.ID = mp.BEHINDOBJECTID WHERE mp.ID = {1}",
+    "tables": [
+      "Mil_MailParticipant",
+      "Spl_Users"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetMailSelectStatement",
+    "operation": "SELECT",
+    "sql": " SELECT {0} AS TypeDefId, mp.ID, mp.RECEIPTIONTYPE, mp.TITLE, isnull(u.ID, 0) AS UserId \r\n                                 FROM Mil_MailParticipant mp LEFT JOIN Spl_Users u ON u.ID = mp.BEHINDOBJECTID WHERE mp.ID = {1}",
+    "tables": [
+      "Mil_MailParticipant",
+      "Spl_Users"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetMailSelectStatement",
+    "operation": "UNKNOWN",
+    "sql": " not exists(select i2.id from Mil_MailInvolver i2\r\n\t\t\tinner join Mil_Mail m2 on(i2.MAILID = m2.ID) \r\n\t\t\twhere i2.USERID = receivedMail.USERID and i2.FolderId = receivedMail.FolderId and m2.CHAINID = m.CHAINID and m2.id <> m.ID and m2.SENDDATE > m.SENDDATE)",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::GetMailSelectStatement",
+    "operation": "SELECT",
+    "sql": "select subquery.*, {0} from ({1}) subquery LEFT JOIN met_MailViewGroup g ON g.ID = subquery.MAILTYPE",
+    "tables": [
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_تعداد_پيام_ها",
+    "operation": "SELECT",
+    "sql": "SELECT COUNT(*) FROM ({0}) A",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_تعداد_پيام_ها",
+    "operation": "SELECT",
+    "sql": "SELECT COUNT(*) FROM ({0}) A",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_پيام_ها",
+    "operation": "SELECT",
+    "sql": " SELECT * FROM ( SELECT tmp.*,ROWNUM rn From ( ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_پيام_ها",
+    "operation": "SELECT",
+    "sql": " SELECT * FROM ( SELECT tmp.*,ROWNUM rn From ( ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_پيام_ها",
+    "operation": "SELECT",
+    "sql": "SELECT A.* FROM ({0}) A WHERE A.rownumber_ BETWEEN {1} AND {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_پيام_ها",
+    "operation": "SELECT",
+    "sql": "SELECT A.* FROM ({0}) A WHERE A.rownumber_ BETWEEN {1} AND {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Get_پيش_نويس_ارسال_پیام",
+    "operation": "SELECT",
+    "sql": "SELECT COUNT(*) FROM Mil_MailContent WHERE MAILID={0}",
+    "tables": [
+      "Mil_MailContent"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::PrepareObject",
+    "operation": "SELECT",
+    "sql": "SELECT COUNT(*) FROM Mil_MailContent WHERE MAILID={0}",
+    "tables": [
+      "Mil_MailContent"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Send",
+    "operation": "UPDATE",
+    "sql": "update Mil_Mail set FROMTEXT=N'{0}' where ID={1}",
+    "tables": [
+      "Mil_Mail"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::Send",
+    "operation": "UPDATE",
+    "sql": "update Mil_MailInvolver set DISPLAYNAME=N'{0}' where ID={1}",
+    "tables": [
+      "Mil_MailInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.Cartable_Methods::SetHasPin",
+    "operation": "UPDATE",
+    "sql": "UPDATE mil_mailinvolver SET HasPin = {0} WHERE ID = {1}",
+    "tables": [
+      "mil_mailinvolver"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "ALTER",
+    "sql": "ALTER TABLE Xcrt_MailGroup ADD ( CONSTRAINT PK_Xcrt_MailGroup PRIMARY KEY (ROWNO))",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "ALTER",
+    "sql": "ALTER TABLE Xcrt_MailGroup ADD ROWNO bigint IDENTITY({0},1) NOT NULL",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "ALTER",
+    "sql": "ALTER TABLE Xcrt_MailGroup Add ROWNO  NUMBER(38)  NOT NULL",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "ALTER",
+    "sql": "ALTER TABLE Xcrt_MailGroup DROP COLUMN ROWNO",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "ALTER",
+    "sql": "ALTER TABLE Xcrt_MailGroup DROP CONSTRAINT PK_Xcrt_MailGroup",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::AlterTable_UserMailViewGroup",
+    "operation": "CREATE",
+    "sql": "CREATE OR REPLACE TRIGGER trigger_MailGroupBeforeInsert BEFORE INSERT ON Xcrt_MailGroup \r\n\t\t\t\t\t\t\t\t\t\tFOR EACH ROW BEGIN\r\n\t\t\t\t\t\t\t\t\t\t  SELECT mailGroupRowNo_seq.NEXTVAL\r\n\t\t\t\t\t\t\t\t\t\t  INTO   :new.ROWNO\r\n\t\t\t\t\t\t\t\t\t\t  FROM   dual;\r\n\t\t\t\t\t\t\t\t\t\t  :new.ID := :new.ROWNO;\r\n\t\t\t\t\t\t\t\t\t\tEND;",
+    "tables": [
+      "dual"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::CreateTrigger_UserMailGroupInserted",
+    "operation": "UNKNOWN",
+    "sql": "\r\nIF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[xcrt_UserMailGroupInserted]') AND type = N'TR')\r\nDROP TRIGGER [dbo].[xcrt_UserMailGroupInserted]\r\nGO\r\nIF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[xcrt_UserMailGroupInserted]') AND type = N'TR')\r\nBEGIN\r\nexecute dbo.sp_executesql @statement = N'\r\nCREATE TRIGGER [dbo].[xcrt_UserMailGroupInserted] ON [dbo].[Xcrt_MailGroup]\r\nAFTER INSERT\r\nAS  \r\n\tupdate Xcrt_MailGroup set id = rowno\r\n\t\twhere id = 0\r\n' \r\nEND\r\nGO\r\n",
+    "tables": [
+      "Xcrt_MailGroup",
+      "sys.objects"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::CreateView_UserMailGroupFolder",
+    "operation": "CREATE",
+    "sql": "\r\nCREATE OR REPLACE VIEW Xcrt_UserGroupFolder\r\nAS\r\nSELECT  g.FOLDERID\r\n\t\t, g.Id + {0} AS ID\r\n\t\t, g.USERID\r\n\t\t, g.MAILGROUPID\r\n\t\t, 0 AS PARENTID\r\n\t\t, '-' || CAST(g.Id AS nvarchar2(50)) || '-' AS PARENTID$Path\r\n\t\t, 0 AS PARENTID$OrderNumber\r\n\t\t, 0 AS PARENTID$ChildrenCount\r\n\t\t, g2.UnreadCount AS UNREADCOUNT\r\n\t\t, (CASE g2.UnreadCount WHEN 0 THEN g.NAME ELSE g.NAME || ' (' || CAST(g2.UnreadCount AS nvarchar2(50)) || ')' END) AS FULLNAME\r\n\t\t, g2.TotalCount AS TotalCount\r\nFROM Xcrt_MailGroup g \r\n\tINNER JOIN\r\n\t\t(\r\n\t\t\tSELECT \r\n\t\t\t\tg.Id AS groupid, count(g.Id) as TotalCount, SUM(CASE WHEN mi.hasread = 0 THEN 1 ELSE 0 END) AS UnreadCount\r\n\t\t\tFROM\r\n\t\t\t\tMil_MailInvolver mi \r\n\t\t\t\tINNER JOIN Mil_Mail m ON m.ID = mi.MailId \r\n\t\t\t\tINNER JOIN Xcrt_MailGroup g ON g.FOLDERID = mi.FolderId AND g.MAILGROUPID = m.MailType\r\n\t\t\tGROUP BY g.Id\r\n\t\t) g2 ON g2.groupid = g.Id",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailInvolver",
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::CreateView_UserMailGroupFolder",
+    "operation": "UNKNOWN",
+    "sql": "\r\nIF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Xcrt_UserGroupFolder]'))\r\nDROP VIEW [dbo].[Xcrt_UserGroupFolder]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE VIEW [dbo].[Xcrt_UserGroupFolder]\r\nAS\r\nSELECT  g.FOLDERID\r\n\t\t, g.Id + {0} AS ID\r\n\t\t, g.USERID\r\n\t\t, g.MAILGROUPID\r\n\t\t, 0 AS PARENTID\r\n\t\t, '-' + CAST(g.Id AS nvarchar(50)) + '-' AS PARENTID$Path\r\n\t\t, 0 AS PARENTID$OrderNumber\r\n\t\t, 0 AS PARENTID$ChildrenCount\r\n\t\t, g2.UnreadCount AS UNREADCOUNT\r\n\t\t, (CASE g2.UnreadCount WHEN 0 THEN g.NAME ELSE g.NAME + ' (' + CAST(g2.UnreadCount AS nvarchar(50)) + ')' END) AS FULLNAME\r\n\t\t, g2.TotalCount AS TotalCount\r\nFROM dbo.Xcrt_MailGroup AS g \r\n\tINNER JOIN\r\n\t\t(\r\n\t\t\tSELECT \r\n\t\t\t\tg1.Id AS Id, count(g1.Id) as TotalCount, SUM(CASE WHEN i.hasread = 0 THEN 1 ELSE 0 END) AS UnreadCount\r\n\t\t\tFROM\r\n\t\t\t\tMil_MailInvolver i\r\n\t\t\t\tinner join Mil_Mail m on(i.MAILID = m.ID)\r\n\t\t\t\tinner join Xcrt_MailGroup g1 on m.MAILTYPE = g1.MAILGROUPID -- AND i.USERID = g1.USERID\r\n\t\t\t\tinner join Mil_MailParticipant p on(i.MAILPARTICIPANTID = p.ID)\r\n\t\t\t\tinner join Spl_TrusteeUserView t on(p.BEHINDOBJECTID = t.TRUSTEEID and t.USERID = g1.USERID)\r\n\t\t\t\tinner join Mil_Folder f on(i.F",
+    "tables": [
+      "Mil_Folder",
+      "Mil_Mail",
+      "Mil_MailInvolver",
+      "Mil_MailParticipant",
+      "Spl_TrusteeUserView",
+      "Xcrt_MailGroup",
+      "dbo.Xcrt_MailGroup",
+      "sys.views"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::InsertFirstTimeData",
+    "operation": "INSERT",
+    "sql": "\r\n\t\t\t\t\tINSERT INTO Xcrt_MailGroup (ID,Name,MailGroupID,FolderId, USERID)\r\n\t\t\t\t\t\t\tSELECT {0}.nextval Id, g.Name, g.ID MailGroupID, f.ID FolderId, f.OWNERUSERID USERID\r\n\t\t\t\t\t\t\tFROM  Mil_Folder f \r\n\t\t\t\t\t\t\t\tINNER JOIN Spl_Users u on u.ID = f.OWNERUSERID\r\n\t\t\t\t\t\t\t\t,met_MailViewGroup g\r\n\t\t\t\t\t\t\tWHERE f.FOLDERTYPEID = 2 and f.ISDELETED = 0 and u.ISDELETED = 0",
+    "tables": [
+      "Mil_Folder",
+      "Spl_Users",
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::InsertFirstTimeData",
+    "operation": "INSERT",
+    "sql": "\r\nINSERT INTO [Xcrt_MailGroup]\r\n\tselect next value for {0} Id, g.Name, g.ID [MailGroupID], f.ID [FolderId], f.OWNERUSERID [USERID]\r\n\t\tfrom Mil_Folder f\r\n\t\t\tinner join Spl_Users u on u.ID = f.OWNERUSERID\r\n\t\t\tcross join met_MailViewGroup g\r\n\twhere f.FOLDERTYPEID = 2 and f.ISDELETED = 0 and u.ISDELETED = 0",
+    "tables": [
+      "Mil_Folder",
+      "Spl_Users",
+      "Xcrt_MailGroup",
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::InsertFirstTimeData",
+    "operation": "TRUNCATE",
+    "sql": "TRUNCATE TABLE Xcrt_MailGroup",
+    "tables": [
+      "Xcrt_MailGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::PrepareFaxMailGroupID",
+    "operation": "UPDATE",
+    "sql": "\r\nupdate met_MailViewGroup set ID = {0} where id in (\r\n\tselect top 1 g.ID from met_MailViewGroup g\r\n\twhere g.Name = N'نمابر')\r\n",
+    "tables": [
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::PrepareFaxMailGroupID",
+    "operation": "UPDATE",
+    "sql": "update met_MailViewGroup set ID = {0} where id in (\r\n\t\t\t\t\t\t\t\tselect g.ID from met_MailViewGroup g\r\n\t\t\t\t\t\t\t\twhere g.Name = N'نمابر' AND ROWNUM=1)",
+    "tables": [
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::PrepareMailViewGroupID",
+    "operation": "CREATE",
+    "sql": "create table xcrt_MVG_{0} as select * from met_MailViewGroup",
+    "tables": [
+      "met_MailViewGroup",
+      "xcrt_MVG_"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::PrepareMailViewGroupID",
+    "operation": "SELECT",
+    "sql": "select * into xcrt_MVG_{0} from met_MailViewGroup",
+    "tables": [
+      "met_MailViewGroup",
+      "xcrt_MVG_"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::PrepareMailViewGroupID",
+    "operation": "SELECT",
+    "sql": "select count(*) from Mil_Mail where MAILTYPE = {0}",
+    "tables": [
+      "Mil_Mail"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.MO_گروه_كارتابل_وارده::UpdateMailGroupID",
+    "operation": "UPDATE",
+    "sql": "update met_MailViewGroup set ID = {0}, SystemId = {1} where ID = {2}",
+    "tables": [
+      "met_MailViewGroup"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.Cartable.TextResources::TryLoadTextResource",
+    "operation": "SELECT",
+    "sql": "select * from {0} where {1}=1 and {2} like '{3}%'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.MailViewer::GetContentHtmlForWeb",
+    "operation": "SELECT",
+    "sql": "SELECT \r\n\tMil_MailContent.MAILID, MIL_MAIL.SUBJECT, MIL_MAIL.FROMTEXT, MIL_MAIL.TOTEXT, MIL_MAIL.CCTEXT, MIL_MAIL.BCCTEXT, MIL_MAIL.SENDDATE, MIL_MAIL.IMPORTANCE,\r\n\tMIL_MAIL.ACCESSLEVEL, Mil_MailContentContainer.CONTENTHTML, Mil_Mail.RealSenderId, Mil_Mail.MAINSENDERID,Mil_Mail.MainSenderUserId,Mil_Mail.REALSENDERUSERID,Mil_Mail.MailNoText\r\nFROM \r\n\tMil_Mail\r\n\tINNER JOIN Mil_MailContent ON Mil_MailContent.CONTENTMAILID = Mil_Mail.ID\r\n\tINNER JOIN Mil_MailContentContainer ON Mil_MailContentContainer.MAILID = MIL_MAIL.ID\r\nWHERE Mil_MailContent.MAILID = {0}\r\nORDER BY Mil_MailContent.CONTENTMAILID DESC",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailContent",
+      "Mil_MailContentContainer"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.MailViewer::GetContentHtmlForWeb",
+    "operation": "SELECT",
+    "sql": "SELECT Shr_FileAttachment.ID, Shr_FileAttachment.EXTENSION, Shr_FileAttachment.ATTACHTYPE, Shr_FileAttachment.NAME, Shr_FileAttachment.SIZE\r\nFROM Shr_FileAttachment\r\n\tINNER JOIN Shr_FileAttachmentObject ON Shr_FileAttachment.ID = Shr_FileAttachmentObject.FILEATTACHMENTID\r\nWHERE Shr_FileAttachmentObject.OBJECTID = {0}",
+    "tables": [
+      "Shr_FileAttachment",
+      "Shr_FileAttachmentObject"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.MailViewer::GetContentHtmlForWeb",
+    "operation": "SELECT",
+    "sql": "SELECT Shr_FileAttachment.ID, Shr_FileAttachment.EXTENSION, Shr_FileAttachment.ATTACHTYPE, Shr_FileAttachment.NAME, Shr_FileAttachment.SIZE$$\r\nFROM Shr_FileAttachment\r\n\tINNER JOIN Shr_FileAttachmentObject ON Shr_FileAttachment.ID = Shr_FileAttachmentObject.FILEATTACHMENTID\r\nWHERE Shr_FileAttachmentObject.OBJECTID = {0}",
+    "tables": [
+      "Shr_FileAttachment",
+      "Shr_FileAttachmentObject"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.MailViewer::GetContentHtmlForWin",
+    "operation": "SELECT",
+    "sql": "SELECT Mil_MailContent.MAILID, MIL_MAIL.SUBJECT, MIL_MAIL.FROMTEXT, MIL_MAIL.TOTEXT, MIL_MAIL.CCTEXT, MIL_MAIL.BCCTEXT, MIL_MAIL.SENDDATE, MIL_MAIL.IMPORTANCE, MIL_MAIL.ACCESSLEVEL, Mil_MailContentContainer.CONTENTHTML, Mil_Mail.RealSenderUserId,Mil_Mail.MainSenderUserId, Mil_Mail.CONTENTTEXT,Mil_Mail.MailNoText\r\nFROM Mil_Mail\r\n\tINNER JOIN Mil_MailContent ON Mil_MailContent.CONTENTMAILID = Mil_Mail.ID\r\n\tINNER JOIN Mil_MailContentContainer ON Mil_MailContentContainer.MAILID = MIL_MAIL.ID\r\nWHERE Mil_MailContent.MAILID = {0}\r\nORDER BY Mil_MailContent.CONTENTMAILID DESC",
+    "tables": [
+      "Mil_Mail",
+      "Mil_MailContent",
+      "Mil_MailContentContainer"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "method": "Barsa.Dynamics.MailViewer::GetContentHtmlForWin",
+    "operation": "SELECT",
+    "sql": "SELECT Shr_FileAttachment.ID, Shr_FileAttachment.EXTENSION, Shr_FileAttachment.ATTACHTYPE, Shr_FileAttachment.NAME, Shr_FileAttachment.SIZE\r\nFROM Shr_FileAttachment\r\n\tINNER JOIN Shr_FileAttachmentObject ON Shr_FileAttachment.ID = Shr_FileAttachmentObject.FILEATTACHMENTID\r\nWHERE Shr_FileAttachmentObject.OBJECTID = {0}",
+    "tables": [
+      "Shr_FileAttachment",
+      "Shr_FileAttachmentObject"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.OSVersionEx::get_Current",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM Win32_OperatingSystem",
+    "tables": [
+      "Win32_OperatingSystem"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.ProcessEx::GetCommandLine",
+    "operation": "SELECT",
+    "sql": "SELECT CommandLine FROM Win32_Process WHERE ProcessId = {0}",
+    "tables": [
+      "Win32_Process"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.ProcessMonitor::GetProcessStartTimeWithWMI",
+    "operation": "SELECT",
+    "sql": "select CreationDate from Win32_Process where ProcessId='",
+    "tables": [
+      "Win32_Process"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.SystemInfo::GetCpuModel",
+    "operation": "SELECT",
+    "sql": "Select Name from Win32_Processor",
+    "tables": [
+      "Win32_Processor"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.SystemInfo::GetDomainName",
+    "operation": "SELECT",
+    "sql": "Select PartOfDomain, Domain from Win32_ComputerSystem",
+    "tables": [
+      "Win32_ComputerSystem"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.SystemInfo::GetMemorySize",
+    "operation": "SELECT",
+    "sql": "Select Capacity from Win32_PhysicalMemory",
+    "tables": [
+      "Win32_PhysicalMemory"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "method": "Barsa.Dynamics.SystemInfo::get_Current",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM Win32_OperatingSystem",
+    "tables": [
+      "Win32_OperatingSystem"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ActivityRunHistory::IsExists",
+    "operation": "SELECT",
+    "sql": "select count(*) from {0} where {1}={{0}} and {2}={{1}}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetCurrentApprovalRun",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM {0} WHERE {1}={2} AND {3}={{0}} AND {4}={{1}} AND {5}=0 AND ROWNUM = 1",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetCurrentApprovalRun",
+    "operation": "SELECT",
+    "sql": "select top 1 * from {0} where {1}={2} and {3}={{0}} and {4}={{1}} and {5}=0",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetIncomingLineAction",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM {0} WHERE {1}={{0}} AND {2}='{{1}}' AND ROWNUM = 1",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetIncomingLineAction",
+    "operation": "SELECT",
+    "sql": "select top 1 * from {0} where {1}={{0}} and {2}='{{1}}'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetLastApprovalRun",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM (SELECT * FROM {0} WHERE {1}={2} AND {3}={{0}} AND {4}={{1}} AND {5}=0 ORDER BY ID DESC) WHERE ROWNUM = 1",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetLastApprovalRun",
+    "operation": "SELECT",
+    "sql": "select top 1 * from {0} where {1}={2} and {3}={{0}} and {4}={{1}} and {5}=0 order by Id desc",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetNextApprovalRun",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM (SELECT * FROM {0} WHERE {1}={{0}} AND {2}={{1}} AND {3}={4} AND {6}=0 ORDER BY {5} DESC) WHERE ROWNUM = 1",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::GetNextApprovalRun",
+    "operation": "SELECT",
+    "sql": "select top 1 * from {0} where {1}={{0}} and {2}={{1}} and {3}={4} and {6}=0 order by {5} desc",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.ApprovalGatewayActivity::IsFirstRun",
+    "operation": "SELECT",
+    "sql": "SELECT COUNT(*) FROM {0} WHERE {1}={{0}} AND {2}={{1}}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.BRule::LoadAllRules",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM {0} WHERE {1}={2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.BRule::LoadAllRules",
+    "operation": "SELECT",
+    "sql": "SELECT [rule].* FROM {0} [rule] INNER JOIN {1} ruleDef ON [rule].{2}=ruleDef.Id WHERE ruleDef.{3}={4}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.DatabaseTrigger::GetCreateTriggerScript",
+    "operation": "CREATE",
+    "sql": "create or replace\r\ntrigger TRG_{0}\r\nbefore delete on {1}\r\nfor each row\r\nDECLARE\r\n      pragma autonomous_transaction;\r\nbegin\r\n       insert into XCOR_TABLELOG (RelatedId,ActionType,CreateDate,Id) values (:old.Id,{2},sysdate,Log_Seq_XCOR_TABLELOG.NEXTVAL);\r\n    commit;\r\nraise_application_error(-{3},N'{4}');\r\nend;",
+    "tables": [
+      "XCOR_TABLELOG"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.Sys_Core+Typed_رابط_مشترك::DeleteInterfaceObjects",
+    "operation": "SELECT",
+    "sql": "select id from {0} where {1} = {2}",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.Sys_Core+Typed_قاعده_كاري::.cctor",
+    "operation": "SELECT",
+    "sql": "SELECT * FROM {0} WHERE {1}={{0}} AND ROWNUM = 1 ORDER BY {2} ASC",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.Sys_Core+Typed_قاعده_كاري::.cctor",
+    "operation": "SELECT",
+    "sql": "select top 1 * from {0} where {1}={{0}} order by {2} asc",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "method": "Barsa.Dynamics.TextResources::TryLoadTextResource",
+    "operation": "SELECT",
+    "sql": "select * from {0} where {1}=1 and {2} like '{3}%'",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Services.dll",
+    "method": "Barsa.Dynamics.EmailProvider+ReceiveEmail::LoadHeadersAndBody",
+    "operation": "UPDATE",
+    "sql": "update Mil_Mail set FROMTEXT=N'",
+    "tables": [
+      "Mil_Mail"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Services.dll",
+    "method": "Barsa.Dynamics.EmailProvider+ReceiveEmail::LoadHeadersAndBody",
+    "operation": "UPDATE",
+    "sql": "update Mil_MailInvolver set HASREAD=1, READDATE='{0}' where MAILID=",
+    "tables": [
+      "Mil_MailInvolver"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.Services.dll",
+    "method": "Barsa.Dynamics.EmailProvider+SendEmail::Send",
+    "operation": "SELECT",
+    "sql": "select * from ",
+    "tables": []
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+    "method": "WSM.FrameworkHelper::GetIdList",
+    "operation": "UNKNOWN",
+    "sql": "\r\nwith cte_n as (\r\n    select 1 as contador\r\n    union all\r\n    select contador+1 from cte_n \r\n    where contador <{0}\r\n) \r\nselect next value for {1} as id from cte_n option (maxrecursion 0)\r\n",
+    "tables": [
+      "cte_n"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+    "method": "WSM.Helpers.CacheHelper::ClearCache_Sql",
+    "operation": "UNKNOWN",
+    "sql": "\r\nbegin\r\n    if exists(select 1 from service_SystemCache where name = {1})\r\n    begin  \r\n        update service_SystemCache set LastModifyTime = GETDATE() where name = {1}    \r\n    end;\r\n    else\r\n    begin\r\n        insert into service_SystemCache(Id, name, LastModifyTime) values({0}, {1}, GETDATE());\r\n    end;\r\nend;",
+    "tables": [
+      "service_SystemCache"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+    "method": "WSM.Helpers.CacheHelper::ClearCache_Sql",
+    "operation": "UNKNOWN",
+    "sql": "\r\ndeclare\r\n    x number(1);\r\nbegin\r\n    select count(*) INTO x from service_SystemCache where name = {1};\r\n    if x = 1 then\r\n        update service_SystemCache set LastModifyTime = GETDATE() where name = {1};\r\n    else\r\n        insert into service_SystemCache(Id, name, LastModifyTime) values({0}, {1}, GETDATE());\r\n    end if;\r\nend;",
+    "tables": [
+      "service_SystemCache",
+      "x"
+    ]
+  },
+  {
+    "assembly": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+    "method": "WSM.Helpers.CacheHelper::GetCache",
+    "operation": "SELECT",
+    "sql": "select LastModifyTime from service_SystemCache where name = {0} and LastModifyTime>{1}",
+    "tables": [
+      "service_SystemCache"
+    ]
+  }
+]

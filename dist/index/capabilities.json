@@ -1,0 +1,163 @@
+[
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::Export"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExportSample",
+      "ExporterCode"
+    ],
+    "id": "System.Export",
+    "requires": [
+      "An ObjectReferenceSelection built from the export tree",
+      "A live database connection"
+    ],
+    "risks": [
+      "Package may contain production data"
+    ],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::Import",
+      "Barsa.Meta.DataExchange.BixHelper::ImportWithProgress"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExportSample",
+      "ImporterCode"
+    ],
+    "id": "System.Import",
+    "requires": [
+      "A .metaexport file",
+      "ImportOptions"
+    ],
+    "risks": [
+      "Writes metadata to the target database",
+      "Rollback behaviour not established statically"
+    ],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::Clone",
+      "Barsa.Meta.DataExchange.BixHelper::CloneById"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExporterCode",
+      "ImporterCode"
+    ],
+    "id": "System.Clone",
+    "requires": [
+      "Source object ids"
+    ],
+    "risks": [
+      "Creates new object identities"
+    ],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::GetInfo"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExportSample"
+    ],
+    "id": "Package.ReadHeader",
+    "requires": [],
+    "risks": [],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::ExtractData"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExportSample"
+    ],
+    "id": "Package.PreviewTree",
+    "requires": [
+      "ImportOptions.FirstFilePath"
+    ],
+    "risks": [],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::ExportInitialJson",
+      "Barsa.Meta.DataExchange.BixHelper::ExportJson"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "id": "System.ExportJson",
+    "requires": [],
+    "risks": [
+      "No JSON sample supplied; on-disk shape unverified"
+    ],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.MieExportManagerAll::#NH",
+      "Barsa.Meta.DataExchange.MieExportManagerAll::#RH",
+      "Barsa.Meta.DataExchange.MieExportManagerAll::#TH",
+      "Barsa.Meta.DataExchange.MieExportManagerAll::ExportAll"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "id": "Mie.ExportAll",
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.MieImportManager::#YH",
+      "Barsa.Meta.DataExchange.MieImportManager::.ctor",
+      "Barsa.Meta.DataExchange.MieImportManager::GetImportingFileList",
+      "Barsa.Meta.DataExchange.MieImportManager::ImportFile",
+      "Barsa.Meta.DataExchange.MieImportManager::ImportFolder",
+      "Barsa.Meta.DataExchange.MieImportManager::ImportFolderSimple"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "id": "Mie.Import",
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.ExportReportHelper::#9Ih",
+      "Barsa.Meta.DataExchange.ExportReportHelper::#WC",
+      "Barsa.Meta.DataExchange.ExportReportHelper::#bJh",
+      "Barsa.Meta.DataExchange.ExportReportHelper::#cJh",
+      "Barsa.Meta.DataExchange.ExportReportHelper::#yJh",
+      "Barsa.Meta.DataExchange.ExportReportHelper::Export",
+      "Barsa.Meta.DataExchange.ExportReportHelper::ExportTable"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "id": "Report.Export",
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  }
+]

@@ -1,0 +1,448 @@
+{
+  "$defs": {
+    "entity": {
+      "additionalProperties": false,
+      "properties": {
+        "caption": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dbName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fields": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isDeleted": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isDynamic": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relations": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "systemId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "field": {
+      "additionalProperties": false,
+      "properties": {
+        "caption": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dataType": {
+          "description": "Unknown unless fieldInfoType is decoded.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dbName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultValue": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nullable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "orderNumber": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "relation": {
+      "additionalProperties": false,
+      "properties": {
+        "destId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relationDefId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "sourceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "relationDef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isBilateral": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "relationType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reverseTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "sourceEntity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "targetEntity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "report": {
+      "additionalProperties": false,
+      "properties": {
+        "customColumns": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parameters": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "query": {
+          "description": "Unknown: ReportData is an opaque blob.",
+          "type": "null"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "systemId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "template": {
+          "description": "Unknown: not decoded.",
+          "type": "null"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "source": {
+      "additionalProperties": false,
+      "description": "Where this object came from in the package.",
+      "properties": {
+        "barsaType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exportPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exportTable": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$id": "https://barsa.local/schemas/normalized-system-model.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Serialization-independent view of a Barsa system, derived from observed .metaexport tables only.",
+  "properties": {
+    "code": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "commands": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/entity"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "fields": {
+      "items": {
+        "$ref": "#/$defs/field"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "folders": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "forms": {
+      "description": "Unknown: no sample demonstrates form storage.",
+      "type": "null"
+    },
+    "relationDefs": {
+      "items": {
+        "$ref": "#/$defs/relationDef"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "relations": {
+      "items": {
+        "$ref": "#/$defs/relation"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reports": {
+      "items": {
+        "$ref": "#/$defs/report"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "schemaVersion": {
+      "const": "2.0"
+    },
+    "system": {
+      "additionalProperties": false,
+      "properties": {
+        "caption": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "views": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "workflows": {
+      "description": "Unknown: no sample demonstrates workflow storage.",
+      "type": "null"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "system"
+  ],
+  "title": "Barsa normalized system model",
+  "type": "object"
+}

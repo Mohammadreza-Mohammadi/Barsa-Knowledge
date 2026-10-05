@@ -1,0 +1,2332 @@
+{
+  "chunks": [
+    {
+      "confidence": "CrossVerified",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-EXP-000003",
+        "EVID-DLL-000365"
+      ],
+      "id": "format.export.container.001",
+      "text": "A Barsa .metaexport file is GZip-compressed .NET BinaryFormatter output whose root object is a System.Data.DataSet, carried as an XSD string plus an XML DiffGram string. The XML declares utf-16 but the bytes are UTF-8.",
+      "title": "Export package container format"
+    },
+    {
+      "confidence": "CrossVerified",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-DLL-000366",
+        "EVID-DLL-000367"
+      ],
+      "id": "import.system.entrypoint.001",
+      "text": "BixHelper.Import(string, ImportOptions) is the façade; NewImportManager.Import(ImportOptions) is the engine. ImportOptions carries Simulate, IsClone, AddMissedReferences and writes back out_IdFixer and out_DataSet.",
+      "title": "Import entry point"
+    },
+    {
+      "confidence": "CrossVerified",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-EXP-000004",
+        "EVID-DLL-000368"
+      ],
+      "id": "import.system.idremap.001",
+      "text": "The package carries a $IdEmbeddingFields control table whose rows are (TableName, ColumnName, OperationalType, FieldType) with OperationalType in {pk, fk, idpattern}. FixIdForImport.Init/FixAll consume it. Whether a specific id survives unchanged is Unknown.",
+      "title": "ID remapping on import"
+    },
+    {
+      "confidence": "Observed",
+      "domain": "system-reconstruction",
+      "evidence": [
+        "EVID-DLL-000369"
+      ],
+      "id": "import.system.order.001",
+      "text": "NewImportManager.Import invokes, in body order: DeserializeDataSetFromFile, FixIdForImport, clone fixups, ImportManager_Structure.AfterImport, ObjectReferenceBuilder.RecreateForAll, MissedReferenceFinder, then writes the import audit end timestamp. Per-table write order is Unknown.",
+      "title": "Import stage order"
+    },
+    {
+      "confidence": "CrossVerified",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-DLL-000370",
+        "EVID-EXP-000005"
+      ],
+      "id": "export.system.entrypoint.001",
+      "text": "BixHelper.Export(ObjectReferenceSelection, string, bool, int, bool) fronts NewExportManager.Export(MultiSubProgress, ObjectReferenceSelection, Action<ExportSaveContext>). The selection comes from the export tree via ExportDataSource : IActiveDataSource.",
+      "title": "Export entry point"
+    },
+    {
+      "confidence": "CrossVerified",
+      "domain": "system-reconstruction",
+      "evidence": [
+        "EVID-DLL-000371",
+        "EVID-DLL-000372"
+      ],
+      "id": "roundtrip.clone.001",
+      "text": "BixHelper.Clone runs Export then Import with ImportOptions.IsClone set, proving the format round-trips within the product. ImportCloneManager.GetFromNewIdMap(long) exposes the old-to-new id map.",
+      "title": "Export and import round-trip"
+    },
+    {
+      "confidence": "Observed",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-DLL-000373"
+      ],
+      "id": "import.preview.tree.001",
+      "text": "NewImportManager.GetImportData returns IActiveDataSource, the same interface the export tree consumes. ImportTreeForm renders it against DbDataSource.GetCurrentDb() with change icons, so a package can be diffed against the live system before applying.",
+      "title": "Package preview before import"
+    },
+    {
+      "confidence": "CrossVerified",
+      "domain": "entities-fields-relations",
+      "evidence": [
+        "EVID-EXP-000006",
+        "EVID-DLL-000374"
+      ],
+      "id": "format.dynamic.tables.001",
+      "text": "User-defined entities store rows in dyn_<n> and m0<n>_<name> tables with positional F1..Fn columns. $Data_TypeDefDbNames and $Data_FieldDefDbNames map TypeDef and FieldDef ids to those physical names. A reader must resolve through them rather than hard-coding table names.",
+      "title": "Dynamic table naming"
+    },
+    {
+      "confidence": "Verified",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-DLL-000375"
+      ],
+      "id": "limits.obfuscation.001",
+      "text": "Barsa.Meta.DataExchange.dll has private and internal members renamed to #Xx identifiers. Public API names survive. Internal behaviour is therefore Unknown unless it is visible as a call edge to a named member.",
+      "title": "DataExchange assembly is obfuscated"
+    },
+    {
+      "confidence": "Unknown",
+      "domain": "import-export",
+      "evidence": [
+        "EVID-DLL-000376"
+      ],
+      "id": "limits.atomicity.001",
+      "text": "Whether import runs in a transaction and rolls back on failure could not be established. The confirmation dialog warns that without a backup there is no way back, which is suggestive but is a UI string, not proof.",
+      "title": "Import atomicity is unresolved"
+    }
+  ],
+  "confidenceOrder": [
+    "CrossVerified",
+    "Verified",
+    "Observed",
+    "Inferred",
+    "Unknown"
+  ],
+  "counts": {
+    "assemblies": 364,
+    "capabilities": 9,
+    "chunks": 10,
+    "evidenceItems": 382,
+    "exportPackages": 2
+  },
+  "generated": "2026-10-05",
+  "inputHashes": [
+    {
+      "mvid": null,
+      "path": "/home/user/Barsa-Knowledge/source/NewMeta01.metaexport",
+      "sha256": "b421fa6fcf30b2748d1db901727fd6d004e20d21c84484758581243646bd901e",
+      "version": "4.1.197"
+    },
+    {
+      "mvid": null,
+      "path": "/home/user/Barsa-Knowledge/source/NewMeta02.metaexport",
+      "sha256": "77fb320e6515d84cfcd7c128979d8407db70eab471ba3c16c07bfdd9198cd16f",
+      "version": "4.1.190"
+    },
+    {
+      "mvid": "5bbb19c8-39c9-4d4d-b21d-0881f8795961",
+      "path": "source/Actipro/ActiproSoftware.Shared.WinForms.dll",
+      "sha256": "7345494c3230eed9e75a9f16fe96f31719b6a86e0d5d6d7843b7e6e3374a86ab",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "1f2ad8f3-29e9-4eaa-b8fb-55bfc0c954dd",
+      "path": "source/Actipro/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
+      "sha256": "09468c879e7f5e25d1fdc725dca70570916e97ec179ef56fb7bf61aeb1d3fa17",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "dda5e81c-98e0-46a3-b436-2d3f6351eee2",
+      "path": "source/Actipro/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
+      "sha256": "b26fba4d018c4397244aba75242a2fa06e2e80e293c6d7c9e79dc874019e4e60",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "155d7155-9771-4986-91c2-4d2b45740511",
+      "path": "source/Actipro/ActiproSoftware.SyntaxEditor.WinForms.dll",
+      "sha256": "2fbf69812c5d3f7d2581981388f73578c98ba27b84ea84047bd5938fde571290",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "1df170e5-40ca-4853-a983-b0e9babcf7b6",
+      "path": "source/Actipro/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
+      "sha256": "5b286bb887c871085b581de0c7bfd2a4a7290c25bca3331a665cfe18ce413f0d",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "6df805c8-8cd7-44cf-91cb-695dca4f85e9",
+      "path": "source/Actipro/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
+      "sha256": "657788d33781ec55857fbc01f3d1f9ab466a271e0e0152308e90af029cb5b291",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "4db4e9dc-fcab-40c2-8167-b7997b5b3198",
+      "path": "source/Actipro/ActiproSoftware.Text.LLParser.WinForms.dll",
+      "sha256": "71f0a8a32c4a39e8f12831a5f3490b1b4e8ef9fbb94b561c4bf7866ae6388829",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "88a46ad6-85c7-4aa3-8919-05123d5b5340",
+      "path": "source/Actipro/ActiproSoftware.Text.WinForms.dll",
+      "sha256": "4ac9aea76b2e446775304b7dd4f19ccf5b35a9173cf51fb81834d04d3dc0862b",
+      "version": "20.1.402.0"
+    },
+    {
+      "mvid": "cd195158-de02-49c7-bb00-e65874b1661a",
+      "path": "source/AnimationCheckBox.dll",
+      "sha256": "9f649b4631ba695bf698febf754a14419812755f723c67c019f8f93437e58ee9",
+      "version": "1.0.1739.18991"
+    },
+    {
+      "mvid": "c1e7b11e-d2c0-4da4-7c41-2f1312c79a2a",
+      "path": "source/Aspose.Cells.dll",
+      "sha256": "b26a8f58294fc7ae377e6d14d443c481952c65bcaad284689c5dc88a10304ca9",
+      "version": "17.8.0.0"
+    },
+    {
+      "mvid": "120b7391-da2c-4165-6797-5d4b70bf9631",
+      "path": "source/Aspose.PDF.dll",
+      "sha256": "1e9f56e5c8376bd5e9bd758b8d6c42fcc356ae751e9772ed4812ac69786b6cd4",
+      "version": "23.1.0.0"
+    },
+    {
+      "mvid": "01c37d7f-c2fc-4240-e0fd-0a3bd9c8f018",
+      "path": "source/Aspose.Words.dll",
+      "sha256": "79e9def508211f1d23e86b4098e2d0742e714561fbae8c4bcb31de9ea94e039d",
+      "version": "16.6.0.0"
+    },
+    {
+      "mvid": "da7d0dc4-c8a9-4a5e-a6f6-0ee983f8c485",
+      "path": "source/Atapi.dll",
+      "sha256": "203b637022bac9dbab34a00a13ba787e355c8a08ce5642fb213e52f7e68948fc",
+      "version": "1.2.0.0"
+    },
+    {
+      "mvid": "635cc73c-99af-4d18-a644-4a1f45cf6a40",
+      "path": "source/AxInterop.KYLIXSMSLib.dll",
+      "sha256": "2be6154093f0347fd1314b01cb5f2d44cdc65842b5e59679cc201621b285815d",
+      "version": "5.0.0.0"
+    },
+    {
+      "mvid": "b77e4c10-bd31-49e5-9ebe-61e7ce8856fe",
+      "path": "source/AxInterop.SHDocVw.dll",
+      "sha256": "54e89168ce512ba0714a711cf9d2374a0d39c482d56b798fa2c6dfd771ae693b",
+      "version": "1.1.0.0"
+    },
+    {
+      "mvid": "cbee31fa-9a76-4bfe-a91b-c53d1096c1a8",
+      "path": "source/AxInterop.TAPIEXLib.dll",
+      "sha256": "bf15e5f91b06e416c7c67f48d05989b8bf2e0cb181bc8a07829b2f6a66728878",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "1b5777f9-89c5-4ed6-8d39-d7be0adaeed4",
+      "path": "source/AxInterop.XpdfViewer.dll",
+      "sha256": "7699e2c20eafea97f96696ba05fb94da82c921018e0782ef58e29f37772a455e",
+      "version": "3.2.0.0"
+    },
+    {
+      "mvid": "88fe295c-a60e-4633-835e-5bfe99fc7ab9",
+      "path": "source/Barsa.Ai.Host.exe",
+      "sha256": "cc63deeb8516484f2c36fcd145905c4e4d09fa56433960140a85f0485ecf8325",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "dbdd673f-ecfc-4848-90f5-24b32e7c8b0b",
+      "path": "source/Barsa.Automation.Ui.Win.dll",
+      "sha256": "cc9a45e5fe008ec8297bb3275f73c45fe954933c2ca210146c9aa62c96c76989",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "f184c732-5e1e-4386-b6b6-256f880470c9",
+      "path": "source/Barsa.Automation.Ui.Win.exe",
+      "sha256": "9fb5181fb7897ff459f59b1ad42f27894c34945600a32bfdc66fea9ec08ee269",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "0cbfe84d-62d5-49e4-9584-ab9780202fce",
+      "path": "source/Barsa.Automation.dll",
+      "sha256": "5839198979fdb64f7f57c6c90da81542658713e648ad928a79fad4f51eb1e71a",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "bf2ea27b-dc0d-4d7d-b4ee-95c41a5e31b5",
+      "path": "source/Barsa.CalendarApp.Ui.Win.dll",
+      "sha256": "51d097fe924f66b3f47ebca43142b75fd75a55c3833112c3849ac4e367f9b334",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "aaffebf4-d3d6-4eb1-ac8f-153f2d3e93d9",
+      "path": "source/Barsa.CalendarApp.dll",
+      "sha256": "3a0473b52f8682b722b402cf24d75c3ed5677ef2f36a148d381b9856a073cf6e",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "4ad1f5f0-1266-441b-836b-490c4c84cf59",
+      "path": "source/Barsa.ContactApplication.Ui.Win.dll",
+      "sha256": "2f0498f15ae8a7f12c34c8aa7b2442836b44739568d3ca2f547fa788927ac6be",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "e3810dad-aa19-4757-8c5d-5e173097be39",
+      "path": "source/Barsa.ContactApplication.dll",
+      "sha256": "755f34d68decbf51a6c55b5ffe9c9cd530fb854d93b7bed7aec56d91071c30ec",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "aad42dc6-610f-4d2d-ad96-e7dc21d897db",
+      "path": "source/Barsa.Dashboard.Ui.Win.dll",
+      "sha256": "cc5200f361c0772fa48e625ce1738da8172188283a6825b20a924995c0eb6c0b",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "e68707a9-35e8-4946-a34b-1a83c81e217f",
+      "path": "source/Barsa.Deploy.Common.dll",
+      "sha256": "5a70acce62bf7d7a7eed9ce05239f8358700bc52648b906691638dcd0ddbbd38",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "660b08fa-4fe8-4550-aa8a-ef40a69fbb03",
+      "path": "source/Barsa.Dynamics.dll",
+      "sha256": "775efe8fd3d3afd6327b05359f08ab8cb86800d654edd890ed290a65b93a6dca",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "12216ed2-477c-44ef-95e8-c1622aa003c7",
+      "path": "source/Barsa.EOrg.ECEApplication.dll",
+      "sha256": "6057b99edb00425f4276f3d9261e9fd4ec14fcbc4f28b225a0bc96aca6a3c4ef",
+      "version": "1.0.1.32"
+    },
+    {
+      "mvid": "fe957051-b9e3-4421-90e8-a5cb83c2cbfa",
+      "path": "source/Barsa.EmailClient.Ui.Win.dll",
+      "sha256": "656b3eaa6672e500043942ca199e37840fcdb594331dc85a5c2327a8378668a7",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "b46f0273-8625-406d-8159-f5b3549740da",
+      "path": "source/Barsa.EmailClient.dll",
+      "sha256": "ea8ea96d1a1c7b82a24167f723afb66cea75e4caaa9f5883515364f3609d52fc",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "26f5fdda-a555-431f-9427-8ce6ba1f0bd5",
+      "path": "source/Barsa.Eorg.Main.Ui.Win.dll",
+      "sha256": "a344a0e6ae9ccc89cfca498dbfb41923179b6007d05dadfe74ae8ecd0bc931e9",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "671592dd-1674-4b38-b6d8-5083e1ae0637",
+      "path": "source/Barsa.Eorg.Ui.Win-Any.exe",
+      "sha256": "548689cd326047e238a52b1f7d22365a97291e02c3f56ada062563a45db386c7",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "c6515573-6d1f-4406-9066-d9568507bff9",
+      "path": "source/Barsa.Eorg.Ui.Win.exe",
+      "sha256": "12cd5e96eb8be38a52f442229c39abe7e57faa0e89d49c11d4eec7363cf8b913",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "10640379-1f31-44f1-b5d6-eb14f1fef8ea",
+      "path": "source/Barsa.FaxApplication.Ui.Win.dll",
+      "sha256": "7e4840333933c85e55210494f5384517e172fef24c45e84477a202c3d547d623",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "22d17750-d299-4098-9ecf-b771486bccbd",
+      "path": "source/Barsa.FaxApplication.dll",
+      "sha256": "c173a62b9abeec487800684344c33cafcc161d9bd9581b454342d48ca71b0274",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "997b8b93-454f-415f-9a59-323a80887789",
+      "path": "source/Barsa.ImageLibrary.Win.Editor.dll",
+      "sha256": "b3d6ebdeda189cdb66b5032ad67de008e9ebd641395bf0cd4f914cbb9c5e74ef",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "68eacf6f-f7a9-44e1-933d-daca494a9d78",
+      "path": "source/Barsa.ImageLibrary.dll",
+      "sha256": "415ae5cce32817fd6cd3a254188325ccf69e6b7d244f6369c506df5491e2c530",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "3f7c0db3-58cc-4df4-9d1a-3b6da8b3532b",
+      "path": "source/Barsa.InterEorg.Ui.Win.exe",
+      "sha256": "3e3900e2690a8342145a9452c30b3772f3e9df3d6339c6f6a0da16fe95eae5dc",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "046fb578-8cf8-422d-8827-4ba8ec8547b9",
+      "path": "source/Barsa.InterEorg.dll",
+      "sha256": "3016c2a941a6776abe348f742cd9392bfa16ed3c7835a6b0887fbdf9ac51c029",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "e5bf74a5-cf05-4aaf-a289-d608c20ac14b",
+      "path": "source/Barsa.MailApplication.Ui.Win.dll",
+      "sha256": "1eefbf75319272266c20565a56283c5e661a5b7718015887678193a27aa91b27",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "99c59c35-da11-4ddb-8f55-12d5eab0d105",
+      "path": "source/Barsa.MailApplication.dll",
+      "sha256": "ede05c0065005069784032ee03d4e66fbd3518f022c3b24eda94f4dc8657f173",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "e0b9fed9-a9a5-467d-ae1c-7626c7a2f7d2",
+      "path": "source/Barsa.ManagementApplication.Ui.Win.dll",
+      "sha256": "431ab4eebb493b2738f20f8e3ee5a6fb8830023f40ceca4485b3b426306809a6",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "a21c0385-574e-4a6f-b1a7-d553623c4314",
+      "path": "source/Barsa.Meta.Calendar.UI.Win.dll",
+      "sha256": "30648ef809ae6d6634197bd2ad17a74c33fd50f761ed5d0ccb3ce6d66e61abfe",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "360c2092-3b1c-4dfd-82f7-ccd624c10f07",
+      "path": "source/Barsa.Meta.Code.Ui.Win.dll",
+      "sha256": "c5781ab6f683aa8fb74712d496bf6568745145efc232095ce5bf34ad6aa5fd4d",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "2def8650-0b03-4cc8-99b8-aaf55d9b348e",
+      "path": "source/Barsa.Meta.Code.dll",
+      "sha256": "6885dc9a4d07802ef31f72de483103645c09cb43b64373bb35c50ef5afd7325a",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "b380059c-180b-45da-9cf6-aabd29526f05",
+      "path": "source/Barsa.Meta.Coding.SDK.dll",
+      "sha256": "3ea22f9595367f519e6e37ee3ea3d56d7de775a0c13e965eead8e5c2f803941e",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "bdc2755f-176e-4d8c-a989-c1fc8ab4df10",
+      "path": "source/Barsa.Meta.DataExchange.dll",
+      "sha256": "495a687a64d9a1748eef668890d3ba1734b8280972acb1c2891e8a8d221da77a",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "dd44f923-268d-4632-adf4-a401f7c352fd",
+      "path": "source/Barsa.Meta.Extra.Ui.Win.dll",
+      "sha256": "2a06cfdf25fc401974ee054e3425373ac1554788110490dda452b070e7f4903e",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "36840525-dbb0-4152-b51d-7deb22f81202",
+      "path": "source/Barsa.Meta.Extra.dll",
+      "sha256": "c9905499792d5b76ee2836ca69ab0994b50e492298d3635ecfce30af8f29c5dc",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "527aecb2-d6fc-4d24-9486-1927cf1ed0a2",
+      "path": "source/Barsa.Meta.Extra1.dll",
+      "sha256": "7c327912a4a505f386dadad08f72d261a99cb39271c5125b22d10590b308c17c",
+      "version": "3.14.173.0"
+    },
+    {
+      "mvid": "2e127add-5e96-455e-9bb8-478412dddf0a",
+      "path": "source/Barsa.Meta.FileUtils.dll",
+      "sha256": "e665daf61e36e97549779a7aef927991ede1fde71e0f8563cec9a61122e4ab4e",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "0a9fd77a-5de8-4e21-93c6-5fcc9941e7fc",
+      "path": "source/Barsa.Meta.InterEorgUtil.exe",
+      "sha256": "652aaa0bd50095eaf87440300b9a47881816b44ed9bc6ffdeb53700bdd3cb277",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "632c66c5-cb2d-4bce-a7d6-bfc356e8c11d",
+      "path": "source/Barsa.Meta.JSCompiler.dll",
+      "sha256": "b3a364eb85b90dc85f5dd83e093516fbbf3d6ae761b224984b8fe056c7b4cd08",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "7b3494af-3966-423d-bb94-964cbb1265c9",
+      "path": "source/Barsa.Meta.SemanticExchange.dll",
+      "sha256": "53f8e522f1264c6dc8588ce926222455ebb8388a77ba799014efc08f0912ecbe",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "4200ac8a-a4cb-429f-80fd-f60d25cc7d4e",
+      "path": "source/Barsa.Meta.ServiceHost.exe",
+      "sha256": "091b31043b55c8f52d38ba7281e3b87fdd034f65d60adc47b94e3ee20fa9fddb",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "a511e021-2eb0-4b3c-bcb2-9e90de419ba0",
+      "path": "source/Barsa.Meta.TesterAgent.dll",
+      "sha256": "69cbc2f84886e35eb734b4e5af724d17aeb6c1cda3d152074f8d03e4d2be2418",
+      "version": "3.14.75.0"
+    },
+    {
+      "mvid": "ad4ea462-0408-4500-b394-4ae887e5b65d",
+      "path": "source/Barsa.Meta.TesterApp.Ui.Win.exe",
+      "sha256": "c559382cfdb41c0a198c1e14a26281be2d93b3e9d94a048c4a0d54c3648eecf8",
+      "version": "3.14.75.0"
+    },
+    {
+      "mvid": "67236226-4d69-4513-b3ad-f215a890f181",
+      "path": "source/Barsa.Meta.Ui.Code.Win.NewActipro.dll",
+      "sha256": "c3aed58dbad6d288e30b6871cadb5200ef43dd2c36c713f4c0d43a4451ac080c",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "895851c3-a111-4c71-a647-5bc03a3b3133",
+      "path": "source/Barsa.Meta.Ui.Win.dll",
+      "sha256": "4d4658c7d2e6a16d82a473a984d89b1cd3c6e3a0e95a52e8f9989e186fb1a87d",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "0dce5607-e8f8-401d-8505-a93464ae79e6",
+      "path": "source/Barsa.Meta.dll",
+      "sha256": "836ed9c7c55be7d685f75b01c98753cadee67b5a83d67943c216112acb268793",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "c197a983-081c-410f-b399-4eae9506ad4b",
+      "path": "source/Barsa.MetaScriptEngine.Editor.dll",
+      "sha256": "07ccbb39e7c2c9a6269f318354f386bdada04e3dbcc804f6f86a2acb09c7c1a1",
+      "version": "1.48.0.0"
+    },
+    {
+      "mvid": "da8dfdf1-2ab2-4f6d-a6bb-ed0f6f023354",
+      "path": "source/Barsa.Modeling.Bpmn2.exe",
+      "sha256": "82cac37eb0698d6b1375360ded5b4d3ed953946d37e2e8ce029323a78993fac1",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "8d0cab30-571f-4a79-a091-1ce70cce37f7",
+      "path": "source/Barsa.MspManager.dll",
+      "sha256": "6415073f70bf04b898563a58edcded68bec319d502dbb1a426e31d37116accf1",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "59fd8f66-bde2-4946-a415-9a3e3a299136",
+      "path": "source/Barsa.ObjectConversion.Ui.Win.dll",
+      "sha256": "5e324ffb06919aec66a9e935558c3116fcd1ad9ea794d09b8f3de98f83686e8e",
+      "version": "0.0.0.0"
+    },
+    {
+      "mvid": "aa6701d1-9803-433d-9603-ed5d0d215252",
+      "path": "source/Barsa.ObjectConversion.dll",
+      "sha256": "bae1fefe56198af3a2985ffef32fa89bc3a257d6d0328b700d4f92b071a2290a",
+      "version": "0.0.0.0"
+    },
+    {
+      "mvid": "35595322-520c-4d8b-9902-a72d8f70e872",
+      "path": "source/Barsa.Office.Automation.dll",
+      "sha256": "b71d0fa2060e3752745c0d3b8c23aa85410488f56d53dd8ab2a8966269b13bf2",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "22ef1d4d-fec8-4010-b853-ff32e39a8fcd",
+      "path": "source/Barsa.Office.EdControls.dll",
+      "sha256": "4df4177c3320658baae52184782a751d539c7953cb5eefe19f9597f9a9cd6bd0",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "7e5f482b-8e9d-4d22-8b01-1805b34e6083",
+      "path": "source/Barsa.RecurrenceEngine.dll",
+      "sha256": "77a0d487b664f458bd5eb5832ce50ccb5e528f0c41e9cf63bbffa7997fb4a9a2",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "fe8a4e7f-0e10-4b95-9bb5-2604dc00bd35",
+      "path": "source/Barsa.SPL.Common.v2.5.dll",
+      "sha256": "7ad4bb65f5b4478a581880a589be593411803168563268ab7d7d0dbfb4614f5b",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "5bc07bb8-41d9-4366-99ab-16572c27ea9c",
+      "path": "source/Barsa.SPL.Documents.v2.5.dll",
+      "sha256": "28dbdf95319183c4a496b85c6541c7f06bc69d0fdedf879d81a6080f2f5ff164",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "fe8d9613-86f0-4fd2-bbab-08028bfe719e",
+      "path": "source/Barsa.SPL.Excel.v2.5.dll",
+      "sha256": "2e1765b43eaf42c0ada08e8f393aa645ce9a92fa27711cfe974bcd399879e754",
+      "version": "10.3.20103.1000"
+    },
+    {
+      "mvid": "31ac96d3-1499-4293-92fd-d32da88a9838",
+      "path": "source/Barsa.SPL.Win.CalcManager.v2.5.dll",
+      "sha256": "bdae1d4e9900810f682aa57c2d6b0c9e709a4a2dd8cb02e3c7e5fd5512953a0b",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "30b2b803-b99f-4848-aef3-89c275c7e0da",
+      "path": "source/Barsa.SPL.Win.Calendar.v2.5.dll",
+      "sha256": "3e9414c934e9d681fa1e80e7c910753508328346fcfbb0f969bfb1d2e4b8d6c8",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "a3dbf225-061d-4e4b-9da6-45be9b2e5074",
+      "path": "source/Barsa.SPL.Win.Chart.v2.5.dll",
+      "sha256": "1e57396d20a85f41da10766b9cd02086bc378da209347fda04adac65c56a5b09",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "88b9ca56-aeb3-4198-a9b5-1caf508f6349",
+      "path": "source/Barsa.SPL.Win.DataSource.v2.5.dll",
+      "sha256": "0a28aeb3ef6fa136cf56a9b8ecca01646e4acc6b4c652ead04d27055ee65058e",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "b3a440ae-0123-4a93-9d64-3f1cc1959a96",
+      "path": "source/Barsa.SPL.Win.DesignerDialogs.v2.5.dll",
+      "sha256": "cbca150ca875e49a4339e7a1d9ab90610dcc4b47db8480e551ba338ebbc8d5e1",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "f189b935-5daf-4127-be1a-b9143336f99a",
+      "path": "source/Barsa.SPL.Win.Dock.v2.5.dll",
+      "sha256": "19337757e4af66106053839f8570881baec86950ffc8e965db14a03573d92e21",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "3ebc2c76-e022-4c50-9357-0e8fd597c091",
+      "path": "source/Barsa.SPL.Win.Editors.V2.5.dll",
+      "sha256": "ab97aa20620e648952b7739e83cb9fa149a5dc28399d0aeaf6f010eeed5ffd9a",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "421fa28d-6db0-4bbc-96a3-c2bf77e7ef2e",
+      "path": "source/Barsa.SPL.Win.ExtraControls.dll",
+      "sha256": "da5ae6797a211460e1fb4783c0082f6271438da9f7c802523e8d96cc6a69bb79",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "bb16ad64-8ba8-4aa9-970e-26dfd7d8d4cd",
+      "path": "source/Barsa.SPL.Win.Gantt.v2.5.dll",
+      "sha256": "701b137d05e6af8a1f666af10dbfd38a24b874379b105c0d0013ac00e604112d",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "e5dd125e-80be-4c25-9a9f-6290667b6dc9",
+      "path": "source/Barsa.SPL.Win.Gauge.V2.5.dll",
+      "sha256": "24303490515e1fa4a58cadc91fd4d980f4cd2de29c1deaa8e5fc10a0c51097cf",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "826b21a1-8c54-407e-ae9a-09bded00c52f",
+      "path": "source/Barsa.SPL.Win.Grid.DocumentExport.v2.5.dll",
+      "sha256": "7b0d8a122d0fa96b8fd5ca6e2453ab063a4668ac8d285491f13bd33d15d79c90",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "aee4c161-f6e7-4743-8701-8ba5f132e624",
+      "path": "source/Barsa.SPL.Win.Grid.ExcelExport.v2.5.dll",
+      "sha256": "fbc3ab6bda8cb8854364f0b2d0fa3bd46432685850d55f1914746146d223ff42",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "c0178c8b-96a3-48cd-818f-d04d816a3f63",
+      "path": "source/Barsa.SPL.Win.Grid.v2.5.dll",
+      "sha256": "cfbca14cad2618940f7c5117b309e696f02764b9b9d63a961c97629282c1763a",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "769a94a3-a5fc-4f9d-9759-8dafc2ff3075",
+      "path": "source/Barsa.SPL.Win.MaskedEdit.v2.5.dll",
+      "sha256": "f03aee260649cb3ed57bdc12c3154ea1acb1f3766a583b558097d7bbcc69f4c7",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "571bbb55-c198-4dfa-a8aa-47659ed8ffe2",
+      "path": "source/Barsa.SPL.Win.Navigators.v2.5.dll",
+      "sha256": "3618ad1da0b37e9dcb27e1cb569dddd90a46dfd97c1ce54edce9de522ca3db51",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "13f18f13-9cea-4a0d-9c39-e5561075a13e",
+      "path": "source/Barsa.SPL.Win.PrintPreviewDialog.v2.5.dll",
+      "sha256": "7ddb7e4ac140e3df33158934ccf087806362fd643f68fa18a6520654b2283fba",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "daee4ee8-eb95-404c-8d7d-8a745401eed0",
+      "path": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+      "sha256": "6bd66515a9e734a60578d40111b8a03fa699ca6da81c23e54698a491b6280191",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "04a79590-91f3-4c2a-8c80-984e0cb7da10",
+      "path": "source/Barsa.SPL.Win.Statics.v2.5.dll",
+      "sha256": "6573a16c7044ef337587a2cb7c410fc30e31fd266231c6cc1b1bb1c227e7632f",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "42cd90ef-0bec-4b10-97fb-5bef1127974c",
+      "path": "source/Barsa.SPL.Win.StatusBar.v2.5.dll",
+      "sha256": "ece9538b20b7132161af0f3f7ed9f6d18ff76db13ab1ad20b2ad0058725fd032",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "a58c08e3-b0a5-422b-b38e-6ff1e99b3d5f",
+      "path": "source/Barsa.SPL.Win.TabControls.v2.5.dll",
+      "sha256": "2fa6d6ae0ce1bb0dc7b000a243109b60af3863b9185a154d661ae11b4358e3d4",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "77b9706d-8e9b-4530-a1a4-70b463b86f39",
+      "path": "source/Barsa.SPL.Win.TabbedMdi.V2.5.dll",
+      "sha256": "c7d0dfeb08971c5eda47d6ed5be497914a3dd35ab08bd342c9269cbd044b3060",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "d19c059f-18c7-4cf7-bd37-ce20ff730af1",
+      "path": "source/Barsa.SPL.Win.ThumbView.v2.5.dll",
+      "sha256": "35ebee0f013b58ffc6636243c7847d287f88d6c176e22b7101fd7d0396c4bd6b",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "aa36f0d2-d198-4a1e-bc63-25015340dffc",
+      "path": "source/Barsa.SPL.Win.Toolbars.v2.5.dll",
+      "sha256": "1188ab5fe2be4433816efaa85969ef975fbab15b241094e2725ad4c71a56d84a",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "aaa474c3-6c74-498f-9b39-c3dc6c483a66",
+      "path": "source/Barsa.SPL.Win.Tree.v2.5.dll",
+      "sha256": "d437a661305968f323cbf3bfc7a8beb49d8c151a28479b2887011698260bc8a3",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "afdfccb8-6f8f-4e65-a3ee-2d7250db180d",
+      "path": "source/Barsa.SPL.Win.v2.5.dll",
+      "sha256": "0e0cb69608167069a7e2990ae1d691aa47f2666fe4d676a00fbde15f4d5c1e3e",
+      "version": "2.5.13888.1003"
+    },
+    {
+      "mvid": "00eea5db-463b-44ac-b088-a356e3118dea",
+      "path": "source/Barsa.ScriptEngine.Editor.dll",
+      "sha256": "c918e2a78d55225bf04c75249e4cfe3b3b8e25f535c965fff80fb75e26a28828",
+      "version": "1.53.3434.33411"
+    },
+    {
+      "mvid": "780cf6e1-76f8-456e-9f1f-5e49fcff4fcf",
+      "path": "source/Barsa.Security.RsaPke.dll",
+      "sha256": "3bebfcccdc09b4c0f5832d2f9472451530ffc2ed0371620fb3ed99218ba79e39",
+      "version": "3.12.528.0"
+    },
+    {
+      "mvid": "2a07bdf9-99d7-4e8d-9521-c34a098ca9ae",
+      "path": "source/Barsa.SharedObjects.Ui.Win.dll",
+      "sha256": "2821cc4c40071da3677b97c6de61e233346a7132d622fc188e4dd2701ffc76e2",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "d792a1ba-6ce6-4972-ae8e-6766f7eeddea",
+      "path": "source/Barsa.SharedObjects.dll",
+      "sha256": "b2675b861d63dde046dce3e9b64bdbf1823490f6cf9129009a5153beac2e47cd",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "8dbb67fe-cd62-403c-8fa2-b0e8ea365491",
+      "path": "source/Barsa.Sms.Ui.Win.dll",
+      "sha256": "388fa0420480a291ac781f64d9c449f4e99cfff79ba5bc24fd928929ac07c41f",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "10c418f7-2506-4d32-83b8-5948dff169d2",
+      "path": "source/Barsa.Sms.dll",
+      "sha256": "a45fe235b82f6a87880ca3f81302571b332ee64360073f2d6bd219e2ff605c9d",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "c4c65c25-4624-46e1-879d-4474326b6651",
+      "path": "source/Barsa.Spl.Core.Ui.Win.dll",
+      "sha256": "249f36abb3cc2be79d20dfbd290395c4dac3bb011fd75250cdc268d4ef080692",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "fbe32342-cb54-4143-93ae-46d0e2a5a375",
+      "path": "source/Barsa.Spl.Diagram.dll",
+      "sha256": "d8a4b5a386143d4c9018254901864b784de49e5ea7c73e82886ff941091d881f",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "e42396b4-294f-4d0d-974b-15db0b7a16fb",
+      "path": "source/Barsa.Spl.Diagram2.dll",
+      "sha256": "70be5c42501546f3f48df7f9e1b4984fc13102c9dc1c660ae7ac1b7e4bb9f054",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "2135231e-5644-4670-987f-9cebc51b96a7",
+      "path": "source/Barsa.Spl.Oracle.dll",
+      "sha256": "355d909bc71e81d74e14c71232e40e1f533e362fccb810fd8fc7396e3ced3319",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "d550d7bf-99c2-4c9e-a66b-cf742e47a061",
+      "path": "source/Barsa.Spl.Remoting.Sinks.dll",
+      "sha256": "a69cbf1db9e813363004753800679e7997e2fc4aa0f688b65c10986261305b1e",
+      "version": "1.0.1.0"
+    },
+    {
+      "mvid": "8f1f46d2-9b67-41f2-9caa-d7480e0a3c6e",
+      "path": "source/Barsa.Spl.Win.InfraComponents.dll",
+      "sha256": "ad7b56586ccadf3e11e86a26e448084aa8cdfa2141fc2cac76d29735dae39223",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "b2499bad-fca0-42ca-97e6-56454a969ef9",
+      "path": "source/Barsa.Spl.dll",
+      "sha256": "0e6388a831c72fbbaa08d471a107eab3a9d8cb2d19d518b634adefef0866128b",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "f46aa31f-83c4-488f-8f05-d247600741e7",
+      "path": "source/Barsa.TaskApplication.Ui.Win.dll",
+      "sha256": "21dd2de1be604982d7713571a58d52df75ff3d82d0af1bc98a7560e3cd60da16",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "2709ce8f-b853-4846-a2d9-971919576574",
+      "path": "source/Barsa.TaskApplication.dll",
+      "sha256": "97b5a017b44487692ffb14b55b67a58e17531b5a89d495c9eafee53824bd7342",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "334bfa7c-262a-47d1-88f1-fd8eb59981f1",
+      "path": "source/Barsa.Web.Infrastructure.dll",
+      "sha256": "eebd65fdebf690f5c4541984d17b548f0b73ee90add8a7fa4fc657280e1a0f06",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "c2c67a26-d790-4cd4-a06b-7cc374c9b19f",
+      "path": "source/Barsa.WordReportDesigner.Ui.Win.dll",
+      "sha256": "45cd9093d3f897eb92a0e12a440d8fd46ae40f7f9727e020fd39f6b14d8de918",
+      "version": "1.2.0.0"
+    },
+    {
+      "mvid": "c6df0de0-7669-45d3-b5b2-0e23ebba1654",
+      "path": "source/Barsa.WordReportDesigner.dll",
+      "sha256": "2deba1f21fb03c4401047677aa681806ab98e4a682f25bd7f5ea97714d7ab40c",
+      "version": "1.2.0.0"
+    },
+    {
+      "mvid": "93a817d6-0c24-4319-8edb-7cf5fd953e6b",
+      "path": "source/Barsa.WorkBench.Ui.Win.General.dll",
+      "sha256": "174ec01d75a1abcc339de23b311edd03bd58a290245674705d4592b154d4f63f",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "626a0620-915b-42fd-a6ae-15fb322631e4",
+      "path": "source/Barsa.WorkBench.Ui.Win.dll",
+      "sha256": "1ed82e8f13cd3af677047f9d134f0bf7159db02455bcfd4b07be9b66d1e7a1aa",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "e0d25784-b9e7-4df8-b43f-e98ebb7a0f00",
+      "path": "source/Barsa.Workflow.Design.dll",
+      "sha256": "921cc1931fa39a367828db18e1c90bf49b66ad07a16c23728202a57bced8f474",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "34036618-0f49-4f03-8cc3-4ee24ef03293",
+      "path": "source/Barsa.Workflow.Ui.Win.dll",
+      "sha256": "33e551e2e5768b1a51161e33abadba1af753c50e6c435afb526c7d9c0fbac07e",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "ad981303-f967-427d-bad1-3c08686c47b4",
+      "path": "source/Barsa.Workflow.dll",
+      "sha256": "0a2ae36449647b3bf1d905317fdb20a03a9149d00b7e4fedd971eab96d302cb5",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "5fa3a9ed-3465-464b-a063-7dceca0235ee",
+      "path": "source/Barsa.Xara.Layout.v2.9.dll",
+      "sha256": "82b8834241871b45f45be465cbdc8c0ece88d0104a43f1fd068e29faccd5de9f",
+      "version": "2.9.4.0"
+    },
+    {
+      "mvid": "919205af-e57b-4abe-933a-8f69fe15ba3a",
+      "path": "source/Barsa.Xara.Printing.v2.9.dll",
+      "sha256": "078dda0eb4963d2540e323415916c18345c67dd4ea25988a3c2bb2c4e3560b85",
+      "version": "2.9.4.0"
+    },
+    {
+      "mvid": "a45e0e90-7bfa-4e6f-9699-ba7d428326cf",
+      "path": "source/Barsa.Xara.XCharts.v2.9.dll",
+      "sha256": "2ef73f3b63bd9c91eae77f7cf0a00d9f39ce5023e606640dc8fbeeedb8835c8d",
+      "version": "2.9.4.0"
+    },
+    {
+      "mvid": "3552bdf1-97c2-4d6e-86f2-b9e3391654de",
+      "path": "source/BarsaEOrgHost.exe",
+      "sha256": "bb9230d9ba158c147557f6ce8069e9d87e1bf5b1b9dcd391b1fb61cf7c75bbd6",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "04fea33b-d95e-42a3-b4ec-14681495c4ad",
+      "path": "source/BarsaRegister.exe",
+      "sha256": "10bc917259f77d399e8abe662e94397cd3b65a1dd7ebf5197cacf0581dc304f8",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "8201efbe-b9cb-46ab-8a2a-ed5f9e6cd229",
+      "path": "source/BouncyCastle.Crypto.dll",
+      "sha256": "68ebd4b0b3e31a2e72a8de258591831be411214fbd82017ef28fae4fe00588b1",
+      "version": "1.8.1.0"
+    },
+    {
+      "mvid": "1ffeaceb-fa57-4008-a73b-2273fdaf6e88",
+      "path": "source/Castle.Core.dll",
+      "sha256": "9964a5c497dcaea9bc047c719869a1c5483f9f383311a045d320148e0df13a23",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "7a318b14-3cc9-4baa-981c-9d0639e51990",
+      "path": "source/ConfigUtil.exe",
+      "sha256": "e5b2a51094b6d1706e29728dcb9a05ec4b7a1c6e06b7fea0c28f58bb44d9f158",
+      "version": "4.1.203.0"
+    },
+    {
+      "mvid": "1013ee4d-4c83-4e9f-b049-63a8aaf682cf",
+      "path": "source/DevExpress/DevExpress.BonusSkins.v18.2.dll",
+      "sha256": "aa86bc75d58bcb4a864cb0392b124f092e087191e4d69beb33fefed79b3a18af",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "ed435ba0-7c24-4eba-a1c8-43423ea9096b",
+      "path": "source/DevExpress/DevExpress.Charts.v18.2.Core.dll",
+      "sha256": "4a1564e7f32bef6ff9814258bf5fa3b31df8048c005a51017d40434b482e9c81",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "a0333715-cacd-410a-af8c-e28d9d294694",
+      "path": "source/DevExpress/DevExpress.CodeParser.v18.2.dll",
+      "sha256": "d2e7c0434576182d66339820d437db81d59ab36350e2fa8cd303b668c4f761da",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "bda6971e-e2e9-4efc-8350-910bf738a9be",
+      "path": "source/DevExpress/DevExpress.Dashboard.v18.2.Core.dll",
+      "sha256": "d894ad3f3d4872f480b3329c2771635b380ae4a3e2db80849c8622eb73d2bde7",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "31aeb486-f397-4e46-9f68-5b91712c57ba",
+      "path": "source/DevExpress/DevExpress.Dashboard.v18.2.Web.WebForms.dll",
+      "sha256": "db4842b8d87f3b46cc18b0af0e3ae5f844bbb61ba76fa05a58ea2e0c9d59ef4b",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "a40ff21f-69b9-41bb-9079-e0a42d9c85b9",
+      "path": "source/DevExpress/DevExpress.Dashboard.v18.2.Web.dll",
+      "sha256": "1fd6cafccac577485d05fd305b3ac10db42eeaf6d9f5beac66ec48a0c332bd89",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "3d60572a-9289-49c8-9ca6-36713f839e6f",
+      "path": "source/DevExpress/DevExpress.Dashboard.v18.2.Win.dll",
+      "sha256": "5038eb9a00c18cb8931ee9b9c7446203b36c1826892e54eb0f8ab684192052d9",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "694f939c-82a5-4e20-a0fb-f660cece8147",
+      "path": "source/DevExpress/DevExpress.Data.v18.2.dll",
+      "sha256": "1646383b33e1a535373bcc64308c2efe872ccee1770c7da95c87acabcc74df20",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "6bb6228d-291a-4023-bbdb-21de122c70da",
+      "path": "source/DevExpress/DevExpress.DataAccess.v18.2.UI.dll",
+      "sha256": "eb26ff5ba2aa553c72ef27a81a639f29f00009d7b8d415ccbd145536d7d534ae",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "c814384f-8f67-4d3f-a88e-bf45ea501b56",
+      "path": "source/DevExpress/DevExpress.DataAccess.v18.2.dll",
+      "sha256": "37220eab4cc784d018d61cf8c742b2b95ccdeb191262009ab420bd0110226316",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "37b6061f-1372-4fdd-85d1-90318ce07e0e",
+      "path": "source/DevExpress/DevExpress.Diagram.v18.2.Core.dll",
+      "sha256": "2dbab5e77c9447a83fe17c96b66dd1311e016e940de4d5ec5b68e24f5c2fb2d1",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "8b0c42d9-ed69-4bb5-8470-b3bdc6ef1790",
+      "path": "source/DevExpress/DevExpress.Images.v18.2.dll",
+      "sha256": "4894f9630cd92af5456984bb4b5c223d196afeb7a247851a01f5a9ec24f72d5b",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "e8ea2797-9383-40f8-aa78-8dac8efc6e90",
+      "path": "source/DevExpress/DevExpress.Map.v18.2.Core.dll",
+      "sha256": "c6434e49c8f3dd637187a52340ff489c10cc2ae74144d9e0c2aefb451233df4e",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "c238066a-2f46-4c32-b0a2-be5cde5ea400",
+      "path": "source/DevExpress/DevExpress.Mvvm.v18.2.dll",
+      "sha256": "271f810a61a729a83b611bf456779106654eca20e4488a4b6a43ebac0aa67f36",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "a59fadb9-6827-4a59-9290-d2f21dad40ab",
+      "path": "source/DevExpress/DevExpress.Office.v18.2.Core.dll",
+      "sha256": "bc41b93a9fec336381c9675234943ceaf734dc1f003fda8277f1c043a341ffef",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "a08bb765-f357-4378-ab87-f918d7442ca1",
+      "path": "source/DevExpress/DevExpress.Pdf.v18.2.Core.dll",
+      "sha256": "8cb5e05ece3620eefc591cfd8351c91d8ae1eaa75de8bc74d6cc2d069aef8c12",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "7795e755-23f2-491c-86f6-2620f7b76d53",
+      "path": "source/DevExpress/DevExpress.PivotGrid.v18.2.Core.dll",
+      "sha256": "b73e3db178cade57a8f36172ffd852b4e43afcb67fcc8c239b5518fb91ef8e26",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "abb38868-d1ef-47ea-91af-0ef79aa7a47b",
+      "path": "source/DevExpress/DevExpress.Printing.v18.2.Core.dll",
+      "sha256": "bc6c5b77e04e034c308b62bf3e9f8a2cc1c1c5eb21e4374223dd7012ae5096e3",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "822d689e-2cd3-4e74-bbe1-f928a6ca42e3",
+      "path": "source/DevExpress/DevExpress.RichEdit.v18.2.Core.dll",
+      "sha256": "eaafbd8f6cd27ff0aea43ebca9bc075fa9f0d3c93f8446a2af0056eb1059249e",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "2fb0c00e-0307-4537-967f-fdd99d656ece",
+      "path": "source/DevExpress/DevExpress.Sparkline.v18.2.Core.dll",
+      "sha256": "f3ca3596036c5bf65e3bb2bcb5bdc3f3c6f85a6aca7c6b34c05e41b67b10f164",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "8871cb18-64d4-479d-8881-ad410b9d017f",
+      "path": "source/DevExpress/DevExpress.TreeMap.v18.2.Core.dll",
+      "sha256": "59b9319816775403790106cfed272999a55afa3decbb119afb0a1b783df17862",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "67da523d-5569-48ba-9586-bcc479b504f5",
+      "path": "source/DevExpress/DevExpress.Utils.v18.2.UI.dll",
+      "sha256": "31a785fd8c431aca996abce31b70d39b77aaeb8f5824771ad80535496de0cf52",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "a0703c87-d8e0-44ac-9db6-c7a48d70586e",
+      "path": "source/DevExpress/DevExpress.Utils.v18.2.dll",
+      "sha256": "39b9092f58caf7b8a7377e32fa001928a4a3cfc6a0a4187d4fd32c85feca8463",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "6d8720e3-a5ab-4489-aefa-04c7524489d2",
+      "path": "source/DevExpress/DevExpress.Web.Resources.v18.2.dll",
+      "sha256": "bec094bbdb54b1eeb9a46da51e058df5a28b831a8d668a255ac30b6376722262",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "0d3c17e6-fbe3-4bd4-9e01-a780cb310b5c",
+      "path": "source/DevExpress/DevExpress.Xpo.v18.2.dll",
+      "sha256": "1e5034296c6644edd910b2698a8858f35bbfcaaa89cdd7f17ab1e28ca2fd6268",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "0661b01f-f47c-4a00-b5f9-268494144069",
+      "path": "source/DevExpress/DevExpress.XtraBars.v18.2.dll",
+      "sha256": "5aab8d854c7897a75b3c7e43412fdebb04dc4476c0eb472bce4351910aaa14c7",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "ef1bdc19-844c-4741-8766-bf48fd5d77dd",
+      "path": "source/DevExpress/DevExpress.XtraCharts.v18.2.UI.dll",
+      "sha256": "0e7780277091ca5a7ccb39d191d46fad9e056aab957d855967a6f8ff0c79f0f7",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "38db1ef0-1ca1-4e5a-a6e7-3a9a384fcbb5",
+      "path": "source/DevExpress/DevExpress.XtraCharts.v18.2.Wizard.dll",
+      "sha256": "eb7d1dc329c7825b126e2cf25752f56c612a7cb4ad5a3c3ee9bcc28ee177a405",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "9e1351c3-6537-4d5a-be76-a04a691bf66b",
+      "path": "source/DevExpress/DevExpress.XtraCharts.v18.2.dll",
+      "sha256": "e4a7d7a2a9f28c3b733870f1f926d853f21d124f36224bcdd2f09558c64d145b",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "fff406f4-388e-4676-ad1d-7ab288c64176",
+      "path": "source/DevExpress/DevExpress.XtraDiagram.v18.2.dll",
+      "sha256": "6bc41953571e7ac31fb183b7aef607e441155a16ffcd984f838a963f3d677348",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "fbba45b1-f3b5-4e80-9d0a-449bbe5753e1",
+      "path": "source/DevExpress/DevExpress.XtraEditors.v18.2.dll",
+      "sha256": "6d7a4233188c89be4a0c316a1c3c9f6dc9e05e8ae774cf38b57e85d1102aa281",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "2e437914-ce81-4fa0-9c6f-7477a8a069b7",
+      "path": "source/DevExpress/DevExpress.XtraGauges.v18.2.Core.dll",
+      "sha256": "d63e24185fdc1a2b8ccae2feb7c8f5630e82f0d7f40a72cd417b121f89c6cca5",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "6016371e-3c1c-4fde-9250-0d333589dbde",
+      "path": "source/DevExpress/DevExpress.XtraGauges.v18.2.Presets.dll",
+      "sha256": "dd71d52dba0dda67841142fd0eea97d9239ef96af5282bcba483ec93f586e1ab",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "7b9d7417-2a69-4826-9d66-190603e3f31f",
+      "path": "source/DevExpress/DevExpress.XtraGauges.v18.2.Win.dll",
+      "sha256": "8305e54e4b74ff59330379f14ada6bf9cb28bd258649180237963fbb97ae6fa7",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "8cfe7cf6-5d17-411a-a680-f53f81c07efd",
+      "path": "source/DevExpress/DevExpress.XtraGrid.v18.2.dll",
+      "sha256": "24c7f8dc5d224ada879c8a27afbeea1b2da63d910ca3f50003e479ed49910a81",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "566a48c3-fe37-4755-8c91-8f6523cfe11e",
+      "path": "source/DevExpress/DevExpress.XtraLayout.v18.2.dll",
+      "sha256": "3201065cb154f591a671daab72dd48ad6543376891a8e12b2515a67ad5af59ae",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "3b8ce62c-5f97-4ca8-b510-8aa11fe0d99a",
+      "path": "source/DevExpress/DevExpress.XtraMap.v18.2.dll",
+      "sha256": "794a472eb9b8c4ae275dc0883889e85057896650a81169da8e0e9392e9bd03ee",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "314f6c46-0efa-4ed6-8e1b-78b67c2780a1",
+      "path": "source/DevExpress/DevExpress.XtraPivotGrid.v18.2.dll",
+      "sha256": "cfa710cdf502e63ffecb86c0c0b1a4ad9ff17e196f969af865b2ff6c3866a8b1",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "25e6da57-3c18-4a59-9357-cd628bd1fd98",
+      "path": "source/DevExpress/DevExpress.XtraPrinting.v18.2.dll",
+      "sha256": "57b97f6d6318bc4ce32ef470ceb423ffcd254d2b5d26fc063fd8d0d407312060",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "fc90698d-90ae-40fc-9a88-23cb830895a3",
+      "path": "source/DevExpress/DevExpress.XtraReports.v18.2.dll",
+      "sha256": "960738260f2037d2d0f7ae6b9aa0014309b13b864d0ca2078aa579f8ef0c755a",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "f3ac0af2-3fab-41f4-b0a8-cc56c0316615",
+      "path": "source/DevExpress/DevExpress.XtraRichEdit.v18.2.dll",
+      "sha256": "88ec12f6f38d4f53cc369684e15193e67f5ad5667c5351fa4ec963426b214c98",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "d5d323d1-aa2c-411c-850c-c15d1bf2edaa",
+      "path": "source/DevExpress/DevExpress.XtraTreeList.v18.2.dll",
+      "sha256": "b06ac7460087810b557527138d50eb78b1f20dec436baf42243f1a80c96966fd",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "d92fac21-8dc0-4c53-835d-9fc8d78e06fc",
+      "path": "source/DevExpress/DevExpress.XtraTreeMap.v18.2.dll",
+      "sha256": "d7556b7bf390cf052e65cc409e89edea17326fcedf8a383b3fe2f5bd1dc353a1",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "c4980ae5-31a6-4151-b868-f0efcc5f071e",
+      "path": "source/DevExpress/DevExpress.XtraVerticalGrid.v18.2.dll",
+      "sha256": "4016640b4df6117f276581f20790516fc4ee398cab209816f2a29fdfe29caa9c",
+      "version": "18.2.4.0"
+    },
+    {
+      "mvid": "eed242a7-53e8-4e5b-82d3-8577b2c03c9a",
+      "path": "source/DevExpress/Microsoft.SqlServer.Diagnostics.STrace.dll",
+      "sha256": "548ed4ab4218194792b7b138239de0e9a77d80428a1cb4edd4955a77cd55990c",
+      "version": "14.0.0.0"
+    },
+    {
+      "mvid": "e884bc06-e384-4fbf-83bb-f62bc3083188",
+      "path": "source/DevExpress/Microsoft.SqlServer.Management.SqlParser.dll",
+      "sha256": "bb4daba576e08de3ac36d7455930491eb7faecfe2e8b5fe3daf630d0bd0533bd",
+      "version": "14.0.0.0"
+    },
+    {
+      "mvid": "e8fdefac-417a-4be0-843b-9c9edffff239",
+      "path": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+      "sha256": "a389952f3b04bdeaeb8e43b27f05abdb0c825efac31581ec67a075ada25e3c9c",
+      "version": "12.0.0.0"
+    },
+    {
+      "mvid": "6d580a20-9f1f-4abc-a27d-877cd4643d56",
+      "path": "source/Dynamics/Barsa.Dynamics.Common.dll",
+      "sha256": "851d6d6ca98238ff77b3745cd05a200872050ca6154f6d8eedf6d80a5f6740ea",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "c00946ab-7360-48a2-bd56-439e6f1e5a21",
+      "path": "source/Dynamics/Barsa.Dynamics.Core.dll",
+      "sha256": "298fec12c12fb3d4b07d1da5c64076bd3b51823e96d3c1039b0ea7c8167fd98d",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "aa49b132-37b4-4d2c-a1d6-d6c3c6c23702",
+      "path": "source/Dynamics/Barsa.Dynamics.ECEAutomation.dll",
+      "sha256": "e298bb2da8ec834858aa0076c2ccb92613ba4550edea3ebabd26c832ec664496",
+      "version": "8.0.0.0"
+    },
+    {
+      "mvid": "97f7ca80-53d5-45f3-b50d-393304f082e9",
+      "path": "source/Dynamics/Barsa.Dynamics.Services.dll",
+      "sha256": "77ad8d1cc0632ecd88da0b8ca8cdc9025c43d18c5c701cd3fef4ca15003c889e",
+      "version": "5.0.0.0"
+    },
+    {
+      "mvid": "c6c58e25-cd21-42cf-8668-a68d79f2edad",
+      "path": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+      "sha256": "f24a947c8cfa924ab6d584384711a2a441758b7f98240a75662724cc0d497f21",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "077fc34f-d079-466b-ad78-5b87f9a596c0",
+      "path": "source/Dynamics/Barsa.EmailService.exe",
+      "sha256": "5d82c519f0660ccc2b1337437012c9f40d43ee86669a7620a49f2d8f0a8e59fc",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "5ad2c5df-98a5-45f8-ad35-36900a184143",
+      "path": "source/Dynamics/Barsa.Meta.FileUtils.dll",
+      "sha256": "dfc11b49aaacf8387dec86da57600467834b93f8bcfb209c89d426d9b8917b92",
+      "version": "4.1.101.0"
+    },
+    {
+      "mvid": "6d054d39-e019-420c-9c6b-3d85639ec977",
+      "path": "source/Dynamics/CBOR.dll",
+      "sha256": "ba06d4e62c4f155af83c034eb1046ee5363002d6fe7e7bc9e6621108015576a0",
+      "version": "4.1.3.0"
+    },
+    {
+      "mvid": "1a1bb5b8-5eb1-43f4-9eaa-82aeaf3b64b4",
+      "path": "source/Dynamics/DynamicProxy.dll",
+      "sha256": "a12dfac3fe95aba5a8bf0f5ba35027ccc3e0068e4bc859454673ebbd82273556",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "56c884ce-af73-4768-9ba1-866cc45989ae",
+      "path": "source/Dynamics/ElasticsearchProject.dll",
+      "sha256": "fbc53a98c96353049ba1f64298079dfe440788660990491c00aae8c12d7b9dad",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "824cf953-341b-4330-b0cc-125c083b0e77",
+      "path": "source/Dynamics/Fido2.Models.dll",
+      "sha256": "c5b8179fe42d881adbe19067181b93099637c80c0766423a423991d72dce3874",
+      "version": "2.0.2.0"
+    },
+    {
+      "mvid": "5dbf11a5-1f59-4d16-88f7-ca9148d644ff",
+      "path": "source/Dynamics/Fido2.dll",
+      "sha256": "cbcba66ff9dfa0af8a07de2431206ca9fc955b40fcd11b169a37dc87c059b14a",
+      "version": "2.0.2.0"
+    },
+    {
+      "mvid": "6a84ae7a-1cc8-4bdc-b1bb-5b9d60d420b8",
+      "path": "source/Dynamics/GSMCommServer.dll",
+      "sha256": "9be9acd93b2acd65170fc8e66540e4f09fedc7da6d7dc6a837c903621a63f390",
+      "version": "1.21.0.0"
+    },
+    {
+      "mvid": "1ad96ef6-307f-4937-980f-27e762812a43",
+      "path": "source/Dynamics/GSMCommShared.dll",
+      "sha256": "9fce082472cebdce1110ee590722f11ed513d260820f610bb55716fc0ef1c366",
+      "version": "1.21.0.0"
+    },
+    {
+      "mvid": "63fff091-085d-4328-8ef2-c80175ce340b",
+      "path": "source/Dynamics/GSMCommunication.dll",
+      "sha256": "7c0f7fab64999f03a4da88b957d42cb3a48951dd9e4e2958bf96a0ff10e57c03",
+      "version": "1.21.0.0"
+    },
+    {
+      "mvid": "01479b73-7ecd-4c36-8306-d2df85e8dbe0",
+      "path": "source/Dynamics/ICalVCard.dll",
+      "sha256": "90c333a9f78e8d0ac1961bb6a19709c46575b067e8eda49f869f8271d3a58224",
+      "version": "1.0.0.4"
+    },
+    {
+      "mvid": "9d37ab82-1917-4115-8c89-c5434554bea9",
+      "path": "source/Dynamics/NSec.Cryptography.dll",
+      "sha256": "670f3c5377367668d4369ad658bc1ca9402db5fb9249c8287d82d01ccfcfaac9",
+      "version": "20.2.0.0"
+    },
+    {
+      "mvid": "821201c7-955f-442e-b509-7ecd6a623ede",
+      "path": "source/Dynamics/Numbers.dll",
+      "sha256": "b6a50a07c293100473aa3b292f58fed43cb714561424521589b647b8c6f3b01e",
+      "version": "1.6.0.0"
+    },
+    {
+      "mvid": "3e2ecd04-052d-488c-ad04-607db74a2da5",
+      "path": "source/Dynamics/PDUConverter.dll",
+      "sha256": "31ce284f7deac92cefa71e99a4e0d7ddc87cd62d0baa5abe56fd60ef32ef1fdf",
+      "version": "1.21.0.0"
+    },
+    {
+      "mvid": "16786cfd-571c-4686-9830-21cfcee42fb4",
+      "path": "source/Dynamics/System.Memory.dll",
+      "sha256": "8e76318e8b06692abf7dab1169d27d15557f7f0a34d36af6463eff0fe21213c7",
+      "version": "4.0.1.1"
+    },
+    {
+      "mvid": "34905ed1-db9d-4250-b31b-b80e1ff70ff5",
+      "path": "source/Dynamics/System.Numerics.Vectors.dll",
+      "sha256": "1d3ef8698281e7cf7371d1554afef5872b39f96c26da772210a33da041ba1183",
+      "version": "4.1.4.0"
+    },
+    {
+      "mvid": "14263695-34dc-40a4-9d75-7720331c68b9",
+      "path": "source/Dynamics/System.Runtime.CompilerServices.Unsafe.dll",
+      "sha256": "ef3f553a02dd1521dc8f85fca1f2e13f65efc62117610ffbfc0544c6f03f0b1d",
+      "version": "4.0.6.0"
+    },
+    {
+      "mvid": "5f04bd5c-db05-4797-981e-131447ff44b7",
+      "path": "source/Dynamics/URIUtility.dll",
+      "sha256": "442502c2c2765bf2eaa491dafee9a0232e257ef0dccf0e14628305b785173828",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "21982c50-5557-4790-9360-f3fdb23ccf38",
+      "path": "source/Dynamics/netstandard.dll",
+      "sha256": "774384e684b4f5d0d6d77668bb615578e682df17de501948c3f53d55220a0d25",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "5824d6fb-bad1-496d-bc04-0f4c5ac8e179",
+      "path": "source/EPPlus.Interfaces.dll",
+      "sha256": "532648714d2ab432aceff36bdef9ec61a5ab515d68c131801dfa2fe78ef805fc",
+      "version": "6.1.1.0"
+    },
+    {
+      "mvid": "2bee93ac-dca3-4800-a96b-5348df5da0bd",
+      "path": "source/EPPlus.System.Drawing.dll",
+      "sha256": "d4a791cf7efa983ccb38eacacc0f5bf842c7810a30da9ceaaf38425202ec0ba1",
+      "version": "6.1.1.0"
+    },
+    {
+      "mvid": "68e062d8-cd7b-4c65-b028-3b4f2c36a63e",
+      "path": "source/EPPlus.dll",
+      "sha256": "f8f560a5d2f578824504f67333596050d59832c54c1d39d805e61d230745c66a",
+      "version": "6.1.1.0"
+    },
+    {
+      "mvid": "b85c3703-13f1-411b-b288-ad844db338f5",
+      "path": "source/ExcelLibrary.dll",
+      "sha256": "1371c5f7977b93647cd5d748e2db59772c5fa9faf20393bf625a3b53a46b51a7",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "563b320f-851d-488f-8f2a-f69fb687438e",
+      "path": "source/Google.Authenticator.dll",
+      "sha256": "88b082322c64703b6de9ce1067f5266498bb403bb676100ac8278b4e606ea3fc",
+      "version": "2.0.1.0"
+    },
+    {
+      "mvid": "d13506fb-97ad-43d4-9216-02b66d9361a9",
+      "path": "source/ICSharpCode.NRefactory.CSharp.dll",
+      "sha256": "8effed61fe7dec29f30c00ba9e4319fd3d3edfd36a3368fc9f84501b74a35be9",
+      "version": "5.0.0.0"
+    },
+    {
+      "mvid": "3da4147b-9a60-4f9d-b333-cbe03c63b39e",
+      "path": "source/ICSharpCode.NRefactory.dll",
+      "sha256": "e5a4124377fe0e473e8d16d452a3bcc6fa8930746aca266a75cdcdc766e316a1",
+      "version": "5.0.0.0"
+    },
+    {
+      "mvid": "8e8fa28d-216a-43ec-8dcb-2258d1f7bf00",
+      "path": "source/ICSharpCode.SharpZipLib.dll",
+      "sha256": "40b3d590f95191f3e33e5d00e534fa40f823d9b1bb2a9afe05f139c4e0a3af8d",
+      "version": "0.86.0.518"
+    },
+    {
+      "mvid": "416abf8c-09b6-4753-b40c-bb134e5c4745",
+      "path": "source/ILOG.Diagrammer.BPMN.dll",
+      "sha256": "a187bf9bb036ca28ca42f9933165d2198d3e7461bf7530b3cb2bd64a76c7e4ed",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "e94c254a-c819-4f84-878d-57d95695d90e",
+      "path": "source/ILOG.Diagrammer.Design.dll",
+      "sha256": "5d08629f1b4ad0d00b3693aff3cd03b8b00f01bde23ca9dc686b7b0762ea645a",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "d77c138b-60ea-4db0-a560-f9fa47513a6e",
+      "path": "source/ILOG.Diagrammer.Gauges.dll",
+      "sha256": "3b422f61be07af84565190f18ac25767a0007a1952a4a783e627f2d2d20fe95e",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "ffdfe01a-030d-4e07-bc68-b446f946ec6f",
+      "path": "source/ILOG.Diagrammer.dll",
+      "sha256": "a8754cbdf52d045208d48b519112891bebaeddb6e92a705751a85f271bcdce83",
+      "version": "2.0.0.0"
+    },
+    {
+      "mvid": "9ed614fa-348f-4e8e-9ca9-68712bc0b064",
+      "path": "source/Interop.IWshRuntimeLibrary.dll",
+      "sha256": "0a29e5056bc7829324b778c16c27cb9701e4b8be53298d57d082121b8015090f",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "d61318ed-21dc-4fe5-9756-93c20752a61a",
+      "path": "source/Interop.Microsoft.Office.Interop.MSProject.dll",
+      "sha256": "7814805c2bc465dbd893efba86a80db6ac0babcd7e6f061d19d93adfa0d30e78",
+      "version": "4.8.0.0"
+    },
+    {
+      "mvid": "272697e6-a643-455b-9dac-458c30e298d5",
+      "path": "source/Interop.SHDocVw.dll",
+      "sha256": "53a283e8a17eeb05c9d64e514f8c768b8d6eae0dae52447f8df1c6bce2635979",
+      "version": "1.1.0.0"
+    },
+    {
+      "mvid": "2e24e2df-3844-416a-840f-189af8120371",
+      "path": "source/Interop.XpdfViewer.dll",
+      "sha256": "29670e8cd58fb292523fc14930c6bfb8d1a8809868b674178551f15f28f23007",
+      "version": "3.2.0.0"
+    },
+    {
+      "mvid": "7c94439d-966e-43cc-bca0-11b2e4738cfb",
+      "path": "source/Janus.Data.v3.dll",
+      "sha256": "b5cfc36cc1bdcc9d7b825beaf1784d36278c7f30c0dbab7a377a6aed7171ddbb",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "a5d537c3-baba-42d2-aa0a-b214a858e364",
+      "path": "source/Janus.Windows.ButtonBar.v3.dll",
+      "sha256": "cb34676f3c60a6ba1efb223a3788a7b6e3b818b5428addcb952737b2bde51558",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "804250e1-60cf-4100-85f7-fbcb0f9eff95",
+      "path": "source/Janus.Windows.CalendarCombo.v3.dll",
+      "sha256": "a50e68731530a48b5fe201d166c8e8d4bfd415f4fcca8a67ea7c6b835d184d03",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "938ae148-94a4-4399-8685-f52e37e37c1f",
+      "path": "source/Janus.Windows.Common.v3.dll",
+      "sha256": "08fc970ae88387a558298ecafd828b948d6cc3afbf5f6ae52e39266b3ffc91da",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "93dd9187-3880-48f9-9435-20c04445a7af",
+      "path": "source/Janus.Windows.ExplorerBar.v3.dll",
+      "sha256": "36f932b32f55e72aee5a4abb159e5e16d9461bbf5c965ae47d51189bdc7444ad",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "07afaeac-c8ec-4826-bff4-ab4ce50e9daf",
+      "path": "source/Janus.Windows.FilterEditor.v3.dll",
+      "sha256": "6232219fa0962b9dd75ab63ecf22d22e1b8442f38784d7fd61336925ca04c157",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "97c344db-6011-483d-93f3-c1fdebb7ed09",
+      "path": "source/Janus.Windows.GridEX.v3.dll",
+      "sha256": "8aa812a84959ea2c902609c2dc372482f61fc81b451afac88ecfc754be3ef6ee",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "8ae354df-b984-45f2-83f5-626bb5e75608",
+      "path": "source/Janus.Windows.Ribbon.v3.dll",
+      "sha256": "5601e84ae31fc9c6ff6ad63a41b2953c938a4a8e8dd3f236faf9cbcd142dbafa",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "cd59a6f2-02a5-400e-a310-0930493a78b8",
+      "path": "source/Janus.Windows.Schedule.v3.dll",
+      "sha256": "7d8a97a92a4ea8a2674d713695b72edc5b3f937f4e023133c2554a01650f9bab",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "b802e922-3124-4b1f-8ae6-e89ed6e300f5",
+      "path": "source/Janus.Windows.TimeLine.v3.dll",
+      "sha256": "fe1bb28c35a96167d84493b719086ba27950c3209d4bc9c1725eb3671534db30",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "1a68919d-e0bb-4eb4-821a-245cee108d6a",
+      "path": "source/Janus.Windows.UI.v3.dll",
+      "sha256": "dc5d5aea8b20bf4209b6a5f37636974437e20e15d0cf0f79767d74aff861415f",
+      "version": "3.5.0.0"
+    },
+    {
+      "mvid": "dd53dc87-d573-42b6-82a1-afcfb96126f4",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Annotations.dll",
+      "sha256": "6ebefdc2ceabda39b291044e66285877b1c24b191216d2e77f3b94ad1cb83a5e",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "564a39fa-489c-481a-a4de-e8b98423f71c",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Abc.dll",
+      "sha256": "899d573a6d5448963b5cdd718849700e806fe17be81b5b3db09adb9377f446fd",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "0975b38d-a3e4-4daf-a099-561acb7fd7c7",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Bmp.dll",
+      "sha256": "92dc985a0c34bc94f7e8c55fbacf3f63374789edfa0eef5b5b0f7f78f3b0ac47",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "343aee73-6918-420b-b0d0-65e60187aaa6",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Cmp.dll",
+      "sha256": "f62acf4ac6f5e83686ddac8b4483641b2658999ecb6197bb4b975695cd7eea98",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a03846a2-d931-4803-9b3a-bd9848848f67",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Dox.dll",
+      "sha256": "ffdd687c875057c1ac780b65faa9940c85ee8310daaa9bc94ce0c5b4059a687f",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "818ab325-1dd5-46c4-a1f9-42c4bffc0760",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Dxf.dll",
+      "sha256": "b478aabecbc1c5c4a2af529236c86a8838b94f662f4eb525360dfa3d0ccdb15d",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "649279e8-1dbd-499c-9d51-a0b495b0e76a",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Fax.dll",
+      "sha256": "cfdd2668220ecfc7eb2c1df9e82f130baaf17fcdef2ec90d077b4cbb3a51b417",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "c05b044a-0288-4270-9eac-2f5ebb7687df",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Gif.dll",
+      "sha256": "67b3aa1d08e184c8d61b8468df37a7028ed3a39c0d1e34a0ef83fa30d462e253",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "9142b621-b5e6-461d-8113-c2f73fff60cd",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.J2k.dll",
+      "sha256": "2dc6ba4d7e363947302de8d57ed72a6c5ce40f182cf72fc2c82b9cb1b28b068f",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "127f3af8-f736-4da3-9fea-2e78938a0763",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Jbg.dll",
+      "sha256": "7e6e274a061e8c922c89f3ec8464f6d47952862a2dc76331ad855959168a54f0",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "0a40b997-f3de-4b7b-b9ff-c2246bbdd2b8",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Pcx.dll",
+      "sha256": "8c556402b0ee71855aa411536bc904c98656e68455dbf34a4a175b718e6c8d00",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "9473621f-69a7-4954-aa24-6280d4049c7c",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Png.dll",
+      "sha256": "2a5dd50f2fb8dcd30170c6819b50d02804bc45ddd41c7f0f4cd9796f89ab7be7",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a712962c-9434-4d99-97a8-4b63676a543f",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Psd.dll",
+      "sha256": "bc3d81820d74146c73814c3b65e3b7aef5c543b52e95cf0ecfb32b2006291592",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "11849643-a705-4706-8766-386343b0c2ca",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Raw.dll",
+      "sha256": "5defac734cebbbd22cfd213e6a1a2ccc74bd47ca1c725acb8c28738260a2f7fd",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "45a18c4a-265c-44b8-8d82-21a4cdc9bb1f",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Rtf.dll",
+      "sha256": "3b964a2ff93ab1bba2f0002c8694ccd8f8eb30b759c69b90942e912d99dff243",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "573c0c50-73b3-4bfb-b687-8b3c118d95e1",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Tif.dll",
+      "sha256": "31544f3a3cd7feba2eab9fc9b7714130fac3666184d113018e8b3f10a06c8aa1",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a585b564-875a-44c7-8ab5-5791ab2a89bb",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Txt.dll",
+      "sha256": "dd581c27c31d82899eb75f24aecbd8f857efbd5d4e24f6ad1a005e2f24c4d516",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "6df632b7-f07a-4a02-a9d4-2a487e50d45f",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.Xls.dll",
+      "sha256": "86c41ff8c6be1531783ca8ab3f2520129f3fa46012857452aafcc8d6f5f49bdc",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "de60d97d-8800-471d-ba80-958d0b8746f9",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.dll",
+      "sha256": "a8e58f2f63dbfc8374b15c147332a9e483de5d195f8523b5df33ba217013f204",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "9cb31355-0ed7-4bf3-930e-31c990d33b02",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Codecs.xps.dll",
+      "sha256": "9b018a830a8e98748a6bc72cf71c2cbf5203662fab185964a6c30ffc25550833",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a6dec8d5-7806-4b14-b8a7-92df82b24c2b",
+      "path": "source/Leadtools/19.0/x32/Leadtools.ColorConversion.dll",
+      "sha256": "58536528087ac0690a559e427f35d5a901f408c343ca229052a482a2dcae5131",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "391da205-ad96-4658-9398-88f7b2c2c9ee",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Documents.Pdf.dll",
+      "sha256": "22b7d4388da8141f4b042c604585584b45fca2a43c1829e85ed10c7de22d3a7b",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "105413eb-bccb-496f-821f-f752640ea5ab",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Documents.Raster.dll",
+      "sha256": "fedc27aaff94a681c3767649c8618252008e466ec0a65dd68cef0103f08375b7",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "ee4c76db-f9a7-4f79-a8d3-2d502418412a",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Documents.dll",
+      "sha256": "0c2100a23eba506ae907ec61ae410bd18fdaef2bb70d3c00aa3f399d8720d339",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "604195d4-9ff7-4548-8ae3-4a6eededbf99",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Drawing.dll",
+      "sha256": "afaeafc74f173283ab386b33a798a3c75b2cc7693f2a88edad446bb04d1ba6e3",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "8b83180f-45ab-4102-8de7-cbac7bf66d35",
+      "path": "source/Leadtools/19.0/x32/Leadtools.ImageOptimization.dll",
+      "sha256": "56180ffc136ac83b316799b5c16e73886c1f1af3187fdeb750edaaea3abfa741",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "38e5e610-ffa9-47d0-974e-4d8ae7addcff",
+      "path": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Color.dll",
+      "sha256": "ae8c99e4d63c0b75dc5a0c893297d258ca7b79a990fa6cb61647e1535574e121",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "6f8cc49d-ca8b-4b7f-b894-16c18283250b",
+      "path": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Core.dll",
+      "sha256": "5ea5199aa23ad7d968327e1596640461f7ee92a0f63b125e35d1ebcb1912a140",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "d7c99da3-7619-4006-8147-3be6f52eb1e1",
+      "path": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Utilities.dll",
+      "sha256": "63c83248daad09fbd234096127b0ca080e9e4789033e451c9394652a61b3a477",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "7028ed33-251d-47ae-b2c4-101141a19c3d",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Jpeg2000.dll",
+      "sha256": "882dd1e157335830b4fd6fdb1b81bbcbc65cff97aa981c5eb180d2237c6655c2",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "374d2fd7-b6a3-43db-8c3e-9a55e75f02f5",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Pdf.dll",
+      "sha256": "c8fb279a050bec5b7d6742ec2b5147147f4ea57feeefe6ac61e4a895bb1a86ee",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "eb40c3a0-2d0b-4ce6-a9a2-8eb0197ab15a",
+      "path": "source/Leadtools/19.0/x32/Leadtools.PdfCompressor.dll",
+      "sha256": "cf3b9b44a29197af0cf6eb22ce20dd9972a047bce9b170b6afc5e224e3e45670",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "41015c7a-9a02-4592-b45b-9be112a75a82",
+      "path": "source/Leadtools/19.0/x32/Leadtools.SpecialEffects.dll",
+      "sha256": "e8d5e157b6fd519e3cd7688f07e1eba0360d60e4e6c494877b58e53cf4da9cf0",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "7a1e58cb-8091-4f40-a8ca-fa4df3bfa617",
+      "path": "source/Leadtools/19.0/x32/Leadtools.Twain.dll",
+      "sha256": "6c37bb463c419423fa7845f03abfa90890c049c1d3dc138c3f37b12c44fff70c",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "0d9c2589-2e38-489d-a5f2-1fc665d96c36",
+      "path": "source/Leadtools/19.0/x32/Leadtools.dll",
+      "sha256": "3b0e29eb1cd2848961dd40c3a852b88e16e7ba52affb2e39c22eda776bd7010e",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "dd53dc87-d573-42b6-82a1-afcfb96126f4",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Annotations.dll",
+      "sha256": "89c9dc9d4fc1715ae9bbb0095f36a88e5c256871945addbf5b2555af056489c5",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "adad49c2-bf09-4dae-804e-07a900ab48f6",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Abc.dll",
+      "sha256": "1c1dce63c2d1074651edb0b114e99bab5c51a7c2b80da33d4f7a6864a830961f",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "f08708f0-aae8-4a6f-a4b3-0f9def7f46ff",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Bmp.dll",
+      "sha256": "762f394485510b3538dae77a62a3953b5cfd97c6fd2bf6bed021080500421b21",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "d0a6755c-8e2e-42a6-ab9c-9a5c3b7796b7",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Cmp.dll",
+      "sha256": "20cfbd82b8ad5f7501591ba30f515be1327af84e4c8941810b374db81ae242e4",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "dd3f4caf-7d2b-4d07-92fd-a3d2a1b7e6c9",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Dox.dll",
+      "sha256": "54e684a1d6d75b24fb16472b2d1a740096d97930600ad2ccbfc8515cdb3205fb",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "ac6b9fd3-ca8e-4c96-8e16-1ad2a3165e3c",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Dxf.dll",
+      "sha256": "c743f719c2199ef110f24217184e369b1b06fba9834486a359fcae9f8f7198dd",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "89adea37-8fa4-446b-a3fd-a756d1f9cf9b",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Fax.dll",
+      "sha256": "6793d960cbf6078ee489cab1a81dd5381cd1960f75caa02b6ceb8a5b2dbe71fa",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "e0620d3b-e0bd-4eaf-be96-7361b47ce1dc",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Gif.dll",
+      "sha256": "f4dac88281bd86577d5e6a0dca75cf2d6ae5deb0176f6da394ab711a40f58641",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "891d2dbb-c305-4bc7-b038-7c1977e90b01",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.J2k.dll",
+      "sha256": "0e97ca1167ec96339f9608267b10aa1afbe85126c40d9f016c1f7133b9289acb",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "7c76a0db-a492-47f4-ae03-16d6fa63ef62",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Jbg.dll",
+      "sha256": "faaa14191994cd71a35a75b6495d6b125fcf42d35836605aacb1f4d1700992c8",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "54e5835f-736a-42ff-bc8f-c9d559cd87d4",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Pcx.dll",
+      "sha256": "7c5db8c66e878fefb5c5cf44246c588cc0e527c6d0865263314d590c1e4c9521",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "ff99b3cb-4ca2-4054-98d0-d3bb5c4f7fdb",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Png.dll",
+      "sha256": "20e2412bff1eeac7a27cf820b432838c1e21e52e940b23521d19c3d1c32bc0a8",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "14da0aca-1acb-41c6-ae30-7302cf2f1775",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Psd.dll",
+      "sha256": "7efdd18afbbe21d80a335b46eaad1463bb486f825fae47b3f8a85acc8c26b113",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "6f9fec28-9463-482b-b745-c4c26c3f2677",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Raw.dll",
+      "sha256": "575c090c1fed20688487c70775e20f14880c21c67e3b1c384e2f446bc72c182d",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "d7e59e6a-2421-48eb-b69c-6b3c9bde485d",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Rtf.dll",
+      "sha256": "e8bd3a7e3757839b9308a6b7567651576bfd25532e7dddf46d6e60261af7fe6f",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "38de3d3b-0411-420e-9a22-55302d721519",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Tif.dll",
+      "sha256": "52a0a5c948917a8722113b31169e5f71d0dc676f349e65f6d5d5895d85bf0879",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "21fb9e90-8f2a-4478-a9f7-7af0ba3f88d6",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Txt.dll",
+      "sha256": "361780578a0833c458b7419cc049436953751ba0b383e074fb40f40e768716c9",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "70765f7e-8800-4d36-8e74-a18b44a5e43d",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Xls.dll",
+      "sha256": "f4a88ce62a4dde7ef0db569ce9fb8ebfecd8458d61d137c0d7a0bec20a178350",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "4df09fc0-fa2f-4e5e-bce6-6069942f874f",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.Xps.dll",
+      "sha256": "f29ea91a78fc6341da5949ca3dc80c2bac40478faa438a9e6279e55988ac9407",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "523753c2-ab50-4724-a19e-3ffd587de474",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Codecs.dll",
+      "sha256": "25b1132c2e271eaf7436ac3f1e518e9da2890f3c8629f7dbf818a9941276b7e9",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a890a540-04cb-4dc8-93dd-7b24e0e7c337",
+      "path": "source/Leadtools/19.0/x64/Leadtools.ColorConversion.dll",
+      "sha256": "d8eb01ed473b8e99344f8ada0ab0ae186ff2813babd30a58ea8f8628d3542cef",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "391da205-ad96-4658-9398-88f7b2c2c9ee",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Documents.Pdf.dll",
+      "sha256": "22b7d4388da8141f4b042c604585584b45fca2a43c1829e85ed10c7de22d3a7b",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "105413eb-bccb-496f-821f-f752640ea5ab",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Documents.Raster.dll",
+      "sha256": "fedc27aaff94a681c3767649c8618252008e466ec0a65dd68cef0103f08375b7",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "ee4c76db-f9a7-4f79-a8d3-2d502418412a",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Documents.dll",
+      "sha256": "0c2100a23eba506ae907ec61ae410bd18fdaef2bb70d3c00aa3f399d8720d339",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "6ccd708b-3c39-4df3-b1a1-82b976287a0e",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Drawing.dll",
+      "sha256": "39efe26f37b33137b04ca5960a405e20ad529ae335622d40564bbd69cb872ae8",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "e1bb9ced-1dd2-4396-a91d-8404e51d16a1",
+      "path": "source/Leadtools/19.0/x64/Leadtools.ImageOptimization.dll",
+      "sha256": "01412dbf571ea6e710c67105f4c188f43c27412b8e26026c0fa9bd547f69c20f",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "b2e80a77-79ac-4d44-b88b-c5c33c859b82",
+      "path": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Color.dll",
+      "sha256": "62f909bbe4dd17b6299971d7b120c18f7c41e28391edfdea39a60574b904a440",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "11f2195e-da65-4b7c-ae61-3a08319530df",
+      "path": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Core.dll",
+      "sha256": "7ac91dbcbbac9a2d9337416e978871ab4cd577f8e37332fc0e978d15729f492a",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "0a3e74a0-bace-4d57-b529-ae7105321b3a",
+      "path": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Utilities.dll",
+      "sha256": "1ed06308ed26db5c3843742fe7a30028378c5e8a53d7789329f12196baf8725a",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "a6e07faf-1d3e-44c8-ba78-b841db021b9b",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Jpeg2000.dll",
+      "sha256": "9cdd422764c6d3fe82b70b3273238a8b877dbd1662ed16255dc8ab7926d95673",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "8a542a13-0c8d-4578-bbc2-bd87584d4c42",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Pdf.dll",
+      "sha256": "059e878b1624cdef3eeec783207ec398fdc7af017f0e9c980bb549ce21f673ba",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "385c0611-a947-4f65-976f-c23836b7e98e",
+      "path": "source/Leadtools/19.0/x64/Leadtools.PdfCompressor.dll",
+      "sha256": "5e0eb3dc2ce48f01d07267aeb9b5de09dd0d144746c29c409af1f54d862e4cde",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "0f5d3341-ae41-4c29-97a9-de83eb9d407f",
+      "path": "source/Leadtools/19.0/x64/Leadtools.SpecialEffects.dll",
+      "sha256": "bb7ede09c16e8d6f8408b6eb3fe359180f302bb232cda76f4f0dc799b497bb8a",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "d48ce359-a043-443c-a506-d9029c242cfa",
+      "path": "source/Leadtools/19.0/x64/Leadtools.Twain.dll",
+      "sha256": "414625a8932212ac1c2cf59f2eda2e22eb2e73e6250c910b301cdcb45185bff8",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "11c6eee3-d7dd-4cd6-bc8b-0466ca118faf",
+      "path": "source/Leadtools/19.0/x64/Leadtools.dll",
+      "sha256": "ffd6453a74beb56912c14d740b70ca5419e69027c9ef9d1420addf1be697febc",
+      "version": "19.0.0.0"
+    },
+    {
+      "mvid": "f045d9b1-aa69-425e-939b-02dd326fd8d8",
+      "path": "source/LinqBridge.dll",
+      "sha256": "90cf5a704e22bba9997a5784ad93511b89994d2f750066dc3e49474dc2082819",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "6be84154-aff2-4056-a944-a385e684d99f",
+      "path": "source/MailBee.NET.dll",
+      "sha256": "d6fff6f324ea1e33bf370e00800fa244364cbbf715dfe3629c80187dd32d6f08",
+      "version": "12.3.0.647"
+    },
+    {
+      "mvid": "2a63aec5-975f-4750-a6da-2d9edafea249",
+      "path": "source/MemCompressor.dll",
+      "sha256": "c3da5a50568a386294f310c5ac96293d896a79ad30110b48d29f87dbec763c9a",
+      "version": "1.0.0.3"
+    },
+    {
+      "mvid": "d49a7c75-1ccd-48d2-a399-477648082695",
+      "path": "source/Microsoft.AspNet.SignalR.Client.dll",
+      "sha256": "744d4a4b60cf9116d5f0f08da614dbb311f4a64adc4fcc0981566503084e076a",
+      "version": "1.2.2.0"
+    },
+    {
+      "mvid": "a6e256d3-dcb9-4c81-a93d-81b0f0a2812b",
+      "path": "source/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll",
+      "sha256": "b5ff36ccfa049b089b00e3450f41af5fa42cb1fb7fff998edaa62500170a2864",
+      "version": "3.6.0.0"
+    },
+    {
+      "mvid": "dc2aa2d8-1d80-419f-95da-3e18865e90be",
+      "path": "source/Microsoft.Ink.dll",
+      "sha256": "a675c402127e4b69db620489799afadc3d6c0e05f90c31a617375bdfca211f04",
+      "version": "6.1.0.0"
+    },
+    {
+      "mvid": "bf75dd26-529a-4a74-bb16-05fda8592b17",
+      "path": "source/Microsoft.Vbe.Interop.dll",
+      "sha256": "eea5779834836be1b1a4dc3253df50cc15b7158ef1d5296cbc147114598000f4",
+      "version": "12.0.0.0"
+    },
+    {
+      "mvid": "aca4453c-7722-4462-af35-d1385b23eb22",
+      "path": "source/Microsoft.mshtml.dll",
+      "sha256": "675ad8a307684d73b96bcc1fc484c5d76a77b19c3ece495e859a6de6c2d964ee",
+      "version": "7.0.3300.0"
+    },
+    {
+      "mvid": "c792824d-40fb-470a-9ab1-0eaf060406af",
+      "path": "source/MsHtmHstInterop.dll",
+      "sha256": "46150a30f901121576636688695d8e2917e8388a82055b5346ddd78ef902f175",
+      "version": "0.0.0.0"
+    },
+    {
+      "mvid": "f5c45804-81df-4375-9ebf-446d5ffb33c1",
+      "path": "source/Newtonsoft.Json.dll",
+      "sha256": "c5c83bbc1741be6ff4c490c0aee34c162945423ec577c646538b2d21ce13199e",
+      "version": "13.0.0.0"
+    },
+    {
+      "mvid": "f9b14611-5001-4ad9-8e89-14bfe7a69f13",
+      "path": "source/NodaTime.dll",
+      "sha256": "2bcaf59e0990513852af9e4dbb2129fdcb39e20aa545358eec7403ea1970266f",
+      "version": "2.4.8.0"
+    },
+    {
+      "mvid": "4d466b69-6fb8-440b-aa27-9c814aae80e3",
+      "path": "source/Office/OfficeViewer/AxInterop.EDOfficeLib.dll",
+      "sha256": "aab2cf252221d437a7e1997663e7a66042d22713b63e9f062f944567874459bc",
+      "version": "8.0.0.0"
+    },
+    {
+      "mvid": "aa7d640c-7d4e-4939-83ee-c2c13a34e97a",
+      "path": "source/Office/OfficeViewer/Interop.EDOfficeLib.dll",
+      "sha256": "78ad6607310332c2f2bb4d1545deaab7e24d6b3c65951e299a092e970fe58c2c",
+      "version": "8.0.0.0"
+    },
+    {
+      "mvid": "cbb1acce-47db-4692-853d-ddf5668e1fbf",
+      "path": "source/PdfSharp.dll",
+      "sha256": "2fa0893c6a1a8e64342e65e5464fad417376bd2cc984e53575f5829b07e6a067",
+      "version": "1.50.5147.0"
+    },
+    {
+      "mvid": "66a7136b-181a-4ff5-b286-126f8fcbd2ec",
+      "path": "source/PostSharp.dll",
+      "sha256": "1ebf1878f26c5393843819a3bb0bb63e8c34f96fbacddaac57842baaabf7898d",
+      "version": "3.1.46.9"
+    },
+    {
+      "mvid": "9f9c8a31-c233-407a-8923-7909d1d501ec",
+      "path": "source/Stimulsoft.Base.dll",
+      "sha256": "9a116a50b3709c753d4edd16fa6eb6218cafe14134de00edb00729f54b5053c6",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "39f59ca0-a6ab-40e5-8f2d-cd5ab104d055",
+      "path": "source/Stimulsoft.Controls.Win.dll",
+      "sha256": "7b26826b4f6622e7c8b00177c6aeec802a06db645db565e81db80cd35ca34344",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "21cd28dd-82b8-4cde-832b-2312dab36f00",
+      "path": "source/Stimulsoft.Controls.dll",
+      "sha256": "1b2e49352e28042a0a051626a45dc979a6c227c7cac3ea29e09def56b9f30f19",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "4c677f4d-65c8-44d3-94ca-1069c9425c05",
+      "path": "source/Stimulsoft.Dashboard.dll",
+      "sha256": "5d01a22792f9d49483c2d7002fb2bfee6fe264db992061beb38ba85e2e34a08b",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "3f1f24ff-053a-429c-9dd7-40356b40baea",
+      "path": "source/Stimulsoft.Data.dll",
+      "sha256": "4856b741b880ca1a98807e58b8a8684e2e7ef8a6d80d61f22615a3c656bc1d0d",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "e6382398-5e12-44df-90d7-a235d6f29902",
+      "path": "source/Stimulsoft.Database.dll",
+      "sha256": "4e653d9f1d47f50485866b438f2f391b363c74248b4840f0e8214679f845998e",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "94610bf2-901d-4bd2-a441-6fd21c1bf4a8",
+      "path": "source/Stimulsoft.Editor.dll",
+      "sha256": "2e68963033bb2b94ea52e4ebc312af2d70eea1c21c1ba3a080246ba65bcee48d",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "669b7582-2642-45be-9da2-fc55f940177c",
+      "path": "source/Stimulsoft.Map.dll",
+      "sha256": "33eb733f83809e96b758758611624be57b63b5092c664fc10f13eb17f61cd96d",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "fd1766bb-032a-463f-b5f7-d157d02f31d0",
+      "path": "source/Stimulsoft.Report.Check.dll",
+      "sha256": "5074a22e5779dbc8dd5f66a9055c431b2b2dd334211fd5f178185feb45f8198b",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "24d2c7e7-158f-4dc2-be74-d9653e752c85",
+      "path": "source/Stimulsoft.Report.Design.dll",
+      "sha256": "b78806e0991c5773452a5937d8da1ed67f9f9d386308f49a1523b84bf273deea",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "5a0fa73a-704f-4a9e-8248-7a75431c55de",
+      "path": "source/Stimulsoft.Report.Helper.dll",
+      "sha256": "087e1a3914b3bac7b47ee2e6a69668c681ea597daa84fed598c9ecafb643343e",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "ebc910e8-e81d-426c-b6eb-6a03a44df80c",
+      "path": "source/Stimulsoft.Report.Win.dll",
+      "sha256": "8cfe4b9636c561693ea808794207f5d7a7025ef09c14dc05346244cd811c442d",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "1bd5ebb2-3fa7-4130-acc3-80ed92365717",
+      "path": "source/Stimulsoft.Report.dll",
+      "sha256": "b2a189b115c1b298fba8ce12585abd48069b197a82a453810f328c8f1eb208af",
+      "version": "2022.1.1.0"
+    },
+    {
+      "mvid": "d1783814-8f3f-462b-9518-71541ed5bb22",
+      "path": "source/System.Net.Http.Formatting.dll",
+      "sha256": "00664130b963ace5f1243ae4786926ea81bc181086fc7149d6123567c304d35b",
+      "version": "5.2.9.0"
+    },
+    {
+      "mvid": "d44a4364-9378-4761-9226-729496b8d0ec",
+      "path": "source/System.Net.Http.dll",
+      "sha256": "2f71d95305de6c0de9af7057e349a449753eeb1755cf78824a7258e0a4c5c984",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "469ece4c-5e50-469a-945a-25a6befb4ee5",
+      "path": "source/System.Web.Http.dll",
+      "sha256": "142fcbdf637eb89c4a5ed90b43a1b81317091f9a42d464d916344ef683cda674",
+      "version": "5.2.9.0"
+    },
+    {
+      "mvid": "0452b5e7-6422-4887-bad0-a8556a78b350",
+      "path": "source/Validator.dll",
+      "sha256": "6fb7a7aedbdf985fd0bbe462abd33c343f325a113a305b7fe19bddaecc21e3e5",
+      "version": "1.0.0.0"
+    },
+    {
+      "mvid": "59071124-dca7-418d-8c70-792779619230",
+      "path": "source/Winista.MimeDetect.dll",
+      "sha256": "734632e3c291ee0f460da7247f68394d219336296fe803e7db545b6ab849c2ba",
+      "version": "1.0.1.0"
+    },
+    {
+      "mvid": "03fe4fa6-20ae-4f5d-a626-a40a47c1c631",
+      "path": "source/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll",
+      "sha256": "b33fbd8982838c8dda1800794998c17c47b3f4331bc4628bb5e9538d44fd4de1",
+      "version": "1.3.1.60621"
+    },
+    {
+      "mvid": "485f4c80-34c8-496d-aa56-a2ba79ce095f",
+      "path": "source/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll",
+      "sha256": "f9e8e7bdc8198a4dee34f2a2cfeeb7210ad2e3cb8521da9a3f9b8c1b2800801a",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "8d5a2b66-95c6-475b-b1cb-5b9a9f9c8dd7",
+      "path": "source/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll",
+      "sha256": "caa084d9252e4ce8a44ecd8c7ce9b736abe54b13fc5a2a70ab39448bf6aef6f4",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "354b1830-4c73-4646-a030-b1c21dacbfc2",
+      "path": "source/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll",
+      "sha256": "4ab426510b63b37dc6296d9a6a66ce04e5f4c7e9fdeba2c93491ca0326f43dbd",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "d13748ca-0589-454b-b586-7b7f7cacb2bd",
+      "path": "source/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll",
+      "sha256": "7d4cbee9f448fc88c1d7f1a5ac0f93b051b6fb4f186d2a7ff9b6f8bfe656ce42",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "bededc41-dc2d-4bfc-a1b1-8012876b04b2",
+      "path": "source/bin/roslyn/Microsoft.CodeAnalysis.dll",
+      "sha256": "18100f59941dbe7b2dc5ff36caa019300a4ba8b40f7d8dcdf3d6714585de8755",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "1c372567-ad63-4b20-859d-e6f36aff6d57",
+      "path": "source/bin/roslyn/System.AppContext.dll",
+      "sha256": "ea3a3003e10f44280074810934261b61a209c1ec1e9029b932742c853bde743e",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "5f1c321d-3866-415d-befd-a0459067f4ac",
+      "path": "source/bin/roslyn/System.Collections.Immutable.dll",
+      "sha256": "51d4f7c607d5a2f636671d4ad1dc756a272018898267145dbfffc5bdb09df1a1",
+      "version": "1.1.37.0"
+    },
+    {
+      "mvid": "798bf249-aa26-4883-aaf4-6e455260414c",
+      "path": "source/bin/roslyn/System.Diagnostics.StackTrace.dll",
+      "sha256": "330885b0a3253821188e8c2ce21621cf83bc3d655252ecbc357c94d892ec2167",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "b70f4ca2-8c9c-498c-8848-05c582097026",
+      "path": "source/bin/roslyn/System.IO.FileSystem.Primitives.dll",
+      "sha256": "c0c87875f2a19df0fccfbfc3fc6da871d29dcf82223f54ffa10f1679826de82d",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "aa643f3e-415f-4421-9edd-d9e3737fae87",
+      "path": "source/bin/roslyn/System.IO.FileSystem.dll",
+      "sha256": "5747c77fc6e035ee9fc1583ac989af29edbf8056f1c7e4273343fb20bfc71eb6",
+      "version": "4.0.0.0"
+    },
+    {
+      "mvid": "cd0d4ecb-1127-45ec-8855-69786a19c1ed",
+      "path": "source/bin/roslyn/System.Reflection.Metadata.dll",
+      "sha256": "a75a4265095e70673760506f00f41f9421eecaff6d4f799da776398c49baf95b",
+      "version": "1.2.0.0"
+    },
+    {
+      "mvid": "50891d06-0d5e-45f2-9fd5-69ce0397df6b",
+      "path": "source/bin/roslyn/VBCSCompiler.exe",
+      "sha256": "74d1adc2d6329a5b1592f7d00faa9d5f6aeeff5dde38b1199c5ff2f0a08578d4",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "7a027062-4515-4861-b094-f2a9ef44b759",
+      "path": "source/bin/roslyn/csc.exe",
+      "sha256": "d14ba119edd71bdcb82b12659647427aa46d819caf6e72ac6d4ae86c81eb36c9",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "6e92649c-f080-48d0-96e9-ff3d66d53ed2",
+      "path": "source/bin/roslyn/csi.exe",
+      "sha256": "6c1fe13ae3bae75a41796fe21299155dc61a7c386fb33da7613cb12593b4d80e",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "6c058814-2590-4fae-940d-09ef663f8191",
+      "path": "source/bin/roslyn/vbc.exe",
+      "sha256": "9a4c359d6d937a891260a2b4a4cb5185ac08a0f825b11f801ee6358172fa848f",
+      "version": "1.3.1.0"
+    },
+    {
+      "mvid": "88ea7a8f-5145-4bc1-a8ad-158fa187c400",
+      "path": "source/fa/DevExpress.Charts.Designer.v18.2.resources.dll",
+      "sha256": "62dc3d5c1c0941e2a1411035e4153efa64dde7fbeca714d7f7820edad68425e7",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "8b46f5c2-10dd-42c8-95bc-bbcbee20b8ff",
+      "path": "source/fa/DevExpress.Dashboard.v18.2.Core.resources.dll",
+      "sha256": "e8bb2d1b025d156c688639172f7493f388d72dad5a91d99440c797832c7ed11e",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "fce499f5-bad8-4a98-b466-875f3aa45284",
+      "path": "source/fa/DevExpress.Dashboard.v18.2.Web.resources.dll",
+      "sha256": "ee32310d1cad228a7c5f50968f3b7b94d2f6076ddb7a366184c7a3dbe19a643a",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "ee74ec83-9cec-4457-b4e5-c82e947e2104",
+      "path": "source/fa/DevExpress.Dashboard.v18.2.Win.resources.dll",
+      "sha256": "7cb62335bd5c6ef959939c6820f8cfda4f4dc218f1c79c2f7139b81c88b444c5",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "e08dbbd0-863a-45ef-bd03-7c4a4b556ade",
+      "path": "source/fa/DevExpress.Data.v18.2.resources.dll",
+      "sha256": "a41782a5917b4bdc5abf307f3a78183f64af34f80cfba8b4cceae9a31ffbf7e4",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "cce07ad3-d457-4d1e-bf4d-db7cba11cc98",
+      "path": "source/fa/DevExpress.PivotGrid.v18.2.Core.resources.dll",
+      "sha256": "d31cba5a30503290e5789060c771ec51d914de957703eb942ffd6668fce3cc34",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "6f7e2f04-726e-4f37-83f4-e612ae9b90a8",
+      "path": "source/fa/DevExpress.Utils.v18.2.UI.resources.dll",
+      "sha256": "3fe34c475ef3bb68a954a9ea23526cf23166f17963bd25987f63cb1eafe11ac8",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "f30e2abc-ae5c-4199-84bb-63c6cb6cb05d",
+      "path": "source/fa/DevExpress.Utils.v18.2.resources.dll",
+      "sha256": "67c71f0fbb19324f23c2eb34c821697efa15defe181a18b65df14a8b6991e084",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "b4c15b9f-f7b0-44f1-9592-5847baafb5f4",
+      "path": "source/fa/DevExpress.XtraCharts.v18.2.Wizard.resources.dll",
+      "sha256": "90b123d2d8606f434ea151327c90c328dcddc5d4ae7c7395fd9c3c1e55a0b88e",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "0354d34a-9a98-4ce6-8a41-7801f8b720a4",
+      "path": "source/fa/DevExpress.XtraCharts.v18.2.resources.dll",
+      "sha256": "389cc143f095f506148e3ccea614a91037c77bb605cb74dd411055f667fe2228",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "22dea0b5-54b8-47fe-b7b8-6c416f82afda",
+      "path": "source/fa/DevExpress.XtraGrid.v18.2.resources.dll",
+      "sha256": "c34b114130ae77ebc69e1254458d349acd4a021b29c3659a81a41e51eaa85ba4",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "8bb5821f-f497-403c-9679-f5779cd467c3",
+      "path": "source/fa/DevExpress.XtraLayout.v18.2.resources.dll",
+      "sha256": "b1e06fcb71fba3e76653c8cb4a57f0cfea6cb2f5782ad80c3af2f3be13307a37",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "aa75b8a0-7e20-4f7f-8ac6-16e0a693f7b3",
+      "path": "source/fa/DevExpress.XtraPivotGrid.v18.2.resources.dll",
+      "sha256": "94cfb4fc63f37b208361e83a9c03dd9742fddc225177941c05fa5e1b9844697f",
+      "version": "18.2.0.0"
+    },
+    {
+      "mvid": "45c639f0-3123-438c-92f2-065814789772",
+      "path": "source/tern.dll",
+      "sha256": "4c353b4584c5a87c8378b65c1b07c0b62e9c02b560a48daf603733bd69e2fc76",
+      "version": "16.0.7.7"
+    },
+    {
+      "mvid": "3dc5f791-b361-4dd5-898e-dfc0dd872791",
+      "path": "source/x32/Oracle.DataAccess.dll",
+      "sha256": "fac3deb40c1ffe27abb7f119c9c32839a7356a8e4956fe375c91224246493d6e",
+      "version": "4.112.3.0"
+    },
+    {
+      "mvid": "2ca48ded-b97f-49cd-bf0a-eeff31a146a9",
+      "path": "source/x32/dtSearchNetApi4.dll",
+      "sha256": "3c231b1bc85ee2271437faa4e25dbdd9a2281a62f36858cdcd3cee50579ba15e",
+      "version": "7.2201.8748.30356"
+    },
+    {
+      "mvid": "644819b4-6087-43cf-9bce-a751e23be24e",
+      "path": "source/x64/Oracle.DataAccess.dll",
+      "sha256": "bc44844dbbc65a3f26c7beaefd8e6022378d5e1b55a1eede9e86e5f9ad354180",
+      "version": "4.112.3.0"
+    },
+    {
+      "mvid": "3d36bc84-0f32-499b-bd0b-7878f08d2f11",
+      "path": "source/x64/dtSearchNetApi4.dll",
+      "sha256": "0250913f68453f3aada32540c4e6ecf1b148ee27a93a7fa289030244b42369e9",
+      "version": "7.2201.8748.30351"
+    },
+    {
+      "mvid": "109a5fea-1be3-4b9a-a867-4ed72a1b38e6",
+      "path": "source/yWorks.yFilesNET.Algorithms.dll",
+      "sha256": "ddf5ac18b56e9c3f3e4e792dd2d4bf060574bfeaf399bef8098bee827879a957",
+      "version": "5.0.0.2"
+    }
+  ],
+  "schemaVersion": "2.0",
+  "scope": {
+    "callEdgesKept": 80190,
+    "methodsIndexed": 71400,
+    "methodsSeenOverall": 386140,
+    "note": "Bulk indexes (types, methods, properties, fields, references) cover Barsa-owned assemblies only. Third-party assemblies are inventoried in assemblies.json with full counts but not indexed member-by-member.",
+    "typesIndexed": 12716,
+    "typesSeenOverall": 219200
+  }
+}
