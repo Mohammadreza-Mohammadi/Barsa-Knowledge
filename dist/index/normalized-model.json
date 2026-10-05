@@ -1,0 +1,230 @@
+{
+  "collections": {
+    "$schema": "./normalized-system-model.schema.json",
+    "code": {
+      "observedColumns": [
+        "AddressDisplayString",
+        "AddressInTarget",
+        "AssemblyData",
+        "Code",
+        "CodeLanguage",
+        "CodeLayer",
+        "CodeLocation",
+        "Description",
+        "ExtractorTypeId",
+        "HelperId",
+        "ID",
+        "LastModifiedDate",
+        "ParameterTypeDefId",
+        "ParentCodeId",
+        "Status",
+        "SystemId",
+        "TargetObjectId"
+      ],
+      "sourceTable": "MET_METACODE"
+    },
+    "commands": {
+      "observedColumns": [
+        "ButtonSize",
+        "Caption",
+        "HasSecurity",
+        "ID",
+        "IconImage",
+        "IconName",
+        "IsGlobal",
+        "Location",
+        "SystemId",
+        "TargetId"
+      ],
+      "sourceTable": "MET_METACOMMAND"
+    },
+    "entities": {
+      "observedColumns": [
+        "ApplicationId",
+        "CreationDate",
+        "DbName",
+        "DefaultFieldId",
+        "ID",
+        "IsDeleted",
+        "LocalId",
+        "Settings",
+        "caption",
+        "dbType",
+        "defaultReportId",
+        "deleted_eorgIdTypePart",
+        "hasSecurity",
+        "iconImage",
+        "iconName",
+        "isDynamic",
+        "isExternalType",
+        "parentid",
+        "previewFieldId",
+        "sakooTypeId",
+        "systemId"
+      ],
+      "sourceTable": "MET_TYPEDEF"
+    },
+    "fields": {
+      "observedColumns": [
+        "ID",
+        "Settings",
+        "caption",
+        "dbName",
+        "fieldInfoType",
+        "orderNumber",
+        "relationType",
+        "typeDefId"
+      ],
+      "sourceTable": "MET_FIELDDEF"
+    },
+    "folders": {
+      "observedColumns": [
+        "ChildrenCount",
+        "ContainingTypeDefId",
+        "FolderType",
+        "ID",
+        "Icon",
+        "IconName",
+        "IsDeleted",
+        "Name",
+        "OrderNo",
+        "ParentId",
+        "Path",
+        "ReportId"
+      ],
+      "sourceTable": "MET_FOLDER"
+    },
+    "forms": {
+      "note": "No table in the supplied samples has been shown to carry form definitions. MET_TYPEVIEWENTITY.TypeViewBlob is an opaque blob and is not decoded here.",
+      "observedColumns": [],
+      "sourceTable": null,
+      "status": "Unknown"
+    },
+    "relationDefs": {
+      "observedColumns": [
+        "DestTypeId",
+        "ID",
+        "Max",
+        "RelationType",
+        "ReverseTitle",
+        "SourceFieldDefId",
+        "SourceTypeId",
+        "Title",
+        "destTypeExtraString",
+        "isBilateral",
+        "sourceTypeExtraString"
+      ],
+      "sourceTable": "MET_RELATIONDEF"
+    },
+    "relations": {
+      "observedColumns": [
+        "Description",
+        "DestId",
+        "ID",
+        "RelationDefId",
+        "Role",
+        "SourceId"
+      ],
+      "sourceTable": "met_Relation"
+    },
+    "reports": {
+      "observedColumns": [
+        "AccessLevel",
+        "Descrioption",
+        "ID",
+        "Name",
+        "ReportData",
+        "SearchObjectId",
+        "SecurityDescriptor",
+        "activityDefId",
+        "iconImage",
+        "iconName",
+        "isInsideView",
+        "reportType",
+        "scopeType",
+        "systemId"
+      ],
+      "sourceTable": "met_Report"
+    },
+    "schemaVersion": "2.0",
+    "system": {
+      "observedColumns": [
+        "Caption",
+        "ID",
+        "IsInactive",
+        "Settings",
+        "SystemKey",
+        "SystemLocationType",
+        "Version",
+        "iconImage",
+        "iconName",
+        "orderNumber",
+        "rootFolderId",
+        "runCodeAtStartup",
+        "showInCartable"
+      ],
+      "sourceTable": "MET_METASYSTEM"
+    },
+    "views": {
+      "observedColumns": [
+        "ID",
+        "Name",
+        "ParentId",
+        "TypeDefId",
+        "TypeViewBlob"
+      ],
+      "sourceTable": "MET_TYPEVIEWENTITY"
+    },
+    "workflows": {
+      "note": "Barsa.Workflow.dll exists, but no supplied sample contains a workflow table.",
+      "observedColumns": [],
+      "sourceTable": null,
+      "status": "Unknown"
+    }
+  },
+  "reconstructionOrder": [
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "NewImportManager::Import calls SerializationHelper2.DeserializeDataSetFromFile before anything else touches the data.",
+      "source": "Package file",
+      "target": "DataSet"
+    },
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "Import constructs FixIdForImport and calls Init/FixAll on the DataSet before rows are written.",
+      "source": "DataSet",
+      "target": "Id remap (FixIdForImport)"
+    },
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "ImportOptions.out_IdFixer is published after the fixer runs, and clone-name fixing operates on the same DataSet.",
+      "source": "Id remap (FixIdForImport)",
+      "target": "Row insertion"
+    },
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "Import calls ImportManager_Structure::AfterImport(DataSet) near the end of the method body.",
+      "source": "Row insertion",
+      "target": "ImportManager_Structure.AfterImport"
+    },
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "Import calls ObjectReferenceBuilder::RecreateForAll after AfterImport, rebuilding the navigable object graph.",
+      "source": "ImportManager_Structure.AfterImport",
+      "target": "ObjectReferenceBuilder.RecreateForAll"
+    },
+    {
+      "confidence": "Observed",
+      "evidenceSource": "CallGraph",
+      "reason": "MissedReferenceFinder is invoked when ImportOptions.AddMissedReferences is set.",
+      "source": "ObjectReferenceBuilder.RecreateForAll",
+      "target": "Missed reference resolution"
+    }
+  ],
+  "schemaVersion": "2.0"
+}

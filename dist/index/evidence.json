@@ -1,0 +1,2294 @@
+[
+  {
+    "detail": "assembly ActiproSoftware.Shared.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000001",
+    "locator": "source/Actipro/ActiproSoftware.Shared.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000002",
+    "locator": "source/Actipro/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000003",
+    "locator": "source/Actipro/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.SyntaxEditor.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000004",
+    "locator": "source/Actipro/ActiproSoftware.SyntaxEditor.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.Text.Addons.DotNet.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000005",
+    "locator": "source/Actipro/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.Text.Addons.JavaScript.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000006",
+    "locator": "source/Actipro/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.Text.LLParser.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000007",
+    "locator": "source/Actipro/ActiproSoftware.Text.LLParser.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ActiproSoftware.Text.WinForms v20.1.402.0",
+    "id": "EVID-DLL-000008",
+    "locator": "source/Actipro/ActiproSoftware.Text.WinForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AnimationCheckBox v1.0.1739.18991",
+    "id": "EVID-DLL-000009",
+    "locator": "source/AnimationCheckBox.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Aspose.Cells v17.8.0.0",
+    "id": "EVID-DLL-000010",
+    "locator": "source/Aspose.Cells.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Aspose.PDF v23.1.0.0",
+    "id": "EVID-DLL-000011",
+    "locator": "source/Aspose.PDF.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Aspose.Words v16.6.0.0",
+    "id": "EVID-DLL-000012",
+    "locator": "source/Aspose.Words.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Atapi v1.2.0.0",
+    "id": "EVID-DLL-000013",
+    "locator": "source/Atapi.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AxInterop.KYLIXSMSLib v5.0.0.0",
+    "id": "EVID-DLL-000014",
+    "locator": "source/AxInterop.KYLIXSMSLib.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AxInterop.SHDocVw v1.1.0.0",
+    "id": "EVID-DLL-000015",
+    "locator": "source/AxInterop.SHDocVw.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AxInterop.TAPIEXLib v1.0.0.0",
+    "id": "EVID-DLL-000016",
+    "locator": "source/AxInterop.TAPIEXLib.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AxInterop.XpdfViewer v3.2.0.0",
+    "id": "EVID-DLL-000017",
+    "locator": "source/AxInterop.XpdfViewer.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Ai.Host v4.1.203.0",
+    "id": "EVID-DLL-000018",
+    "locator": "source/Barsa.Ai.Host.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Automation.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000019",
+    "locator": "source/Barsa.Automation.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Automation.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000020",
+    "locator": "source/Barsa.Automation.Ui.Win.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Automation v1.0.0.0",
+    "id": "EVID-DLL-000021",
+    "locator": "source/Barsa.Automation.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.CalendarApp.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000022",
+    "locator": "source/Barsa.CalendarApp.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.CalendarApp v1.0.0.0",
+    "id": "EVID-DLL-000023",
+    "locator": "source/Barsa.CalendarApp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ContactApplication.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000024",
+    "locator": "source/Barsa.ContactApplication.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ContactApplication v1.0.0.0",
+    "id": "EVID-DLL-000025",
+    "locator": "source/Barsa.ContactApplication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dashboard.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000026",
+    "locator": "source/Barsa.Dashboard.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Deploy.Common v4.1.203.0",
+    "id": "EVID-DLL-000027",
+    "locator": "source/Barsa.Deploy.Common.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics v1.0.0.0",
+    "id": "EVID-DLL-000028",
+    "locator": "source/Barsa.Dynamics.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.EOrg.ECEApplication v1.0.1.32",
+    "id": "EVID-DLL-000029",
+    "locator": "source/Barsa.EOrg.ECEApplication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.EmailClient.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000030",
+    "locator": "source/Barsa.EmailClient.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.EmailClient v1.0.0.0",
+    "id": "EVID-DLL-000031",
+    "locator": "source/Barsa.EmailClient.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Eorg.Main.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000032",
+    "locator": "source/Barsa.Eorg.Main.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Eorg.Ui.Win-Any v4.1.203.0",
+    "id": "EVID-DLL-000033",
+    "locator": "source/Barsa.Eorg.Ui.Win-Any.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Eorg.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000034",
+    "locator": "source/Barsa.Eorg.Ui.Win.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.FaxApplication.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000035",
+    "locator": "source/Barsa.FaxApplication.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.FaxApplication v1.0.0.0",
+    "id": "EVID-DLL-000036",
+    "locator": "source/Barsa.FaxApplication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ImageLibrary.Win.Editor v1.0.0.0",
+    "id": "EVID-DLL-000037",
+    "locator": "source/Barsa.ImageLibrary.Win.Editor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ImageLibrary v1.0.0.0",
+    "id": "EVID-DLL-000038",
+    "locator": "source/Barsa.ImageLibrary.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.InterEorg.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000039",
+    "locator": "source/Barsa.InterEorg.Ui.Win.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.InterEorg v1.0.0.0",
+    "id": "EVID-DLL-000040",
+    "locator": "source/Barsa.InterEorg.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.MailApplication.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000041",
+    "locator": "source/Barsa.MailApplication.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.MailApplication v1.0.0.0",
+    "id": "EVID-DLL-000042",
+    "locator": "source/Barsa.MailApplication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ManagementApplication.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000043",
+    "locator": "source/Barsa.ManagementApplication.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Calendar.UI.Win v1.0.0.0",
+    "id": "EVID-DLL-000044",
+    "locator": "source/Barsa.Meta.Calendar.UI.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Code.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000045",
+    "locator": "source/Barsa.Meta.Code.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Code v4.1.203.0",
+    "id": "EVID-DLL-000046",
+    "locator": "source/Barsa.Meta.Code.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Coding.SDK v1.0.0.0",
+    "id": "EVID-DLL-000047",
+    "locator": "source/Barsa.Meta.Coding.SDK.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.DataExchange v4.1.203.0",
+    "id": "EVID-DLL-000048",
+    "locator": "source/Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Extra.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000049",
+    "locator": "source/Barsa.Meta.Extra.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Extra v4.1.203.0",
+    "id": "EVID-DLL-000050",
+    "locator": "source/Barsa.Meta.Extra.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Extra1 v3.14.173.0",
+    "id": "EVID-DLL-000051",
+    "locator": "source/Barsa.Meta.Extra1.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.FileUtils v4.1.203.0",
+    "id": "EVID-DLL-000052",
+    "locator": "source/Barsa.Meta.FileUtils.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.InterEorgUtil v4.1.203.0",
+    "id": "EVID-DLL-000053",
+    "locator": "source/Barsa.Meta.InterEorgUtil.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.JSCompiler v1.0.0.0",
+    "id": "EVID-DLL-000054",
+    "locator": "source/Barsa.Meta.JSCompiler.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.SemanticExchange v4.1.203.0",
+    "id": "EVID-DLL-000055",
+    "locator": "source/Barsa.Meta.SemanticExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.ServiceHost v4.1.203.0",
+    "id": "EVID-DLL-000056",
+    "locator": "source/Barsa.Meta.ServiceHost.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.TesterAgent v3.14.75.0",
+    "id": "EVID-DLL-000057",
+    "locator": "source/Barsa.Meta.TesterAgent.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.TesterApp.Ui.Win v3.14.75.0",
+    "id": "EVID-DLL-000058",
+    "locator": "source/Barsa.Meta.TesterApp.Ui.Win.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Ui.Code.Win.NewActipro v4.1.203.0",
+    "id": "EVID-DLL-000059",
+    "locator": "source/Barsa.Meta.Ui.Code.Win.NewActipro.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000060",
+    "locator": "source/Barsa.Meta.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta v4.1.203.0",
+    "id": "EVID-DLL-000061",
+    "locator": "source/Barsa.Meta.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.MetaScriptEngine.Editor v1.48.0.0",
+    "id": "EVID-DLL-000062",
+    "locator": "source/Barsa.MetaScriptEngine.Editor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Modeling.Bpmn2 v4.1.203.0",
+    "id": "EVID-DLL-000063",
+    "locator": "source/Barsa.Modeling.Bpmn2.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.MspManager v1.0.0.0",
+    "id": "EVID-DLL-000064",
+    "locator": "source/Barsa.MspManager.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ObjectConversion.Ui.Win v0.0.0.0",
+    "id": "EVID-DLL-000065",
+    "locator": "source/Barsa.ObjectConversion.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ObjectConversion v0.0.0.0",
+    "id": "EVID-DLL-000066",
+    "locator": "source/Barsa.ObjectConversion.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Office.Automation v1.0.0.0",
+    "id": "EVID-DLL-000067",
+    "locator": "source/Barsa.Office.Automation.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Office.EdControls v1.0.0.0",
+    "id": "EVID-DLL-000068",
+    "locator": "source/Barsa.Office.EdControls.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.RecurrenceEngine v1.0.0.0",
+    "id": "EVID-DLL-000069",
+    "locator": "source/Barsa.RecurrenceEngine.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Common.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000070",
+    "locator": "source/Barsa.SPL.Common.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Documents.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000071",
+    "locator": "source/Barsa.SPL.Documents.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Excel.v2.5 v10.3.20103.1000",
+    "id": "EVID-DLL-000072",
+    "locator": "source/Barsa.SPL.Excel.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.CalcManager.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000073",
+    "locator": "source/Barsa.SPL.Win.CalcManager.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Calendar.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000074",
+    "locator": "source/Barsa.SPL.Win.Calendar.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Chart.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000075",
+    "locator": "source/Barsa.SPL.Win.Chart.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.DataSource.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000076",
+    "locator": "source/Barsa.SPL.Win.DataSource.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.DesignerDialogs.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000077",
+    "locator": "source/Barsa.SPL.Win.DesignerDialogs.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Dock.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000078",
+    "locator": "source/Barsa.SPL.Win.Dock.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Editors.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000079",
+    "locator": "source/Barsa.SPL.Win.Editors.V2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.ExtraControls v1.0.0.0",
+    "id": "EVID-DLL-000080",
+    "locator": "source/Barsa.SPL.Win.ExtraControls.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Gantt.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000081",
+    "locator": "source/Barsa.SPL.Win.Gantt.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Gauge.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000082",
+    "locator": "source/Barsa.SPL.Win.Gauge.V2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Grid.DocumentExport.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000083",
+    "locator": "source/Barsa.SPL.Win.Grid.DocumentExport.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Grid.ExcelExport.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000084",
+    "locator": "source/Barsa.SPL.Win.Grid.ExcelExport.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Grid.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000085",
+    "locator": "source/Barsa.SPL.Win.Grid.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.MaskedEdit.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000086",
+    "locator": "source/Barsa.SPL.Win.MaskedEdit.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Navigators.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000087",
+    "locator": "source/Barsa.SPL.Win.Navigators.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.PrintPreviewDialog.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000088",
+    "locator": "source/Barsa.SPL.Win.PrintPreviewDialog.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Skin.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000089",
+    "locator": "source/Barsa.SPL.Win.Skin.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Statics.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000090",
+    "locator": "source/Barsa.SPL.Win.Statics.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.StatusBar.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000091",
+    "locator": "source/Barsa.SPL.Win.StatusBar.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.TabControls.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000092",
+    "locator": "source/Barsa.SPL.Win.TabControls.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.TabbedMdi.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000093",
+    "locator": "source/Barsa.SPL.Win.TabbedMdi.V2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.ThumbView.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000094",
+    "locator": "source/Barsa.SPL.Win.ThumbView.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Toolbars.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000095",
+    "locator": "source/Barsa.SPL.Win.Toolbars.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.Tree.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000096",
+    "locator": "source/Barsa.SPL.Win.Tree.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SPL.Win.v2.5 v2.5.13888.1003",
+    "id": "EVID-DLL-000097",
+    "locator": "source/Barsa.SPL.Win.v2.5.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.ScriptEngine.Editor v1.53.3434.33411",
+    "id": "EVID-DLL-000098",
+    "locator": "source/Barsa.ScriptEngine.Editor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Security.RsaPke v3.12.528.0",
+    "id": "EVID-DLL-000099",
+    "locator": "source/Barsa.Security.RsaPke.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SharedObjects.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000100",
+    "locator": "source/Barsa.SharedObjects.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.SharedObjects v4.1.203.0",
+    "id": "EVID-DLL-000101",
+    "locator": "source/Barsa.SharedObjects.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Sms.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000102",
+    "locator": "source/Barsa.Sms.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Sms v4.1.203.0",
+    "id": "EVID-DLL-000103",
+    "locator": "source/Barsa.Sms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Core.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000104",
+    "locator": "source/Barsa.Spl.Core.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Diagram v2.0.0.0",
+    "id": "EVID-DLL-000105",
+    "locator": "source/Barsa.Spl.Diagram.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Diagram2 v4.1.203.0",
+    "id": "EVID-DLL-000106",
+    "locator": "source/Barsa.Spl.Diagram2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Oracle v4.1.203.0",
+    "id": "EVID-DLL-000107",
+    "locator": "source/Barsa.Spl.Oracle.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Remoting.Sinks v1.0.1.0",
+    "id": "EVID-DLL-000108",
+    "locator": "source/Barsa.Spl.Remoting.Sinks.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl.Win.InfraComponents v4.1.203.0",
+    "id": "EVID-DLL-000109",
+    "locator": "source/Barsa.Spl.Win.InfraComponents.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Spl v4.1.203.0",
+    "id": "EVID-DLL-000110",
+    "locator": "source/Barsa.Spl.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.TaskApplication.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000111",
+    "locator": "source/Barsa.TaskApplication.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.TaskApplication v1.0.0.0",
+    "id": "EVID-DLL-000112",
+    "locator": "source/Barsa.TaskApplication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Web.Infrastructure v4.1.203.0",
+    "id": "EVID-DLL-000113",
+    "locator": "source/Barsa.Web.Infrastructure.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.WordReportDesigner.Ui.Win v1.2.0.0",
+    "id": "EVID-DLL-000114",
+    "locator": "source/Barsa.WordReportDesigner.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.WordReportDesigner v1.2.0.0",
+    "id": "EVID-DLL-000115",
+    "locator": "source/Barsa.WordReportDesigner.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.WorkBench.Ui.Win.General v1.0.0.0",
+    "id": "EVID-DLL-000116",
+    "locator": "source/Barsa.WorkBench.Ui.Win.General.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.WorkBench.Ui.Win v1.0.0.0",
+    "id": "EVID-DLL-000117",
+    "locator": "source/Barsa.WorkBench.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Workflow.Design v4.1.203.0",
+    "id": "EVID-DLL-000118",
+    "locator": "source/Barsa.Workflow.Design.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Workflow.Ui.Win v4.1.203.0",
+    "id": "EVID-DLL-000119",
+    "locator": "source/Barsa.Workflow.Ui.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Workflow v4.1.203.0",
+    "id": "EVID-DLL-000120",
+    "locator": "source/Barsa.Workflow.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Xara.Layout.v2.9 v2.9.4.0",
+    "id": "EVID-DLL-000121",
+    "locator": "source/Barsa.Xara.Layout.v2.9.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Xara.Printing.v2.9 v2.9.4.0",
+    "id": "EVID-DLL-000122",
+    "locator": "source/Barsa.Xara.Printing.v2.9.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Xara.XCharts.v2.9 v2.9.4.0",
+    "id": "EVID-DLL-000123",
+    "locator": "source/Barsa.Xara.XCharts.v2.9.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly BarsaEOrgHost v4.1.203.0",
+    "id": "EVID-DLL-000124",
+    "locator": "source/BarsaEOrgHost.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly BarsaRegister v1.0.0.0",
+    "id": "EVID-DLL-000125",
+    "locator": "source/BarsaRegister.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly BouncyCastle.Crypto v1.8.1.0",
+    "id": "EVID-DLL-000126",
+    "locator": "source/BouncyCastle.Crypto.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Castle.Core v4.0.0.0",
+    "id": "EVID-DLL-000127",
+    "locator": "source/Castle.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ConfigUtil v4.1.203.0",
+    "id": "EVID-DLL-000128",
+    "locator": "source/ConfigUtil.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.BonusSkins.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000129",
+    "locator": "source/DevExpress/DevExpress.BonusSkins.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Charts.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000130",
+    "locator": "source/DevExpress/DevExpress.Charts.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.CodeParser.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000131",
+    "locator": "source/DevExpress/DevExpress.CodeParser.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000132",
+    "locator": "source/DevExpress/DevExpress.Dashboard.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Web.WebForms v18.2.4.0",
+    "id": "EVID-DLL-000133",
+    "locator": "source/DevExpress/DevExpress.Dashboard.v18.2.Web.WebForms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Web v18.2.4.0",
+    "id": "EVID-DLL-000134",
+    "locator": "source/DevExpress/DevExpress.Dashboard.v18.2.Web.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Win v18.2.4.0",
+    "id": "EVID-DLL-000135",
+    "locator": "source/DevExpress/DevExpress.Dashboard.v18.2.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Data.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000136",
+    "locator": "source/DevExpress/DevExpress.Data.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.DataAccess.v18.2.UI v18.2.4.0",
+    "id": "EVID-DLL-000137",
+    "locator": "source/DevExpress/DevExpress.DataAccess.v18.2.UI.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.DataAccess.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000138",
+    "locator": "source/DevExpress/DevExpress.DataAccess.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Diagram.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000139",
+    "locator": "source/DevExpress/DevExpress.Diagram.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Images.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000140",
+    "locator": "source/DevExpress/DevExpress.Images.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Map.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000141",
+    "locator": "source/DevExpress/DevExpress.Map.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Mvvm.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000142",
+    "locator": "source/DevExpress/DevExpress.Mvvm.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Office.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000143",
+    "locator": "source/DevExpress/DevExpress.Office.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Pdf.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000144",
+    "locator": "source/DevExpress/DevExpress.Pdf.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.PivotGrid.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000145",
+    "locator": "source/DevExpress/DevExpress.PivotGrid.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Printing.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000146",
+    "locator": "source/DevExpress/DevExpress.Printing.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.RichEdit.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000147",
+    "locator": "source/DevExpress/DevExpress.RichEdit.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Sparkline.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000148",
+    "locator": "source/DevExpress/DevExpress.Sparkline.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.TreeMap.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000149",
+    "locator": "source/DevExpress/DevExpress.TreeMap.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Utils.v18.2.UI v18.2.4.0",
+    "id": "EVID-DLL-000150",
+    "locator": "source/DevExpress/DevExpress.Utils.v18.2.UI.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Utils.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000151",
+    "locator": "source/DevExpress/DevExpress.Utils.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Web.Resources.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000152",
+    "locator": "source/DevExpress/DevExpress.Web.Resources.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Xpo.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000153",
+    "locator": "source/DevExpress/DevExpress.Xpo.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraBars.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000154",
+    "locator": "source/DevExpress/DevExpress.XtraBars.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraCharts.v18.2.UI v18.2.4.0",
+    "id": "EVID-DLL-000155",
+    "locator": "source/DevExpress/DevExpress.XtraCharts.v18.2.UI.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraCharts.v18.2.Wizard v18.2.4.0",
+    "id": "EVID-DLL-000156",
+    "locator": "source/DevExpress/DevExpress.XtraCharts.v18.2.Wizard.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraCharts.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000157",
+    "locator": "source/DevExpress/DevExpress.XtraCharts.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraDiagram.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000158",
+    "locator": "source/DevExpress/DevExpress.XtraDiagram.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraEditors.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000159",
+    "locator": "source/DevExpress/DevExpress.XtraEditors.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraGauges.v18.2.Core v18.2.4.0",
+    "id": "EVID-DLL-000160",
+    "locator": "source/DevExpress/DevExpress.XtraGauges.v18.2.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraGauges.v18.2.Presets v18.2.4.0",
+    "id": "EVID-DLL-000161",
+    "locator": "source/DevExpress/DevExpress.XtraGauges.v18.2.Presets.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraGauges.v18.2.Win v18.2.4.0",
+    "id": "EVID-DLL-000162",
+    "locator": "source/DevExpress/DevExpress.XtraGauges.v18.2.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraGrid.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000163",
+    "locator": "source/DevExpress/DevExpress.XtraGrid.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraLayout.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000164",
+    "locator": "source/DevExpress/DevExpress.XtraLayout.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraMap.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000165",
+    "locator": "source/DevExpress/DevExpress.XtraMap.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraPivotGrid.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000166",
+    "locator": "source/DevExpress/DevExpress.XtraPivotGrid.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraPrinting.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000167",
+    "locator": "source/DevExpress/DevExpress.XtraPrinting.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraReports.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000168",
+    "locator": "source/DevExpress/DevExpress.XtraReports.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraRichEdit.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000169",
+    "locator": "source/DevExpress/DevExpress.XtraRichEdit.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraTreeList.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000170",
+    "locator": "source/DevExpress/DevExpress.XtraTreeList.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraTreeMap.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000171",
+    "locator": "source/DevExpress/DevExpress.XtraTreeMap.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraVerticalGrid.v18.2 v18.2.4.0",
+    "id": "EVID-DLL-000172",
+    "locator": "source/DevExpress/DevExpress.XtraVerticalGrid.v18.2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.SqlServer.Diagnostics.STrace v14.0.0.0",
+    "id": "EVID-DLL-000173",
+    "locator": "source/DevExpress/Microsoft.SqlServer.Diagnostics.STrace.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.SqlServer.Management.SqlParser v14.0.0.0",
+    "id": "EVID-DLL-000174",
+    "locator": "source/DevExpress/Microsoft.SqlServer.Management.SqlParser.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.Cartable v12.0.0.0",
+    "id": "EVID-DLL-000175",
+    "locator": "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.Common v1.0.0.0",
+    "id": "EVID-DLL-000176",
+    "locator": "source/Dynamics/Barsa.Dynamics.Common.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.Core v4.0.0.0",
+    "id": "EVID-DLL-000177",
+    "locator": "source/Dynamics/Barsa.Dynamics.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.ECEAutomation v8.0.0.0",
+    "id": "EVID-DLL-000178",
+    "locator": "source/Dynamics/Barsa.Dynamics.ECEAutomation.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.Services v5.0.0.0",
+    "id": "EVID-DLL-000179",
+    "locator": "source/Dynamics/Barsa.Dynamics.Services.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Dynamics.WebService v1.0.0.0",
+    "id": "EVID-DLL-000180",
+    "locator": "source/Dynamics/Barsa.Dynamics.WebService.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.EmailService v1.0.0.0",
+    "id": "EVID-DLL-000181",
+    "locator": "source/Dynamics/Barsa.EmailService.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Barsa.Meta.FileUtils v4.1.101.0",
+    "id": "EVID-DLL-000182",
+    "locator": "source/Dynamics/Barsa.Meta.FileUtils.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly CBOR v4.1.3.0",
+    "id": "EVID-DLL-000183",
+    "locator": "source/Dynamics/CBOR.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DynamicProxy v1.0.0.0",
+    "id": "EVID-DLL-000184",
+    "locator": "source/Dynamics/DynamicProxy.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ElasticsearchProject v1.0.0.0",
+    "id": "EVID-DLL-000185",
+    "locator": "source/Dynamics/ElasticsearchProject.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Fido2.Models v2.0.2.0",
+    "id": "EVID-DLL-000186",
+    "locator": "source/Dynamics/Fido2.Models.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Fido2 v2.0.2.0",
+    "id": "EVID-DLL-000187",
+    "locator": "source/Dynamics/Fido2.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly GSMCommServer v1.21.0.0",
+    "id": "EVID-DLL-000188",
+    "locator": "source/Dynamics/GSMCommServer.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly GSMCommShared v1.21.0.0",
+    "id": "EVID-DLL-000189",
+    "locator": "source/Dynamics/GSMCommShared.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly GSMCommunication v1.21.0.0",
+    "id": "EVID-DLL-000190",
+    "locator": "source/Dynamics/GSMCommunication.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ICalVCard v1.0.0.4",
+    "id": "EVID-DLL-000191",
+    "locator": "source/Dynamics/ICalVCard.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly NSec.Cryptography v20.2.0.0",
+    "id": "EVID-DLL-000192",
+    "locator": "source/Dynamics/NSec.Cryptography.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Numbers v1.6.0.0",
+    "id": "EVID-DLL-000193",
+    "locator": "source/Dynamics/Numbers.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly PDUConverter v1.21.0.0",
+    "id": "EVID-DLL-000194",
+    "locator": "source/Dynamics/PDUConverter.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Memory v4.0.1.1",
+    "id": "EVID-DLL-000195",
+    "locator": "source/Dynamics/System.Memory.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Numerics.Vectors v4.1.4.0",
+    "id": "EVID-DLL-000196",
+    "locator": "source/Dynamics/System.Numerics.Vectors.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Runtime.CompilerServices.Unsafe v4.0.6.0",
+    "id": "EVID-DLL-000197",
+    "locator": "source/Dynamics/System.Runtime.CompilerServices.Unsafe.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly URIUtility v1.0.0.0",
+    "id": "EVID-DLL-000198",
+    "locator": "source/Dynamics/URIUtility.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly netstandard v2.0.0.0",
+    "id": "EVID-DLL-000199",
+    "locator": "source/Dynamics/netstandard.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly EPPlus.Interfaces v6.1.1.0",
+    "id": "EVID-DLL-000200",
+    "locator": "source/EPPlus.Interfaces.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly EPPlus.System.Drawing v6.1.1.0",
+    "id": "EVID-DLL-000201",
+    "locator": "source/EPPlus.System.Drawing.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly EPPlus v6.1.1.0",
+    "id": "EVID-DLL-000202",
+    "locator": "source/EPPlus.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ExcelLibrary v1.0.0.0",
+    "id": "EVID-DLL-000203",
+    "locator": "source/ExcelLibrary.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Google.Authenticator v2.0.1.0",
+    "id": "EVID-DLL-000204",
+    "locator": "source/Google.Authenticator.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ICSharpCode.NRefactory.CSharp v5.0.0.0",
+    "id": "EVID-DLL-000205",
+    "locator": "source/ICSharpCode.NRefactory.CSharp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ICSharpCode.NRefactory v5.0.0.0",
+    "id": "EVID-DLL-000206",
+    "locator": "source/ICSharpCode.NRefactory.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ICSharpCode.SharpZipLib v0.86.0.518",
+    "id": "EVID-DLL-000207",
+    "locator": "source/ICSharpCode.SharpZipLib.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ILOG.Diagrammer.BPMN v2.0.0.0",
+    "id": "EVID-DLL-000208",
+    "locator": "source/ILOG.Diagrammer.BPMN.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ILOG.Diagrammer.Design v2.0.0.0",
+    "id": "EVID-DLL-000209",
+    "locator": "source/ILOG.Diagrammer.Design.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ILOG.Diagrammer.Gauges v2.0.0.0",
+    "id": "EVID-DLL-000210",
+    "locator": "source/ILOG.Diagrammer.Gauges.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly ILOG.Diagrammer v2.0.0.0",
+    "id": "EVID-DLL-000211",
+    "locator": "source/ILOG.Diagrammer.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Interop.IWshRuntimeLibrary v1.0.0.0",
+    "id": "EVID-DLL-000212",
+    "locator": "source/Interop.IWshRuntimeLibrary.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Interop.Microsoft.Office.Interop.MSProject v4.8.0.0",
+    "id": "EVID-DLL-000213",
+    "locator": "source/Interop.Microsoft.Office.Interop.MSProject.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Interop.SHDocVw v1.1.0.0",
+    "id": "EVID-DLL-000214",
+    "locator": "source/Interop.SHDocVw.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Interop.XpdfViewer v3.2.0.0",
+    "id": "EVID-DLL-000215",
+    "locator": "source/Interop.XpdfViewer.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Data.v3 v3.5.0.0",
+    "id": "EVID-DLL-000216",
+    "locator": "source/Janus.Data.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.ButtonBar.v3 v3.5.0.0",
+    "id": "EVID-DLL-000217",
+    "locator": "source/Janus.Windows.ButtonBar.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.CalendarCombo.v3 v3.5.0.0",
+    "id": "EVID-DLL-000218",
+    "locator": "source/Janus.Windows.CalendarCombo.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.Common.v3 v3.5.0.0",
+    "id": "EVID-DLL-000219",
+    "locator": "source/Janus.Windows.Common.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.ExplorerBar.v3 v3.5.0.0",
+    "id": "EVID-DLL-000220",
+    "locator": "source/Janus.Windows.ExplorerBar.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.FilterEditor.v3 v3.5.0.0",
+    "id": "EVID-DLL-000221",
+    "locator": "source/Janus.Windows.FilterEditor.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.GridEX.v3 v3.5.0.0",
+    "id": "EVID-DLL-000222",
+    "locator": "source/Janus.Windows.GridEX.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.Ribbon.v3 v3.5.0.0",
+    "id": "EVID-DLL-000223",
+    "locator": "source/Janus.Windows.Ribbon.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.Schedule.v3 v3.5.0.0",
+    "id": "EVID-DLL-000224",
+    "locator": "source/Janus.Windows.Schedule.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.TimeLine.v3 v3.5.0.0",
+    "id": "EVID-DLL-000225",
+    "locator": "source/Janus.Windows.TimeLine.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Janus.Windows.UI.v3 v3.5.0.0",
+    "id": "EVID-DLL-000226",
+    "locator": "source/Janus.Windows.UI.v3.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Annotations v19.0.0.0",
+    "id": "EVID-DLL-000227",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Annotations.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Abc v19.0.0.0",
+    "id": "EVID-DLL-000228",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Abc.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Bmp v19.0.0.0",
+    "id": "EVID-DLL-000229",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Bmp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Cmp v19.0.0.0",
+    "id": "EVID-DLL-000230",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Cmp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Dox v19.0.0.0",
+    "id": "EVID-DLL-000231",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Dox.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Dxf v19.0.0.0",
+    "id": "EVID-DLL-000232",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Dxf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Fax v19.0.0.0",
+    "id": "EVID-DLL-000233",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Fax.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Gif v19.0.0.0",
+    "id": "EVID-DLL-000234",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Gif.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.J2k v19.0.0.0",
+    "id": "EVID-DLL-000235",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.J2k.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Jbg v19.0.0.0",
+    "id": "EVID-DLL-000236",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Jbg.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Pcx v19.0.0.0",
+    "id": "EVID-DLL-000237",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Pcx.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Png v19.0.0.0",
+    "id": "EVID-DLL-000238",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Png.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Psd v19.0.0.0",
+    "id": "EVID-DLL-000239",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Psd.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Raw v19.0.0.0",
+    "id": "EVID-DLL-000240",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Raw.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Rtf v19.0.0.0",
+    "id": "EVID-DLL-000241",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Rtf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Tif v19.0.0.0",
+    "id": "EVID-DLL-000242",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Tif.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Txt v19.0.0.0",
+    "id": "EVID-DLL-000243",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Txt.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Xls v19.0.0.0",
+    "id": "EVID-DLL-000244",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.Xls.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs v19.0.0.0",
+    "id": "EVID-DLL-000245",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Xps v19.0.0.0",
+    "id": "EVID-DLL-000246",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Codecs.xps.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ColorConversion v19.0.0.0",
+    "id": "EVID-DLL-000247",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.ColorConversion.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents.Pdf v19.0.0.0",
+    "id": "EVID-DLL-000248",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Documents.Pdf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents.Raster v19.0.0.0",
+    "id": "EVID-DLL-000249",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Documents.Raster.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents v19.0.0.0",
+    "id": "EVID-DLL-000250",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Documents.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Drawing v19.0.0.0",
+    "id": "EVID-DLL-000251",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Drawing.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageOptimization v19.0.0.0",
+    "id": "EVID-DLL-000252",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.ImageOptimization.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Color v19.0.0.0",
+    "id": "EVID-DLL-000253",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Color.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Core v19.0.0.0",
+    "id": "EVID-DLL-000254",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Utilities v19.0.0.0",
+    "id": "EVID-DLL-000255",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.ImageProcessing.Utilities.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Jpeg2000 v19.0.0.0",
+    "id": "EVID-DLL-000256",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Jpeg2000.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Pdf v19.0.0.0",
+    "id": "EVID-DLL-000257",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Pdf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.PdfCompressor v19.0.0.0",
+    "id": "EVID-DLL-000258",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.PdfCompressor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.SpecialEffects v19.0.0.0",
+    "id": "EVID-DLL-000259",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.SpecialEffects.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Twain v19.0.0.0",
+    "id": "EVID-DLL-000260",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.Twain.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools v19.0.0.0",
+    "id": "EVID-DLL-000261",
+    "locator": "source/Leadtools/19.0/x32/Leadtools.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Annotations v19.0.0.0",
+    "id": "EVID-DLL-000262",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Annotations.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Abc v19.0.0.0",
+    "id": "EVID-DLL-000263",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Abc.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Bmp v19.0.0.0",
+    "id": "EVID-DLL-000264",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Bmp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Cmp v19.0.0.0",
+    "id": "EVID-DLL-000265",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Cmp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Dox v19.0.0.0",
+    "id": "EVID-DLL-000266",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Dox.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Dxf v19.0.0.0",
+    "id": "EVID-DLL-000267",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Dxf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Fax v19.0.0.0",
+    "id": "EVID-DLL-000268",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Fax.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Gif v19.0.0.0",
+    "id": "EVID-DLL-000269",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Gif.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.J2k v19.0.0.0",
+    "id": "EVID-DLL-000270",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.J2k.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Jbg v19.0.0.0",
+    "id": "EVID-DLL-000271",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Jbg.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Pcx v19.0.0.0",
+    "id": "EVID-DLL-000272",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Pcx.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Png v19.0.0.0",
+    "id": "EVID-DLL-000273",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Png.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Psd v19.0.0.0",
+    "id": "EVID-DLL-000274",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Psd.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Raw v19.0.0.0",
+    "id": "EVID-DLL-000275",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Raw.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Rtf v19.0.0.0",
+    "id": "EVID-DLL-000276",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Rtf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Tif v19.0.0.0",
+    "id": "EVID-DLL-000277",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Tif.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Txt v19.0.0.0",
+    "id": "EVID-DLL-000278",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Txt.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Xls v19.0.0.0",
+    "id": "EVID-DLL-000279",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Xls.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs.Xps v19.0.0.0",
+    "id": "EVID-DLL-000280",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.Xps.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Codecs v19.0.0.0",
+    "id": "EVID-DLL-000281",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Codecs.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ColorConversion v19.0.0.0",
+    "id": "EVID-DLL-000282",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.ColorConversion.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents.Pdf v19.0.0.0",
+    "id": "EVID-DLL-000283",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Documents.Pdf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents.Raster v19.0.0.0",
+    "id": "EVID-DLL-000284",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Documents.Raster.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Documents v19.0.0.0",
+    "id": "EVID-DLL-000285",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Documents.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Drawing v19.0.0.0",
+    "id": "EVID-DLL-000286",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Drawing.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageOptimization v19.0.0.0",
+    "id": "EVID-DLL-000287",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.ImageOptimization.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Color v19.0.0.0",
+    "id": "EVID-DLL-000288",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Color.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Core v19.0.0.0",
+    "id": "EVID-DLL-000289",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Core.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.ImageProcessing.Utilities v19.0.0.0",
+    "id": "EVID-DLL-000290",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.ImageProcessing.Utilities.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Jpeg2000 v19.0.0.0",
+    "id": "EVID-DLL-000291",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Jpeg2000.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Pdf v19.0.0.0",
+    "id": "EVID-DLL-000292",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Pdf.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.PdfCompressor v19.0.0.0",
+    "id": "EVID-DLL-000293",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.PdfCompressor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.SpecialEffects v19.0.0.0",
+    "id": "EVID-DLL-000294",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.SpecialEffects.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools.Twain v19.0.0.0",
+    "id": "EVID-DLL-000295",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.Twain.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Leadtools v19.0.0.0",
+    "id": "EVID-DLL-000296",
+    "locator": "source/Leadtools/19.0/x64/Leadtools.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly LinqBridge v1.0.0.0",
+    "id": "EVID-DLL-000297",
+    "locator": "source/LinqBridge.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly MailBee.NET v12.3.0.647",
+    "id": "EVID-DLL-000298",
+    "locator": "source/MailBee.NET.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly MemCompressor v1.0.0.3",
+    "id": "EVID-DLL-000299",
+    "locator": "source/MemCompressor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.AspNet.SignalR.Client v1.2.2.0",
+    "id": "EVID-DLL-000300",
+    "locator": "source/Microsoft.AspNet.SignalR.Client.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeDom.Providers.DotNetCompilerPlatform v3.6.0.0",
+    "id": "EVID-DLL-000301",
+    "locator": "source/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.Ink v6.1.0.0",
+    "id": "EVID-DLL-000302",
+    "locator": "source/Microsoft.Ink.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.Vbe.Interop v12.0.0.0",
+    "id": "EVID-DLL-000303",
+    "locator": "source/Microsoft.Vbe.Interop.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.mshtml v7.0.3300.0",
+    "id": "EVID-DLL-000304",
+    "locator": "source/Microsoft.mshtml.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly MsHtmHstInterop v0.0.0.0",
+    "id": "EVID-DLL-000305",
+    "locator": "source/MsHtmHstInterop.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Newtonsoft.Json v13.0.0.0",
+    "id": "EVID-DLL-000306",
+    "locator": "source/Newtonsoft.Json.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly NodaTime v2.4.8.0",
+    "id": "EVID-DLL-000307",
+    "locator": "source/NodaTime.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly AxInterop.EDOfficeLib v8.0.0.0",
+    "id": "EVID-DLL-000308",
+    "locator": "source/Office/OfficeViewer/AxInterop.EDOfficeLib.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Interop.EDOfficeLib v8.0.0.0",
+    "id": "EVID-DLL-000309",
+    "locator": "source/Office/OfficeViewer/Interop.EDOfficeLib.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly PdfSharp v1.50.5147.0",
+    "id": "EVID-DLL-000310",
+    "locator": "source/PdfSharp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly PostSharp v3.1.46.9",
+    "id": "EVID-DLL-000311",
+    "locator": "source/PostSharp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Base v2022.1.1.0",
+    "id": "EVID-DLL-000312",
+    "locator": "source/Stimulsoft.Base.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Controls.Win v2022.1.1.0",
+    "id": "EVID-DLL-000313",
+    "locator": "source/Stimulsoft.Controls.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Controls v2022.1.1.0",
+    "id": "EVID-DLL-000314",
+    "locator": "source/Stimulsoft.Controls.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Dashboard v2022.1.1.0",
+    "id": "EVID-DLL-000315",
+    "locator": "source/Stimulsoft.Dashboard.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Data v2022.1.1.0",
+    "id": "EVID-DLL-000316",
+    "locator": "source/Stimulsoft.Data.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Database v2022.1.1.0",
+    "id": "EVID-DLL-000317",
+    "locator": "source/Stimulsoft.Database.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Editor v2022.1.1.0",
+    "id": "EVID-DLL-000318",
+    "locator": "source/Stimulsoft.Editor.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Map v2022.1.1.0",
+    "id": "EVID-DLL-000319",
+    "locator": "source/Stimulsoft.Map.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Report.Check v2022.1.1.0",
+    "id": "EVID-DLL-000320",
+    "locator": "source/Stimulsoft.Report.Check.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Report.Design v2022.1.1.0",
+    "id": "EVID-DLL-000321",
+    "locator": "source/Stimulsoft.Report.Design.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Report.Helper v2022.1.1.0",
+    "id": "EVID-DLL-000322",
+    "locator": "source/Stimulsoft.Report.Helper.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Report.Win v2022.1.1.0",
+    "id": "EVID-DLL-000323",
+    "locator": "source/Stimulsoft.Report.Win.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Stimulsoft.Report v2022.1.1.0",
+    "id": "EVID-DLL-000324",
+    "locator": "source/Stimulsoft.Report.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Net.Http.Formatting v5.2.9.0",
+    "id": "EVID-DLL-000325",
+    "locator": "source/System.Net.Http.Formatting.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Net.Http v4.0.0.0",
+    "id": "EVID-DLL-000326",
+    "locator": "source/System.Net.Http.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Web.Http v5.2.9.0",
+    "id": "EVID-DLL-000327",
+    "locator": "source/System.Web.Http.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Validator v1.0.0.0",
+    "id": "EVID-DLL-000328",
+    "locator": "source/Validator.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Winista.MimeDetect v1.0.1.0",
+    "id": "EVID-DLL-000329",
+    "locator": "source/Winista.MimeDetect.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.Build.Tasks.CodeAnalysis v1.3.1.60621",
+    "id": "EVID-DLL-000330",
+    "locator": "source/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeAnalysis.CSharp.Scripting v1.3.1.0",
+    "id": "EVID-DLL-000331",
+    "locator": "source/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeAnalysis.CSharp v1.3.1.0",
+    "id": "EVID-DLL-000332",
+    "locator": "source/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeAnalysis.Scripting v1.3.1.0",
+    "id": "EVID-DLL-000333",
+    "locator": "source/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeAnalysis.VisualBasic v1.3.1.0",
+    "id": "EVID-DLL-000334",
+    "locator": "source/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Microsoft.CodeAnalysis v1.3.1.0",
+    "id": "EVID-DLL-000335",
+    "locator": "source/bin/roslyn/Microsoft.CodeAnalysis.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.AppContext v4.0.0.0",
+    "id": "EVID-DLL-000336",
+    "locator": "source/bin/roslyn/System.AppContext.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Collections.Immutable v1.1.37.0",
+    "id": "EVID-DLL-000337",
+    "locator": "source/bin/roslyn/System.Collections.Immutable.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Diagnostics.StackTrace v4.0.0.0",
+    "id": "EVID-DLL-000338",
+    "locator": "source/bin/roslyn/System.Diagnostics.StackTrace.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.IO.FileSystem.Primitives v4.0.0.0",
+    "id": "EVID-DLL-000339",
+    "locator": "source/bin/roslyn/System.IO.FileSystem.Primitives.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.IO.FileSystem v4.0.0.0",
+    "id": "EVID-DLL-000340",
+    "locator": "source/bin/roslyn/System.IO.FileSystem.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly System.Reflection.Metadata v1.2.0.0",
+    "id": "EVID-DLL-000341",
+    "locator": "source/bin/roslyn/System.Reflection.Metadata.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly VBCSCompiler v1.3.1.0",
+    "id": "EVID-DLL-000342",
+    "locator": "source/bin/roslyn/VBCSCompiler.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly csc v1.3.1.0",
+    "id": "EVID-DLL-000343",
+    "locator": "source/bin/roslyn/csc.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly csi v1.3.1.0",
+    "id": "EVID-DLL-000344",
+    "locator": "source/bin/roslyn/csi.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly vbc v1.3.1.0",
+    "id": "EVID-DLL-000345",
+    "locator": "source/bin/roslyn/vbc.exe",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Charts.Designer.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000346",
+    "locator": "source/fa/DevExpress.Charts.Designer.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Core.resources v18.2.0.0",
+    "id": "EVID-DLL-000347",
+    "locator": "source/fa/DevExpress.Dashboard.v18.2.Core.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Web.resources v18.2.0.0",
+    "id": "EVID-DLL-000348",
+    "locator": "source/fa/DevExpress.Dashboard.v18.2.Web.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Dashboard.v18.2.Win.resources v18.2.0.0",
+    "id": "EVID-DLL-000349",
+    "locator": "source/fa/DevExpress.Dashboard.v18.2.Win.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Data.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000350",
+    "locator": "source/fa/DevExpress.Data.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.PivotGrid.v18.2.Core.resources v18.2.0.0",
+    "id": "EVID-DLL-000351",
+    "locator": "source/fa/DevExpress.PivotGrid.v18.2.Core.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Utils.v18.2.UI.resources v18.2.0.0",
+    "id": "EVID-DLL-000352",
+    "locator": "source/fa/DevExpress.Utils.v18.2.UI.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.Utils.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000353",
+    "locator": "source/fa/DevExpress.Utils.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraCharts.v18.2.Wizard.resources v18.2.0.0",
+    "id": "EVID-DLL-000354",
+    "locator": "source/fa/DevExpress.XtraCharts.v18.2.Wizard.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraCharts.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000355",
+    "locator": "source/fa/DevExpress.XtraCharts.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraGrid.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000356",
+    "locator": "source/fa/DevExpress.XtraGrid.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraLayout.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000357",
+    "locator": "source/fa/DevExpress.XtraLayout.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly DevExpress.XtraPivotGrid.v18.2.resources v18.2.0.0",
+    "id": "EVID-DLL-000358",
+    "locator": "source/fa/DevExpress.XtraPivotGrid.v18.2.resources.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly tern v16.0.7.7",
+    "id": "EVID-DLL-000359",
+    "locator": "source/tern.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Oracle.DataAccess v4.112.3.0",
+    "id": "EVID-DLL-000360",
+    "locator": "source/x32/Oracle.DataAccess.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly dtSearchNetApi4 v7.2201.8748.30356",
+    "id": "EVID-DLL-000361",
+    "locator": "source/x32/dtSearchNetApi4.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly Oracle.DataAccess v4.112.3.0",
+    "id": "EVID-DLL-000362",
+    "locator": "source/x64/Oracle.DataAccess.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly dtSearchNetApi4 v7.2201.8748.30351",
+    "id": "EVID-DLL-000363",
+    "locator": "source/x64/dtSearchNetApi4.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "assembly yWorks.yFilesNET.Algorithms v5.0.0.2",
+    "id": "EVID-DLL-000364",
+    "locator": "source/yWorks.yFilesNET.Algorithms.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "SerializationHelper2.BinarySerializeToFile(string, DataSet)",
+    "id": "EVID-DLL-000365",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "BixHelper.Import / NewImportManager.Import",
+    "id": "EVID-DLL-000366",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "BixHelper.Import -> NewImportManager.Import",
+    "id": "EVID-DLL-000367",
+    "locator": "IL",
+    "source": "CallGraph"
+  },
+  {
+    "detail": "FixIdForImport.Init / FixAll",
+    "id": "EVID-DLL-000368",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "NewImportManager::Import call sequence",
+    "id": "EVID-DLL-000369",
+    "locator": "IL",
+    "source": "CallGraph"
+  },
+  {
+    "detail": "BixHelper.Export overloads",
+    "id": "EVID-DLL-000370",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "BixHelper::Clone -> Export, Import",
+    "id": "EVID-DLL-000371",
+    "locator": "IL",
+    "source": "CallGraph"
+  },
+  {
+    "detail": "ImportCloneManager.GetFromNewIdMap",
+    "id": "EVID-DLL-000372",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "ApplicationImportForm::btnImportTest_Click -> ImportTreeForm",
+    "id": "EVID-DLL-000373",
+    "locator": "Barsa.Meta.Extra.Ui.Win.dll",
+    "source": "CallGraph"
+  },
+  {
+    "detail": "TypeDef.DbName / FieldDef.dbName",
+    "id": "EVID-DLL-000374",
+    "locator": "Barsa.Meta.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "obfuscated member names",
+    "id": "EVID-DLL-000375",
+    "locator": "Barsa.Meta.DataExchange.dll",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "import confirmation warning text",
+    "id": "EVID-DLL-000376",
+    "locator": "Barsa.Meta.Extra.Ui.Win.dll",
+    "source": "StringLiteral"
+  },
+  {
+    "detail": "package NewMeta01.metaexport (67 tables)",
+    "id": "EVID-EXP-000001",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "package NewMeta02.metaexport (76 tables)",
+    "id": "EVID-EXP-000002",
+    "locator": "source/NewMeta02.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "gzip+BinaryFormatter+DataSet header",
+    "id": "EVID-EXP-000003",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "$IdEmbeddingFields rows",
+    "id": "EVID-EXP-000004",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "$RootSelection / $Selection tables",
+    "id": "EVID-EXP-000005",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "$Data_TypeDefDbNames / $Data_FieldDefDbNames",
+    "id": "EVID-EXP-000006",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  }
+]

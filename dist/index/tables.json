@@ -1,0 +1,2026 @@
+[
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$Data_FieldDefDbNames"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$Data_TypeDefDbNames"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$DeletedRecords"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$Header"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$IdEmbeddingFields"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$RootSelection"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$Selection"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$basicInfoRelation"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$spl_EorgCenter"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "$spl_EorgType"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "ActivityRun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "BAM_ActivityRuleRun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.CalendarApp.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cal_Calendar"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.CalendarApp.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cal_CalendarUser"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.CalendarApp.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cal_DayOfWeekSetting"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.CalendarApp.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cal_View_Appointment"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cht_UserSession"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.EmailClient.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Cnt_Contact"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "DUAL"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.EmailClient.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Eml_Account"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.EmailClient.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Eml_EmailEntity"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.FaxApplication.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Fax_FaxEntity"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.FaxApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Fax_Job"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "INFORMATION_SCHEMA.COLUMNS"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_FIELDDEF"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_FOLDER"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_METACODE"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_METACOMMAND"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_METASYSTEM"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_RELATIONDEF"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_TYPEDEF"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_TYPEDEFACCESSSERVICE"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "MET_TYPEVIEWENTITY"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_Folder"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.InterEorg.dll",
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+      "source/Dynamics/Barsa.Dynamics.Services.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_Mail"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailContent"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailContentContainer"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailDistListMembers"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll",
+      "source/Dynamics/Barsa.Dynamics.Services.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailInvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.InterEorg.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailMain"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_MailParticipant"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_UserFolderAll"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_View_ActiveFolders"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_View_ActiveMailDistList"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Mil_folder"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Nid_ForeignKeyField"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Nid_ForeignKeyFieldEorgType"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SPL.Win.Skin.v2.5.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Products"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Sec_SmsSettings"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Shr_Category"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "CrossVerified",
+    "inExportSample": true,
+    "table": "Shr_FileAttachment"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "CrossVerified",
+    "inExportSample": true,
+    "table": "Shr_FileAttachmentObject"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Shr_Reminder"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Shr_ToDo"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Shr_View_BarsaPicture"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_SecurityGroup"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "CrossVerified",
+    "inExportSample": true,
+    "table": "Spl_TrusteeAccess"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_TrusteeUser"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_TrusteeUserView"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_UserProfile"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_Users"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_View_ActiveWorkCenters"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_WorkCenter"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll",
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Spl_WorkCenterRelatedUsers"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SPL.Win.Skin.v2.5.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Suppliers"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Sys.Objects"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Spl.Oracle.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "USER_ARGUMENTS"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Spl.Oracle.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "USER_PROCEDURES"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "USER_VIEWS"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Ver_MSChangeSet"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Ver_MetaSystemInfo"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "Ver_MetaSystemVersion"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.EmailClient.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "View_ActiveEml_Folders"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.FaxApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "View_ActiveFax_Folders"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Sms.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "View_ActiveSms_Folders"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Win32_ComputerSystem"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll",
+      "source/Dynamics/Barsa.Dynamics.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Win32_OperatingSystem"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Win32_PhysicalMemory"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.ServiceHost.exe",
+      "source/Dynamics/Barsa.Dynamics.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Win32_Process"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Win32_Processor"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "WrapperStatistics"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Core.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "XCOR_TABLELOG"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "Xcrt_MailGroup"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "allWFActivityRuns"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "arView"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "aut_FavoriteLetterInvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.Ui.Win.dll",
+      "source/Barsa.Automation.Ui.Win.exe",
+      "source/Barsa.Automation.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "aut_letter"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "aut_letterInvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "aut_letterinvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.Ui.Win.dll",
+      "source/Barsa.Automation.Ui.Win.exe"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "aut_pishnevis"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "cdc_RemoveSeqVal"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "change."
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "cht_session"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "cnm_externalIssue"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.WebService.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "cte_n"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll",
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dbo"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.InterEorg.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dbo.Mil_Mail"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dbo.Xcrt_MailGroup"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dbo.sysobjects"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dbo.wfl_activityrun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll",
+      "source/Barsa.Spl.Oracle.dll",
+      "source/Barsa.Workflow.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "dual"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_103_3"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_104_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_110_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_114"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_115"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_120_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_122_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_124_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_127_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_137"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_141"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1440"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1441"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_1442"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_166_1"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_17"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_21"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_24"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_261"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_263"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_266"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_268"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_303"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_40"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_46"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_47"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_48"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_50"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_73"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_76"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_79"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_80"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "dyn_81"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.FaxApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "fax_faxEntity"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.FaxApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "fax_faxentity"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Xara.Layout.v2.9.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "from"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "l_exists"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_103"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_127"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_128"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_129"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_19"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_309"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_AppConfigDef"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_AppConfigValidValue"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_CAToolbox"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_CAType"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_Culture"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_DbScript"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_DistServerCnnType"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_JsonProperty"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_MetaCondition"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_MieSenderPolicy"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_ObjectFeature"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_ReportCount"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "m01_Tafviz"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_Translation"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_TranslationKey"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m01_WErrorLocation"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m02_FileType"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m02_FileTypeGroup"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m02_GridSettings"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m02_LogDef"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "m02_TextPattern"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_FieldDef"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_MailViewGroup"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_MetaCodeProject"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_MetaCodeProjectDependency"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_MetaCodeWrapper"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll",
+      "source/Barsa.Meta.InterEorgUtil.exe",
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_MetaSystem"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "CrossVerified",
+    "inExportSample": true,
+    "table": "met_Relation"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "CrossVerified",
+    "inExportSample": true,
+    "table": "met_Report"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_TypeDef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_TypeViewEntity"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.InterEorgUtil.exe"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_fielddef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_metacode"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_metasystem"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_relation"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_report"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.InterEorgUtil.exe",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "met_typedef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "mil_RuleWizard"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll",
+      "source/Barsa.MailApplication.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "mil_mail"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "mil_mailInvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Automation.dll",
+      "source/Barsa.MailApplication.dll",
+      "source/Barsa.Workflow.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "mil_mailinvolver"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "mil_userfolder"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "p"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "pcm_IssueRelation"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "previousItems"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "previousItemsDistinct"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_Domain"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_ExtraFolderAccessControl"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_FieldConditionAccess"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_FileBlackList"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_InitialSettings"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogCategory"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogDef"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogImportance"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogRule"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogRuleAction"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_LogRuleCondition"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_ObjectAccessService"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_PasswordStrengthType"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_RuleActionDef"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_RuleConditionDef"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_SecurityLogonMessage"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "sec_SecuritySettings"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.WebService.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "service_SystemCache"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "shr_fileattachment"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Code.dll",
+      "source/Barsa.SharedObjects.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "shr_fileattachmentobject"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Sms.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sms_job"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_Delegation"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_EorgType"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_ObjectReference"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_querylog"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.InterEorgUtil.exe"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_securitygroup"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll",
+      "source/Barsa.Meta.InterEorgUtil.exe"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_users"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.MailApplication.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "spl_workcenter"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.columns"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.computed_columns"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.databases"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.default_constraints"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.dm_exec_connections"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.dm_exec_sessions"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.dm_tran_active_transactions"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.dm_tran_locks"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.dm_tran_session_transactions"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.index_columns"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.indexes"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll",
+      "source/Barsa.Meta.Code.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.objects"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.partitions"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.procedures"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.schemas"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.tables"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.triggers"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.types"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll",
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "sys.views"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.TaskApplication.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "task_Assignment"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "test_mapping"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.SPL.Win.DesignerDialogs.v2.5.dll",
+      "source/Barsa.SPL.Win.Skin.v2.5.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "the"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "ulog_Settings"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "ulog_UseCase"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_Objects"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_SOURCE"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Spl.Oracle.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_objects"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_procedures"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_tab_columns"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_tables"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "user_views"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_ActivityDef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_ActivityRun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_ChoiceDef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowActorUser"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.SemanticExchange.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowDef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowDefView"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowEventSubscribtion"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowRun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowRunView"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowSubProcessRunItem"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowVariable"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_WorkflowVariableDef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_activitydef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll",
+      "source/Barsa.Workflow.Ui.Win.dll",
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_activityrun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Workflow.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_choicedef"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wfl_workflowrun"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Meta.Extra.Ui.Win.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "wrView"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Deploy.Common.dll",
+      "source/Barsa.Spl.Oracle.dll",
+      "source/Dynamics/Barsa.Dynamics.WebService.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "x"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "xapp_automation_Letter"
+  },
+  {
+    "assemblies": [
+      "source/Barsa.Dynamics.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "xapp_automation_LetterState"
+  },
+  {
+    "assemblies": [],
+    "confidence": "Verified",
+    "inExportSample": true,
+    "table": "xapp_service_2"
+  },
+  {
+    "assemblies": [
+      "source/Dynamics/Barsa.Dynamics.Cartable.dll"
+    ],
+    "confidence": "Verified",
+    "inExportSample": false,
+    "table": "xcrt_MVG_"
+  }
+]
