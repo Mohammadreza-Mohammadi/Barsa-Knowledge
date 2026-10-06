@@ -363,7 +363,8 @@ class Extractor:
         self.profile_version = xm.profile_version_findings(
             self.profiles, self.live_profile)
         self.diff_states = xm.diff_states(self.answer_enums)
-        self.profile_gaps = xm.profile_coverage_gaps(self.live_profile)
+        self.system_code = xm.system_code_route(
+            self.live_profile, self.ai_artifacts, self.packages)
         self.atomicity = xm.atomicity_findings(self.answer_enums)
         self.log("phase7: %d profiles, %d answer enums, %d api rows"
                  % (len(self.profiles), len(self.answer_enums),

@@ -165,14 +165,45 @@ def temporal_distance(pkg, artifact):
     legacy_time = (pkg.header or {}).get("Export Time")
     legacy_core = (pkg.header or {}).get("Core Version")
     man = artifact.manifest or {}
+    # The AiExport manifest carries no export timestamp, so the gap is measured
+    # against the filename stamp the exporter appends, "(yy-MM-dd HH;mm)" in
+    # the Jalali calendar. Converting it exactly needs a calendar library this
+    # extractor does not carry, so the gap is reported in whole months from the
+    # stamp's year and month fields rather than as a precise duration.
+    days = _stamp_gap_months(pkg.path, artifact.path)
     return {
         "legacyExportTime": legacy_time,
         "legacyCoreVersion": legacy_core,
         "aiProducerVersion": man.get("producerVersion"),
         "aiBuildId": man.get("buildId"),
+        "legacyStamp": _export_stamp(pkg.path),
+        "aiStamp": _export_stamp(artifact.path),
+        "approxMonthsApart": days,
+        "nearContemporaneous": (days is not None and days <= 1),
         "sameBuild": (bool(legacy_core) and bool(man.get("producerVersion"))
                       and man["producerVersion"].startswith(legacy_core)),
     }
+
+
+_STAMP_PARTS = re.compile(r"\((\d{2})-(\d{2})-(\d{2})[\s_]+(\d{2})[;:](\d{2})\)")
+
+
+def _export_stamp(path):
+    m = _STAMP_PARTS.search(os.path.basename(path))
+    return m.group(0) if m else None
+
+
+def _stamp_gap_months(legacy_path, ai_path):
+    a = _STAMP_PARTS.search(os.path.basename(legacy_path))
+    b = _STAMP_PARTS.search(os.path.basename(ai_path))
+    if not a or not b:
+        return None
+    ya, ma, da = int(a.group(1)), int(a.group(2)), int(a.group(3))
+    yb, mb, db = int(b.group(1)), int(b.group(2)), int(b.group(3))
+    months = (yb - ya) * 12 + (mb - ma)
+    if months == 0 and db < da:
+        return 0
+    return months
 
 
 def scope_equivalence(legacy_roots, ai_roots, declared=None):

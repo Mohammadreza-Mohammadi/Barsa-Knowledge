@@ -12,10 +12,20 @@ Barsa has **two export format families**, and the extractor keeps them apart:
 | Family | Physical | Produced by | Read back by |
 |---|---|---|---|
 | `Barsa.LegacyMetaExport` | GZip → BinaryFormatter → `DataSet` | `Barsa.Meta.DataExchange` | `NewImportManager.Import` (symmetric) |
-| `Barsa.AiExport` | JSON document, or ZIP of JSON | `Barsa.Meta.SemanticExchange` | `BixWriteHelper.ApplyPlan` (change batches, not symmetric) |
+| `Barsa.AiExport` | JSON document, or ZIP of JSON | `Barsa.Meta.SemanticExchange` | not directly; see below |
+| `Barsa.AiChangeBatch` | JSON | an agent or tool, not Barsa | `BixWriteHelper.ApplyPlan` |
 
-Both share one collection engine, so AiExport is a *projection* of the same
-`DataSet` the legacy export writes.
+Both export families share one collection engine, so AiExport is a *projection*
+of the same `DataSet` the legacy export writes. Writing back through the AI side
+takes a third document, an `AiChangeBatch` of create/update/delete commands --
+so the AI path is **not** a symmetric importer.
+
+Validate a change batch offline before sending it:
+
+```bash
+python3 tools/lint_change_batch.py --example > batch.json
+python3 tools/lint_change_batch.py batch.json
+```
 
 ## Layout
 
@@ -60,6 +70,9 @@ the extractor parses ECMA-335 metadata itself.
 - `formats/format-detection.md` — telling the two families apart
 - `formats/ai-export.md` — the JSON family and its embedded profile
 - `comparison/legacy-vs-ai-export.md` — how the two relate
+- `comparison/match-report.md` — what matched, what did not, and what is a bug candidate
+- `comparison/golden-pair-protocol.md` — how to produce the pair that settles the open findings
+- `formats/ai-change-batch.md` — the write-path contract and its rules
 - `formats/legacy-metaexport.md` — the legacy on-disk container
 - `scenarios/import-system-legacy.md` — how a system is rebuilt from a package
 - `evidence/cross-validation.md` — what two or more independent sources confirm

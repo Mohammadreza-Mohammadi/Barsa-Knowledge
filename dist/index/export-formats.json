@@ -883,7 +883,34 @@
     },
     {
       "confidence": "Verified",
+      "forbiddenRuntimeKeys": [
+        "id",
+        "rowId",
+        "sourceId",
+        "runtimeId",
+        "dependencyKey"
+      ],
+      "linter": "tools/lint_change_batch.py",
       "logicalFormat": "Barsa.AiChangeBatch",
+      "objectTypes": [
+        "system",
+        "entity",
+        "field",
+        "relation",
+        "view",
+        "report",
+        "folder",
+        "workflow",
+        "businessRule",
+        "uniqueConstraint",
+        "dynamicObject",
+        "dynamicCommand"
+      ],
+      "operations": [
+        "create",
+        "update",
+        "delete"
+      ],
       "payloadType": "AiChangeBatch",
       "physicalFormats": [
         "PlainJson"
@@ -891,7 +918,8 @@
       "producer": "external (an agent or tool)",
       "profileVersion": 15,
       "reader": "BixWriteHelper.ParseBatch",
-      "serializer": "Newtonsoft.Json",
+      "schema": "models/ai-change-batch.schema.json",
+      "serializer": "Newtonsoft.Json with CamelCasePropertyNamesContractResolver and a camelCase StringEnumConverter",
       "variants": [
         "AiChangeBatch"
       ],
@@ -1002,6 +1030,467 @@
     "v14AndV15DifferOnlyInVersionNumber": true
   },
   "schemaVersion": "3.0",
+  "systemCodeRoute": {
+    "answer": "Yes. It is emitted through the system record's code relation, which the packaging rules route to a [كد] folder in the ZIP variant and keep inline in the single document.",
+    "codeLayerEnum": {
+      "0": "Default",
+      "1": "Db",
+      "11": "Web2Ui",
+      "2": "Bl",
+      "3": "Ui",
+      "4": "WebUi",
+      "5": "Bl_Wrapper",
+      "6": "Ui_Wrapper",
+      "7": "Expression"
+    },
+    "confidence": "Verified",
+    "correctsEarlierReading": "An earlier pass concluded the opposite from the profile alone, because Barsa.Meta.MetaSystem's field rules name no code key while Barsa.Meta.TypeDef's do. The artifact shows the relation is traversed regardless, so the field list is not the gate.",
+    "inScopeAgreements": [
+      {
+        "agrees": true,
+        "aiCodeIds": [
+          "7097413820000000106",
+          "7097413820000010181"
+        ],
+        "aiCodeRows": 2,
+        "legacyArtifacts": [
+          "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+        ],
+        "legacyCodeIds": [
+          "7097413820000000106",
+          "7097413820000010181"
+        ],
+        "legacyCodeRows": 2,
+        "systemId": "7097413550000000101",
+        "systemInAiScope": true
+      }
+    ],
+    "inScopeDisagreements": [
+      {
+        "agrees": false,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "باركد (05-02-02 11;14).metaexport"
+        ],
+        "legacyCodeIds": [
+          "1011413820000000113",
+          "1011413820000000114"
+        ],
+        "legacyCodeRows": 2,
+        "systemId": "1011413550000000100",
+        "systemInAiScope": true
+      }
+    ],
+    "legacySystemLevelCodeRows": [
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1012413820000000140",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000000100"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1012413820000000144",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000010104"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1012413820000000151",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000010104"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1012413820000000162",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000010104"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1013413820000000102",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000000100"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "1013413820000000134",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1013413550000000100"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "7097413820000000106",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "7097413550000000101"
+      },
+      {
+        "artifact": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "codeId": "7097413820000010181",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "7097413550000000101"
+      },
+      {
+        "artifact": "باركد (05-02-02 11;14).metaexport",
+        "codeId": "1011413820000000113",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1011413550000000100"
+      },
+      {
+        "artifact": "باركد (05-02-02 11;14).metaexport",
+        "codeId": "1011413820000000114",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1011413550000000100"
+      },
+      {
+        "artifact": "NewMeta01.metaexport",
+        "codeId": "1001513820000000102",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1001513550000000100"
+      },
+      {
+        "artifact": "NewMeta01.metaexport",
+        "codeId": "1001513820000000216",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1001513550000000100"
+      },
+      {
+        "artifact": "NewMeta01.metaexport",
+        "codeId": "1008513820000000115",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1008513550000000101"
+      },
+      {
+        "artifact": "NewMeta01.metaexport",
+        "codeId": "1008513820000000116",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1008513550000000101"
+      },
+      {
+        "artifact": "NewMeta01.metaexport",
+        "codeId": "1101513820000010343",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1001513550000000100"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1043513820000000374",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1043513550000000145"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1043513820000000417",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1043513550000000145"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1045513820000000100",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1043513550000000145"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010315",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000103"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010316",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000103"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010317",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000103"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010345",
+        "codeLayerName": "Bl",
+        "codeLayerRaw": "2",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000106"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010351",
+        "codeLayerName": "Web2Ui",
+        "codeLayerRaw": "11",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000106"
+      },
+      {
+        "artifact": "NewMeta02.metaexport",
+        "codeId": "1101513820000010364",
+        "codeLayerName": "Ui",
+        "codeLayerRaw": "3",
+        "codeLocation": "2",
+        "targetObjectId": "1101513550000000106"
+      }
+    ],
+    "observedInArtifacts": [
+      {
+        "artifact": "Push Notification (05-07-11 20;08).zip",
+        "caption": "کد زیرسیستم(منطق کار",
+        "codeId": 7097413820000000106,
+        "codeLayer": "Bl",
+        "codeLocation": 2,
+        "targetIsSystem": true,
+        "targetObjectId": 7097413550000000101,
+        "variant": "AiExport.SingleJson"
+      },
+      {
+        "artifact": "Push Notification (05-07-11 20;08).zip",
+        "caption": "کد زیرسیستم(واسط کار",
+        "codeId": 7097413820000010181,
+        "codeLayer": "Web2Ui",
+        "codeLocation": 2,
+        "targetIsSystem": true,
+        "targetObjectId": 7097413550000000101,
+        "variant": "AiExport.SingleJson"
+      }
+    ],
+    "packagingRules": [
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "MetaCode"
+      },
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "كد"
+      },
+      {
+        "folder": "[كد]",
+        "items": "file",
+        "match": "exact",
+        "relation": "کد"
+      }
+    ],
+    "perSystem": [
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "NewMeta01.metaexport"
+        ],
+        "legacyCodeIds": [
+          "1001513820000000102",
+          "1001513820000000216",
+          "1101513820000010343"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1001513550000000100",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "NewMeta01.metaexport"
+        ],
+        "legacyCodeIds": [
+          "1008513820000000115",
+          "1008513820000000116"
+        ],
+        "legacyCodeRows": 2,
+        "systemId": "1008513550000000101",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": false,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "باركد (05-02-02 11;14).metaexport"
+        ],
+        "legacyCodeIds": [
+          "1011413820000000113",
+          "1011413820000000114"
+        ],
+        "legacyCodeRows": 2,
+        "systemId": "1011413550000000100",
+        "systemInAiScope": true
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+        ],
+        "legacyCodeIds": [
+          "1012413820000000140",
+          "1013413820000000102",
+          "1013413820000000134"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1013413550000000100",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+        ],
+        "legacyCodeIds": [
+          "1012413820000000144",
+          "1012413820000000151",
+          "1012413820000000162"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1013413550000010104",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "NewMeta02.metaexport"
+        ],
+        "legacyCodeIds": [
+          "1043513820000000374",
+          "1043513820000000417",
+          "1045513820000000100"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1043513550000000145",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "NewMeta02.metaexport"
+        ],
+        "legacyCodeIds": [
+          "1101513820000010315",
+          "1101513820000010316",
+          "1101513820000010317"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1101513550000000103",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": null,
+        "aiCodeIds": [],
+        "aiCodeRows": 0,
+        "legacyArtifacts": [
+          "NewMeta02.metaexport"
+        ],
+        "legacyCodeIds": [
+          "1101513820000010345",
+          "1101513820000010351",
+          "1101513820000010364"
+        ],
+        "legacyCodeRows": 3,
+        "systemId": "1101513550000000106",
+        "systemInAiScope": false
+      },
+      {
+        "agrees": true,
+        "aiCodeIds": [
+          "7097413820000000106",
+          "7097413820000010181"
+        ],
+        "aiCodeRows": 2,
+        "legacyArtifacts": [
+          "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+        ],
+        "legacyCodeIds": [
+          "7097413820000000106",
+          "7097413820000010181"
+        ],
+        "legacyCodeRows": 2,
+        "systemId": "7097413550000000101",
+        "systemInAiScope": true
+      }
+    ],
+    "question": "Can code attached to a system, rather than to an entity, reach an AiExport projection?",
+    "systemLevelObservations": [
+      {
+        "artifact": "Push Notification (05-07-11 20;08).zip",
+        "caption": "کد زیرسیستم(منطق کار",
+        "codeId": 7097413820000000106,
+        "codeLayer": "Bl",
+        "codeLocation": 2,
+        "targetIsSystem": true,
+        "targetObjectId": 7097413550000000101,
+        "variant": "AiExport.SingleJson"
+      },
+      {
+        "artifact": "Push Notification (05-07-11 20;08).zip",
+        "caption": "کد زیرسیستم(واسط کار",
+        "codeId": 7097413820000010181,
+        "codeLayer": "Web2Ui",
+        "codeLocation": 2,
+        "targetIsSystem": true,
+        "targetObjectId": 7097413550000000101,
+        "variant": "AiExport.SingleJson"
+      }
+    ],
+    "variantsObservedCarryingSystemCode": [
+      "AiExport.SingleJson"
+    ]
+  },
   "variantSwitch": {
     "answer": "Not two APIs. One document pipeline, where per-node output rules decide whether a node stays inline or becomes its own file, and the output path's extension decides whether the resulting directory is zipped.",
     "mechanisms": [

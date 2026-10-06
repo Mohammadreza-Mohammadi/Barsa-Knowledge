@@ -57,22 +57,55 @@ gets checked is whether it was searchable at all.
 
 Every candidate above is marked unconfirmed because the paired artifacts are not from one build. Scope equivalence proves the same objects were *selected*; it says nothing about the system being unchanged between two exports taken months apart. A same-build golden pair would settle each one.
 
-## Why system-level code is the interesting case
+## System-level code: the one real candidate
 
-Barsa.Meta.MetaSystem has no code field rule while Barsa.Meta.TypeDef has one. A MetaCode row whose TargetObjectId is a system therefore has no declared route into the projection.
+**Yes. It is emitted through the system record's code relation, which the packaging rules route to a [كد] folder in the ZIP variant and keep inline in the single document.**
 
-| Aspect | Value |
-|---|---|
-| Record types with a code field rule | 7 |
-| Record types without one | 37 |
-| `engine.unknownField` | `keep` |
-| Code relation groups in packaging | 3 |
+### Observed in an artifact
 
-With a code field rule: `Barsa.Meta.FieldDef`, `Barsa.Meta.MetaCode`, `Barsa.Meta.Report`, `Barsa.Meta.TypeDef`, `Barsa.Workflow.ChoiceDef`, `دستور-اجراي كد منطق كاري`, `محاسبه-فرمول محاسبه`
+| Artifact | Variant | Caption | CodeLayer | Target is the system |
+|---|---|---|---|---|
+| Push Notification (05-07-1 | SingleJson | کد زیرسیستم(منطق کار | Bl | yes |
+| Push Notification (05-07-1 | SingleJson | کد زیرسیستم(واسط کار | Web2Ui | yes |
 
-**Confidence: Verified** for the rule asymmetry itself.
+### Per-system accounting
 
-**Limit:** engine.unknownField is 'keep', which governs unlisted columns. Whether an unlisted *relation* is still traversed was not established, so this is a declared-rule gap rather than proof the exporter drops the row.
+Only systems present on both sides are evidence: a system outside the AiExport's selection is expected to contribute nothing.
+
+| System id | In AiExport scope | Legacy code rows | AiExport code rows | Agrees |
+|---|---|---|---|---|
+| 1001513550000000100 | no | 3 | 0 | - |
+| 1008513550000000101 | no | 2 | 0 | - |
+| 1011413550000000100 | yes | 2 | 0 | no |
+| 1013413550000000100 | no | 3 | 0 | - |
+| 1013413550000010104 | no | 3 | 0 | - |
+| 1043513550000000145 | no | 3 | 0 | - |
+| 1101513550000000103 | no | 3 | 0 | - |
+| 1101513550000000106 | no | 3 | 0 | - |
+| 7097413550000000101 | yes | 2 | 2 | yes |
+
+- System `7097413550000000101`: 2 legacy row(s), 2 in the AiExport. **Agrees.** Its system-level code was projected in full.
+- System `1011413550000000100`: 2 legacy row(s), 0 in the AiExport. **Disagrees** -- ids `1011413820000000113`, `1011413820000000114` are unaccounted for.
+
+### Correction
+
+An earlier pass concluded the opposite from the profile alone, because Barsa.Meta.MetaSystem's field rules name no code key while Barsa.Meta.TypeDef's do. The artifact shows the relation is traversed regardless, so the field list is not the gate.
+
+### What follows
+
+The two barcode rows carry `CodeLayer` 2 and 11, which the profile's own enum names `Bl` and `Web2Ui` -- the same two layers as the system-level codes that *are* present in the Push Notification projection. They were exportable in principle.
+
+#### Why the supplied pair cannot settle it
+
+| Pair (legacy) | AiExport variant | Months apart | Scope |
+|---|---|---|---|
+| Push Notification، الگو، | SingleJson | 0 | Partial |
+| باركد (05-02-02 11;14).m | ZipJsonPackage | 5 | Exact |
+
+The pair that **agrees** is the single-document one, taken three days apart. The pair that **disagrees** is the ZIP one, taken five months apart. So variant and elapsed time differ together, and nothing in these artifacts separates them.
+
+Stated plainly: this is weaker evidence for a ZIP-variant defect than it first looks. The simpler reading is that the two code records were deleted during those five months. Both readings remain open, and a same-build pair of **both variants** from one selection decides between them in one step.
+
 
 ## Representation differences that are not losses
 

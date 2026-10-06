@@ -1,0 +1,13 @@
+[
+  {
+    "aiExport": "exports/<name>.zip",
+    "barsaVersion": "4.1.203.0",
+    "legacy": "exports/<name>.metaexport",
+    "note": "Both exports taken from one build, back to back, with the same tree selection and no edits in between.",
+    "pairId": "golden-001",
+    "scope": "exact",
+    "selection": [
+      "<the object titles ticked in the export tree>"
+    ]
+  }
+]

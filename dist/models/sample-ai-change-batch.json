@@ -1,0 +1,51 @@
+{
+  "_comment": "Illustrative, not taken from a real artifact. It creates an entity, then a field on it by tempId, then a report over it by selector -- which exercises tempId declaration, tempId reference and selector reference in one batch.",
+  "changes": [
+    {
+      "commandId": "c1-create-entity",
+      "objectType": "entity",
+      "operation": "create",
+      "parent": {
+        "objectType": "system",
+        "selector": "#بارکد"
+      },
+      "properties": {
+        "DbName": null,
+        "caption": "گیت"
+      },
+      "tempId": "tmpGate"
+    },
+    {
+      "commandId": "c2-create-field",
+      "objectType": "field",
+      "operation": "create",
+      "parent": {
+        "objectType": "entity",
+        "tempId": "tmpGate"
+      },
+      "properties": {
+        "caption": "عنوان",
+        "fieldType": "string",
+        "orderNumber": 1
+      },
+      "tempId": "tmpGateTitle"
+    },
+    {
+      "commandId": "c3-update-report",
+      "objectType": "report",
+      "operation": "update",
+      "properties": {
+        "reportType": "list"
+      },
+      "target": {
+        "objectType": "report",
+        "selector": "#گیت ها"
+      }
+    }
+  ],
+  "policy": {
+    "errorPolicy": "continueIndependent",
+    "ignoreUnsupported": false
+  },
+  "profileVersion": 15
+}

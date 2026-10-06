@@ -18,6 +18,8 @@ def write_all(x):
     _version_matrix(x, d)
     _comparison(x, d)
     _match_report(x, d)
+    _change_batch(x, d)
+    _golden_pair(x, d)
     _reanalysis(x, d)
     _v3_indexes(x, d)
     _v3_scenarios(x, d)
@@ -1071,12 +1073,25 @@ def _v3_indexes(x, d):
                 "logicalFormat": "Barsa.AiChangeBatch",
                 "physicalFormats": ["PlainJson"],
                 "variants": ["AiChangeBatch"],
-                "serializer": "Newtonsoft.Json",
+                "serializer": ("Newtonsoft.Json with "
+                               "CamelCasePropertyNamesContractResolver and a "
+                               "camelCase StringEnumConverter"),
                 "payloadType": "AiChangeBatch",
                 "producer": "external (an agent or tool)",
                 "writer": None,
                 "reader": "BixWriteHelper.ParseBatch",
                 "profileVersion": 15,
+                "objectTypes": list(__import__(
+                    "barsa_extractor.change_batch",
+                    fromlist=["change_batch"]).OBJECT_TYPES),
+                "operations": list(__import__(
+                    "barsa_extractor.change_batch",
+                    fromlist=["change_batch"]).OPERATIONS),
+                "forbiddenRuntimeKeys": list(__import__(
+                    "barsa_extractor.change_batch",
+                    fromlist=["change_batch"]).FORBIDDEN_RUNTIME_KEYS),
+                "schema": "models/ai-change-batch.schema.json",
+                "linter": "tools/lint_change_batch.py",
                 "confidence": "Verified",
             },
         ],
@@ -1086,6 +1101,7 @@ def _v3_indexes(x, d):
         "aiImportVerdict": x.ai_import,
         "diffStates": x.diff_states,
         "atomicity": x.atomicity,
+        "systemCodeRoute": getattr(x, "system_code", None),
         "detected": [
             {k: v for k, v in r.items() if k not in ("entries",)}
             for r in x.formats
@@ -1461,7 +1477,7 @@ To exercise it, supply a golden pair as described in `MISSING-INPUTS.md`.
 
 def _match_report(x, d):
     """Spec v3 sections 48-52: per-collection matching and bug classification."""
-    gaps = getattr(x, "profile_gaps", None)
+    sc = getattr(x, "system_code", None)
 
     bug_rows = []
     for c in x.comparisons:
@@ -1494,26 +1510,84 @@ def _match_report(x, d):
             "being unchanged between two exports taken months apart. A "
             "same-build golden pair would settle each one.\n")
 
-    if gaps:
-        gap_table = _table(["Aspect", "Value"], [
-            ["Record types with a code field rule",
-             len(gaps["recordTypesWithCodeFieldRule"])],
-            ["Record types without one",
-             len(gaps["recordTypesWithoutCodeFieldRule"])],
-            ["`engine.unknownField`", "`%s`" % gaps["engineUnknownField"]],
-            ["Code relation groups in packaging",
-             len(gaps["codeRelationGroups"])],
+    if sc and sc.get("systemLevelObservations"):
+        obs_table = _table(
+            ["Artifact", "Variant", "Caption", "CodeLayer", "Target is the system"],
+            [[o["artifact"][:26], o["variant"].replace("AiExport.", ""),
+              (o["caption"] or "")[:24], o["codeLayer"], _yn(o["targetIsSystem"])]
+             for o in sc["systemLevelObservations"]])
+        per_sys = _table(
+            ["System id", "In AiExport scope", "Legacy code rows",
+             "AiExport code rows", "Agrees"],
+            [[p["systemId"], _yn(p["systemInAiScope"]), p["legacyCodeRows"],
+              p["aiCodeRows"],
+              "-" if p["agrees"] is None else _yn(p["agrees"])]
+             for p in sc.get("perSystem", [])])
+        # Two variables separate the agreeing pair from the disagreeing one,
+        # and the supplied artifacts vary both at once.
+        rows = []
+        for c in x.comparisons:
+            t = c["scope"].get("temporal") or {}
+            art = next((a for a in x.ai_artifacts
+                        if a.path.endswith(c["pair"]["aiExport"])), None)
+            rows.append([
+                c["pair"]["legacy"][:24],
+                (art.variant.replace("AiExport.", "") if art else "?"),
+                "%s" % t.get("approxMonthsApart"),
+                c["scope"]["level"],
+            ])
+        confound = "\n".join([
+            "#### Why the supplied pair cannot settle it", "",
+            _table(["Pair (legacy)", "AiExport variant",
+                    "Months apart", "Scope"], rows), "",
+            "The pair that **agrees** is the single-document one, taken three "
+            "days apart. The pair that **disagrees** is the ZIP one, taken "
+            "five months apart. So variant and elapsed time differ together, "
+            "and nothing in these artifacts separates them.",
+            "",
+            "Stated plainly: this is weaker evidence for a ZIP-variant defect "
+            "than it first looks. The simpler reading is that the two code "
+            "records were deleted during those five months. Both readings "
+            "remain open, and a same-build pair of **both variants** from one "
+            "selection decides between them in one step.",
         ])
-        with_code = ", ".join("`%s`" % t
-                              for t in gaps["recordTypesWithCodeFieldRule"])
+        agree = sc.get("inScopeAgreements") or []
+        disagree = sc.get("inScopeDisagreements") or []
+        verdict_lines = []
+        for p in agree:
+            verdict_lines.append(
+                "- System `%s`: %d legacy row(s), %d in the AiExport. "
+                "**Agrees.** Its system-level code was projected in full."
+                % (p["systemId"], p["legacyCodeRows"], p["aiCodeRows"]))
+        for p in disagree:
+            verdict_lines.append(
+                "- System `%s`: %d legacy row(s), %d in the AiExport. "
+                "**Disagrees** -- ids %s are unaccounted for."
+                % (p["systemId"], p["legacyCodeRows"], p["aiCodeRows"],
+                   ", ".join("`%s`" % i for i in p["legacyCodeIds"])))
+        miss_table = "\n".join([
+            "Only systems present on both sides are evidence: a system outside "
+            "the AiExport's selection is expected to contribute nothing.", "",
+            per_sys, "",
+            "\n".join(verdict_lines) if verdict_lines
+            else "_No system was in scope on both sides._",
+        ])
         gap_section = "\n".join([
-            gaps["finding"], "", gap_table, "",
-            "With a code field rule: " + (with_code or "_none_"), "",
-            "**Confidence: %s** for the rule asymmetry itself." % gaps["confidence"],
-            "", "**Limit:** " + gaps["limits"],
+            "**" + sc["answer"] + "**", "",
+            "### Observed in an artifact", "", obs_table, "",
+            "### Per-system accounting", "", miss_table, "",
+            "### Correction", "",
+            sc["correctsEarlierReading"], "",
+            "### What follows", "",
+            "The two barcode rows carry `CodeLayer` 2 and 11, which the "
+            "profile's own enum names `Bl` and `Web2Ui` -- the same two layers "
+            "as the system-level codes that *are* present in the Push "
+            "Notification projection. They were exportable in principle.",
+            "", confound, "",
         ])
     else:
-        gap_section = "_Profile unavailable._"
+        gap_section = ("_No system-level code was observed in any supplied "
+                       "artifact, so this question is Unknown._")
 
     repr_table = _table(
         ["Concept", "Legacy form", "AiExport form", "Verdict"], [
@@ -1571,7 +1645,7 @@ gets checked is whether it was searchable at all.
  if bug_rows else "_None._"}
 
 {bug_note}
-## Why system-level code is the interesting case
+## System-level code: the one real candidate
 
 {gap_section}
 
@@ -1603,4 +1677,329 @@ document's `$.manifest` carries only `format` and `profileVersion`. So
 `JsonExportPackageWriter.AddProducerIdentity` is reached on one path and not the
 other. Spec v3 section 85 would class this as a `PackageManifestMismatch`
 candidate.
+""")
+
+
+def _change_batch(x, d):
+    """Spec v3 section 14: the AiExport write path's input contract."""
+    from . import change_batch as cb
+
+    _write(d, "models/ai-change-batch.schema.json", _j(cb.json_schema()))
+    _write(d, "models/sample-ai-change-batch.json", _j(cb.example()))
+
+    contract = _table(
+        ["CLR type", "Role", "Properties (camelCase in JSON)"],
+        [[f"`{r['type']}`", r["role"],
+          ", ".join("`%s`" % p for p in r["properties"])]
+         for r in cb.contract_rows()])
+
+    rules = _table(["Rule", "What the binary says"], [
+        ["`profileVersion` must be 15",
+         "Runtime accepts only explicit profileVersion=15 input."],
+        ["no `externalDataMappings` at the root",
+         "Semantic v15 authored package root must not contain legacy "
+         "externalDataMappings."],
+        ["`policy.errorPolicy` may only be `continueIndependent`",
+         "Semantic v15 supports only ContinueIndependent; StopBatch is not an "
+         "executable authored policy."],
+        ["`changes[]` required and non-empty",
+         "AiChangeBatch must contain changes[]."],
+        ["no null or non-object entries in `changes[]`",
+         "changes[] cannot contain null/non-object values at index N."],
+        ["`commandId` unique", "Duplicate commandId: X"],
+        ["`tempId` only on a `create`",
+         "Semantic v15 tempId can only be declared by create commands: X"],
+        ["`tempId` declared at most once",
+         "Duplicate Semantic v15 tempId declaration: X"],
+        ["a `tempId` reference must resolve in the same batch",
+         "Semantic v15 tempId reference is not declared in this logical batch "
+         "at PATH: X."],
+        ["no runtime identity anywhere",
+         "Semantic v15 forbids Runtime authority 'KEY' at PATH."],
+        ["`selector` must be a string",
+         "Semantic selector property must be a string at PATH."],
+        ["`selector` must parse",
+         "Semantic selector property is not valid selector syntax at PATH."],
+    ])
+
+    _write(d, "formats/ai-change-batch.md", f"""# AiChangeBatch
+
+{BANNER}
+**Logical format:** `Barsa.AiChangeBatch` · **profileVersion:** 15 ·
+**Confidence: Verified** for shape and rules
+
+This is the document the AI write path consumes. It is **not** an AiExport
+projection: `BixWriteHelper.ParseBatch` takes a list of create / update /
+delete commands, not a tree of records. That asymmetry is the main thing to
+understand about writing to Barsa through this path.
+
+No `AiChangeBatch` artifact was supplied, so everything below is read from
+`Barsa.Meta.SemanticExchange` — which is **not obfuscated**, so the property
+names, enum members and validation messages are the real ones rather than
+reconstructions.
+
+## Entry points
+
+```
+BixWriteHelper.ValidateBatch(string)                     // structural lint
+BixWriteHelper.ParseBatch(string)       : AiChangeBatch
+BixWriteHelper.BuildPlan(AiChangeBatch) : AiChangePlan
+BixWriteHelper.ApplyPlan(AiChangePlan)  : AiApplyResult
+```
+
+Over HTTP, via `Barsa.Ai.Host.AiHttpServer`: `HandleLint`, `HandlePlan`,
+`HandleApply`.
+
+## JSON conventions
+
+`BixWriteHelper.CreateJsonSettings` installs a
+`CamelCasePropertyNamesContractResolver` and a `StringEnumConverter` with
+`CamelCaseText` set. So every property is camelCase and every enum value is a
+camelCase **string**, not a number: `"create"`, not `0`.
+
+## Shape
+
+{contract}
+
+## Document
+
+```json
+{{
+  "profileVersion": 15,
+  "policy": {{ "errorPolicy": "continueIndependent", "ignoreUnsupported": false }},
+  "assetRoot": null,
+  "changes": [
+    {{
+      "commandId": "c1-create-entity",
+      "operation": "create",
+      "objectType": "entity",
+      "tempId": "tmpGate",
+      "parent": {{ "objectType": "system", "selector": "#بارکد" }},
+      "properties": {{ "caption": "گیت" }}
+    }}
+  ]
+}}
+```
+
+A complete, rule-clean example is in `models/sample-ai-change-batch.json`, and
+the schema in `models/ai-change-batch.schema.json`.
+
+## objectType
+
+One value per registered provider, taken from each `Ai*ChangeProvider`'s
+`CanHandle`:
+
+{", ".join("`%s`" % t for t in cb.OBJECT_TYPES)}
+
+Plus `AiGenericChangeProvider`, which matches no literal and acts as the
+fallback. The planner also matches some of these case-insensitively.
+
+**These are the same names AiExport uses for `$type`.** The export projection
+and the write path share one object vocabulary, even though their document
+shapes differ. That is the strongest available signal that the two are meant to
+work together, and it is a fact about the vocabulary, not a demonstrated
+round-trip.
+
+## Identity: three ways, one forbidden
+
+{_table(["Mechanism", "Use", "Status"], [
+ ["`selector`", "point at something that already exists, by semantic name",
+  "Required form for existing objects"],
+ ["`tempId`", "point at something created earlier in the same batch",
+  "Declared on a create, referenced anywhere"],
+ ["`name` / `caption`", "present on AiObjectReference",
+  "Weak; the planner's own diagnostics treat selectors as the authority"],
+ ["`id`, `rowId`, `sourceId`, `runtimeId`, `dependencyKey`",
+  "raw runtime identity", "**Forbidden in an authored batch**"],
+])}
+
+The forbidden set is the linter's own static list. The error code is
+`runtimeAuthorityForbiddenV15`, with a sibling `dependencyKeyForbiddenV15` and
+`legacyReferenceAuthorityForbiddenV15`.
+
+This is the sharpest contrast with the legacy path. Legacy carries raw numeric
+ids and remaps them after the fact, driven by `$IdEmbeddingFields`. An authored
+change batch is **forbidden** from carrying them, and resolves selectors against
+the target at apply time instead.
+
+## Validation rules
+
+Every rule below is a literal in `SemanticV15Linter`:
+
+{rules}
+
+`tools/lint_change_batch.py` implements all of them, so a batch can be checked
+before it is sent:
+
+```bash
+python3 tools/lint_change_batch.py batch.json
+python3 tools/lint_change_batch.py --example > batch.json
+python3 tools/lint_change_batch.py --schema
+```
+
+It is a convenience, not a substitute. Selector resolution and target
+inspection need a live system.
+
+## Error codes
+
+From `AiChangePlanner`, `AiPatchHelper` and `AiProviderValidation`:
+
+{", ".join("`%s`" % c for c in cb.ERROR_CODES)}
+
+`AiPlanDiagnostic` carries one of these in `errorCode`, alongside `commandId`,
+`objectType`, `operation`, `path` and `message`.
+
+## What a plan tells you before you apply
+
+`BuildPlan` returns an `AiChangePlan` whose `summary` is an `AiPlanSummary`
+with, among others: `canApplyAny`, `canApplyAll`, `canApplyCleanly`,
+`hasUnsupported`, `hasBatchFatalError`, `hasCommandLocalErrors`, and per-concept
+counts (`entityCount`, `fieldCount`, `relationCount`, `viewCount`,
+`reportCount`, `folderCount`, `workflowCount`).
+
+So the write path is a **plan-then-apply** design: a caller can see exactly what
+would happen, and whether it would happen cleanly, before committing.
+
+## Not atomic, by design
+
+`AiBatchStatus` includes `PartiallySucceeded`, and the authored policy is forced
+to `ContinueIndependent` — `StopBatch` exists in the enum but the linter refuses
+it. A batch is therefore **expected** to half-apply when a command fails.
+
+`AiApplyResult` is built for that: `mutationApplied`, `partialMutation`,
+`needsReconcile`, `verificationSucceeded`, plus `succeededCount`,
+`failedCount`, `skippedCount`, `applyFailedCount`,
+`verificationFailedCount` and `skippedDependencyCount`. `AiCommandResult` adds
+`phase`, `failureClass`, `mutationStage`, `reconcileSucceeded` and
+`reconcileMessage` per command.
+
+`temporaryIds` on the result maps each `tempId` to the real id it became, which
+is how a caller learns what it created.
+
+## Still unknown
+
+{_table(["Question", "What would settle it"], [
+ ["Can an AiExport projection be converted into a batch?",
+  "No code path was found doing it. A real AiChangeBatch artifact, or the "
+  "tool that authors them, would settle whether this is intended."],
+ ["What `properties` are valid per objectType?",
+  "The planner raises `unsupportedProperty` for unknown ones, so the set is "
+  "enforced somewhere. The embedded export profile's record-type field lists "
+  "are the best available approximation, and are not proven to be the same set."],
+ ["What `assetRoot` expects on disk",
+  "Error codes name `assets/`, `sha256` and `mediaType`, so assets are "
+  "content-addressed. The layout was not established."],
+ ["Whether `ignoreUnsupported` changes the outcome or only the reporting",
+  "Runtime observation, or decompiled AiBatchExecutor."],
+])}
+""")
+
+
+def _golden_pair(x, d):
+    """Spec v3 sections 78-79: how to produce a pair that settles things."""
+    pairs = []
+    for c in x.comparisons:
+        t = c["scope"].get("temporal") or {}
+        pairs.append([
+            c["pair"]["legacy"][:30], c["pair"]["aiExport"][:28],
+            c["scope"]["level"], _yn(t.get("sameBuild")),
+            t.get("legacyCoreVersion") or "?",
+            t.get("aiProducerVersion") or "absent"])
+
+    held = []
+    for c in x.comparisons:
+        for dd in c["differences"]:
+            if dd["verdict"].startswith("BugCandidate"):
+                held.append([c["pair"]["legacy"][:24], dd["concept"],
+                             json.dumps(dd["legacy"] or dd["aiExport"],
+                                        ensure_ascii=False)[:60]])
+
+    template = _j([{
+        "pairId": "golden-001",
+        "barsaVersion": "4.1.203.0",
+        "selection": ["<the object titles ticked in the export tree>"],
+        "legacy": "exports/<name>.metaexport",
+        "aiExport": "exports/<name>.zip",
+        "scope": "exact",
+        "note": ("Both exports taken from one build, back to back, with the "
+                 "same tree selection and no edits in between."),
+    }])
+    _write(d, "comparison/pairs.template.json", template)
+
+    _write(d, "comparison/golden-pair-protocol.md", f"""# Golden pair protocol
+
+{BANNER}
+Spec v3 sections 78-79. A golden pair is two exports of **one selection**, from
+**one build**, taken **back to back**. It is the artifact that converts held bug
+candidates into findings or clears them.
+
+## Why the current pair is not enough
+
+{_table(["Legacy", "AiExport", "Scope", "Same build", "Legacy core", "AiExport producer"], pairs)
+ if pairs else "_No pair supplied._"}
+
+Scope equivalence proves the same objects were **selected**. It says nothing
+about the system being unchanged between the two exports. The barcode pair is
+scope-Exact and still cannot settle a difference, because the two artifacts are
+from different builds months apart: anything missing from the newer one may have
+been deleted in between rather than dropped by the exporter.
+
+## Findings currently held for exactly this reason
+
+{_table(["Pair", "Concept", "Object"], held) if held else "_None._"}
+
+## The protocol
+
+Both exports come from the same UI, so this is a short sequence. The point is
+that nothing changes between steps 3 and 5.
+
+1. **Pick a small but feature-complete system.** Two or three entities,
+   primitive fields, one single relation, one list relation, a view, a report,
+   a navigation folder, a business rule, a parameter. If the install has a
+   workflow and an outgoing web service, include one of each — the profile has
+   record types for both and no supplied artifact exercises them.
+2. **Note the build.** `Barsa.Meta.SemanticExchange` and
+   `Barsa.Meta.DataExchange` file versions, and the `Core Version` the legacy
+   header will carry. They should agree; if they do not, say so in the pair
+   manifest.
+3. **Make no edits from here until step 5 is done.** This is the whole point.
+4. **Export legacy.** The export tree, tick exactly the chosen roots, then
+   export without the JSON option. Keep the selection visible or write it down
+   — it becomes `selection` in the manifest.
+5. **Export AiExport, same selection.** Re-open the export form, tick the
+   **same** roots, and this time set the JSON option. Produce both variants if
+   the UI allows it: a plain `.json` path and a `.zip` path. Two AiExport
+   artifacts from one selection also settle the variant-consistency question in
+   spec v3 section 86, which the current samples answer only partially.
+6. **Drop the files in `exports/`** (or `source/exports/`; the extractor scans
+   both and classifies by content, so neither the folder nor the extension
+   matters).
+7. **Write `exports/pairs.json`.** Template: `comparison/pairs.template.json`.
+   The declaration is recorded but never trusted on its own — the structural
+   check still runs, and a declared `exact` that the structure contradicts is
+   reported as a conflict.
+8. **Re-run `python3 tools/extract.py`.** `comparison/match-report.md` will then
+   either promote the held candidates to confirmed findings or clear them.
+
+## What the pair will settle
+
+{_table(["Question", "How the pair answers it"], [
+ ["Are the two system-level MetaCode rows dropped by the exporter, or were they deleted?",
+  "If a same-build legacy export still has them and the same-build AiExport does not, the exporter drops them. If neither has them, they were deleted."],
+ ["Does the ZIP variant emit a system `[كد]` folder at all?",
+  "A system with code, exported to both variants, shows it directly."],
+ ["Do both AiExport variants normalize to the same model?",
+  "Section 86 asks this. Navigation is already known to differ; a same-selection pair of variants shows whether anything else does."],
+ ["Is a compatibility percentage trustworthy?",
+  "Only a same-build Exact pair makes the number mean format fidelity rather than drift."],
+ ["Which concepts does AiExport not project at all?",
+  "A feature-complete system distinguishes 'not projected' from 'not present in this system', which the current samples cannot."],
+])}
+
+## The one thing to avoid
+
+Do not reconstruct a pair from two exports taken at different times because the
+names match. That is exactly what the current samples are, and it is why two
+findings are stuck. Filename candidacy is recorded as `pairedBy: "filename"`
+and never as proven scope.
 """)

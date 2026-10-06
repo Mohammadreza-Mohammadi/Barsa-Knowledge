@@ -486,47 +486,155 @@ def atomicity_findings(enums):
     ]
 
 
-def profile_coverage_gaps(profile):
-    """Record types whose field rules route code, versus those that do not.
+def system_code_route(profile, ai_artifacts, legacy_packages):
+    """Can system-level code reach an AiExport projection? (spec v3 sections 80, 84)
 
-    The barcode pair exposed this: legacy carries MetaCode rows targeting the
-    system, and the AiExport of the same selection carries none. The profile
-    explains why -- Barsa.Meta.TypeDef declares a code field rule and
-    Barsa.Meta.MetaSystem does not -- so the gap is in the projection rules,
-    not in collection.
+    This replaces an earlier, wrong conclusion. Reading the profile alone
+    suggested MetaSystem had no route for code, because its field rules list no
+    code key while TypeDef's does. An actual artifact disproves that: the
+    Push Notification projection carries system-level MetaCode records at
+    `$.tree[*].كد[*]`, so the relation is traversed whether or not the field
+    list names it. Keeping the profile-only reading would have shipped a
+    plausible-sounding claim that the evidence contradicts.
     """
-    if profile is None:
-        return None
-    code_keys = ("كد", "کد", "Code", "MetaCode")
-    with_code, without_code = [], []
-    for name, rule in sorted(profile.record_types.items()):
-        if not isinstance(rule, dict):
+    code_relations = ("MetaCode", "كد", "کد")
+    groups = []
+    layers = {}
+    if profile is not None:
+        groups = [g for g in profile.packaging_rules().get("relationGroups", [])
+                  if g.get("relation") in code_relations]
+        layers = profile.enums.get("Barsa.Meta.MetaCodeLayer", {})
+
+    observed = []
+    for art in ai_artifacts or ():
+        system_ids = set()
+        for src, doc in art.files.items():
+            if src == "_assets":
+                continue
+            for obj in _walk_objects(doc):
+                if obj.get("$type") == "system" and obj.get("id") is not None:
+                    system_ids.add(obj["id"])
+        for src, doc in art.files.items():
+            if src == "_assets":
+                continue
+            for obj in _walk_objects(doc):
+                if obj.get("$type") != "Barsa.Meta.MetaCode":
+                    continue
+                target = obj.get("TargetObjectId")
+                observed.append({
+                    "artifact": art.path.split("/")[-1],
+                    "variant": art.variant,
+                    "codeId": obj.get("id"),
+                    "caption": obj.get("$caption"),
+                    "targetObjectId": target,
+                    "targetIsSystem": target in system_ids,
+                    "codeLayer": obj.get("CodeLayer"),
+                    "codeLocation": obj.get("CodeLocation"),
+                })
+
+    system_level = [o for o in observed if o["targetIsSystem"]]
+    variants_with = sorted({o["variant"] for o in system_level})
+
+    legacy_rows = []
+    for pkg in legacy_packages or ():
+        if "MET_METACODE" not in pkg.tables:
             continue
-        fields = rule.get("fields") or {}
-        if any(k in fields for k in code_keys):
-            with_code.append(name)
-        else:
-            without_code.append(name)
-    packaging = profile.packaging_rules()
-    code_groups = [g for g in packaging.get("relationGroups", [])
-                   if g.get("relation") in code_keys]
+        sys_ids = {r.get("ID") for r in pkg.rows_of("MET_METASYSTEM")}
+        for row in pkg.rows_of("MET_METACODE"):
+            if row.get("TargetObjectId") not in sys_ids:
+                continue
+            raw_layer = row.get("CodeLayer")
+            legacy_rows.append({
+                "artifact": pkg.path.split("/")[-1],
+                "codeId": row.get("ID"),
+                "targetObjectId": row.get("TargetObjectId"),
+                "codeLayerRaw": raw_layer,
+                "codeLayerName": layers.get(str(raw_layer)),
+                "codeLocation": row.get("CodeLocation"),
+            })
+
+    # Per-system accounting is what actually decides the question: a system
+    # outside the AiExport's scope is expected to contribute nothing, so only
+    # systems present on both sides are evidence either way.
+    ai_by_system = {}
+    for o in system_level:
+        ai_by_system.setdefault(str(o["targetObjectId"]), []).append(o)
+    per_system = []
+    for target, rows in sorted(
+            _group(legacy_rows, lambda r: str(r["targetObjectId"])).items()):
+        ai_rows = ai_by_system.get(target, [])
+        in_ai_scope = bool(ai_rows) or any(
+            target in {str(i) for i in _artifact_system_ids(a)}
+            for a in (ai_artifacts or ()))
+        per_system.append({
+            "systemId": target,
+            "legacyArtifacts": sorted({r["artifact"] for r in rows}),
+            "legacyCodeRows": len(rows),
+            "legacyCodeIds": sorted(str(r["codeId"]) for r in rows),
+            "aiCodeRows": len(ai_rows),
+            "aiCodeIds": sorted(str(o["codeId"]) for o in ai_rows),
+            "systemInAiScope": in_ai_scope,
+            "agrees": (len(rows) == len(ai_rows)) if in_ai_scope else None,
+        })
+
     return {
-        "question": ("Which record types can carry code into an AiExport "
-                     "projection?"),
-        "recordTypesWithCodeFieldRule": with_code,
-        "recordTypesWithoutCodeFieldRule": without_code,
-        "codeRelationGroups": code_groups,
-        "engineUnknownField": profile.engine.get("unknownField"),
-        "finding": ("Barsa.Meta.MetaSystem has no code field rule while "
-                    "Barsa.Meta.TypeDef has one. A MetaCode row whose "
-                    "TargetObjectId is a system therefore has no declared "
-                    "route into the projection."),
-        "confidence": "Verified",
-        "limits": ("engine.unknownField is 'keep', which governs unlisted "
-                   "columns. Whether an unlisted *relation* is still traversed "
-                   "was not established, so this is a declared-rule gap rather "
-                   "than proof the exporter drops the row."),
+        "question": ("Can code attached to a system, rather than to an entity, "
+                     "reach an AiExport projection?"),
+        "answer": ("Yes. It is emitted through the system record's code "
+                   "relation, which the packaging rules route to a [كد] "
+                   "folder in the ZIP variant and keep inline in the single "
+                   "document."),
+        "correctsEarlierReading": (
+            "An earlier pass concluded the opposite from the profile alone, "
+            "because Barsa.Meta.MetaSystem's field rules name no code key "
+            "while Barsa.Meta.TypeDef's do. The artifact shows the relation is "
+            "traversed regardless, so the field list is not the gate."),
+        "packagingRules": groups,
+        "codeLayerEnum": layers,
+        "observedInArtifacts": observed,
+        "systemLevelObservations": system_level,
+        "variantsObservedCarryingSystemCode": variants_with,
+        "legacySystemLevelCodeRows": legacy_rows,
+        "perSystem": per_system,
+        "inScopeAgreements": [p for p in per_system
+                              if p["systemInAiScope"] and p["agrees"]],
+        "inScopeDisagreements": [p for p in per_system
+                                 if p["systemInAiScope"] and
+                                 p["agrees"] is False],
+        "confidence": "Verified" if system_level else "Unknown",
     }
+
+
+def _group(rows, key):
+    out = {}
+    for r in rows:
+        out.setdefault(key(r), []).append(r)
+    return out
+
+
+def _artifact_system_ids(artifact):
+    ids = set()
+    for src, doc in artifact.files.items():
+        if src == "_assets":
+            continue
+        for obj in _walk_objects(doc):
+            if obj.get("$type") == "system" and obj.get("id") is not None:
+                ids.add(obj["id"])
+    return ids
+
+
+def _walk_objects(node, depth=0):
+    if depth > 40:
+        return
+    if isinstance(node, dict):
+        yield node
+        for v in node.values():
+            for x in _walk_objects(v, depth + 1):
+                yield x
+    elif isinstance(node, list):
+        for v in node:
+            for x in _walk_objects(v, depth + 1):
+                yield x
 
 
 def importer_read_set(calls, legacy_tables):
