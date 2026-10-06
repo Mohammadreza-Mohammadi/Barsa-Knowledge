@@ -10,8 +10,8 @@
         "selector": "#بارکد"
       },
       "properties": {
-        "DbName": null,
-        "caption": "گیت"
+        "caption": "گیت",
+        "dbName": "dyn_gate"
       },
       "tempId": "tmpGate"
     },
@@ -26,7 +26,7 @@
       "properties": {
         "caption": "عنوان",
         "fieldType": "string",
-        "orderNumber": 1
+        "maximumLength": 200
       },
       "tempId": "tmpGateTitle"
     },

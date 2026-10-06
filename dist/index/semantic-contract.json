@@ -1,0 +1,5330 @@
+{
+  "confidence": "Verified",
+  "counts": {
+    "objectTypes": 12,
+    "propertyRows": 342,
+    "unbound": 0
+  },
+  "limits": "Recovered from a straight-line constant evaluation. Where a value came from a loop variable the possible values are reported as a set rather than a single name, and anything not modelled is left null rather than guessed.",
+  "objectContracts": [
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "TypeDef.Id / semantic selector",
+      "objectType": "entity",
+      "runtimeAdapterKey": "entity",
+      "structuralOrder": 100,
+      "supportedOperations": [
+        "Create",
+        "Update"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "SystemId / semantic selector",
+      "objectType": "system",
+      "runtimeAdapterKey": "system",
+      "structuralOrder": 100,
+      "supportedOperations": [
+        "Create",
+        "Update"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": true,
+      "identitySemantics": "FieldDef.Id under entity",
+      "objectType": "field",
+      "runtimeAdapterKey": "field",
+      "structuralOrder": 110,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": true,
+      "identitySemantics": "FieldDef.Id under entity; semantic relation subtype",
+      "objectType": "relation",
+      "runtimeAdapterKey": "relation:semantic",
+      "structuralOrder": 110,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "Report.Id under entity",
+      "objectType": "report",
+      "runtimeAdapterKey": "report:semantic",
+      "structuralOrder": 120,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "View.Id under entity",
+      "objectType": "view",
+      "runtimeAdapterKey": "view",
+      "structuralOrder": 120,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": true,
+      "identitySemantics": "Folder.Id under system/folder",
+      "objectType": "folder",
+      "runtimeAdapterKey": "folder:semantic",
+      "structuralOrder": 130,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "MetaCommand usage identity",
+      "objectType": "dynamicCommand",
+      "runtimeAdapterKey": "dynamic-command:semantic-v136",
+      "structuralOrder": 140,
+      "supportedOperations": [
+        "Create"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "WorkflowDef.Id under system",
+      "objectType": "workflow",
+      "runtimeAdapterKey": "workflow:semantic-v137",
+      "structuralOrder": 140,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": true,
+      "identitySemantics": "rule identity under entity",
+      "objectType": "businessRule",
+      "runtimeAdapterKey": "business-rule",
+      "structuralOrder": 150,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Hardcoded",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "constraint identity under entity",
+      "objectType": "uniqueConstraint",
+      "runtimeAdapterKey": "unique-constraint",
+      "structuralOrder": 150,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "applyClass": "Dynamic",
+      "confidence": "Verified",
+      "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+      "hasOrderingSemantics": false,
+      "identitySemantics": "MetaObject row under parent entity; selector identity uses the same universal # reference model",
+      "objectType": "dynamicObject",
+      "runtimeAdapterKey": "dynamic-object:semantic-v206",
+      "structuralOrder": 900,
+      "supportedOperations": [
+        "Create",
+        "Update",
+        "Delete"
+      ]
+    }
+  ],
+  "propertyContracts": {
+    "businessRule": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "actions",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "branches",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Scalar",
+        "property": "description",
+        "referenceTargetType": null,
+        "runtimeSource": "BRRule.Description exported by AiViewRuleModel.SerializeRule; writer does not author it",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "events",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Scalar",
+        "property": "hasConditions",
+        "referenceTargetType": null,
+        "runtimeSource": "AiViewRuleModel.SerializeRule conditional projection",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isDefault",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isDisabled",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiBusinessRuleChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Scalar",
+        "property": "key",
+        "referenceTargetType": null,
+        "runtimeSource": "AiViewRuleModel.GetRuleSemanticKey",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Enum",
+        "property": "type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiViewRuleModel.SerializeRule discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      }
+    ],
+    "dynamicCommand": [
+      {
+        "classification": "ReconstructionOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReconstructionOnly",
+        "kind": "Other",
+        "property": "capability",
+        "referenceTargetType": null,
+        "runtimeSource": "Legacy accepted input; no Runtime mutation path in v181",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "definition",
+        "referenceTargetType": null,
+        "runtimeSource": "Dynamic Command definition registration caption",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiDynamicCommandChangeProvider.Apply"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Reference",
+        "property": "definitionId",
+        "referenceTargetType": null,
+        "runtimeSource": "AiRuntimeVerifier dynamic command read-back",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "name",
+        "referenceTargetType": null,
+        "runtimeSource": "MetaCommand.Caption",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiDynamicCommandChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Embedded",
+        "property": "parameters",
+        "referenceTargetType": null,
+        "runtimeSource": "Dynamic Command Settings object",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiDynamicCommandChangeProvider.Apply"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReadOnly",
+        "kind": "Reference",
+        "property": "parentCommandId",
+        "referenceTargetType": null,
+        "runtimeSource": "AiRuntimeVerifier dynamic command read-back",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReadOnly",
+        "kind": "Scalar",
+        "property": "settingsEntity",
+        "referenceTargetType": null,
+        "runtimeSource": "AiRuntimeVerifier dynamic command read-back",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Reference",
+        "property": "settingsId",
+        "referenceTargetType": null,
+        "runtimeSource": "AiRuntimeVerifier dynamic command read-back",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      }
+    ],
+    "dynamicObject": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Collection",
+        "property": "values",
+        "referenceTargetType": null,
+        "runtimeSource": "MetaObject stored Field values",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiDynamicObjectChangeProvider.Apply"
+      }
+    ],
+    "entity": [
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": "TypeDef.Caption",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiEntityChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dbName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiEntityChangeProvider.ApplyEntityStorageAndGroup"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dbType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiEntityChangeProvider.ApplyEntityStorageAndGroup"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "defaultEditView",
+        "referenceTargetType": "view",
+        "runtimeSource": "TypeDef.SettingsObject.DefaultEditViewId",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": true,
+        "writer": "AiEntityChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "systemId",
+        "referenceTargetType": "system",
+        "runtimeSource": "TypeDef.SystemId",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiEntityChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "systemItemGroup",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiEntityChangeProvider.ApplyEntityStorageAndGroup"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReadOnly",
+        "kind": "Other",
+        "property": "tableExists",
+        "referenceTargetType": null,
+        "runtimeSource": "AiRuntimeVerifier.VerifyEntity table existence",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      }
+    ],
+    "field": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RawJson",
+        "kind": "RawJson",
+        "property": null,
+        "referenceTargetType": null,
+        "runtimeSource": "JsonProperty compose row: Item->FieldDef.Id, Property->raw string",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": "AiFieldWriteModel.PersistRawJsonPropertyCompose"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "acceptableFileExtensions",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "allowedStringChars",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "autoCompleteReportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Embedded",
+        "property": "behindField",
+        "referenceTargetType": null,
+        "runtimeSource": "CustomFieldInfo.BehindFieldInfo",
+        "subtypes": [
+          "customField"
+        ],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "calendarType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "date"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "cannotSelectOrganizationUnit",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "workCenter"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "checkOutDefaultPathCode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "code",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "codeLanguage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "codeLayer",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "codeTemplate",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "codeType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "controlManageCode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "dateFormat",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "date"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dbName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "defaultValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "definitionId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "customField"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "direction",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "disableWhenReadonly",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "displayType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "displayUnit",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "doNotUpdateInDb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "enableAdvanceReminders",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "enableMediaSelect",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "enableSelectBeforeInterval",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "enumType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "enum"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "executeTarget",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "falseDisplay",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "falseDisplay",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "falseImage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "falseImage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "fieldSelectTargetType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "wordFile"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "fieldType",
+        "referenceTargetType": null,
+        "runtimeSource": "FieldInfo runtime type",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiFieldChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "fields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "refreshCommand"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "format",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "timeSpan"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "formula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "gaugeType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "groups",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictures"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "hasEncryption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "helperDescriptionResolver",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "helperTypeDefResolver",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "hideSelectFields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "wordFile"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "hideWhenDisabled",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "icon",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "iconDisplayType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "enum"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "image",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "picture"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isChained",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "recordSign"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isConditional",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "referenceField"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isLeftToRight",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isMandatory",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isMinimized",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isMultiSelect",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isMultiline",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isPassword",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isReadOnly",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isTranslatable",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isUnique",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "isWordWrap",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "code"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "labelPosition",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "listStateAlways",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "listStateMultiSelect",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "listStateSingleSelect",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxFileCount",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxFileSizeKb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxFileSizeKb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictures"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxPictureCount",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictures"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxTotalFileSizeKb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxTotalFileSizeKb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictures"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "int"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "timeSpan"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maxValue2",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "maximumLength",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "menuName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "command"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "int"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "timeSpan"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minValue2",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "minimumLength",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "nullImage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictureFile"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "nullText",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "numericDotPlace",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "numericDotPlace",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "int"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "numericDotPlace",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "numericDotPlace",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "timeSpan"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "onlyAcceptCurrentCulture",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "operator",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "referenceField"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "ReconstructionOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReconstructionOnly",
+        "kind": "Ordering",
+        "property": "orderNumber",
+        "referenceTargetType": null,
+        "runtimeSource": "FieldDef sibling reconstruction order",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "regularExpression",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "relativeFormat",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "date"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "remindDescriptionFormula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "remindEmailFormula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "remindSmsFormula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "remindTimeFormula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "remindUserIdFormula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reminder"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "wordReportCommand"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "reportType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "wordReportCommand"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "richInfoType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "longText"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "salt",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "recordSign"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "selectedFields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "recordSign"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "setTextContent",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "settingsId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "customField"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showBarsaImageLibrary",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictureFile"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showCheckInGrid",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showCheckInGrid",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showFileExtension",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showNullText",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "timeSpan"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showNumber",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "gauge"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showNumericSeparator",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "int"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showNumericSeparator",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "showPositions",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "workCenter"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "sizeMode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "picture"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "sizeMode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "pictureFile"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "sql",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFieldChangeProvider.Apply / AiFieldChangeProvider.ApplyFieldProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "startWorkCenter",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "workCenter"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "supportSourceControl",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "targetField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "referenceField"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "templateDefinitionId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "timeFormat",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "date"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "totalDigits",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "int"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "totalDigits",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "money"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "trueDisplay",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "trueDisplay",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "trueImage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "trueImage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "useAutoComplete",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "useFullTextIndex",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "string"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "values",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "enum"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "viewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "binary"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "viewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "bool"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "viewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "enum"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "viewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "file"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterFieldSubtype",
+        "kind": null,
+        "property": "wordReportFile",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "wordReportCommand"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      }
+    ],
+    "folder": [
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "entity",
+        "referenceTargetType": "entity",
+        "runtimeSource": "Folder.ContainingTypeDefId",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFolderChangeProvider.ApplyFolderProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "icon",
+        "referenceTargetType": null,
+        "runtimeSource": "Folder.FolderIcon",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFolderChangeProvider.ApplyFolderProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "kind",
+        "referenceTargetType": null,
+        "runtimeSource": "Folder semantic kind",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiFolderChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "name",
+        "referenceTargetType": null,
+        "runtimeSource": "Folder.Name",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFolderChangeProvider.ApplyFolderProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Ordering",
+        "property": "order",
+        "referenceTargetType": null,
+        "runtimeSource": "Folder.OrderNo",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFolderChangeProvider.ApplyFolderProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "report",
+        "referenceTargetType": "report",
+        "runtimeSource": "Folder.ReportId",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiFolderChangeProvider.ApplyFolderProperties"
+      }
+    ],
+    "relation": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RawJson",
+        "kind": "RawJson",
+        "property": null,
+        "referenceTargetType": null,
+        "runtimeSource": "JsonProperty compose row: Item->FieldDef.Id, Property->raw string",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": "AiFieldWriteModel.PersistRawJsonPropertyCompose"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "addParentFieldsToView",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "additionalTargets",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "allowNewOnParent",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritanceChild"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Embedded",
+        "property": "associativeClass",
+        "referenceTargetType": null,
+        "runtimeSource": "RelationInfo associative class",
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyAssociativeClass"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Embedded",
+        "property": "associativeClass",
+        "referenceTargetType": null,
+        "runtimeSource": "RelationInfoReverse associative projection",
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyAssociativeClass"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "baseOnParentRelation",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "composeIndependentSave",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseSingleListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dbName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "defaultValue",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "destinationField",
+        "referenceTargetType": "field",
+        "runtimeSource": "ReverseMetaObjectInfo.DestFieldId",
+        "subtypes": [
+          "reverseSingleRelation",
+          "reverseSingleListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "directField",
+        "referenceTargetType": "field",
+        "runtimeSource": "RelationInfoReverse.RelationDefId",
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "doNotUpdateInDb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "fieldType",
+        "referenceTargetType": null,
+        "runtimeSource": "Relation FieldInfo runtime type",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiRelationChangeProvider.ApplyCreate"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "formula",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "hasEncryption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "icon",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "isComposed",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseSingleListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isLeftToRight",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isMandatory",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isReadOnly",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "isSymmetric",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "isSymmetric",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isUnique",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "mapParentFields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "max",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "ReconstructionOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReconstructionOnly",
+        "kind": "Ordering",
+        "property": "orderNumber",
+        "referenceTargetType": null,
+        "runtimeSource": "FieldDef sibling reconstruction order",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "parentField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "relationKind",
+        "referenceTargetType": null,
+        "runtimeSource": "Semantic relation kind alias",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiRelationChangeProvider.ApplyCreate"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "relationName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "relationType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSingleLike",
+        "kind": null,
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSingleLike",
+        "kind": null,
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "inheritanceChild"
+        ],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": "RelationInfo.RelationViewType",
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Enum",
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": "RelationInfoReverse.RelationViewType",
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSingleLike",
+        "kind": null,
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseSingleRelation"
+        ],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSingleLike",
+        "kind": null,
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "singleRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSingleLike",
+        "kind": null,
+        "property": "relationViewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "user"
+        ],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reloadListOnDropDown",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reloadListOnDropDown",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "hierarchical"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reportRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "reportId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseSingleListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "target",
+        "referenceTargetType": "entity",
+        "runtimeSource": "InheritanceInfo.TargetTypeId",
+        "subtypes": [
+          "inheritance"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "target",
+        "referenceTargetType": "entity",
+        "runtimeSource": "RelationInfo.TargetTypeId",
+        "subtypes": [
+          "listRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiRelationChangeProvider.ApplyCreate"
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "target",
+        "referenceTargetType": "entity",
+        "runtimeSource": "reverse/source relation target",
+        "subtypes": [
+          "reverseSingleRelation",
+          "reverseListRelation",
+          "user",
+          "inheritanceChild",
+          "reportRelation"
+        ],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "target",
+        "referenceTargetType": "entity",
+        "runtimeSource": "MetaObjectInfo.TargetTypeId",
+        "subtypes": [
+          "singleRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiRelationChangeProvider.ApplyCreate / AiRelationChangeProvider.ApplyRelationProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "viewRelatedFormType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "hierarchical"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterRelationSubtype",
+        "kind": null,
+        "property": "viewType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [
+          "reverseSingleListRelation"
+        ],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": null
+      }
+    ],
+    "report": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RawJson",
+        "kind": "RawJson",
+        "property": null,
+        "referenceTargetType": null,
+        "runtimeSource": "Report.JsonProperty",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "additionalWhere",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowAddNew",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowAddToList",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowEdit",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowGridColumnSort",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowInlineEdit",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowRemove",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowRemoveFromList",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "allowView",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "alternateEditObjectColumn",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "alternateRootTable",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "alternateRowMode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "autoInlineEdit",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "calendar",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "columns",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "commandDisplayMode",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "phase3DependsOn": [
+          "parameters"
+        ],
+        "property": "condition",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "customSql",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "description",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "disableColumnHeaders",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "disableOptimizeForDisplay",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dontExecuteCount",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dontUseChildParentReport",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "entity",
+        "referenceTargetType": "entity",
+        "runtimeSource": "Report.TypeDefId",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "extraQueryTemplate",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "formatConditions",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "forum",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "freeColumnSizing",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridCustomKey",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridGrouping",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridHideColumnsWhenGrouped",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridHideLines",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridLines",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridShowGroupBox",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridShowSelectionChecks",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "gridViewStyle",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "grouping",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "hideHeader",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "hideRowIcon",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "hideToolbar",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "ignoreAdvancedSecurityCondition",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "ignoreColumns",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "immediateExecute",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "includeDeleted",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "insideViewActive",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "insideViewHeight",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "insideViewRelatedField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isDistinct",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "joinAliases",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "listEditView",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "logExecutions",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "matrix",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "name",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "oracleHint",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "pageSize",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "pagingType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "parameterEntity",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReadOnly",
+        "kind": "Embedded",
+        "property": "parameterLayout",
+        "referenceTargetType": null,
+        "runtimeSource": "Report parameter XML layout is out of Semantic v15 reconstruction scope in v190",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "parameterPanelHeight",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "parameters",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "preserveUserViewState",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "previewField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "previewState",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "reportType",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "rootTableAlias",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "selfReferencingField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "sharedScope",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showPreviewField",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showRecordSignFormatting",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showRowNumber",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showWpfChart",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "phase3DependsOn": [
+          "columns"
+        ],
+        "property": "sorting",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "sqlGrouping",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "subReports",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "system",
+        "referenceTargetType": "system",
+        "runtimeSource": "Report.SystemId",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "systemId",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "top",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "treeAutoOpenLevels",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "treeCondition",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "typeView",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "useAdvancedAccess",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "useHierarchyConditionForRoot",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "useSummaryRow",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiReportModel.ApplyReportPatch"
+      }
+    ],
+    "system": [
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "dbPrefix",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "defaultCodeNamespace",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "doNotShowSystemTab",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "iconName",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "runCodeAtStartup",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showInWeb",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "showInWin",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "systemItemGroups",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiSystemChangeProvider.ApplySystemProperties"
+      }
+    ],
+    "uniqueConstraint": [
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "caption",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiUniqueConstraintChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "errorMessage",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiUniqueConstraintChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "fields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiUniqueConstraintChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isDefault",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiUniqueConstraintChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "isDisabled",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiUniqueConstraintChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Scalar",
+        "property": "key",
+        "referenceTargetType": null,
+        "runtimeSource": "AiViewRuleModel.GetRuleSemanticKey",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Enum",
+        "property": "type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiViewRuleModel.SerializeUniqueConstraint discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      }
+    ],
+    "view": [
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "fields",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "formSettings",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "inheritsFrom",
+        "referenceTargetType": "view",
+        "runtimeSource": "TypeViewEntity.ParentId",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReadOnly",
+        "kind": "Embedded",
+        "property": "layout",
+        "referenceTargetType": null,
+        "runtimeSource": "View/Report XML Layout is out of Semantic v15 reconstruction scope in v190",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "name",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Reference",
+        "kind": "Reference",
+        "property": "relatedParentView",
+        "referenceTargetType": "view",
+        "runtimeSource": "TypeView.RelatedViewIdInParentTypeDef",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "RegisterWritableSet",
+        "kind": null,
+        "property": "selectedRules",
+        "referenceTargetType": null,
+        "runtimeSource": null,
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiViewChangeProvider.ApplyPatch"
+      }
+    ],
+    "workflow": [
+      {
+        "classification": "ReadOnly",
+        "complete": true,
+        "exported": null,
+        "factory": "ReadOnly",
+        "kind": "Enum",
+        "property": "$type",
+        "referenceTargetType": null,
+        "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "description",
+        "referenceTargetType": null,
+        "runtimeSource": "WorkflowDef.Description",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiWorkflowChangeProvider.Apply"
+      },
+      {
+        "classification": "ReconstructionOnly",
+        "complete": true,
+        "exported": false,
+        "factory": "ReconstructionOnly",
+        "kind": "Embedded",
+        "property": "diagram",
+        "referenceTargetType": null,
+        "runtimeSource": "WorkflowDef.Diagram2 generated/invalidated by Runtime",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "isActive",
+        "referenceTargetType": null,
+        "runtimeSource": "WorkflowDef.IsActive",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiWorkflowChangeProvider.Apply"
+      },
+      {
+        "classification": "Derived",
+        "complete": true,
+        "exported": null,
+        "factory": "Derived",
+        "kind": "Collection",
+        "property": "lanes",
+        "referenceTargetType": null,
+        "runtimeSource": "AiWorkflowModel.SerializeRuntime actor/activity projection",
+        "subtypes": [],
+        "writableOnCreate": false,
+        "writableOnUpdate": false,
+        "writer": null
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Scalar",
+        "property": "name",
+        "referenceTargetType": null,
+        "runtimeSource": "WorkflowDef.Title",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": true,
+        "writer": "AiWorkflowChangeProvider.Apply"
+      },
+      {
+        "classification": "Writable",
+        "complete": true,
+        "exported": null,
+        "factory": "Writable",
+        "kind": "Collection",
+        "property": "variables",
+        "referenceTargetType": null,
+        "runtimeSource": "Workflow graph runtime",
+        "subtypes": [],
+        "writableOnCreate": true,
+        "writableOnUpdate": false,
+        "writer": "AiWorkflowChangeProvider.CreateWorkflow"
+      }
+    ]
+  },
+  "source": "Barsa.Meta.SemanticExchange :: SemanticContractRegistry, recovered from IL by constant evaluation",
+  "unboundPropertyContracts": []
+}

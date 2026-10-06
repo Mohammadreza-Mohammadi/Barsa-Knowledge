@@ -363,6 +363,19 @@ class Extractor:
         self.profile_version = xm.profile_version_findings(
             self.profiles, self.live_profile)
         self.diff_states = xm.diff_states(self.answer_enums)
+        sem_asm = self.exchange_asms.get("Barsa.Meta.SemanticExchange")
+        if sem_asm is not None:
+            from . import semantic_contract as sc_mod
+            try:
+                self.semantic_contract = sc_mod.summary(sem_asm)
+            except Exception as exc:
+                self.semantic_contract = None
+                self.errors.append({
+                    "stage": "semantic_contract",
+                    "file": "Barsa.Meta.SemanticExchange",
+                    "error": "%s: %s" % (type(exc).__name__, exc)})
+        else:
+            self.semantic_contract = None
         self.system_code = xm.system_code_route(
             self.live_profile, self.ai_artifacts, self.packages)
         self.atomicity = xm.atomicity_findings(self.answer_enums)

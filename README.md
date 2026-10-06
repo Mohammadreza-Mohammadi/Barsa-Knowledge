@@ -20,11 +20,14 @@ of the same `DataSet` the legacy export writes. Writing back through the AI side
 takes a third document, an `AiChangeBatch` of create/update/delete commands --
 so the AI path is **not** a symmetric importer.
 
-Validate a change batch offline before sending it:
+Validate a change batch offline before sending it. With the generated contract
+present, this also checks every property against the per-objectType write
+contract recovered from the binary:
 
 ```bash
 python3 tools/lint_change_batch.py --example > batch.json
 python3 tools/lint_change_batch.py batch.json
+python3 tools/lint_change_batch.py --schema          # JSON Schema
 ```
 
 ## Layout
@@ -72,7 +75,9 @@ the extractor parses ECMA-335 metadata itself.
 - `comparison/legacy-vs-ai-export.md` — how the two relate
 - `comparison/match-report.md` — what matched, what did not, and what is a bug candidate
 - `comparison/golden-pair-protocol.md` — how to produce the pair that settles the open findings
-- `formats/ai-change-batch.md` — the write-path contract and its rules
+- `formats/ai-change-batch.md` — the write-path document and its lint rules
+- `formats/semantic-write-contract.md` — per objectType: which properties are writable, on create or update
+- `scenarios/semantic-write-pipeline.md` — batch → lint → plan → apply → mutation → verify
 - `formats/legacy-metaexport.md` — the legacy on-disk container
 - `scenarios/import-system-legacy.md` — how a system is rebuilt from a package
 - `evidence/cross-validation.md` — what two or more independent sources confirm

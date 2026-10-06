@@ -20,6 +20,8 @@ def write_all(x):
     _match_report(x, d)
     _change_batch(x, d)
     _golden_pair(x, d)
+    _semantic_contract_doc(x, d)
+    _write_pipeline_doc(x, d)
     _reanalysis(x, d)
     _v3_indexes(x, d)
     _v3_scenarios(x, d)
@@ -1684,6 +1686,9 @@ def _change_batch(x, d):
     """Spec v3 section 14: the AiExport write path's input contract."""
     from . import change_batch as cb
 
+    contract = getattr(x, "semantic_contract", None)
+    if contract:
+        _write(d, "index/semantic-contract.json", _j(contract))
     _write(d, "models/ai-change-batch.schema.json", _j(cb.json_schema()))
     _write(d, "models/sample-ai-change-batch.json", _j(cb.example()))
 
@@ -2002,4 +2007,315 @@ Do not reconstruct a pair from two exports taken at different times because the
 names match. That is exactly what the current samples are, and it is why two
 findings are stuck. Filename candidacy is recorded as `pairedBy: "filename"`
 and never as proven scope.
+""")
+
+
+def _semantic_contract_doc(x, d):
+    """The per-objectType property contract (user request 1)."""
+    c = getattr(x, "semantic_contract", None)
+    if not c:
+        _write(d, "formats/semantic-write-contract.md",
+               "# Semantic write contract\n\n"
+               "_Barsa.Meta.SemanticExchange was not available._\n")
+        return
+
+    obj_rows = [[f"`{o['objectType']}`",
+                 ", ".join("`%s`" % s for s in o["supportedOperations"]) or "—",
+                 o["structuralOrder"], _yn(o["hasOrderingSemantics"]),
+                 o["applyClass"], o["identitySemantics"]]
+                for o in c["objectContracts"]]
+
+    sections = []
+    for object_type in sorted(c["propertyContracts"],
+                              key=lambda k: (
+                                  next((o["structuralOrder"]
+                                        for o in c["objectContracts"]
+                                        if o["objectType"] == k), 999), k)):
+        rows = c["propertyContracts"][object_type]
+        writable = [r for r in rows if r["classification"] == "Writable"]
+        other = [r for r in rows if r["classification"] != "Writable"]
+        base = [r for r in writable if not r["subtypes"]]
+        by_sub = {}
+        for r in writable:
+            for s in r["subtypes"]:
+                by_sub.setdefault(s, []).append(r)
+
+        part = ["### `%s`" % object_type, ""]
+        part.append("%d property contracts: %d writable, %d not."
+                    % (len(rows), len(writable), len(other)))
+        part.append("")
+        if base:
+            part.append("**Writable on any subtype**")
+            part.append("")
+            part.append(_table(
+                ["Property", "Kind", "Create", "Update", "Reference target",
+                 "Writer"],
+                [[f"`{r['property']}`", r["kind"] or "—",
+                  _yn(r["writableOnCreate"]), _yn(r["writableOnUpdate"]),
+                  f"`{r['referenceTargetType']}`"
+                  if r["referenceTargetType"] else "—",
+                  f"`{r['writer']}`" if r["writer"] else "—"]
+                 for r in base]))
+            part.append("")
+        if by_sub:
+            part.append("**Writable only on a subtype**")
+            part.append("")
+            part.append(_table(
+                ["Subtype", "Properties"],
+                [[f"`{s}`",
+                  ", ".join("`%s`" % r["property"] for r in sorted(
+                      v, key=lambda r: r["property"] or ""))]
+                 for s, v in sorted(by_sub.items())]))
+            part.append("")
+        if other:
+            part.append("**Not authorable**")
+            part.append("")
+            part.append(_table(
+                ["Property", "Classification", "Kind", "Runtime source"],
+                [[f"`{r['property']}`", r["classification"], r["kind"] or "—",
+                  r["runtimeSource"] or "—"] for r in other]))
+            part.append("")
+        sections.append("\n".join(part))
+
+    _write(d, "formats/semantic-write-contract.md", f"""# Semantic write contract
+
+{BANNER}
+**Confidence: Verified.** Recovered from `SemanticContractRegistry` in
+`Barsa.Meta.SemanticExchange`, which is not obfuscated.
+
+This answers, per objectType: which properties exist, what kind each is,
+whether it is writable on create, on update, or not at all, and which runtime
+member does the writing.
+
+## How this was recovered
+
+The contract is not a data file. `SemanticContractRegistry` builds it at
+type-init time: its static constructor registers one object contract per
+objectType through `Obj(...)`, and `BuildProperties` registers every property
+through `Writable(...)`, `Reference(...)`, `ReadOnly(...)`, `Derived(...)`,
+`ReconstructionOnly(...)` and `RawJson(...)`.
+
+Both methods are straight-line sequences of calls whose arguments are all
+compile-time constants, so `tools/barsa_extractor/il_eval.py` recovers the table
+by walking the opcode stream with a symbolic stack. Parameter names come from
+the Param metadata table, which matters: `Reference` takes its source and
+writer **before** its target type, and reading the signature the other way
+round would have mislabelled every reference property.
+
+{_table(["Metric", "Value"], [
+ ["Object types", c["counts"]["objectTypes"]],
+ ["Property contract rows", c["counts"]["propertyRows"]],
+ ["Rows that could not be bound to an objectType", c["counts"]["unbound"]],
+])}
+
+## Object contracts
+
+{_table(["objectType", "Operations", "Structural order", "Ordering semantics",
+         "Apply class", "Identity"], obj_rows)}
+
+`structuralOrder` is what `AiChangePlanner.SortByDependencies` and
+`AiApplyLifecyclePolicy.StructuralOrder` use, so it is the order a batch's
+commands are actually applied in when nothing else forces a different one:
+systems and entities first, then fields and relations, then views and reports,
+then folders, then workflows and dynamic commands, then constraints and rules,
+with dynamic object data last.
+
+`applyClass` separates `Hardcoded` metamodel objects from `Dynamic` ones; only
+`dynamicObject` is Dynamic.
+
+## Classification, and what "authorable" means
+
+{_table(["Classification", "Meaning for an authored batch"], [
+ ["`Writable`", "may appear in `properties`, subject to the create/update flags"],
+ ["`ReadOnly`", "never authorable; present so a projection can carry it"],
+ ["`Derived`", "computed by Barsa; never authorable"],
+ ["`ReconstructionOnly`",
+  "carried by an export so a system can be rebuilt, but not accepted from an "
+  "authored batch. `orderNumber` is the one to watch: it appears in every "
+  "AiExport field record and is **not** authorable."],
+])}
+
+The kinds come from `SemanticPropertyKind`: `Scalar`, `Enum`, `Reference`,
+`RawJson`, `Embedded`, `Collection`, `Ordering`, `Logic`, `Other`.
+
+## Required versus optional
+
+The registry does **not** carry a required flag. Requiredness is enforced by
+the providers, through `AiChangeProviderBase.ResolveRequired(reference, context,
+name)`, which throws when a reference a provider needs cannot be resolved. So:
+
+- **Verified:** which properties are *allowed*, per objectType and operation.
+- **Unknown from the registry:** which are *required*. That lives in each
+  provider's `Validate` and `Apply`, as control flow this extractor did not
+  reconstruct.
+
+`tools/lint_change_batch.py` therefore reports an unknown property as
+`unsupportedProperty`, matching the planner's own code, and says nothing about
+missing ones.
+
+## Per objectType
+
+{chr(10).join(sections)}
+
+## Machine-readable
+
+`index/semantic-contract.json` carries all of the above, including aliases,
+subtype lists and phase-3 dependencies.
+
+## Limits
+
+{c["limits"]}
+""")
+
+
+def _write_pipeline_doc(x, d):
+    """The end-to-end semantic write pipeline (user request 2)."""
+    from . import write_pipeline as wp
+    asm = (getattr(x, "exchange_asms", {}) or {}).get(
+        "Barsa.Meta.SemanticExchange")
+    if asm is None:
+        _write(d, "scenarios/semantic-write-pipeline.md",
+               "# Semantic write pipeline\n\n"
+               "_Barsa.Meta.SemanticExchange was not available._\n")
+        return
+    p = wp.summary(asm)
+    _write(d, "index/write-pipeline.json", _j(p))
+
+    stage_table = _table(
+        ["Stage", "Entry point", "Produces"],
+        [[s["stage"], f"`{s['entryPoint']}`", f"`{s['produces']}`"]
+         for s in p["stages"]])
+
+    prov_table = _table(
+        ["Provider", "objectType", "Barsa types touched", "Persists via"],
+        [[f"`{r['provider']}`",
+          ", ".join("`%s`" % o for o in r["objectTypes"]) or "—",
+          r["coreCallCount"],
+          (", ".join("`ActiveObject.%s`" % x.split("::")[1]
+                     for x in r["persistenceCalls"])
+           or ", ".join("`%s`" % x for x in r["persistsViaBaseHelpers"])
+           or "**no write traced**")]
+         for r in p["providerMutations"] if r["objectTypes"] or r["writes"]])
+
+    _write(d, "scenarios/semantic-write-pipeline.md", f"""# Semantic write pipeline
+
+{BANNER}
+**Confidence: Observed.** Every stage is a resolved call edge in
+`Barsa.Meta.SemanticExchange`, which is not obfuscated, so the names are real.
+Order is the order the calls appear in each method body. Branch conditions were
+not reconstructed, so *which* stages run for a given command is Unknown except
+where a guard is visible as a property read or a literal.
+
+## The six stages
+
+{stage_table}
+
+```mermaid
+graph TD
+  J["AiChangeBatch JSON"] --> L["1 ValidateBatch<br/>SemanticV15Linter"]
+  L --> P["2 ParseBatch"]
+  P --> PL["3 BuildPlan<br/>AiChangePlanner"]
+  PL --> SUM["AiChangePlan + AiPlanSummary<br/>(nothing written yet)"]
+  SUM --> AP["4 ApplyPlan<br/>AiBatchExecutor"]
+  AP --> PR["5 provider.Apply"]
+  PR --> AO["Barsa.Spl.ActiveObject<br/>Create / Update / Delete / CRUD"]
+  AO --> DB[("database")]
+  AP --> V["6 FinalReadBackAndVerify<br/>AiRuntimeVerifier"]
+  V --> DB
+  V --> R["AiApplyResult + AiBatchStatus"]
+```
+
+Note the shape: **plan and apply are separate calls**. A caller can build a
+plan, read `AiPlanSummary.canApplyCleanly`, and decide — nothing is written
+until `ApplyPlan`.
+
+## Stage 3: planning, in body order
+
+{_table(["Step", "What it does"],
+        [[f"`{s['step']}`" if "." in s["step"] else s["step"], s["what"]]
+         for s in p["planSteps"]])}
+
+## Stage 4: applying, in body order
+
+{_table(["Step", "What it does"],
+        [[f"`{s['step']}`" if "." in s["step"] else s["step"], s["what"]]
+         for s in p["applySteps"]])}
+
+Two guards are worth calling out. The profileVersion gate is applied **again**
+to the plan, so a plan built elsewhere cannot smuggle a non-v15 command past
+it. And `PreflightConflicts` rechecks the fingerprint each provider recorded at
+plan time, failing with *"Target changed between plan and apply."* — so a plan
+is not blindly replayable against a system that moved underneath it.
+
+## The deferral model
+
+A reference that cannot resolve yet is not an error; it is deferred.
+
+{_table(["Phase", "Name", "Meaning"],
+        [[ph["value"], f"`{ph['name']}`", m] for ph, m in zip(
+            p["lifecycle"]["phases"],
+            ["what must exist before anything else can point at it",
+             "configuration applied once the object exists",
+             "wiring that can only be done when every object in the batch exists"])])}
+
+`{p["lifecycle"]["deferralDecision"]}` decides per property, classifying it as
+one of: {", ".join("`%s`" % k for k in p["lifecycle"]["deferredKinds"])}.
+
+{p["lifecycle"]["placeholder"]}
+
+Deferred work becomes an `{p["lifecycle"]["stageType"]}` carrying
+{", ".join("`%s`" % s for s in p["lifecycle"]["stageProperties"])}, and
+`AiBatchExecutor.OrderPhase3Stages` then `ExecuteInternalStages` run the final
+wiring pass after every command has been applied.
+
+{p["lifecycle"]["subtypeResolution"]}
+
+## Stage 5: what actually mutates
+
+{prov_table}
+
+**Persistence base:** {p["persistenceBase"]}
+
+{p["persistenceNote"]}
+
+{"**No write traced for:** " + ", ".join("`%s`" % n for n in p["providersWithNoTracedWrite"]) + ". `AiGenericChangeProvider` is the fallback that matches no objectType literal, so having no write of its own is expected. For `AiDynamicObjectChangeProvider` the write was not located, which is consistent with its `applyClass` being `Dynamic` -- it writes instance rows rather than metamodel objects -- but the path is **Unknown**." if p["providersWithNoTracedWrite"] else ""}
+
+## Stage 6: verification is real
+
+`AiRuntimeVerifier` has a `Verify*` per objectType — `VerifySystem`,
+`VerifyEntity`, `VerifyField`, `VerifyView`, `VerifyReport`, `VerifyFolder`,
+`VerifyRule`, `VerifyWorkflow`, `VerifyDynamicCommand`, `VerifyDynamicObject` —
+plus `VerifyFieldSiblingRelativeOrder` and `VerifyFolderSiblingRelativeOrder`.
+
+It reads each written object back out of the database and compares it against
+what was asked for, canonicalizing both sides first (`CanonicalizeViewLayoutForVerify`,
+`CanonicalizeConditionForVerify`, `NormalizeSemanticScalar`,
+`TryCanonicalSemanticDate`, and `ImagePixelsEqual` for image payloads). A
+mismatch becomes `AiCommandStatus.VerificationFailed` and
+`ClassifyVerificationFailure` labels it.
+
+So the pipeline does not trust its own writes — which is the strongest
+indication that half-application is an expected outcome rather than an edge
+case.
+
+## What this means for a caller
+
+{_table(["If you want", "Do this"], [
+ ["to check a batch without a server",
+  "`tools/lint_change_batch.py batch.json`"],
+ ["to know what would happen",
+  "`BuildPlan`, then read `AiPlanSummary.canApplyAny` / `canApplyAll` / `canApplyCleanly`"],
+ ["to know what did happen",
+  "`AiApplyResult.status`, then per-command `AiCommandResult.status`, `phase`, `failureClass` and `mutationStage`"],
+ ["the real ids of what you created",
+  "`AiApplyResult.temporaryIds`, which maps each tempId to its new id"],
+ ["to know whether a half-applied command was repaired",
+  "`needsReconcile`, `reconcileSucceeded` and `reconcileMessage`"],
+ ["to know whether Barsa agrees it worked",
+  "`verificationSucceeded`, and `runtimeReadBack` for what it found"],
+])}
+
+## Limits
+
+{p["limits"]}
 """)

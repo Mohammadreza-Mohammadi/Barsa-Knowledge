@@ -186,7 +186,9 @@ def example():
                 "objectType": "entity",
                 "tempId": "tmpGate",
                 "parent": {"objectType": "system", "selector": "#بارکد"},
-                "properties": {"caption": "گیت", "DbName": None},
+                # dbName, not DbName: the contract is camelCase throughout,
+                # unlike the AiExport projection which keeps the CLR casing.
+                "properties": {"caption": "گیت", "dbName": "dyn_gate"},
             },
             {
                 "commandId": "c2-create-field",
@@ -194,8 +196,10 @@ def example():
                 "objectType": "field",
                 "tempId": "tmpGateTitle",
                 "parent": {"objectType": "entity", "tempId": "tmpGate"},
+                # orderNumber is ReconstructionOnly in the contract, so it is
+                # not authorable here even though it appears in an export.
                 "properties": {"caption": "عنوان", "fieldType": "string",
-                               "orderNumber": 1},
+                               "maximumLength": 200},
             },
             {
                 "commandId": "c3-update-report",
@@ -210,13 +214,73 @@ def example():
 
 # --- linter ----------------------------------------------------------------
 
-def lint(doc):
+def load_contract(path=None):
+    """Load the recovered semantic contract, if it has been generated.
+
+    The contract is recovered from the assembly by `semantic_contract`, so the
+    linter can check `properties` against it without the DLL being present.
+    """
+    import os
+    candidates = [path] if path else []
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    candidates += [
+        os.path.join(here, "..", "dist", "index", "semantic-contract.json"),
+        os.path.join(here, "dist", "index", "semantic-contract.json"),
+    ]
+    for c in candidates:
+        if c and os.path.isfile(c):
+            try:
+                with open(c, encoding="utf-8") as fh:
+                    return json.load(fh)
+            except (OSError, ValueError):
+                continue
+    return None
+
+
+def authorable_properties(contract, object_type, operation, subtype=None):
+    """Property names the contract allows for this objectType and operation.
+
+    Mirrors SemanticContractRegistry.GetAuthorablePropertyNames: a property is
+    authorable when its classification is Writable and the matching
+    writableOnCreate / writableOnUpdate flag is set. A property restricted to
+    subtypes only applies when that subtype is in play, and since an authored
+    batch need not state the subtype, every subtype-scoped name is accepted
+    unless one was given.
+    """
+    if not contract:
+        return None
+    rows = (contract.get("propertyContracts") or {}).get(object_type)
+    if rows is None:
+        return None
+    allowed = set()
+    for r in rows:
+        if r.get("classification") != "Writable":
+            continue
+        if operation == "create" and not r.get("writableOnCreate"):
+            continue
+        if operation == "update" and not r.get("writableOnUpdate"):
+            continue
+        subs = r.get("subtypes") or []
+        if subs and subtype and subtype not in subs:
+            continue
+        if r.get("property"):
+            allowed.add(r["property"])
+    return allowed
+
+
+def lint(doc, contract=None):
     """Reproduce SemanticV15Linter.ValidateRawBatch offline.
 
     Returns a list of findings, each with the rule and the literal the binary
     uses for it, so a failure here can be matched to the message the server
     would produce. This is a convenience, not a substitute: the server does
     more than the raw lint.
+
+    When a recovered semantic contract is supplied, `properties` is additionally
+    checked against the authorable set for that objectType and operation. That
+    check is not part of SemanticV15Linter -- the server raises
+    `unsupportedProperty` later, during planning -- so those findings are
+    reported as warnings rather than lint errors.
     """
     out = []
 
@@ -303,6 +367,28 @@ def lint(doc):
                 "%s" % ch["tempId"])
 
         _lint_token(ch, base, declared_temp, err, is_root_change=True)
+
+        if contract and isinstance(ch.get("properties"), dict) \
+                and op in ("create", "update") and ot:
+            allowed = authorable_properties(
+                contract, ot, op, ch["properties"].get("fieldType"))
+            if allowed is None:
+                out.append({
+                    "path": base + ".objectType",
+                    "rule": "contractUnknownObjectType",
+                    "message": ("the recovered contract has no property table "
+                                "for objectType %r" % ot),
+                    "severity": "warning"})
+            else:
+                for key in sorted(ch["properties"]):
+                    if key in allowed:
+                        continue
+                    out.append({
+                        "path": "%s.properties.%s" % (base, key),
+                        "rule": "unsupportedProperty",
+                        "message": ("%r is not authorable on %s/%s per the "
+                                    "recovered contract" % (key, ot, op)),
+                        "severity": "warning"})
 
     seen_temp = set()
     for i, ch in enumerate(changes):

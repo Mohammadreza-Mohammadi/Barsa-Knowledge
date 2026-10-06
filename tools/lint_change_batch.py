@@ -29,6 +29,12 @@ def main():
                     help="print the JSON Schema and exit")
     ap.add_argument("--example", action="store_true",
                     help="print a worked, rule-clean example and exit")
+    ap.add_argument("--contract", metavar="PATH",
+                    help="semantic-contract.json; defaults to the generated "
+                         "dist/index/semantic-contract.json when present")
+    ap.add_argument("--no-contract", action="store_true",
+                    help="skip the property check and apply only the "
+                         "SemanticV15Linter rules")
     args = ap.parse_args()
 
     if args.schema:
@@ -51,17 +57,28 @@ def main():
         print(str(exc), file=sys.stderr)
         return 1
 
-    findings = cb.lint(doc)
-    if not findings:
-        changes = doc.get("changes") or []
-        print("clean: %d command(s), profileVersion %s"
-              % (len(changes), doc.get("profileVersion")))
-        return 0
-    for f in findings:
-        print("%-38s %s" % ("[%s]" % f["rule"], f["path"]))
+    contract = None if args.no_contract else cb.load_contract(args.contract)
+    findings = cb.lint(doc, contract)
+    errors = [f for f in findings if f.get("severity") != "warning"]
+    warnings = [f for f in findings if f.get("severity") == "warning"]
+
+    if contract is None and not args.no_contract:
+        print("note: no semantic contract found, so properties were not "
+              "checked. Run tools/extract.py to generate it.\n")
+
+    for f in errors + warnings:
+        label = "[%s %s]" % (f.get("severity", "error"), f["rule"])
+        print("%-46s %s" % (label, f["path"]))
         print("    %s" % f["message"])
-    print("\n%d finding(s)." % len(findings))
-    return 1
+
+    if not findings:
+        print("clean: %d command(s), profileVersion %s"
+              % (len(doc.get("changes") or []), doc.get("profileVersion")))
+        return 0
+    print("\n%d error(s), %d warning(s)." % (len(errors), len(warnings)))
+    # A warning is a contract-check finding, which the server raises later as
+    # unsupportedProperty rather than at lint time, so it does not fail here.
+    return 1 if errors else 0
 
 
 if __name__ == "__main__":
