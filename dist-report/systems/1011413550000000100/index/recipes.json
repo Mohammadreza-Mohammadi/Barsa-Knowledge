@@ -1,0 +1,360 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "written by this compiler, validated against dist/index/semantic-contract.json"
+ },
+ "bindingNotes": [
+  "Folder selectors are never bound: dist/ carries none, because the AiExport ZIP projection encodes navigation as directory structure without selectors."
+ ],
+ "bindings": {
+  "#<entity>": "#BarcodeReader",
+  "#<existing-report>": "#BarcodeReaders",
+  "#<field2>": "#Camera",
+  "#<field>": "#Value",
+  "#<view>": "#نمای 1"
+ },
+ "recipes": [
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r1-create-report",
+      "objectType": "report",
+      "operation": "create",
+      "parent": {
+       "objectType": "entity",
+       "selector": "#BarcodeReader"
+      },
+      "properties": {
+       "columns": [
+        {
+         "alias": "Title",
+         "field": "#Value"
+        },
+        {
+         "alias": "Notes",
+         "field": "#Camera"
+        }
+       ],
+       "condition": {
+        "all": []
+       },
+       "immediateExecute": true,
+       "name": "Gate list",
+       "reportType": "list"
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R1",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "The target entity is set by `parent`, not by a property. `entity` is ReadOnly on a report, so this is the only way to say which entity the report runs over -- and it cannot be changed afterwards.",
+    "`reportType` uses the AiExport vocabulary (`list`), not the CLR enum member (`ViewResults`). The mapping between them is Inferred; see REPORT-TYPES.md.",
+    "`condition: {\"all\": []}` is an empty condition. `all` and `any` line up with CombinationOperator. The comparison operator vocabulary is Unknown, so no filled condition is shown."
+   ],
+   "purpose": "The smallest useful report: pick an entity, pick columns, done.",
+   "selectorsBound": true,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [],
+   "selectorsUsed": [
+    "#BarcodeReader",
+    "#Camera",
+    "#Value"
+   ],
+   "title": "A list report on an existing entity",
+   "unverified": []
+  },
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r2-create-report",
+      "objectType": "report",
+      "operation": "create",
+      "parent": {
+       "objectType": "entity",
+       "selector": "#BarcodeReader"
+      },
+      "properties": {
+       "columns": [
+        {
+         "alias": "Title",
+         "field": "#Value"
+        }
+       ],
+       "condition": {
+        "all": []
+       },
+       "name": "Gate list",
+       "reportType": "list"
+      },
+      "tempId": "tmpReport"
+     },
+     {
+      "commandId": "r2-place-report",
+      "objectType": "folder",
+      "operation": "create",
+      "parent": {
+       "objectType": "folder",
+       "selector": "#<parent-folder>"
+      },
+      "properties": {
+       "name": "Gate list",
+       "order": 1,
+       "report": {
+        "tempId": "tmpReport"
+       }
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R2",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "Two commands, and the order matters: report is structuralOrder 120 and folder is 130, so the report is created first. The planner sorts by dependency anyway, but writing them in this order matches what it will do.",
+    "A placement is a `folder` object whose `report` points at the report. In the legacy tables that is a MET_FOLDER row with FolderType=Report (9) under a FolderType=ReportFolder (12) container.",
+    "`kind` is deliberately omitted. It is a create-only enum on `folder` and its semantic value vocabulary is Unknown -- no dist/ document lists the values the AiExport side uses. If the server requires it, it has to be supplied.",
+    "The parent folder selector is a placeholder even in a system-scoped pack: dist/ carries no folder selectors. See MISSING-FROM-DIST.md."
+   ],
+   "purpose": "A report nobody can navigate to is invisible. This adds the placement row.",
+   "selectorsBound": false,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [
+    "#<parent-folder>"
+   ],
+   "selectorsUsed": [
+    "#<parent-folder>",
+    "#BarcodeReader",
+    "#Value"
+   ],
+   "title": "A list report, placed under an existing folder",
+   "unverified": [
+    "Encoding a same-batch reference as `{\"tempId\": \"...\"}` inside a Reference property is not demonstrated by any supplied artifact. The linter accepts it and the tempId resolves within the batch, but whether the provider reads that shape is Unknown. The command order and structure are sound; this one encoding may need adjusting."
+   ]
+  },
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r3-update-columns",
+      "objectType": "report",
+      "operation": "update",
+      "properties": {
+       "columns": [
+        {
+         "alias": "Title",
+         "field": "#Value"
+        },
+        {
+         "alias": "Notes",
+         "field": "#Camera"
+        }
+       ]
+      },
+      "target": {
+       "objectType": "report",
+       "selector": "#BarcodeReaders"
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R3",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "`columns` is writable on update, so the whole column list is replaced. There is no evidence in dist/ of a per-column patch, so replacing the list is the only form shown.",
+    "The report is addressed by `target`, by selector. `entity` and `system` cannot appear here: both are ReadOnly."
+   ],
+   "purpose": "The most common edit.",
+   "selectorsBound": true,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [],
+   "selectorsUsed": [
+    "#BarcodeReaders",
+    "#Camera",
+    "#Value"
+   ],
+   "title": "Change the columns of an existing report",
+   "unverified": []
+  },
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r4-delete-report",
+      "objectType": "report",
+      "operation": "delete",
+      "target": {
+       "objectType": "report",
+       "selector": "#BarcodeReaders"
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R4",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "A delete carries no `properties`. `report` lists Delete among its supported operations, so the operation is available; what it does to the report's placement rows is Unknown."
+   ],
+   "purpose": "Included because `report` supports Delete and the shape differs.",
+   "selectorsBound": true,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [],
+   "selectorsUsed": [
+    "#BarcodeReaders"
+   ],
+   "title": "Delete a report",
+   "unverified": []
+  },
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r5-create-form-report",
+      "objectType": "report",
+      "operation": "create",
+      "parent": {
+       "objectType": "entity",
+       "selector": "#BarcodeReader"
+      },
+      "properties": {
+       "condition": {
+        "all": []
+       },
+       "name": "Gate form",
+       "reportType": "form",
+       "typeView": "#نمای 1"
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R5",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "`reportType: \"form\"` and a `typeView` selector is the shape the Push Notification artifact shows.",
+    "`typeView` is writable on create and update, and takes a view selector."
+   ],
+   "purpose": "The second reportType actually observed in an artifact.",
+   "selectorsBound": true,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [],
+   "selectorsUsed": [
+    "#BarcodeReader",
+    "#نمای 1"
+   ],
+   "title": "A form report over a view",
+   "unverified": []
+  },
+  {
+   "batch": {
+    "changes": [
+     {
+      "commandId": "r6-create-readonly-report",
+      "objectType": "report",
+      "operation": "create",
+      "parent": {
+       "objectType": "entity",
+       "selector": "#BarcodeReader"
+      },
+      "properties": {
+       "allowAddNew": false,
+       "allowEdit": false,
+       "allowGridColumnSort": true,
+       "allowRemove": false,
+       "allowView": true,
+       "columns": [
+        {
+         "alias": "Title",
+         "field": "#Value"
+        }
+       ],
+       "condition": {
+        "all": []
+       },
+       "name": "Gate list, read only",
+       "pageSize": 50,
+       "pagingType": "Automatic",
+       "reportType": "list",
+       "showRowNumber": true
+      }
+     }
+    ],
+    "policy": {
+     "errorPolicy": "continueIndependent",
+     "ignoreUnsupported": false
+    },
+    "profileVersion": 15
+   },
+   "id": "R6",
+   "lint": {
+    "clean": true,
+    "errors": [],
+    "warnings": []
+   },
+   "notes": [
+    "Every property here is writable on both create and update, so the same body works as an update with `target` instead of `parent`.",
+    "`pagingType` takes a ReportPagingType member; see `index/report-enums.json`."
+   ],
+   "purpose": "Shows the permission and paging groups, which are where most of the 80 properties live.",
+   "selectorsBound": true,
+   "selectorsNotInIndex": [],
+   "selectorsUnbound": [],
+   "selectorsUsed": [
+    "#BarcodeReader",
+    "#Value"
+   ],
+   "title": "A read-only list report with paging",
+   "unverified": []
+  }
+ ],
+ "validatedAgainst": "dist/index/semantic-contract.json",
+ "validator": "barsa_extractor.change_batch.lint, the same code path tools/lint_change_batch.py runs"
+}

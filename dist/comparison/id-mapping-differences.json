@@ -1,0 +1,38 @@
+{
+  "aiExport": {
+    "confidence": "Verified",
+    "dbNameRemap": [
+      "AiDbNameRemapContract",
+      "AiDbNameRemapEntry"
+    ],
+    "deferredBinding": "AiDeferredBindingEntry",
+    "lifecycle": [
+      "StructuralRequired",
+      "PostCreateConfig",
+      "FinalWiring"
+    ],
+    "model": "semantic selectors plus raw ids; the profile marks reference fields with a 'reference' rule whose value is 'meta'",
+    "referenceContract": [
+      "AiSemanticReferenceContract",
+      "AiSemanticReferenceResolver",
+      "AiPlanReferenceBinding"
+    ],
+    "selectorCodec": "SemanticSelectorCodec"
+  },
+  "keyDifference": "Legacy remaps numeric ids after the fact, driven by a table the package carries. AiExport carries semantic selectors that are resolved against the target at apply time, with explicit lifecycle phases and a deferred-binding mechanism for references that cannot resolve yet.",
+  "legacy": {
+    "confidence": "CrossVerified",
+    "consumer": "FixIdForImport.Init / FixAll",
+    "idScopeTables": [
+      "$spl_EorgType",
+      "$spl_EorgCenter"
+    ],
+    "model": "declared per column in $IdEmbeddingFields",
+    "operationalTypes": [
+      "pk",
+      "fk",
+      "idpattern",
+      "idlist"
+    ]
+  }
+}

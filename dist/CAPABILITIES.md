@@ -9,20 +9,24 @@ families confirm it.
 
 | Capability | Status | Entry points | Evidence sources |
 |---|---|---|---|
-| System.Export | CrossVerified | 1 | AssemblyMetadata, CallGraph, ExportSample, ExporterCode |
-| System.Import | CrossVerified | 2 | AssemblyMetadata, CallGraph, ExportSample, ImporterCode |
-| System.Clone | CrossVerified | 2 | AssemblyMetadata, CallGraph, ExporterCode, ImporterCode |
-| Package.ReadHeader | CrossVerified | 1 | AssemblyMetadata, CallGraph, ExportSample |
-| Package.PreviewTree | CrossVerified | 1 | AssemblyMetadata, CallGraph, ExportSample |
-| System.ExportJson | Verified | 2 | AssemblyMetadata, CallGraph |
-| Mie.ExportAll | Verified | 4 | AssemblyMetadata, CallGraph |
-| Mie.Import | Verified | 6 | AssemblyMetadata, CallGraph |
-| Report.Export | Verified | 7 | AssemblyMetadata, CallGraph |
+| DataExchange.Legacy.Export | CrossVerified | 1 | AssemblyMetadata, CallGraph, ExportSample, ExporterCode |
+| DataExchange.Legacy.Import | CrossVerified | 2 | AssemblyMetadata, CallGraph, ExportSample, ImporterCode |
+| DataExchange.Legacy.Clone | CrossVerified | 2 | AssemblyMetadata, CallGraph, ExporterCode, ImporterCode |
+| DataExchange.Legacy.PreviewDiff | CrossVerified | 2 | AssemblyMetadata, CallGraph, ExportSample |
+| DataExchange.Legacy.ReadHeader | CrossVerified | 1 | AssemblyMetadata, CallGraph, ExportSample |
+| DataExchange.AiExport.Export | CrossVerified | 5 | AssemblyMetadata, CallGraph, ExporterCode |
+| DataExchange.AiExport.Snapshot | Verified | 1 | AssemblyMetadata, CallGraph |
+| DataExchange.AiExport.ApplyChangeBatch | Verified | 6 | AssemblyMetadata, CallGraph, StringLiteral |
+| DataExchange.AiExport.ComparePackages | Verified | 2 | AssemblyMetadata, StringLiteral |
+| DataExchange.AiKnowledge.ReadWrite | Verified | 5 | AssemblyMetadata, CallGraph |
+| DataExchange.Mie.ExportAll | Verified | 1 | AssemblyMetadata, CallGraph |
+| DataExchange.Mie.Import | Verified | 4 | AssemblyMetadata, CallGraph |
+| Reporting.Export | Verified | 2 | AssemblyMetadata, CallGraph |
 
 ## Detail
 
 
-### `System.Export`
+### `DataExchange.Legacy.Export`
 
 **Status:** CrossVerified
 
@@ -33,15 +37,15 @@ families confirm it.
 
 **Requires**
 
-- An ObjectReferenceSelection built from the export tree
+- An ObjectReferenceSelection from the export tree
 - A live database connection
 
 **Risks**
 
-- Package may contain production data
+- The package may contain production data
 
 
-### `System.Import`
+### `DataExchange.Legacy.Import`
 
 **Status:** CrossVerified
 
@@ -59,10 +63,10 @@ families confirm it.
 **Risks**
 
 - Writes metadata to the target database
-- Rollback behaviour not established statically
+- Atomicity is not established
 
 
-### `System.Clone`
+### `DataExchange.Legacy.Clone`
 
 **Status:** CrossVerified
 
@@ -81,7 +85,22 @@ families confirm it.
 - Creates new object identities
 
 
-### `Package.ReadHeader`
+### `DataExchange.Legacy.PreviewDiff`
+
+**Status:** CrossVerified
+
+
+**Entry points**
+
+- `Barsa.Meta.DataExchange.BixHelper::ExtractData`
+- `Barsa.Meta.Extra.Ui.Win.Editor.ImportTreeControl::GetChangeIcon`
+
+**Requires**
+
+- ImportOptions.FirstFilePath
+
+
+### `DataExchange.Legacy.ReadHeader`
 
 **Status:** CrossVerified
 
@@ -91,75 +110,117 @@ families confirm it.
 - `Barsa.Meta.DataExchange.BixHelper::GetInfo`
 
 
-### `Package.PreviewTree`
+### `DataExchange.AiExport.Export`
 
 **Status:** CrossVerified
 
 
 **Entry points**
 
-- `Barsa.Meta.DataExchange.BixHelper::ExtractData`
+- `Barsa.Meta.DataExchange.BixHelper::ExportInitialJson`
+- `Barsa.Meta.DataExchange.BixHelper::ExportJson`
+- `Barsa.Meta.DataExchange.BixJsonExportManager::SaveFullStructuredJson`
+- `Barsa.Meta.DataExchange.BixJsonExportManager::SaveInitialJson`
+- `Barsa.Meta.DataExchange.BixJsonExportManager::SaveSelectedJson`
 
 **Requires**
 
-- ImportOptions.FirstFilePath
-
-
-### `System.ExportJson`
-
-**Status:** Verified
-
-
-**Entry points**
-
-- `Barsa.Meta.DataExchange.BixHelper::ExportInitialJson`
-- `Barsa.Meta.DataExchange.BixHelper::ExportJson`
+- An ObjectReferenceSelection
+- The embedded profile at profileVersion 15
 
 **Risks**
 
-- No JSON sample supplied; on-disk shape unverified
+- Confirmed against 2 AiExport artifact(s); the variants differ in their manifest, see comparison/match-report.md
 
 
-### `Mie.ExportAll`
+### `DataExchange.AiExport.Snapshot`
 
 **Status:** Verified
 
 
 **Entry points**
 
-- `Barsa.Meta.DataExchange.MieExportManagerAll::#NH`
-- `Barsa.Meta.DataExchange.MieExportManagerAll::#RH`
-- `Barsa.Meta.DataExchange.MieExportManagerAll::#TH`
+- `Barsa.Meta.DataExchange.BixHelper::ExportAiDiagnosticSnapshot`
+
+
+### `DataExchange.AiExport.ApplyChangeBatch`
+
+**Status:** Verified
+
+
+**Entry points**
+
+- `Barsa.Meta.DataExchange.BixWriteHelper::ApplyPlan`
+- `Barsa.Meta.DataExchange.BixWriteHelper::BuildPlan`
+- `Barsa.Meta.DataExchange.BixWriteHelper::ParseBatch`
+- `Barsa.Meta.DataExchange.BixWriteHelper::SerializePlan`
+- `Barsa.Meta.DataExchange.BixWriteHelper::SerializeResult`
+- `Barsa.Meta.DataExchange.BixWriteHelper::ValidateBatch`
+
+**Requires**
+
+- An AiChangeBatch document at profileVersion 15
+
+**Risks**
+
+- A batch can partially apply: AiBatchStatus has PartiallySucceeded
+
+
+### `DataExchange.AiExport.ComparePackages`
+
+**Status:** Verified
+
+
+**Entry points**
+
+- `Barsa.Meta.DataExchange.BixSnapshotManager::CompareSemanticPackages`
+- `Barsa.Meta.DataExchange.BixSnapshotManager::CompareSnapshots`
+
+
+### `DataExchange.AiKnowledge.ReadWrite`
+
+**Status:** Verified
+
+
+**Entry points**
+
+- `Barsa.Meta.DataExchange.BixKnowledgeHelper::ReadAiKnowledge`
+- `Barsa.Meta.DataExchange.BixKnowledgeHelper::ReadHumanKnowledge`
+- `Barsa.Meta.DataExchange.BixKnowledgeHelper::ResolveKnowledgeTarget`
+- `Barsa.Meta.DataExchange.BixKnowledgeHelper::WriteAiKnowledge`
+- `Barsa.Meta.DataExchange.BixKnowledgeHelper::WriteHumanKnowledge`
+
+
+### `DataExchange.Mie.ExportAll`
+
+**Status:** Verified
+
+
+**Entry points**
+
 - `Barsa.Meta.DataExchange.MieExportManagerAll::ExportAll`
 
 
-### `Mie.Import`
+### `DataExchange.Mie.Import`
 
 **Status:** Verified
 
 
 **Entry points**
 
-- `Barsa.Meta.DataExchange.MieImportManager::#YH`
-- `Barsa.Meta.DataExchange.MieImportManager::.ctor`
 - `Barsa.Meta.DataExchange.MieImportManager::GetImportingFileList`
 - `Barsa.Meta.DataExchange.MieImportManager::ImportFile`
 - `Barsa.Meta.DataExchange.MieImportManager::ImportFolder`
 - `Barsa.Meta.DataExchange.MieImportManager::ImportFolderSimple`
 
 
-### `Report.Export`
+### `Reporting.Export`
 
 **Status:** Verified
 
 
 **Entry points**
 
-- `Barsa.Meta.DataExchange.ExportReportHelper::#9Ih`
-- `Barsa.Meta.DataExchange.ExportReportHelper::#WC`
-- `Barsa.Meta.DataExchange.ExportReportHelper::#bJh`
-- `Barsa.Meta.DataExchange.ExportReportHelper::#cJh`
-- `Barsa.Meta.DataExchange.ExportReportHelper::#yJh`
 - `Barsa.Meta.DataExchange.ExportReportHelper::Export`
 - `Barsa.Meta.DataExchange.ExportReportHelper::ExportTable`
 

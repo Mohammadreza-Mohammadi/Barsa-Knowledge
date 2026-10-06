@@ -1,4 +1,253 @@
 {
+  "aiNormalized": [
+    {
+      "availability": {
+        "businessRules": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "presentInArtifact": true,
+          "rowCount": 2,
+          "status": "Verified"
+        },
+        "commands": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "entities": {
+          "presentInArtifact": true,
+          "rowCount": 18,
+          "status": "Verified"
+        },
+        "fields": {
+          "presentInArtifact": true,
+          "rowCount": 96,
+          "status": "Verified"
+        },
+        "navigation": {
+          "presentInArtifact": true,
+          "rowCount": 34,
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "presentInArtifact": true,
+          "rowCount": 21,
+          "status": "Verified"
+        },
+        "relations": {
+          "note": "Legacy met_Relation rows are instance links between objects. No AiExport $type was observed carrying those; AiExport projects relation *definitions* (as entity fields) instead. Recorded as a representation difference, not as data loss.",
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "reports": {
+          "presentInArtifact": true,
+          "rowCount": 18,
+          "status": "Verified"
+        },
+        "system": {
+          "presentInArtifact": true,
+          "rowCount": 1,
+          "status": "Verified"
+        },
+        "views": {
+          "presentInArtifact": true,
+          "rowCount": 8,
+          "status": "Verified"
+        },
+        "webServices": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 5,
+        "commands": null,
+        "entities": 18,
+        "fields": 96,
+        "navigation": 34,
+        "relationDefs": 21,
+        "relations": null,
+        "reports": 18,
+        "system": 1,
+        "views": 8,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "Push Notification (05-07-11 20;08).zip",
+        "format": "Barsa.AiExport",
+        "jsonFiles": 1,
+        "manifest": {
+          "_absentFields": [
+            "buildId",
+            "producer",
+            "producerVersion"
+          ],
+          "_source": "root.manifest",
+          "buildId": null,
+          "format": "Barsa.AiExport",
+          "formatVersion": null,
+          "packageType": null,
+          "producer": null,
+          "producerVersion": null,
+          "profileVersion": 15,
+          "representation": null,
+          "representations": null
+        },
+        "sha256": "650fe4b2f75c6b98f9bfda8c32b662918030153732e283131edb470b6d93a98e",
+        "typeCatalog": [
+          "Barsa.Meta.MetaCode",
+          "BarsaFormSideContentSetting",
+          "ButtonSetting",
+          "FormPanelSetting",
+          "entity",
+          "field",
+          "navigationGroup",
+          "navigationPage",
+          "navigationReport",
+          "navigationRoot",
+          "relation",
+          "report",
+          "system",
+          "view",
+          "اجرای الگو",
+          "اطلاعات سیستم",
+          "نسخه سیستم",
+          "وب سرویس خروجی",
+          "پارامتر وب سرویس خروجی"
+        ],
+        "variant": "AiExport.SingleJson"
+      }
+    },
+    {
+      "availability": {
+        "businessRules": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "commands": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "entities": {
+          "presentInArtifact": true,
+          "rowCount": 4,
+          "status": "Verified"
+        },
+        "fields": {
+          "presentInArtifact": true,
+          "rowCount": 7,
+          "status": "Verified"
+        },
+        "navigation": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "relationDefs": {
+          "presentInArtifact": true,
+          "rowCount": 1,
+          "status": "Verified"
+        },
+        "relations": {
+          "note": "Legacy met_Relation rows are instance links between objects. No AiExport $type was observed carrying those; AiExport projects relation *definitions* (as entity fields) instead. Recorded as a representation difference, not as data loss.",
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "reports": {
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "status": "Verified"
+        },
+        "system": {
+          "presentInArtifact": true,
+          "rowCount": 1,
+          "status": "Verified"
+        },
+        "views": {
+          "presentInArtifact": true,
+          "rowCount": 2,
+          "status": "Verified"
+        },
+        "webServices": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "presentInArtifact": false,
+          "rowCount": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 1,
+        "commands": null,
+        "entities": 4,
+        "fields": 7,
+        "navigation": 6,
+        "relationDefs": 1,
+        "relations": null,
+        "reports": 3,
+        "system": 1,
+        "views": 2,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "باركد (05-07-11 20;08).zip",
+        "format": "Barsa.AiExport",
+        "jsonFiles": 13,
+        "manifest": {
+          "_absentFields": [],
+          "_source": "manifest.json",
+          "buildId": "7b3494af-3966-423d-bb94-964cbb1265c9",
+          "format": "Barsa.AiExport",
+          "formatVersion": null,
+          "packageType": null,
+          "producer": "Barsa.Meta.DataExchange",
+          "producerVersion": "4.1.203.0",
+          "profileVersion": 15,
+          "representation": null,
+          "representations": null
+        },
+        "sha256": "d8f559625cb43a0df11fd35237eac3be66f06935a44621e9de57fd9fd2cfddcc",
+        "typeCatalog": [
+          "JsonProperty",
+          "entity",
+          "field",
+          "relation",
+          "report",
+          "system",
+          "view",
+          "اجرای الگو",
+          "تعریف فیلد پویا",
+          "تنظیمات بارکدخوان"
+        ],
+        "variant": "AiExport.ZipJsonPackage"
+      }
+    }
+  ],
   "collections": {
     "$schema": "./normalized-system-model.schema.json",
     "code": {
@@ -146,7 +395,7 @@
       ],
       "sourceTable": "met_Report"
     },
-    "schemaVersion": "2.0",
+    "schemaVersion": "3.0",
     "system": {
       "observedColumns": [
         "Caption",
@@ -182,6 +431,508 @@
       "status": "Unknown"
     }
   },
+  "legacyNormalized": [
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 139,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": true,
+          "rowCount": 4,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "Verified"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 344,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 2285,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 181,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": true,
+          "rowCount": 14,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "Verified"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": true,
+          "rowCount": 193,
+          "sourceTable": "met_Relation",
+          "status": "Verified"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 255,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 179,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 139,
+        "commands": 4,
+        "entities": 344,
+        "fields": 2285,
+        "navigation": 181,
+        "relationDefs": 14,
+        "relations": 193,
+        "reports": 255,
+        "system": 3,
+        "views": 179,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.202",
+          "Export Time": "2026-09-30T13:43:00.1759074+03:30",
+          "Export Version Time": "1405/05/26 15:09:53",
+          "FileName": "D:\\Barsa\\exports\\Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+          "Other Info": "تيم پروژه شركت برسا",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/sqlcore,Db=nid_NewWebDevelop"
+        },
+        "sha256": "05830f35ec7cf5df7a57e7bdbb82feb8be6e05060bd8af416c757ca04116e9e0",
+        "tableCount": 144
+      }
+    },
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "NotObservedInThisArtifact"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 4,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 8,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 7,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "NotObservedInThisArtifact"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": "met_Relation",
+          "status": "NotObservedInThisArtifact"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 1,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 2,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 3,
+        "commands": null,
+        "entities": 4,
+        "fields": 8,
+        "navigation": 7,
+        "relationDefs": null,
+        "relations": 0,
+        "reports": 3,
+        "system": 1,
+        "views": 2,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "باركد (05-02-02 11;14).metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.189",
+          "Export Time": "2026-04-22T11:14:39.715863+04:30",
+          "Export Version Time": "1404/12/03 10:00:53",
+          "FileName": "D:\\Barsa\\exports\\باركد (05-02-02 11;14).metaexport",
+          "Other Info": "تيم پروژه شركت برسا",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/sqlcore,Db=nid_NewWebDevelop"
+        },
+        "sha256": "a207b46696de2b9e6015c2cb90b5d5de31753816c13680401623e2aafa084340",
+        "tableCount": 23
+      }
+    },
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 147,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": true,
+          "rowCount": 9,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "Verified"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 199,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 1040,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 212,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": true,
+          "rowCount": 28,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "Verified"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": true,
+          "rowCount": 78,
+          "sourceTable": "met_Relation",
+          "status": "Verified"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 258,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 2,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 134,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 147,
+        "commands": 9,
+        "entities": 199,
+        "fields": 1040,
+        "navigation": 212,
+        "relationDefs": 28,
+        "relations": 80,
+        "reports": 258,
+        "system": 2,
+        "views": 134,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "NewMeta01.metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.197",
+          "Export Time": "2026-06-16T00:01:19.8636417+03:30",
+          "Export Version Time": "1405/03/25 23:00:44",
+          "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta01.metaexport",
+          "Other Info": "تيم توليد شركت برسا نوين راي",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+        },
+        "sha256": "b421fa6fcf30b2748d1db901727fd6d004e20d21c84484758581243646bd901e",
+        "tableCount": 67
+      }
+    },
+    {
+      "availability": {
+        "businessRules": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "code": {
+          "barsaType": "Barsa.Meta.MetaCode",
+          "presentInArtifact": true,
+          "rowCount": 131,
+          "sourceTable": "MET_METACODE",
+          "status": "Verified"
+        },
+        "commands": {
+          "barsaType": "Barsa.Meta.MetaCommand",
+          "presentInArtifact": true,
+          "rowCount": 10,
+          "sourceTable": "MET_METACOMMAND",
+          "status": "Verified"
+        },
+        "entities": {
+          "barsaType": "Barsa.Meta.TypeDef",
+          "presentInArtifact": true,
+          "rowCount": 129,
+          "sourceTable": "MET_TYPEDEF",
+          "status": "Verified"
+        },
+        "fields": {
+          "barsaType": "Barsa.Meta.FieldDef",
+          "presentInArtifact": true,
+          "rowCount": 711,
+          "sourceTable": "MET_FIELDDEF",
+          "status": "Verified"
+        },
+        "navigation": {
+          "barsaType": "Barsa.Meta.Folder",
+          "presentInArtifact": true,
+          "rowCount": 136,
+          "sourceTable": "MET_FOLDER",
+          "status": "Verified"
+        },
+        "relationDefs": {
+          "barsaType": "Barsa.Meta.RelationDef",
+          "presentInArtifact": true,
+          "rowCount": 15,
+          "sourceTable": "MET_RELATIONDEF",
+          "status": "Verified"
+        },
+        "relations": {
+          "barsaType": "Barsa.Meta.Relation",
+          "presentInArtifact": true,
+          "rowCount": 1880,
+          "sourceTable": "met_Relation",
+          "status": "Verified"
+        },
+        "reports": {
+          "barsaType": "Barsa.Meta.Report",
+          "presentInArtifact": true,
+          "rowCount": 155,
+          "sourceTable": "met_Report",
+          "status": "Verified"
+        },
+        "system": {
+          "barsaType": "Barsa.Meta.MetaSystem",
+          "presentInArtifact": true,
+          "rowCount": 3,
+          "sourceTable": "MET_METASYSTEM",
+          "status": "Verified"
+        },
+        "views": {
+          "barsaType": "Barsa.Meta.TypeViewEntity",
+          "presentInArtifact": true,
+          "rowCount": 91,
+          "sourceTable": "MET_TYPEVIEWENTITY",
+          "status": "Verified"
+        },
+        "webServices": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        },
+        "workflows": {
+          "barsaType": null,
+          "presentInArtifact": false,
+          "rowCount": null,
+          "sourceTable": null,
+          "status": "NotObservedInThisArtifact"
+        }
+      },
+      "counts": {
+        "businessRules": null,
+        "code": 131,
+        "commands": 10,
+        "entities": 129,
+        "fields": 711,
+        "navigation": 136,
+        "relationDefs": 15,
+        "relations": 1914,
+        "reports": 155,
+        "system": 3,
+        "views": 91,
+        "webServices": null,
+        "workflows": null
+      },
+      "source": {
+        "file": "NewMeta02.metaexport",
+        "format": "Barsa.LegacyMetaExport",
+        "header": {
+          "Core Version": "4.1.190",
+          "Export Time": "2026-04-19T10:34:21.8095821+03:30",
+          "Export Version Time": "1405/01/29 11:20:49",
+          "FileName": "D:\\BarsaTfs\\Framework\\Releases\\Release-4.01\\Build\\LocalExecution\\NewMeta02.metaexport",
+          "Other Info": "تيم توليد شركت برسا نوين راي",
+          "PageCount": "1",
+          "Source Db": "Sql:172.16.176.88/SqlCore,Db=Nid_NewMeta01"
+        },
+        "sha256": "77fb320e6515d84cfcd7c128979d8407db70eab471ba3c16c07bfdd9198cd16f",
+        "tableCount": 76
+      }
+    }
+  ],
   "reconstructionOrder": [
     {
       "confidence": "Observed",
@@ -226,5 +977,5 @@
       "target": "Missed reference resolution"
     }
   ],
-  "schemaVersion": "2.0"
+  "schemaVersion": "3.0"
 }

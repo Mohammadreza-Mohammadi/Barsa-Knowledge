@@ -1,0 +1,3520 @@
+{
+  "_availability": {
+    "businessRules": {
+      "barsaType": null,
+      "presentInArtifact": false,
+      "rowCount": null,
+      "sourceTable": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "code": {
+      "barsaType": "Barsa.Meta.MetaCode",
+      "presentInArtifact": true,
+      "rowCount": 139,
+      "sourceTable": "MET_METACODE",
+      "status": "Verified"
+    },
+    "commands": {
+      "barsaType": "Barsa.Meta.MetaCommand",
+      "presentInArtifact": true,
+      "rowCount": 4,
+      "sourceTable": "MET_METACOMMAND",
+      "status": "Verified"
+    },
+    "entities": {
+      "barsaType": "Barsa.Meta.TypeDef",
+      "presentInArtifact": true,
+      "rowCount": 344,
+      "sourceTable": "MET_TYPEDEF",
+      "status": "Verified"
+    },
+    "fields": {
+      "barsaType": "Barsa.Meta.FieldDef",
+      "presentInArtifact": true,
+      "rowCount": 2285,
+      "sourceTable": "MET_FIELDDEF",
+      "status": "Verified"
+    },
+    "navigation": {
+      "barsaType": "Barsa.Meta.Folder",
+      "presentInArtifact": true,
+      "rowCount": 181,
+      "sourceTable": "MET_FOLDER",
+      "status": "Verified"
+    },
+    "relationDefs": {
+      "barsaType": "Barsa.Meta.RelationDef",
+      "presentInArtifact": true,
+      "rowCount": 14,
+      "sourceTable": "MET_RELATIONDEF",
+      "status": "Verified"
+    },
+    "relations": {
+      "barsaType": "Barsa.Meta.Relation",
+      "presentInArtifact": true,
+      "rowCount": 193,
+      "sourceTable": "met_Relation",
+      "status": "Verified"
+    },
+    "reports": {
+      "barsaType": "Barsa.Meta.Report",
+      "presentInArtifact": true,
+      "rowCount": 255,
+      "sourceTable": "met_Report",
+      "status": "Verified"
+    },
+    "system": {
+      "barsaType": "Barsa.Meta.MetaSystem",
+      "presentInArtifact": true,
+      "rowCount": 3,
+      "sourceTable": "MET_METASYSTEM",
+      "status": "Verified"
+    },
+    "views": {
+      "barsaType": "Barsa.Meta.TypeViewEntity",
+      "presentInArtifact": true,
+      "rowCount": 179,
+      "sourceTable": "MET_TYPEVIEWENTITY",
+      "status": "Verified"
+    },
+    "webServices": {
+      "barsaType": null,
+      "presentInArtifact": false,
+      "rowCount": null,
+      "sourceTable": null,
+      "status": "NotObservedInThisArtifact"
+    },
+    "workflows": {
+      "barsaType": null,
+      "presentInArtifact": false,
+      "rowCount": null,
+      "sourceTable": null,
+      "status": "NotObservedInThisArtifact"
+    }
+  },
+  "_source": {
+    "file": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+    "format": "Barsa.LegacyMetaExport",
+    "header": {
+      "Core Version": "4.1.202",
+      "Export Time": "2026-09-30T13:43:00.1759074+03:30",
+      "Export Version Time": "1405/05/26 15:09:53",
+      "FileName": "D:\\Barsa\\exports\\Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+      "Other Info": "تيم پروژه شركت برسا",
+      "PageCount": "1",
+      "Source Db": "Sql:172.16.176.88/sqlcore,Db=nid_NewWebDevelop"
+    },
+    "sha256": "05830f35ec7cf5df7a57e7bdbb82feb8be6e05060bd8af416c757ca04116e9e0",
+    "tableCount": 144
+  },
+  "_truncated_code": {
+    "shown": 25,
+    "total": 139
+  },
+  "_truncated_entities": {
+    "shown": 25,
+    "total": 344
+  },
+  "_truncated_fields": {
+    "shown": 25,
+    "total": 2285
+  },
+  "_truncated_navigation": {
+    "shown": 25,
+    "total": 181
+  },
+  "_truncated_relations": {
+    "shown": 25,
+    "total": 193
+  },
+  "_truncated_reports": {
+    "shown": 25,
+    "total": 255
+  },
+  "_truncated_views": {
+    "shown": 25,
+    "total": 179
+  },
+  "businessRules": null,
+  "code": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ParameterCode:1013413830000000386",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000116",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000138"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000119",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000461"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000120",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000462"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000121",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000463"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000122",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000464"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000123",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000465"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000124",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000466"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000125",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000466"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000126",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000464"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000127",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000465"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000128",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000463"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000129",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413510000000475"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "AutoCalc",
+      "code": null,
+      "codeLanguage": "1",
+      "codeLayer": "2",
+      "codeLocation": "1",
+      "id": "1011413820000000131",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1012413510000000735"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002613",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000133",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000216"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002614",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000134",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000216"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002634",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000135",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000216"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002635",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000136",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000216"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002647",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000137",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000142"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ColumnCustomSql:1013413790000002653",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000138",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1011413530000000228"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001358",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000141",
+      "systemId": "1013413550000000100",
+      "targetObjectId": "1014413530000000125"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001360",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000142",
+      "systemId": "1013413550000000100",
+      "targetObjectId": "1014413530000000125"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001358",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000143",
+      "systemId": "1013413550000000100",
+      "targetObjectId": "1014413530000000125"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001360",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000144",
+      "systemId": "1013413550000000100",
+      "targetObjectId": "1014413530000000125"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001358",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000145",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1014413530000000124"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACODE[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "addressInTarget": "ConditionCustomSql:1013413780000001360",
+      "code": null,
+      "codeLanguage": "3",
+      "codeLayer": "1",
+      "codeLocation": "1",
+      "id": "1011413820000000146",
+      "systemId": "1013413550000010104",
+      "targetObjectId": "1014413530000000124"
+    }
+  ],
+  "commands": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACOMMAND[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ايجاد App بصورت خودكار",
+      "id": "1011413720000000105",
+      "isGlobal": false,
+      "location": "IsInactive:True",
+      "systemId": "1013413550000010104",
+      "targetId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACOMMAND[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "توليد AppTiles",
+      "id": "1011413720000000106",
+      "isGlobal": false,
+      "location": null,
+      "systemId": "1013413550000010104",
+      "targetId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACOMMAND[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "تغيير رمز عبور",
+      "id": "1011413720000000107",
+      "isGlobal": false,
+      "location": null,
+      "systemId": "1013413550000010104",
+      "targetId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METACOMMAND[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "تنظيمات",
+      "id": "1081413720000000100",
+      "isGlobal": false,
+      "location": null,
+      "systemId": "1013413550000010104",
+      "targetId": "0"
+    }
+  ],
+  "entities": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "RedirectReportNavigatorCommandُSetting",
+      "dbName": "dyn_230",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000130",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_230",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "NewsTileSetting",
+      "dbName": "dyn_231",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000131",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_231",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "NewsField",
+      "dbName": "dyn_232",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000132",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_232",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ActionsLinkSetting",
+      "dbName": "dyn_235",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000133",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_235",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "SearchPanelSettings",
+      "dbName": "dyn_238",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000136",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_238",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "MetaConditions",
+      "dbName": "dyn_241",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000139",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_241",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "نوع واسط كاربري گزارش",
+      "dbName": "dyn_211",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000151",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_211",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "UiTableViewSettings",
+      "dbName": "dyn_253",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000152",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_253",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "UiListViewSetting",
+      "dbName": "dyn_5311",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000153",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_5311",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ListItemSetting",
+      "dbName": "dyn_30",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000154",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_30",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "UiCardViewSetting",
+      "dbName": "dyn_5411",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000155",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_5411",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "CardListItemSettings",
+      "dbName": "dyn_621",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000156",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_621",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "تنظيمات پايه",
+      "dbName": "dyn_821",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000161",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_821",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "MicroProcessFlowViewContainerSetting",
+      "dbName": "dyn_250",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000166",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_250",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "TabProcessViewContainerSetting",
+      "dbName": "dyn_251",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000167",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_251",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "AppTileBuilder",
+      "dbName": "dyn_256",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000173",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_256",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "UserRegister",
+      "dbName": "dyn_256",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000175",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_256",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "EditableGridSetting",
+      "dbName": "dyn_258",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000177",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_258",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "AppGroup",
+      "dbName": "dyn_274",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000200",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_274",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "App",
+      "dbName": "dyn_275",
+      "defaultFieldId": "1011413510000000566",
+      "defaultReportId": "0",
+      "id": "1011413500000000201",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_275",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "تغيير رمزعبور",
+      "dbName": "dyn_276",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000204",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_276",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000010104"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "FormTileSettings",
+      "dbName": "dyn_791",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000210",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_791",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "CardContentImageAndTitleSetting",
+      "dbName": "dyn_494",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000222",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_494",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "CardHeaderLogoTitleSubtitle",
+      "dbName": "dyn_285",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000223",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_285",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "FormContentQuickViewSettings",
+      "dbName": "dyn_286",
+      "defaultFieldId": "0",
+      "defaultReportId": "0",
+      "id": "1011413500000000224",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_286",
+      "parentId": "0",
+      "previewFieldId": "0",
+      "systemId": "1013413550000000100"
+    }
+  ],
+  "extensions": {},
+  "fields": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ReportPageUrl",
+      "dataType": null,
+      "dbName": "ReportPageUrl",
+      "defaultValue": null,
+      "entityId": "1011413500000000130",
+      "fieldInfoType": "2",
+      "id": "1011413510000000211",
+      "name": "ReportPageUrl",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "TileSetting",
+      "dataType": null,
+      "dbName": "TileSetting",
+      "defaultValue": null,
+      "entityId": "1011413500000000131",
+      "fieldInfoType": "9",
+      "id": "1011413510000000213",
+      "name": "TileSetting",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "رابطه ليستي",
+      "dataType": null,
+      "dbName": "Report",
+      "defaultValue": null,
+      "entityId": "1011413500000000131",
+      "fieldInfoType": "12",
+      "id": "1011413510000000214",
+      "name": "Report",
+      "nullable": null,
+      "orderNumber": 2,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "text",
+      "dataType": null,
+      "dbName": "Text",
+      "defaultValue": null,
+      "entityId": "1011413500000000132",
+      "fieldInfoType": "2",
+      "id": "1011413510000000215",
+      "name": "Text",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "img",
+      "dataType": null,
+      "dbName": "Img",
+      "defaultValue": null,
+      "entityId": "1011413500000000132",
+      "fieldInfoType": "33",
+      "id": "1011413510000000216",
+      "name": "Img",
+      "nullable": null,
+      "orderNumber": 2,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "footer1",
+      "dataType": null,
+      "dbName": "Footer1",
+      "defaultValue": null,
+      "entityId": "1011413500000000132",
+      "fieldInfoType": "2",
+      "id": "1011413510000000217",
+      "name": "Footer1",
+      "nullable": null,
+      "orderNumber": 3,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "footer2",
+      "dataType": null,
+      "dbName": "Footer2",
+      "defaultValue": null,
+      "entityId": "1011413500000000132",
+      "fieldInfoType": "2",
+      "id": "1011413510000000218",
+      "name": "Footer2",
+      "nullable": null,
+      "orderNumber": 4,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "عنوان",
+      "dataType": null,
+      "dbName": "F1",
+      "defaultValue": null,
+      "entityId": "1011413500000000133",
+      "fieldInfoType": "2",
+      "id": "1011413510000000220",
+      "name": "F1",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "Title",
+      "dataType": null,
+      "dbName": "Title",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "2",
+      "id": "1011413510000000226",
+      "name": "Title",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "IsDefault",
+      "dataType": null,
+      "dbName": "IsDefault",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "5",
+      "id": "1011413510000000227",
+      "name": "IsDefault",
+      "nullable": null,
+      "orderNumber": 2,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "IsPublic",
+      "dataType": null,
+      "dbName": "IsPublic",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "5",
+      "id": "1011413510000000228",
+      "name": "IsPublic",
+      "nullable": null,
+      "orderNumber": 3,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ApplyAutomatically",
+      "dataType": null,
+      "dbName": "ApplyAutomatically",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "5",
+      "id": "1011413510000000229",
+      "name": "ApplyAutomatically",
+      "nullable": null,
+      "orderNumber": 4,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "SplUser",
+      "dataType": null,
+      "dbName": "SplUser",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "9",
+      "id": "1011413510000000230",
+      "name": "SplUser",
+      "nullable": null,
+      "orderNumber": 5,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "Report",
+      "dataType": null,
+      "dbName": "Report",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "9",
+      "id": "1011413510000000231",
+      "name": "Report",
+      "nullable": null,
+      "orderNumber": 6,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "SearchMo",
+      "dataType": null,
+      "dbName": "SearchMo",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "2",
+      "id": "1011413510000000232",
+      "name": "SearchMo",
+      "nullable": null,
+      "orderNumber": 7,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "FieldsSetting",
+      "dataType": null,
+      "dbName": "FieldsSetting",
+      "defaultValue": null,
+      "entityId": "1011413500000000136",
+      "fieldInfoType": "2",
+      "id": "1011413510000000233",
+      "name": "FieldsSetting",
+      "nullable": null,
+      "orderNumber": 8,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "Title",
+      "dataType": null,
+      "dbName": "Title",
+      "defaultValue": null,
+      "entityId": "1011413500000000139",
+      "fieldInfoType": "2",
+      "id": "1011413510000000259",
+      "name": "Title",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "State",
+      "dataType": null,
+      "dbName": "State",
+      "defaultValue": null,
+      "entityId": "1014413500000000140",
+      "fieldInfoType": "1014022110000000100",
+      "id": "1011413510000000282",
+      "name": "State",
+      "nullable": null,
+      "orderNumber": 7,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "System",
+      "dataType": null,
+      "dbName": "F1",
+      "defaultValue": null,
+      "entityId": "1013413500000010154",
+      "fieldInfoType": "9",
+      "id": "1011413510000000286",
+      "name": "F1",
+      "nullable": null,
+      "orderNumber": 18,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "BreadCrumb",
+      "dataType": null,
+      "dbName": "BreadCrumb",
+      "defaultValue": null,
+      "entityId": "1013413500000010159",
+      "fieldInfoType": "2",
+      "id": "1011413510000000292",
+      "name": "BreadCrumb",
+      "nullable": null,
+      "orderNumber": 19,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "IsActionLink",
+      "dataType": null,
+      "dbName": "IsActionLink",
+      "defaultValue": null,
+      "entityId": "1014413500000000124",
+      "fieldInfoType": "5",
+      "id": "1011413510000000297",
+      "name": "IsActionLink",
+      "nullable": null,
+      "orderNumber": 24,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "IsActionLink",
+      "dataType": null,
+      "dbName": "IsActionLink",
+      "defaultValue": null,
+      "entityId": "1014413500000000128",
+      "fieldInfoType": "5",
+      "id": "1011413510000000298",
+      "name": "IsActionLink",
+      "nullable": null,
+      "orderNumber": 10,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "OrderItemActionLink",
+      "dataType": null,
+      "dbName": "OrderItemActionLink",
+      "defaultValue": null,
+      "entityId": "1014413500000000128",
+      "fieldInfoType": "0",
+      "id": "1011413510000000299",
+      "name": "OrderItemActionLink",
+      "nullable": null,
+      "orderNumber": 11,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "ليست كنترل واسط كاربري",
+      "dataType": null,
+      "dbName": "ViewCollection",
+      "defaultValue": null,
+      "entityId": "1014413500000000158",
+      "fieldInfoType": "21",
+      "id": "1011413510000000306",
+      "name": "ViewCollection",
+      "nullable": null,
+      "orderNumber": 21,
+      "relationType": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FIELDDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "UiGridSetting",
+      "dataType": null,
+      "dbName": "F1",
+      "defaultValue": null,
+      "entityId": "1011413500000000151",
+      "fieldInfoType": "9",
+      "id": "1011413510000000326",
+      "name": "F1",
+      "nullable": null,
+      "orderNumber": 1,
+      "relationType": "0"
+    }
+  ],
+  "navigation": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "12",
+      "id": "1011413520000000122",
+      "name": "SearchPanel Management",
+      "orderNo": 10232,
+      "parentId": "1013413520000010149",
+      "path": "-100-101-10148-10149-122-",
+      "reportId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000123",
+      "name": "SearchPanelSettings",
+      "orderNo": 124,
+      "parentId": "1011413520000000122",
+      "path": "-100-101-10148-10149-122-123-",
+      "reportId": "1011413530000000126"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000134",
+      "name": "امكان شيء",
+      "orderNo": 10189,
+      "parentId": "1013413520000000104",
+      "path": "-100-101-102-103-104-134-",
+      "reportId": "1011413530000000137"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "12",
+      "id": "1011413520000000135",
+      "name": "Portal",
+      "orderNo": 10123,
+      "parentId": "1013413520000000103",
+      "path": "-100-101-102-103-135-",
+      "reportId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000138",
+      "name": "SocialConnectionProviders",
+      "orderNo": 208,
+      "parentId": "1011413520000000135",
+      "path": "-100-101-102-103-135-138-",
+      "reportId": "1011413530000000140"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000139",
+      "name": "UrlLinkProviders",
+      "orderNo": 209,
+      "parentId": "1011413520000000135",
+      "path": "-100-101-102-103-135-139-",
+      "reportId": "1011413530000000141"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000140",
+      "name": "AllAppTileGroups",
+      "orderNo": 142,
+      "parentId": "1014413520000000132",
+      "path": "-100-101-10148-10149-132-140-",
+      "reportId": "1011413530000000142"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000144",
+      "name": "_تنظيمات_پايه_پورتال",
+      "orderNo": 10165,
+      "parentId": "1013413520000010150",
+      "path": "-100-101-10148-10149-10150-144-",
+      "reportId": "1011413530000000147"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000157",
+      "name": "MetaSystems",
+      "orderNo": 211,
+      "parentId": "1011413520000000135",
+      "path": "-100-101-102-103-135-157-",
+      "reportId": "1011413530000000164"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000163",
+      "name": "AutoAppTile",
+      "orderNo": 164,
+      "parentId": "1014413520000000132",
+      "path": "-100-101-10148-10149-132-163-",
+      "reportId": "1011413530000000174"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000164",
+      "name": "AutoGroups",
+      "orderNo": 165,
+      "parentId": "1014413520000000132",
+      "path": "-100-101-10148-10149-132-164-",
+      "reportId": "1011413530000000175"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000165",
+      "name": "UserRegister",
+      "orderNo": 219,
+      "parentId": "1014413520000000123",
+      "path": "-100-101-10148-10149-123-165-",
+      "reportId": "1011413530000000177"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "12",
+      "id": "1011413520000000174",
+      "name": "DeveloperCommands",
+      "orderNo": 10236,
+      "parentId": "1013413520000010149",
+      "path": "-100-101-10148-10149-174-",
+      "reportId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000175",
+      "name": "AppGroups",
+      "orderNo": 176,
+      "parentId": "1011413520000000174",
+      "path": "-100-101-10148-10149-174-175-",
+      "reportId": "1011413530000000202"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000182",
+      "name": "Apps",
+      "orderNo": 183,
+      "parentId": "1011413520000000174",
+      "path": "-100-101-10148-10149-174-182-",
+      "reportId": "1011413530000000216"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000187",
+      "name": "UserAppTileGroupsSetting",
+      "orderNo": 188,
+      "parentId": "1014413520000000132",
+      "path": "-100-101-10148-10149-132-187-",
+      "reportId": "1011413530000000227"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000188",
+      "name": "SearchPanelSettings",
+      "orderNo": 212,
+      "parentId": "1011413520000000135",
+      "path": "-100-101-102-103-135-188-",
+      "reportId": "1011413530000000233"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000192",
+      "name": "PinnedAppInTileGroups",
+      "orderNo": 193,
+      "parentId": "1011413520000000174",
+      "path": "-100-101-10148-10149-174-192-",
+      "reportId": "1011413530000000257"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000205",
+      "name": "ActionItems",
+      "orderNo": 225,
+      "parentId": "1014413520000000122",
+      "path": "-100-101-10148-10149-122-205-",
+      "reportId": "1011413530000000291"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000216",
+      "name": "TileSetting",
+      "orderNo": 217,
+      "parentId": "1011413520000000174",
+      "path": "-100-101-10148-10149-174-216-",
+      "reportId": "1011413530000000303"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000222",
+      "name": "نتيجه جستجو پنجره واحد",
+      "orderNo": 223,
+      "parentId": "1011413520000000122",
+      "path": "-100-101-10148-10149-122-222-",
+      "reportId": "1011413530000000310"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000226",
+      "name": "SocialConnections",
+      "orderNo": 227,
+      "parentId": "1014413520000000123",
+      "path": "-100-101-10148-10149-123-226-",
+      "reportId": "1011413530000000319"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000227",
+      "name": "SocialConnectionProviders",
+      "orderNo": 228,
+      "parentId": "1014413520000000123",
+      "path": "-100-101-10148-10149-123-227-",
+      "reportId": "1011413530000000320"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "12",
+      "id": "1011413520000000231",
+      "name": "G4B",
+      "orderNo": 10238,
+      "parentId": "1013413520000010149",
+      "path": "-100-101-10148-10149-231-",
+      "reportId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_FOLDER[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "containingTypeDefId": "0",
+      "folderType": "9",
+      "id": "1011413520000000232",
+      "name": "G4BRequests",
+      "orderNo": 233,
+      "parentId": "1011413520000000231",
+      "path": "-100-101-10148-10149-231-232-",
+      "reportId": "1011413530000000324"
+    }
+  ],
+  "relationDefs": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1011413570000000105",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1011413500000000131",
+      "sourceFieldDefId": "1011413510000000214",
+      "targetEntity": "1011413500000000132",
+      "title": "NewsTileSetting: رابطه ليستي"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1012413570000000102",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1013413500000010153",
+      "sourceFieldDefId": "1012413510000000251",
+      "targetEntity": "1013413500000010159",
+      "title": "FooterData: FastLink"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1013413570000000101",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1013413500000000100",
+      "sourceFieldDefId": "1013413510000000122",
+      "targetEntity": "1013413500000000103",
+      "title": "تعريف الگو x: نوع جايگاه"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1013413570000000102",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1013413500000010101",
+      "sourceFieldDefId": "1013413510000010110",
+      "targetEntity": "1013413500000000103",
+      "title": "تعريف الگو: نوع جايگاه"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1013413570000000103",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1013413500000010117",
+      "sourceFieldDefId": "1013413510000010170",
+      "targetEntity": "1080413500000000111",
+      "title": "خروجي واسط كاربري: پروژه هاي واسط كاربري"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1013413570000000121",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1013413500000010101",
+      "sourceFieldDefId": "1013413510000010439",
+      "targetEntity": "1013413500000010175",
+      "title": "تعريف الگو: Parameters"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1014413570000000105",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1080413500000000111",
+      "sourceFieldDefId": "1014413510000000682",
+      "targetEntity": "1080413500000000111",
+      "title": "پروژه واسط كاربري: Dependencies"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1014413570000000110",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1014413500000000190",
+      "sourceFieldDefId": "1014413510000000767",
+      "targetEntity": "1013413500000000104",
+      "title": "RootPageSettings: Components"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1014413570000000111",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1014413500000000191",
+      "sourceFieldDefId": "1014413510000000769",
+      "targetEntity": "1013413500000000104",
+      "title": "PageSettings: Components"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1085413570000000117",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1011413500000000173",
+      "sourceFieldDefId": "1085413510000001129",
+      "targetEntity": "1001413500000000149",
+      "title": "AppTileBuilder: گزارش هاي انتخاب شده"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1085413570000000198",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1085413500000000328",
+      "sourceFieldDefId": "1085413510000002717",
+      "targetEntity": "1001413500000000550",
+      "title": "دسترسي گزارشات: كاربران"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "1085413570000000199",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "1085413500000000328",
+      "sourceFieldDefId": "1085413510000002718",
+      "targetEntity": "1001413500000000252",
+      "title": "دسترسي گزارشات: گروه هاي امنيت"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "7097413570000000120",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "7097413500000010233",
+      "sourceFieldDefId": "7097413510000011109",
+      "targetEntity": "7097413500000000108",
+      "title": "جستجو:نوتيفيكشن2: ليست"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_RELATIONDEF[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "id": "7097413570000000125",
+      "isBilateral": false,
+      "max": 0,
+      "relationType": "1",
+      "reverseTitle": null,
+      "sourceEntity": "7097413500000010237",
+      "sourceFieldDefId": "7097413510000011125",
+      "targetEntity": "7097413500000010174",
+      "title": "UserNotificationSetting: تنظيم اعلان گروه كارتابل ها"
+    }
+  ],
+  "relations": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1011023970000000100",
+      "id": "1011413560000002130",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000215"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1012413560000000111",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1012023910000000109"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1012413560000000111",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1012023910000000109"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000150",
+      "id": "7097413560000011149",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1012023910000000174"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000150",
+      "id": "7097413560000011149",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1012023910000000174"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000139",
+      "id": "7097413560000011144",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1013023910000000144"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000139",
+      "id": "7097413560000011144",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1013023910000000144"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023900000000108",
+      "id": "1014413560000000149",
+      "relationDefId": "1014413570000000105",
+      "role": null,
+      "sourceId": "1014023900000000101"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000145",
+      "id": "7097413560000011146",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1014023910000000134"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000145",
+      "id": "7097413560000011146",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1014023910000000134"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000101",
+      "id": "1082413560000000116",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1082023910000000110"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000101",
+      "id": "1082413560000000116",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1082023910000000110"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000101",
+      "id": "7097413560000011369",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "7097023910000000325"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "7097023970000000101",
+      "id": "7097413560000011369",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "7097023910000000325"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1011413560000000143",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000117"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1011413560000000143",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000117"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1011413560000002038",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000185"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000102",
+      "id": "1011413560000002038",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000185"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000100",
+      "id": "1011413560000002125",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000207"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000100",
+      "id": "1011413560000002125",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000207"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1011023970000000100",
+      "id": "1011413560000002129",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000213"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1011023970000000100",
+      "id": "1011413560000002129",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000213"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000153",
+      "id": "1011413560000002132",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000217"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1013023970000000153",
+      "id": "1011413560000002132",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000217"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Relation[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "destId": "1011023970000000101",
+      "id": "1011413560000002133",
+      "relationDefId": "1013413570000000102",
+      "role": null,
+      "sourceId": "1011023910000000218"
+    }
+  ],
+  "reports": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000125",
+      "name": "رابطه NewsField",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000132",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000126",
+      "name": "SearchPanelSettings",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000136",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000137",
+      "name": "امكان شيء",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1005413500000020109",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000138",
+      "name": null,
+      "parameters": null,
+      "query": null,
+      "reportType": "7",
+      "searchObjectId": "1013413500000010154",
+      "systemId": "1001413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000140",
+      "name": "SocialConnectionProviders",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000102",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000141",
+      "name": "UrlLinkProviders",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000107",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000142",
+      "name": "AllAppTileGroups",
+      "parameters": null,
+      "query": null,
+      "reportType": "7",
+      "searchObjectId": "1014413500000000123",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000147",
+      "name": "_تنظيمات_پايه_پورتال",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000161",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000164",
+      "name": "MetaSystems",
+      "parameters": null,
+      "query": null,
+      "reportType": "7",
+      "searchObjectId": "1001413500000001355",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000167",
+      "name": "رابطه MetaFolder",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1001413500000000149",
+      "systemId": "0",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000168",
+      "name": "رابطه MetaFolder",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1001413500000000149",
+      "systemId": "0",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000174",
+      "name": "AutoAppTile",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000124",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000175",
+      "name": "AutoGroups",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000123",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000176",
+      "name": "رابطه MetaSystem",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1001413500000001355",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000177",
+      "name": "UserRegister",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000175",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000202",
+      "name": "AppGroups",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000200",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000206",
+      "name": "رابطه DeveloperAppCommand",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000201",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000215",
+      "name": "رابطه AppTile",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000124",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000216",
+      "name": "Apps",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000201",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000227",
+      "name": "UserAppTileGroupsSetting",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000127",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000228",
+      "name": "AllAppTileGroupSatheDovom",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000123",
+      "systemId": "0",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000233",
+      "name": "SearchPanelSettings",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1011413500000000136",
+      "systemId": "1013413550000000100",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000244",
+      "name": "رابطه AppTile",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000124",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000245",
+      "name": "رابطه UserAppTileSetting",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000128",
+      "systemId": "1013413550000010104",
+      "template": null
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.met_Report[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "customColumns": null,
+      "id": "1011413530000000257",
+      "name": "PinnedAppInTileGroups",
+      "parameters": null,
+      "query": null,
+      "reportType": "0",
+      "searchObjectId": "1014413500000000123",
+      "systemId": "1013413550000010104",
+      "template": null
+    }
+  ],
+  "schemaVersion": "3.0",
+  "system": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METASYSTEM[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "الگو",
+      "id": "1013413550000000100",
+      "isInactive": false,
+      "name": null,
+      "rootFolderId": "1013413520000000102",
+      "version": "3.0.7"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METASYSTEM[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "پورتال برسانوين‌راي",
+      "id": "1013413550000010104",
+      "isInactive": false,
+      "name": null,
+      "rootFolderId": "1013413520000010148",
+      "version": "3.0.7"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_METASYSTEM[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "caption": "Push Notification",
+      "id": "7097413550000000101",
+      "isInactive": false,
+      "name": null,
+      "rootFolderId": "7097413520000010124",
+      "version": "3.0.7"
+    }
+  ],
+  "views": [
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010153",
+      "id": "1013413700000010122",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010159",
+      "id": "1013413700000010125",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010154",
+      "id": "1013413700000010126",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010166",
+      "id": "1013413700000010127",
+      "layout": null,
+      "name": "نمای اصلی",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010168",
+      "id": "1013413700000010128",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010169",
+      "id": "1013413700000010130",
+      "layout": null,
+      "name": "نمای اصلی",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010164",
+      "id": "1013413700000010131",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010165",
+      "id": "1013413700000010132",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000000104",
+      "id": "1013413700000010139",
+      "layout": null,
+      "name": "نماي بدون الگو",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010199",
+      "id": "1013413700000010142",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010200",
+      "id": "1013413700000010143",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010201",
+      "id": "1013413700000010144",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010203",
+      "id": "1013413700000010145",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010205",
+      "id": "1013413700000010146",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010206",
+      "id": "1013413700000010147",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010209",
+      "id": "1013413700000010148",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010208",
+      "id": "1013413700000010149",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010204",
+      "id": "1013413700000010150",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010210",
+      "id": "1013413700000010151",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1013413500000010173",
+      "id": "1013413700000010158",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1014413500000000101",
+      "id": "1014413700000000100",
+      "layout": null,
+      "name": "ForgetPasswordMainView",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1014413500000000101",
+      "id": "1014413700000000102",
+      "layout": null,
+      "name": "ForgetPasswordChange",
+      "parentId": "1014413700000000100"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1014413500000000107",
+      "id": "1014413700000000103",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1014413500000000111",
+      "id": "1014413700000000104",
+      "layout": null,
+      "name": "ResetPasswordMainView",
+      "parentId": "0"
+    },
+    {
+      "_provenance": {
+        "confidence": "Verified",
+        "evidence": [],
+        "format": "Barsa.LegacyMetaExport",
+        "path": "$.MET_TYPEVIEWENTITY[*]",
+        "source": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport"
+      },
+      "entityId": "1014413500000000105",
+      "id": "1014413700000000108",
+      "layout": null,
+      "name": "نماي 1",
+      "parentId": "0"
+    }
+  ],
+  "webServices": null,
+  "workflows": null
+}

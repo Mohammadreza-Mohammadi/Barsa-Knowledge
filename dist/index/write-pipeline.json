@@ -1,0 +1,608 @@
+{
+  "applySteps": [
+    {
+      "step": "guard",
+      "what": "null plan, or a non-v15 planned command -> rejected before mutation"
+    },
+    {
+      "step": "AiBatchExecutionContext",
+      "what": "created, then SetProfileVersion and SetAssetRoot"
+    },
+    {
+      "step": "AiBatchExecutor.PreflightConflicts",
+      "what": "'Target changed between plan and apply.' -- the fingerprint is rechecked"
+    },
+    {
+      "step": "AiBatchExecutor.PrepareChangeForExecution",
+      "what": "per command"
+    },
+    {
+      "step": "AiSocWriteProjection.ProjectForProvider",
+      "what": "project the payload for its provider"
+    },
+    {
+      "step": "AiBatchExecutor.ExtractInternalStages",
+      "what": "split off properties the lifecycle policy defers to phase 3"
+    },
+    {
+      "step": "AiApplyLifecyclePolicy.StructuralPhase",
+      "what": "decide the command's phase"
+    },
+    {
+      "step": "AiBatchExecutionContext.BeginCommand",
+      "what": "open a per-command scope"
+    },
+    {
+      "step": "AiBatchExecutor.ResolveReferencesForValidation",
+      "what": "resolve selectors and tempIds to runtime ids"
+    },
+    {
+      "step": "AiBatchExecutor.ApplyStructuredDbNameRemaps",
+      "what": "apply planned column renames"
+    },
+    {
+      "step": "IAiChangeProvider.Validate",
+      "what": "re-validated at apply time when RequiresApplyValidation is set"
+    },
+    {
+      "step": "IAiChangeProvider.Apply",
+      "what": "the mutation; returns RealId"
+    },
+    {
+      "step": "AiBatchExecutionContext.RecordPersistedObject",
+      "what": "remember what was written"
+    },
+    {
+      "step": "AiBatchExecutionContext.RegisterTemporaryId",
+      "what": "bind the tempId to its new real id"
+    },
+    {
+      "step": "AiRuntimeVerifier.ReconcilePartialMutation",
+      "what": "when a command applied only partially and can be reconciled immediately"
+    },
+    {
+      "step": "AiBatchExecutor.OrderPhase3Stages",
+      "what": "order the deferred stages"
+    },
+    {
+      "step": "AiBatchExecutor.ExecuteInternalStages",
+      "what": "run them -- the FinalWiring pass"
+    },
+    {
+      "step": "AiBatchExecutor.ApplyFieldSiblingRuntimeOrder",
+      "what": "fix sibling order in the database"
+    },
+    {
+      "step": "AiRuntimeVerifier.FinalReadBackAndVerify",
+      "what": "read back and compare"
+    },
+    {
+      "step": "AiBatchExecutor.CalculateBatchStatus",
+      "what": "-> AiBatchStatus"
+    }
+  ],
+  "confidence": "Observed",
+  "lifecycle": {
+    "confidence": "Verified",
+    "deferralDecision": "AiApplyLifecyclePolicy.ShouldDeferToPhase3(change, property)",
+    "deferredKinds": [
+      "dependentDetail",
+      "logic",
+      "reference",
+      "semanticValue"
+    ],
+    "phases": [
+      {
+        "name": "StructuralRequired",
+        "value": 0
+      },
+      {
+        "name": "PostCreateConfig",
+        "value": 1
+      },
+      {
+        "name": "FinalWiring",
+        "value": 2
+      }
+    ],
+    "placeholder": "AiApplyLifecyclePolicy.CreateStructuralPlaceholder stands in for a reference that cannot resolve yet; the executor notes a runtime placeholder of -1 where a provider needs one.",
+    "policy": "AiApplyLifecyclePolicy",
+    "stageProperties": [
+      "Planned",
+      "Change",
+      "Lifecycle",
+      "Name",
+      "PropertyPath",
+      "DependsOnPropertyPaths"
+    ],
+    "stageType": "AiInternalExecutionStage",
+    "subtypeResolution": "AiApplyLifecyclePolicy.ResolveSubtype reads `fieldType` for a field and `relationKind` for a relation."
+  },
+  "limits": "Stage order is the order the calls appear in each method body. Branch conditions were not reconstructed, so which stages run for a given command is Unknown except where a guard is visible as a property read or a literal.",
+  "persistenceBase": "Barsa.Spl.ActiveObject -- Create, Update, Delete and CRUD. No provider issues SQL of its own.",
+  "persistenceNote": "A provider with no ActiveObject call of its own persists through AiChangeProviderBase.PrepareAndSave or SaveSettingsAndReload, which run TypeDef.CheckTypeDefCRUDForUniqueness, then ActiveObject.CRUD, then TypeDefCacheNew.Reload. The entity and field providers take that route.",
+  "planSteps": [
+    {
+      "step": "guard",
+      "what": "null batch, profileVersion != 15, or StopBatch policy -> plan is invalid"
+    },
+    {
+      "step": "AiChangePlanner.AssignStableIds",
+      "what": "give every command a stable identity"
+    },
+    {
+      "step": "AiChangePlanner.BuildTempOwners",
+      "what": "map each tempId to the command that declares it"
+    },
+    {
+      "step": "AiProviderResolver.Resolve",
+      "what": "pick the provider whose CanHandle matches objectType"
+    },
+    {
+      "step": "AiChangePlanner.ValidateV15SemanticAuthority",
+      "what": "reject runtime identity that survived the lint"
+    },
+    {
+      "step": "AiSocWriteProjection.ValidateSoc",
+      "what": "separation-of-concerns check on the payload"
+    },
+    {
+      "step": "AiChangePlanner.PrepareV15ChangeForPlanInspection",
+      "what": "normalize the command so it can be inspected without mutating"
+    },
+    {
+      "step": "AiProviderPayloadPolicy.Prepare",
+      "what": "apply the provider's payload policy"
+    },
+    {
+      "step": "AiChangePlanner.ProjectCreateForStructuralValidation",
+      "what": "project a create far enough to validate its structure"
+    },
+    {
+      "step": "IAiChangeProvider.Validate",
+      "what": "the provider's own validation -> AiProviderValidation"
+    },
+    {
+      "step": "AiChangePlanner.ValidatePortableTransport",
+      "what": "asset and portability checks"
+    },
+    {
+      "step": "AiInfrastructureCapabilityResolver.ResolveForPlan",
+      "what": "bind required infrastructure capabilities, or fail with infrastructureBindingUnresolved"
+    },
+    {
+      "step": "IAiChangeProvider.BuildFingerprint",
+      "what": "record what the target looked like at plan time"
+    },
+    {
+      "step": "AiChangePlanner.CollectTempReferences",
+      "what": "derive Dependencies and RequiresApplyValidation"
+    },
+    {
+      "step": "AiChangePlanner.PlanDbNameRemaps",
+      "what": "plan physical column renames"
+    },
+    {
+      "step": "AiChangePlanner.ApplyFieldSiblingReconstructionOrder",
+      "what": "order sibling fields"
+    },
+    {
+      "step": "AiChangePlanner.SortByDependencies",
+      "what": "topologically order the commands"
+    },
+    {
+      "step": "AiChangePlanner.UpdateSummary",
+      "what": "fill AiPlanSummary"
+    }
+  ],
+  "providerMutations": [
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.BRRule",
+        "Barsa.Meta.TreeItem",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefSettings"
+      ],
+      "coreCallCount": 10,
+      "objectTypes": [
+        "businessRule"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "SaveSettingsAndReload"
+      ],
+      "provider": "AiBusinessRuleChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.DependentFieldCalculationHelper_InField",
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefCacheNew",
+        "Barsa.Spl.ActiveListBase",
+        "Barsa.Spl.ActiveObject",
+        "Barsa.Spl.BasicInfo.User",
+        "Barsa.Spl.SecurityHandler"
+      ],
+      "coreCallCount": 21,
+      "objectTypes": [],
+      "persistenceCalls": [
+        "ActiveObject::CRUD",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiChangeProviderBase",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.MetaCommand",
+        "Barsa.Meta.MetaObject",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Spl.ActiveObject"
+      ],
+      "coreCallCount": 11,
+      "objectTypes": [
+        "dynamicCommand"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::CRUD"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiDynamicCommandChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.MetaObject",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.Util"
+      ],
+      "coreCallCount": 15,
+      "objectTypes": [
+        "dynamicObject"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiDynamicObjectChangeProvider",
+      "writes": false
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.MetaSystemSettings",
+        "Barsa.Meta.SystemItemGroup",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefSettings",
+        "Barsa.Meta.TypeViewEntity"
+      ],
+      "coreCallCount": 23,
+      "objectTypes": [
+        "entity"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "PrepareAndSave",
+        "SaveSettingsAndReload"
+      ],
+      "provider": "AiEntityChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.CustomFieldInfo",
+        "Barsa.Meta.Enum2.EnumItem",
+        "Barsa.Meta.EnumInfo",
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefCacheNew",
+        "Barsa.Spl.ActiveListBase"
+      ],
+      "coreCallCount": 30,
+      "objectTypes": [
+        "field"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "PrepareAndSave"
+      ],
+      "provider": "AiFieldChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.Folder",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.Report",
+        "Barsa.Spl.ActiveListBase",
+        "Barsa.Spl.ActiveObject",
+        "Barsa.Spl.HierarchicalActiveObject"
+      ],
+      "coreCallCount": 26,
+      "objectTypes": [
+        "folder"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::Create",
+        "ActiveObject::Delete",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiFolderChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [],
+      "coreCallCount": 0,
+      "objectTypes": [],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiGenericChangeProvider",
+      "writes": false
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.RelationDef",
+        "Barsa.Meta.RelationInfo",
+        "Barsa.Meta.TypeDef"
+      ],
+      "coreCallCount": 5,
+      "objectTypes": [
+        "list",
+        "relation",
+        "relationKind"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "PrepareAndSave"
+      ],
+      "provider": "AiListRelationChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.HierarchicalInfo",
+        "Barsa.Meta.IRelationInfo",
+        "Barsa.Meta.InheritanceChildInfo",
+        "Barsa.Meta.InheritanceInfo",
+        "Barsa.Meta.MetaObjectInfo",
+        "Barsa.Meta.RelationDef",
+        "Barsa.Meta.RelationDefItem",
+        "Barsa.Meta.RelationInfo",
+        "Barsa.Meta.RelationInfoReverse",
+        "Barsa.Meta.RelationInfoSingleReverse",
+        "Barsa.Meta.ReportInfo",
+        "Barsa.Meta.ReverseMetaObjectInfo",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.UserInfo",
+        "Barsa.Spl.ActiveListBase"
+      ],
+      "coreCallCount": 47,
+      "objectTypes": [
+        "relation"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "PrepareAndSave"
+      ],
+      "provider": "AiRelationChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.Report",
+        "Barsa.Meta.ReportExtension",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Spl.ActiveObject"
+      ],
+      "coreCallCount": 13,
+      "objectTypes": [
+        "report"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::Create",
+        "ActiveObject::Delete",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiReportChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.MetaObjectInfo",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Spl.ActiveListBase"
+      ],
+      "coreCallCount": 11,
+      "objectTypes": [
+        "relation"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "PrepareAndSave"
+      ],
+      "provider": "AiSingleRelationChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.MetaCacheHelper",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.MetaSystemSettings",
+        "Barsa.Meta.SystemItemGroup",
+        "Barsa.Spl.ActiveListBase",
+        "Barsa.Spl.ActiveObject"
+      ],
+      "coreCallCount": 34,
+      "objectTypes": [
+        "system"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::Create",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiSystemChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.BRUniqueConstraint",
+        "Barsa.Meta.BRUniqueConstraint_Field",
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldInfoBase",
+        "Barsa.Meta.TreeItem",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefSettings"
+      ],
+      "coreCallCount": 17,
+      "objectTypes": [
+        "uniqueConstraint"
+      ],
+      "persistenceCalls": [],
+      "persistsViaBaseHelpers": [
+        "SaveSettingsAndReload"
+      ],
+      "provider": "AiUniqueConstraintChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.FieldDef",
+        "Barsa.Meta.FieldListSettings",
+        "Barsa.Meta.FieldView",
+        "Barsa.Meta.MetaObjectInfo",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.Report",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeDefSettings",
+        "Barsa.Meta.TypeView",
+        "Barsa.Meta.TypeViewEntity",
+        "Barsa.Meta.TypeViewFormSettings",
+        "Barsa.Spl.ActiveObject",
+        "Barsa.Spl.IIdable"
+      ],
+      "coreCallCount": 44,
+      "objectTypes": [
+        "view"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::Create",
+        "ActiveObject::Delete",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiViewChangeProvider",
+      "writes": true
+    },
+    {
+      "barsaTypesTouched": [
+        "Barsa.Meta.MetaObject",
+        "Barsa.Meta.MetaSystem",
+        "Barsa.Meta.TypeDef",
+        "Barsa.Meta.TypeViewEntity",
+        "Barsa.Spl.ActiveObject",
+        "Barsa.Workflow.ActivityDef",
+        "Barsa.Workflow.ActorDefInfo",
+        "Barsa.Workflow.ChoiceDef",
+        "Barsa.Workflow.ChoiceInfo",
+        "Barsa.Workflow.ConditionActivityDefInfo",
+        "Barsa.Workflow.ConditionChoiceInfo",
+        "Barsa.Workflow.CustomActivityDefInfo",
+        "Barsa.Workflow.ExecuteCodeActivityDefInfo",
+        "Barsa.Workflow.FinishActivityDefInfo",
+        "Barsa.Workflow.ForkActivityDefInfo",
+        "Barsa.Workflow.Helpers.Wrapper.MO_تنظيمات_اتصال_فعاليت_فرم",
+        "Barsa.Workflow.JoinActivityDefInfo",
+        "Barsa.Workflow.SimpleFormActivityDefInfo",
+        "Barsa.Workflow.SimpleFormChoiceInfo",
+        "Barsa.Workflow.StartActivityDefInfo",
+        "Barsa.Workflow.SubProcessActivityDefInfo",
+        "Barsa.Workflow.VariableDefInfo",
+        "Barsa.Workflow.WorkflowActorDef",
+        "Barsa.Workflow.WorkflowDef",
+        "Barsa.Workflow.WorkflowVariableDef"
+      ],
+      "coreCallCount": 85,
+      "objectTypes": [
+        "workflow"
+      ],
+      "persistenceCalls": [
+        "ActiveObject::CRUD",
+        "ActiveObject::Create",
+        "ActiveObject::Update"
+      ],
+      "persistsViaBaseHelpers": [],
+      "provider": "AiWorkflowChangeProvider",
+      "writes": true
+    }
+  ],
+  "providersWithNoTracedWrite": [
+    "AiDynamicObjectChangeProvider",
+    "AiGenericChangeProvider"
+  ],
+  "stages": [
+    {
+      "entryPoint": "BixWriteHelper.ValidateBatch(string)",
+      "implementation": "SemanticV15Linter.ValidateRawBatch",
+      "notes": "Twelve rules, all of them literals in the linter. The forbidden-runtime-key set and the ContinueIndependent-only policy rule live here. `tools/lint_change_batch.py` reproduces this stage offline.",
+      "produces": "a throw, or nothing",
+      "reads": "the raw JSON, before any deserialization",
+      "stage": "1. Structural lint"
+    },
+    {
+      "entryPoint": "BixWriteHelper.ParseBatch(string)",
+      "implementation": "Newtonsoft.Json with the camelCase resolver",
+      "notes": "No validation of its own beyond deserialization.",
+      "produces": "AiChangeBatch",
+      "reads": "the linted JSON",
+      "stage": "2. Parse"
+    },
+    {
+      "entryPoint": "BixWriteHelper.BuildPlan(AiChangeBatch)",
+      "implementation": "AiChangePlanner.Build",
+      "notes": "Re-gates profileVersion and the error policy, resolves a provider per command, validates, resolves infrastructure capabilities, fingerprints each command, collects temp references into dependencies, plans dbName remaps, then sorts by dependency. Nothing is written.",
+      "produces": "AiChangePlan + AiPlanSummary + AiPlanDiagnostic[]",
+      "reads": "AiChangeBatch; the live metamodel, for target inspection",
+      "stage": "3. Plan"
+    },
+    {
+      "entryPoint": "BixWriteHelper.ApplyPlan(AiChangePlan)",
+      "implementation": "AiBatchExecutor.Apply",
+      "notes": "Re-gates the plan's profileVersion, preflights for targets that changed since planning, then runs each command in structural-phase order, then the deferred phase-3 stages, then read-back verification.",
+      "produces": "AiApplyResult + AiCommandResult[] + AiBatchStatus",
+      "reads": "AiChangePlan",
+      "stage": "4. Apply"
+    },
+    {
+      "entryPoint": "IAiChangeProvider.Apply(AiSemanticChange, AiBatchExecutionContext)",
+      "implementation": "one Ai*ChangeProvider per objectType",
+      "notes": "The provider loads or constructs the typed metamodel object and persists it through Barsa.Spl.ActiveObject. This is the only stage that writes.",
+      "produces": "AiProviderApplyResult carrying the new RealId",
+      "reads": "the command's properties, with references already resolved",
+      "stage": "5. Mutate"
+    },
+    {
+      "entryPoint": "AiRuntimeVerifier.FinalReadBackAndVerify(plan, result)",
+      "implementation": "AiRuntimeVerifier, with a Verify* per objectType",
+      "notes": "Reads each written object back and compares it against what was asked for, canonicalizing both sides first. Sibling order is verified separately for fields and folders.",
+      "produces": "AiRuntimeObject[] on AiApplyResult.RuntimeReadBack, plus per-command VerificationSucceeded",
+      "reads": "the database, freshly",
+      "stage": "6. Verify"
+    }
+  ]
+}

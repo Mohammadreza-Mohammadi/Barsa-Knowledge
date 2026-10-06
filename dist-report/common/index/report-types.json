@@ -1,0 +1,149 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/index/ai-export-properties.json → enums, and dist/models/normalized-samples/"
+ },
+ "affinityBasis": "Name correspondence only. No dist/ document states which property applies to which report type; that lives in AiReportChangeProvider.ApplyReportPatch, which has not been decompiled.",
+ "affinityConfidence": "Inferred",
+ "aiExportVocabulary": [
+  "form",
+  "list"
+ ],
+ "clrEnum": "Barsa.Meta.ReportTypeEnum",
+ "clrMembers": [
+  {
+   "affineProperties": [],
+   "affinityConfidence": "Unknown",
+   "enumMember": "ViewResults",
+   "enumValue": 0,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "useSummaryRow",
+    "grouping",
+    "sqlGrouping"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "Statistics",
+   "enumValue": 1,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "treeCondition",
+    "treeAutoOpenLevels",
+    "useHierarchyConditionForRoot",
+    "selfReferencingField"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "TreeView",
+   "enumValue": 2,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "matrix",
+    "sqlGrouping"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "MatrixView",
+   "enumValue": 3,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "calendar"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "CalendarView",
+   "enumValue": 4,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [],
+   "affinityConfidence": "Unknown",
+   "enumMember": "PrintView",
+   "enumValue": 5,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "treeCondition",
+    "treeAutoOpenLevels",
+    "useHierarchyConditionForRoot"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "HetrogeniousTree",
+   "enumValue": 6,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "treeCondition",
+    "treeAutoOpenLevels"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "HetrogeniousTree_NoneGraphical",
+   "enumValue": 7,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [],
+   "affinityConfidence": "Unknown",
+   "enumMember": "GauntView",
+   "enumValue": 8,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "typeView",
+    "listEditView"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "FormView",
+   "enumValue": 9,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "forum"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "ForumView",
+   "enumValue": 10,
+   "otherPropertiesStatus": "Unknown"
+  },
+  {
+   "affineProperties": [
+    "showWpfChart"
+   ],
+   "affinityConfidence": "Inferred",
+   "enumMember": "Dashboard",
+   "enumValue": 11,
+   "otherPropertiesStatus": "Unknown"
+  }
+ ],
+ "vocabularyMapping": {
+  "candidates": [
+   {
+    "aiExport": "list",
+    "basis": "a list-shaped report in both supplied artifacts",
+    "clrCandidate": "ViewResults",
+    "confidence": "Inferred"
+   },
+   {
+    "aiExport": "form",
+    "basis": "a report carrying typeView in the Push Notification artifact",
+    "clrCandidate": "FormView",
+    "confidence": "Inferred"
+   }
+  ],
+  "note": "The AiExport projection writes its own reportType vocabulary, which is not the CLR enum member names. The mapping below rests on two observations and nothing else.",
+  "status": "Inferred",
+  "unmapped": []
+ }
+}

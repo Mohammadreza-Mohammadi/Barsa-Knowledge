@@ -1,0 +1,144 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "the compiler itself; inputs hashed from dist/"
+ },
+ "budget": {
+  "contractOnly": 122880,
+  "largestFile": 153600,
+  "perSystemExempt": [
+   "index/entity-model.json",
+   "index/selectors.json"
+  ],
+  "total": 512000
+ },
+ "checks": {
+  "budget": {
+   "contractOnlyBytes": 118673,
+   "exemptBytes": 10741,
+   "fileCount": 28,
+   "largestFile": [
+    "common/index/report-contract.json",
+    16742
+   ],
+   "totalBytes": 142535
+  },
+  "confidence": {
+   "published": "Verified",
+   "sourceLevel": "Verified"
+  },
+  "gaps": {
+   "gaps": 9,
+   "rendered": 11
+  },
+  "grouping": {
+   "drift": 0,
+   "duplicated": 0,
+   "grouped": 80,
+   "writable": 80
+  },
+  "inference": {
+   "groupedRows": 80,
+   "typesWithAffinity": 9
+  },
+  "provenance": {
+   "files": 27
+  },
+  "recipes-contract": {
+   "clean": 6,
+   "recipes": 6
+  },
+  "recipes-system": {
+   "clean": 6,
+   "recipes": 6
+  }
+ },
+ "compiledAt": "2026-10-06",
+ "compiler": "tools/report_compiler.py",
+ "compilerAdditions": [
+  {
+   "confidence": "Inferred",
+   "what": "the grouping of writable report properties"
+  },
+  {
+   "confidence": "Inferred",
+   "what": "the report type × property affinity, and the AiExport ↔ ReportTypeEnum mapping"
+  }
+ ],
+ "compilerVersion": "1.0",
+ "confidenceOrder": [
+  "Unknown",
+  "Inferred",
+  "Observed",
+  "Verified",
+  "CrossVerified"
+ ],
+ "contractOnlyBytes": 118673,
+ "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+ "exemptBytes": 10741,
+ "fileCount": 28,
+ "inputs": [
+  {
+   "path": "dist/formats/ai-export-single-json.md",
+   "sha256": "c0233374247334c22556521eeac11647bec9bc5578035ce6267a97f815b15613"
+  },
+  {
+   "path": "dist/formats/report-format.md",
+   "sha256": "a0b59d6ccafe395a87fadd4405538eb1b078a95a04673d5f9ffaeb31157c574d"
+  },
+  {
+   "path": "dist/index/ai-export-properties.json",
+   "sha256": "15f3d6565cf582506eb2f498927f2cfb6c059af7bbf1b4c4db4306eca73c33e3"
+  },
+  {
+   "path": "dist/index/export-formats.json",
+   "sha256": "22f7339d7a1892cc00d7318f97aecd06479f925b8dfc5b4da8e3edcb3aa64eb2"
+  },
+  {
+   "path": "dist/index/knowledge-index.json",
+   "sha256": "a427b37b4d4bc0d76cc06bb7f8df9bbfcfa6c42e584eaa9cffc00f2e101045a9"
+  },
+  {
+   "path": "dist/index/semantic-contract.json",
+   "sha256": "6de61fdc7bc6f2d636aeab664d169306d67c00338e800ec3643f29ac354ffcef"
+  },
+  {
+   "path": "dist/index/write-pipeline.json",
+   "sha256": "0faa6654189bfb4cada0ddf0da035abcb1154fb68ec62071ca8c03950bab9c7c"
+  },
+  {
+   "path": "dist/models/ai-change-batch.schema.json",
+   "sha256": "c7b68f8c8db02efc929851a08af8ee1dbfd71c73dc3f9023aae9218a7d7d6dc1"
+  },
+  {
+   "path": "dist/models/normalized-samples/ai-Push Notification (05-07-11 20;08).json",
+   "sha256": "86b11dab1a61db9dee43d82b060729a0495d388aea0cc05e851bb99c966fec69"
+  },
+  {
+   "path": "dist/models/normalized-samples/ai-باركد (05-07-11 20;08).json",
+   "sha256": "c7432f1c67207b5359c1a29e97ba127e2d26df47f78280066f131b006a6b5e9f"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-NewMeta01.json",
+   "sha256": "b3350b5061ece933a2edf8e936fba53b90f6eb318c29dc14086d1ce9f846ca82"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-NewMeta02.json",
+   "sha256": "d73d9b90dac4683c9a5e931309496279209c325096e564b472ee0a4fc6dcf217"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).json",
+   "sha256": "52a481bc56b805a34a42c44df9c1b13ca21a03dcaae57ca1bb7142676144df29"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-باركد (05-02-02 11;14).json",
+   "sha256": "a8358e1149645cf91f33c6224299bee6ac50b84855774e48f58925adb6a33bc2"
+  }
+ ],
+ "missingInputs": [],
+ "scope": "system=1011413550000000100",
+ "sizeBytes": 142535
+}

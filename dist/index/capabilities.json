@@ -9,13 +9,15 @@
       "ExportSample",
       "ExporterCode"
     ],
-    "id": "System.Export",
+    "format": "Barsa.LegacyMetaExport",
+    "id": "DataExchange.Legacy.Export",
+    "note": null,
     "requires": [
-      "An ObjectReferenceSelection built from the export tree",
+      "An ObjectReferenceSelection from the export tree",
       "A live database connection"
     ],
     "risks": [
-      "Package may contain production data"
+      "The package may contain production data"
     ],
     "status": "CrossVerified"
   },
@@ -30,14 +32,16 @@
       "ExportSample",
       "ImporterCode"
     ],
-    "id": "System.Import",
+    "format": "Barsa.LegacyMetaExport",
+    "id": "DataExchange.Legacy.Import",
+    "note": null,
     "requires": [
       "A .metaexport file",
       "ImportOptions"
     ],
     "risks": [
       "Writes metadata to the target database",
-      "Rollback behaviour not established statically"
+      "Atomicity is not established"
     ],
     "status": "CrossVerified"
   },
@@ -52,13 +56,34 @@
       "ExporterCode",
       "ImporterCode"
     ],
-    "id": "System.Clone",
+    "format": "Barsa.LegacyMetaExport",
+    "id": "DataExchange.Legacy.Clone",
+    "note": "Chains Export into Import with ImportOptions.IsClone.",
     "requires": [
       "Source object ids"
     ],
     "risks": [
       "Creates new object identities"
     ],
+    "status": "CrossVerified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixHelper::ExtractData",
+      "Barsa.Meta.Extra.Ui.Win.Editor.ImportTreeControl::GetChangeIcon"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "ExportSample"
+    ],
+    "format": "Barsa.LegacyMetaExport",
+    "id": "DataExchange.Legacy.PreviewDiff",
+    "note": "Renders the package against the live database with CompareChangeTypeEnum states.",
+    "requires": [
+      "ImportOptions.FirstFilePath"
+    ],
+    "risks": [],
     "status": "CrossVerified"
   },
   {
@@ -70,63 +95,130 @@
       "CallGraph",
       "ExportSample"
     ],
-    "id": "Package.ReadHeader",
+    "format": "Barsa.LegacyMetaExport",
+    "id": "DataExchange.Legacy.ReadHeader",
+    "note": null,
     "requires": [],
-    "risks": [],
-    "status": "CrossVerified"
-  },
-  {
-    "entryPoints": [
-      "Barsa.Meta.DataExchange.BixHelper::ExtractData"
-    ],
-    "evidence": [
-      "AssemblyMetadata",
-      "CallGraph",
-      "ExportSample"
-    ],
-    "id": "Package.PreviewTree",
-    "requires": [
-      "ImportOptions.FirstFilePath"
-    ],
     "risks": [],
     "status": "CrossVerified"
   },
   {
     "entryPoints": [
       "Barsa.Meta.DataExchange.BixHelper::ExportInitialJson",
-      "Barsa.Meta.DataExchange.BixHelper::ExportJson"
+      "Barsa.Meta.DataExchange.BixHelper::ExportJson",
+      "Barsa.Meta.DataExchange.BixJsonExportManager::SaveFullStructuredJson",
+      "Barsa.Meta.DataExchange.BixJsonExportManager::SaveInitialJson",
+      "Barsa.Meta.DataExchange.BixJsonExportManager::SaveSelectedJson"
     ],
     "evidence": [
       "AssemblyMetadata",
-      "CallGraph"
+      "CallGraph",
+      "ExporterCode"
     ],
-    "id": "System.ExportJson",
-    "requires": [],
+    "format": "Barsa.AiExport",
+    "id": "DataExchange.AiExport.Export",
+    "note": "Reuses the legacy DataSet collector and then projects that DataSet to JSON.",
+    "requires": [
+      "An ObjectReferenceSelection",
+      "The embedded profile at profileVersion 15"
+    ],
     "risks": [
-      "No JSON sample supplied; on-disk shape unverified"
+      "Confirmed against 2 AiExport artifact(s); the variants differ in their manifest, see comparison/match-report.md"
     ],
-    "status": "Verified"
+    "status": "CrossVerified"
   },
   {
     "entryPoints": [
-      "Barsa.Meta.DataExchange.MieExportManagerAll::#NH",
-      "Barsa.Meta.DataExchange.MieExportManagerAll::#RH",
-      "Barsa.Meta.DataExchange.MieExportManagerAll::#TH",
-      "Barsa.Meta.DataExchange.MieExportManagerAll::ExportAll"
+      "Barsa.Meta.DataExchange.BixHelper::ExportAiDiagnosticSnapshot"
     ],
     "evidence": [
       "AssemblyMetadata",
       "CallGraph"
     ],
-    "id": "Mie.ExportAll",
+    "format": "Barsa.AiExport",
+    "id": "DataExchange.AiExport.Snapshot",
+    "note": "Writes a package BixSnapshotManager can diff.",
     "requires": [],
     "risks": [],
     "status": "Verified"
   },
   {
     "entryPoints": [
-      "Barsa.Meta.DataExchange.MieImportManager::#YH",
-      "Barsa.Meta.DataExchange.MieImportManager::.ctor",
+      "Barsa.Meta.DataExchange.BixWriteHelper::ApplyPlan",
+      "Barsa.Meta.DataExchange.BixWriteHelper::BuildPlan",
+      "Barsa.Meta.DataExchange.BixWriteHelper::ParseBatch",
+      "Barsa.Meta.DataExchange.BixWriteHelper::SerializePlan",
+      "Barsa.Meta.DataExchange.BixWriteHelper::SerializeResult",
+      "Barsa.Meta.DataExchange.BixWriteHelper::ValidateBatch"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph",
+      "StringLiteral"
+    ],
+    "format": "Barsa.AiChangeBatch",
+    "id": "DataExchange.AiExport.ApplyChangeBatch",
+    "note": "This is the AI-side write path. It is NOT a symmetric importer for an AiExport projection; see REANALYSIS-REPORT.md.",
+    "requires": [
+      "An AiChangeBatch document at profileVersion 15"
+    ],
+    "risks": [
+      "A batch can partially apply: AiBatchStatus has PartiallySucceeded"
+    ],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixSnapshotManager::CompareSemanticPackages",
+      "Barsa.Meta.DataExchange.BixSnapshotManager::CompareSnapshots"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "StringLiteral"
+    ],
+    "format": "Barsa.AiExport",
+    "id": "DataExchange.AiExport.ComparePackages",
+    "note": null,
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.BixKnowledgeHelper::ReadAiKnowledge",
+      "Barsa.Meta.DataExchange.BixKnowledgeHelper::ReadHumanKnowledge",
+      "Barsa.Meta.DataExchange.BixKnowledgeHelper::ResolveKnowledgeTarget",
+      "Barsa.Meta.DataExchange.BixKnowledgeHelper::WriteAiKnowledge",
+      "Barsa.Meta.DataExchange.BixKnowledgeHelper::WriteHumanKnowledge"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "format": "Barsa.AiKnowledge",
+    "id": "DataExchange.AiKnowledge.ReadWrite",
+    "note": "Exposed over HTTP by Barsa.Ai.Host.exe; storage semantics were not analysed.",
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
+      "Barsa.Meta.DataExchange.MieExportManagerAll::ExportAll"
+    ],
+    "evidence": [
+      "AssemblyMetadata",
+      "CallGraph"
+    ],
+    "format": "Unknown",
+    "id": "DataExchange.Mie.ExportAll",
+    "note": "MIE is a separate exchange path; its on-disk format was not established.",
+    "requires": [],
+    "risks": [],
+    "status": "Verified"
+  },
+  {
+    "entryPoints": [
       "Barsa.Meta.DataExchange.MieImportManager::GetImportingFileList",
       "Barsa.Meta.DataExchange.MieImportManager::ImportFile",
       "Barsa.Meta.DataExchange.MieImportManager::ImportFolder",
@@ -136,18 +228,15 @@
       "AssemblyMetadata",
       "CallGraph"
     ],
-    "id": "Mie.Import",
+    "format": "Unknown",
+    "id": "DataExchange.Mie.Import",
+    "note": null,
     "requires": [],
     "risks": [],
     "status": "Verified"
   },
   {
     "entryPoints": [
-      "Barsa.Meta.DataExchange.ExportReportHelper::#9Ih",
-      "Barsa.Meta.DataExchange.ExportReportHelper::#WC",
-      "Barsa.Meta.DataExchange.ExportReportHelper::#bJh",
-      "Barsa.Meta.DataExchange.ExportReportHelper::#cJh",
-      "Barsa.Meta.DataExchange.ExportReportHelper::#yJh",
       "Barsa.Meta.DataExchange.ExportReportHelper::Export",
       "Barsa.Meta.DataExchange.ExportReportHelper::ExportTable"
     ],
@@ -155,7 +244,9 @@
       "AssemblyMetadata",
       "CallGraph"
     ],
-    "id": "Report.Export",
+    "format": "Unknown",
+    "id": "Reporting.Export",
+    "note": null,
     "requires": [],
     "risks": [],
     "status": "Verified"

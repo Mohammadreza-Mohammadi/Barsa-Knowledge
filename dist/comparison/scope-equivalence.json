@@ -1,0 +1,84 @@
+{
+  "assessments": [
+    {
+      "aiOnlyIds": [],
+      "aiRootCount": 1,
+      "confidence": "Verified",
+      "declared": null,
+      "declaredAgrees": null,
+      "legacyOnlyIds": [
+        "1013413550000000100",
+        "1013413550000010104"
+      ],
+      "legacyRootCount": 3,
+      "level": "Partial",
+      "reason": "1 object ids are shared; each side also carries ids the other does not",
+      "sharedIds": [
+        "7097413550000000101"
+      ],
+      "temporal": {
+        "aiBuildId": null,
+        "aiProducerVersion": null,
+        "aiStamp": "(05-07-11 20;08)",
+        "approxMonthsApart": 0,
+        "legacyCoreVersion": "4.1.202",
+        "legacyExportTime": "2026-09-30T13:43:00.1759074+03:30",
+        "legacyStamp": "(05-07-08 13;42)",
+        "nearContemporaneous": true,
+        "sameBuild": false
+      }
+    },
+    {
+      "aiOnlyIds": [],
+      "aiRootCount": 1,
+      "confidence": "Verified",
+      "declared": null,
+      "declaredAgrees": null,
+      "legacyOnlyIds": [],
+      "legacyRootCount": 1,
+      "level": "Exact",
+      "reason": "both artifacts declare the same selected object ids",
+      "sharedIds": [
+        "1011413550000000100"
+      ],
+      "temporal": {
+        "aiBuildId": "7b3494af-3966-423d-bb94-964cbb1265c9",
+        "aiProducerVersion": "4.1.203.0",
+        "aiStamp": "(05-07-11 20;08)",
+        "approxMonthsApart": 5,
+        "legacyCoreVersion": "4.1.189",
+        "legacyExportTime": "2026-04-22T11:14:39.715863+04:30",
+        "legacyStamp": "(05-02-02 11;14)",
+        "nearContemporaneous": false,
+        "sameBuild": false
+      }
+    }
+  ],
+  "candidatePairs": [
+    {
+      "aiExport": "Push Notification (05-07-11 20;08).zip",
+      "declaredScope": null,
+      "legacy": "Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
+      "note": "Filename candidacy only. Scope is decided by the structural check, never by the name.",
+      "pairedBy": "namePrefix"
+    },
+    {
+      "aiExport": "باركد (05-07-11 20;08).zip",
+      "declaredScope": null,
+      "legacy": "باركد (05-02-02 11;14).metaexport",
+      "note": "Filename candidacy only. Scope is decided by the structural check, never by the name.",
+      "pairedBy": "nameExactAfterStampStrip"
+    }
+  ],
+  "declaredPairs": [],
+  "levels": [
+    "Exact",
+    "Partial",
+    "Candidate",
+    "Different",
+    "Unknown"
+  ],
+  "note": null,
+  "rule": "Spec v3 section 39: two exports are compared in full only when their selection scope is equivalent. Equal filenames prove nothing.",
+  "schemaVersion": "3.0"
+}

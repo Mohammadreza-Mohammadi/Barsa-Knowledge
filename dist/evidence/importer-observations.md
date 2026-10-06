@@ -76,4 +76,4 @@ Unknown.
 
 ## Symmetry with the exporter
 
-See `evidence/cross-validation.md` and `scenarios/import-system.md`.
+See `evidence/cross-validation.md` and `scenarios/import-system-legacy.md`.

@@ -7,7 +7,7 @@ Produced by `tools/barsa_extractor` against the inputs then present in `source/`
 - Pure-Python ECMA-335 reader; 364 managed assemblies parsed,
   12 native PEs identified.
 - 219200 types and 386140 methods indexed.
-- 2 `.metaexport` packages decoded without executing Barsa code.
+- 4 `.metaexport` packages decoded without executing Barsa code.
 - Export/import symmetry established across binary and sample evidence.
 - `$IdEmbeddingFields` identified as the package-carried ID remap instruction set.
 

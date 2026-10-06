@@ -1,0 +1,482 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/formats/ai-export-single-json.md → Observed paths"
+ },
+ "confidence": "Observed",
+ "neverObservedNote": "A writable property that no artifact carried. The exporter omits a property at its default, so absence here is weak evidence of anything except that these were not exercised by the two supplied systems.",
+ "notObservedNote": "No supplied artifact carried the property, so its value shape is Unknown. Not observed is not the same as unsupported: the contract lists it as writable.",
+ "observedAndWritable": [
+  "columns",
+  "condition",
+  "gridShowSelectionChecks",
+  "immediateExecute",
+  "joinAliases",
+  "name",
+  "parameterEntity",
+  "parameterPanelHeight",
+  "parameters",
+  "reportType",
+  "sharedScope",
+  "typeView"
+ ],
+ "observedProperties": [
+  "$type",
+  "columns",
+  "condition",
+  "entity",
+  "gridShowSelectionChecks",
+  "id",
+  "immediateExecute",
+  "joinAliases",
+  "jsonProperty",
+  "name",
+  "parameterEntity",
+  "parameterPanelHeight",
+  "parameters",
+  "reportType",
+  "selector",
+  "sharedScope",
+  "typeView"
+ ],
+ "provenance": "dist/formats/ai-export-single-json.md -> Observed paths, which the Extractor built by walking the supplied AiExport artifacts",
+ "roots": {
+  "corroboratingOnly": "$",
+  "naming": "$.tree[*].MetaReport[*]"
+ },
+ "shapes": [
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "calendar",
+   "purpose": "the calendar layout",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Observed",
+   "example": [
+    {
+     "alias": "Heading",
+     "field": "#<field>"
+    }
+   ],
+   "keys": [
+    {
+     "nullable": false,
+     "occurrences": 11,
+     "path": "columns",
+     "types": [
+      "array"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 149,
+     "path": "columns[*]",
+     "types": [
+      "object"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 149,
+     "path": "columns[*].alias",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 149,
+     "path": "columns[*].field",
+     "types": [
+      "string"
+     ]
+    }
+   ],
+   "property": "columns",
+   "purpose": "which fields become columns, and under what heading",
+   "status": "Observed",
+   "valueVocabulary": "Unknown"
+  },
+  {
+   "confidence": "Observed",
+   "example": {
+    "all": [
+     {
+      "field": "#<field>",
+      "operator": "<Unknown>",
+      "value": null
+     }
+    ]
+   },
+   "keys": [
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "condition",
+     "types": [
+      "object"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "condition.all",
+     "types": [
+      "array"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "condition.all[*]",
+     "types": [
+      "object"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 2,
+     "path": "condition.all[*].customSql",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "condition.all[*].field",
+     "types": [
+      "object",
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 7,
+     "path": "condition.all[*].field.items",
+     "types": [
+      "array"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 14,
+     "path": "condition.all[*].field.items[*]",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 6,
+     "path": "condition.all[*].nullBehavior",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "condition.all[*].operator",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 12,
+     "path": "condition.all[*].parameter",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": true,
+     "occurrences": 4,
+     "path": "condition.all[*].value",
+     "types": [
+      "null",
+      "string"
+     ]
+    }
+   ],
+   "property": "condition",
+   "purpose": "which rows survive",
+   "status": "Observed",
+   "valueVocabulary": "Unknown"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "formatConditions",
+   "purpose": "conditional formatting",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "grouping",
+   "purpose": "row grouping",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Observed",
+   "example": null,
+   "keys": [
+    {
+     "nullable": false,
+     "occurrences": 16,
+     "path": "joinAliases",
+     "types": [
+      "array"
+     ]
+    }
+   ],
+   "property": "joinAliases",
+   "purpose": "aliases for joined tables",
+   "status": "Observed",
+   "valueVocabulary": "Unknown"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "matrix",
+   "purpose": "the matrix (cross-tab) layout",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Observed",
+   "example": [
+    {
+     "caption": "<caption>",
+     "field": "#<field>",
+     "kind": "<Unknown>",
+     "name": "<name>"
+    }
+   ],
+   "keys": [
+    {
+     "nullable": false,
+     "occurrences": 7,
+     "path": "parameters",
+     "types": [
+      "array"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 12,
+     "path": "parameters[*]",
+     "types": [
+      "object"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 12,
+     "path": "parameters[*].caption",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 2,
+     "path": "parameters[*].code",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 3,
+     "path": "parameters[*].contextValue",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 3,
+     "path": "parameters[*].external",
+     "types": [
+      "boolean"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 7,
+     "path": "parameters[*].field",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 3,
+     "path": "parameters[*].input",
+     "types": [
+      "boolean"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 3,
+     "path": "parameters[*].kind",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 12,
+     "path": "parameters[*].name",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 5,
+     "path": "parameters[*].sourceOperator",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 1,
+     "path": "parameters[*].value",
+     "types": [
+      "object"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 1,
+     "path": "parameters[*].value.unsupported",
+     "types": [
+      "boolean"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 1,
+     "path": "parameters[*].value.warning",
+     "types": [
+      "string"
+     ]
+    },
+    {
+     "nullable": false,
+     "occurrences": 3,
+     "path": "parameters[*].valueFieldInfoType",
+     "types": [
+      "number"
+     ]
+    }
+   ],
+   "property": "parameters",
+   "purpose": "operator-supplied parameters",
+   "status": "Observed",
+   "valueVocabulary": "Unknown"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "sorting",
+   "purpose": "row order",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "sqlGrouping",
+   "purpose": "grouping pushed into SQL",
+   "status": "NotObserved"
+  },
+  {
+   "confidence": "Unknown",
+   "keys": [],
+   "property": "subReports",
+   "purpose": "nested reports",
+   "status": "NotObserved"
+  }
+ ],
+ "valueVocabularyNote": "The observed-path table records keys and JSON types, never values. Any string value under an observed key -- an operator name, a parameter kind -- is Unknown from dist/.",
+ "writableNeverObserved": [
+  "additionalWhere",
+  "allowAddNew",
+  "allowAddToList",
+  "allowEdit",
+  "allowGridColumnSort",
+  "allowInlineEdit",
+  "allowRemove",
+  "allowRemoveFromList",
+  "allowView",
+  "alternateEditObjectColumn",
+  "alternateRootTable",
+  "alternateRowMode",
+  "autoInlineEdit",
+  "calendar",
+  "commandDisplayMode",
+  "customSql",
+  "description",
+  "disableColumnHeaders",
+  "disableOptimizeForDisplay",
+  "dontExecuteCount",
+  "dontUseChildParentReport",
+  "extraQueryTemplate",
+  "formatConditions",
+  "forum",
+  "freeColumnSizing",
+  "gridCustomKey",
+  "gridGrouping",
+  "gridHideColumnsWhenGrouped",
+  "gridHideLines",
+  "gridLines",
+  "gridShowGroupBox",
+  "gridViewStyle",
+  "grouping",
+  "hideHeader",
+  "hideRowIcon",
+  "hideToolbar",
+  "ignoreAdvancedSecurityCondition",
+  "ignoreColumns",
+  "includeDeleted",
+  "insideViewActive",
+  "insideViewHeight",
+  "insideViewRelatedField",
+  "isDistinct",
+  "listEditView",
+  "logExecutions",
+  "matrix",
+  "oracleHint",
+  "pageSize",
+  "pagingType",
+  "preserveUserViewState",
+  "previewField",
+  "previewState",
+  "rootTableAlias",
+  "selfReferencingField",
+  "showPreviewField",
+  "showRecordSignFormatting",
+  "showRowNumber",
+  "showWpfChart",
+  "sorting",
+  "sqlGrouping",
+  "subReports",
+  "systemId",
+  "top",
+  "treeAutoOpenLevels",
+  "treeCondition",
+  "useAdvancedAccess",
+  "useHierarchyConditionForRoot",
+  "useSummaryRow"
+ ]
+}

@@ -2184,110 +2184,242 @@
     "source": "AssemblyMetadata"
   },
   {
-    "detail": "SerializationHelper2.BinarySerializeToFile(string, DataSet)",
+    "detail": "embedded AI export profile v14 (44 record types)",
     "id": "EVID-DLL-000365",
+    "locator": "Barsa.Meta.SemanticExchange :: Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.json",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "embedded AI export profile v14 (0 record types)",
+    "id": "EVID-DLL-000366",
+    "locator": "Barsa.Meta.SemanticExchange :: Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.schema.json",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "embedded AI export profile v15 (44 record types)",
+    "id": "EVID-DLL-000367",
+    "locator": "Barsa.Meta.SemanticExchange :: Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.v15.json",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "embedded AI export profile v15 (0 record types)",
+    "id": "EVID-DLL-000368",
+    "locator": "Barsa.Meta.SemanticExchange :: Barsa.Meta.SemanticExchange.Helper.Bix.Export.AiExportProfile.ai-export-profile.v15.schema.json",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.Helper.CompareChangeTypeEnum = NoChange, Edited, New, Deleted",
+    "id": "EVID-DLL-000369",
+    "locator": "Barsa.Meta.DataExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.JsonExportNodeOutputKind = None, Folder, File, Inline",
+    "id": "EVID-DLL-000370",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.JsonExportRelationMatchMode = Exact, Contains",
+    "id": "EVID-DLL-000371",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.SemanticResolutionStatus = Unresolved, Resolved, ResolvedWithAmbiguity, Unsupported",
+    "id": "EVID-DLL-000372",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.AiChangeOperation = Create, Update, Delete",
+    "id": "EVID-DLL-000373",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.AiBatchErrorPolicy = ContinueIndependent, StopBatch",
+    "id": "EVID-DLL-000374",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.AiCommandStatus = Planned, Succeeded, Failed, Conflict, SkippedDependency, SkippedPolicy, Unsupported, VerificationFailed",
+    "id": "EVID-DLL-000375",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.AiBatchStatus = Succeeded, PartiallySucceeded, Failed",
+    "id": "EVID-DLL-000376",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.AiSemanticReferenceLifecycle = StructuralRequired, PostCreateConfig, FinalWiring",
+    "id": "EVID-DLL-000377",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.SemanticPropertyKind = Scalar, Enum, Reference, RawJson, Embedded, Collection, Ordering, Logic, Other",
+    "id": "EVID-DLL-000378",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.SemanticApplyClass = Hardcoded, Dynamic",
+    "id": "EVID-DLL-000379",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.SemanticPropertyClassification = Writable, Derived, ReconstructionOnly, ReadOnly",
+    "id": "EVID-DLL-000380",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.BixJsonExportMode = Semantic, FullStructured",
+    "id": "EVID-DLL-000381",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "enum Barsa.Meta.DataExchange.BixJsonExportSelection = None, Semantic, FullStructured, Knowledge",
+    "id": "EVID-DLL-000382",
+    "locator": "Barsa.Meta.SemanticExchange",
+    "source": "AssemblyMetadata"
+  },
+  {
+    "detail": "SerializationHelper2.BinarySerializeToFile(string, DataSet)",
+    "id": "EVID-DLL-000383",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "BixHelper.Import / NewImportManager.Import",
-    "id": "EVID-DLL-000366",
+    "id": "EVID-DLL-000384",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "BixHelper.Import -> NewImportManager.Import",
-    "id": "EVID-DLL-000367",
+    "id": "EVID-DLL-000385",
     "locator": "IL",
     "source": "CallGraph"
   },
   {
     "detail": "FixIdForImport.Init / FixAll",
-    "id": "EVID-DLL-000368",
+    "id": "EVID-DLL-000386",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "NewImportManager::Import call sequence",
-    "id": "EVID-DLL-000369",
+    "id": "EVID-DLL-000387",
     "locator": "IL",
     "source": "CallGraph"
   },
   {
     "detail": "BixHelper.Export overloads",
-    "id": "EVID-DLL-000370",
+    "id": "EVID-DLL-000388",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "BixHelper::Clone -> Export, Import",
-    "id": "EVID-DLL-000371",
+    "id": "EVID-DLL-000389",
     "locator": "IL",
     "source": "CallGraph"
   },
   {
     "detail": "ImportCloneManager.GetFromNewIdMap",
-    "id": "EVID-DLL-000372",
+    "id": "EVID-DLL-000390",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "ApplicationImportForm::btnImportTest_Click -> ImportTreeForm",
-    "id": "EVID-DLL-000373",
+    "id": "EVID-DLL-000391",
     "locator": "Barsa.Meta.Extra.Ui.Win.dll",
     "source": "CallGraph"
   },
   {
     "detail": "TypeDef.DbName / FieldDef.dbName",
-    "id": "EVID-DLL-000374",
+    "id": "EVID-DLL-000392",
     "locator": "Barsa.Meta.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "obfuscated member names",
-    "id": "EVID-DLL-000375",
+    "id": "EVID-DLL-000393",
     "locator": "Barsa.Meta.DataExchange.dll",
     "source": "AssemblyMetadata"
   },
   {
     "detail": "import confirmation warning text",
-    "id": "EVID-DLL-000376",
+    "id": "EVID-DLL-000394",
     "locator": "Barsa.Meta.Extra.Ui.Win.dll",
     "source": "StringLiteral"
   },
   {
-    "detail": "package NewMeta01.metaexport (67 tables)",
+    "detail": "package Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport (144 tables)",
     "id": "EVID-EXP-000001",
-    "locator": "source/NewMeta01.metaexport",
+    "locator": "exports/Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport",
     "source": "ExportSample"
   },
   {
-    "detail": "package NewMeta02.metaexport (76 tables)",
+    "detail": "package باركد (05-02-02 11;14).metaexport (23 tables)",
     "id": "EVID-EXP-000002",
-    "locator": "source/NewMeta02.metaexport",
+    "locator": "exports/باركد (05-02-02 11;14).metaexport",
     "source": "ExportSample"
   },
   {
-    "detail": "gzip+BinaryFormatter+DataSet header",
+    "detail": "package NewMeta01.metaexport (67 tables)",
     "id": "EVID-EXP-000003",
     "locator": "source/NewMeta01.metaexport",
     "source": "ExportSample"
   },
   {
-    "detail": "$IdEmbeddingFields rows",
+    "detail": "package NewMeta02.metaexport (76 tables)",
     "id": "EVID-EXP-000004",
+    "locator": "source/NewMeta02.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "AiExport artifact Push Notification (05-07-11 20;08).zip (AiExport.SingleJson)",
+    "id": "EVID-EXP-000005",
+    "locator": "exports/Push Notification (05-07-11 20;08).zip",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "AiExport artifact باركد (05-07-11 20;08).zip (AiExport.ZipJsonPackage)",
+    "id": "EVID-EXP-000006",
+    "locator": "exports/باركد (05-07-11 20;08).zip",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "gzip+BinaryFormatter+DataSet header",
+    "id": "EVID-EXP-000007",
+    "locator": "source/NewMeta01.metaexport",
+    "source": "ExportSample"
+  },
+  {
+    "detail": "$IdEmbeddingFields rows",
+    "id": "EVID-EXP-000008",
     "locator": "source/NewMeta01.metaexport",
     "source": "ExportSample"
   },
   {
     "detail": "$RootSelection / $Selection tables",
-    "id": "EVID-EXP-000005",
+    "id": "EVID-EXP-000009",
     "locator": "source/NewMeta01.metaexport",
     "source": "ExportSample"
   },
   {
     "detail": "$Data_TypeDefDbNames / $Data_FieldDefDbNames",
-    "id": "EVID-EXP-000006",
+    "id": "EVID-EXP-000010",
     "locator": "source/NewMeta01.metaexport",
     "source": "ExportSample"
   }

@@ -8,13 +8,16 @@ for it. A domain with zero matching types is reported Unknown, not absent.
 
 | Domain | Matching types | Status |
 |---|---|---|
+| ai-export | 428 | Verified |
 | authentication | 250 | Verified |
 | business-logic | 212 | Verified |
 | configuration | 78 | Verified |
+| data-exchange | 25 | Verified |
 | database-access | 143 | Verified |
 | entities-fields-relations | 258 | Verified |
 | forms-ui | 22421 | Verified |
 | import-export | 7068 | Verified |
+| legacy-metaexport | 23 | Verified |
 | metadata-system | 427 | Verified |
 | navigator | 4885 | Verified |
 | remoting | 751 | Verified |

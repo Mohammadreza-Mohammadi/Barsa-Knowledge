@@ -748,3 +748,92 @@ CALL_OPS = (0x28, 0x6F, 0x73)  # call, callvirt, newobj
 LDSTR = 0x72
 LDTOKEN = 0xD0
 _SFLD_OPS = (0x7E, 0x7F, 0x80, 0x81, 0x7B, 0x7C, 0x7D)
+
+
+# --- enum literal values ----------------------------------------------------
+
+_CONST_READERS = {
+    0x02: ("<?", 1),   # bool
+    0x03: ("<H", 2),   # char
+    0x04: ("<b", 1), 0x05: ("<B", 1),
+    0x06: ("<h", 2), 0x07: ("<H", 2),
+    0x08: ("<i", 4), 0x09: ("<I", 4),
+    0x0A: ("<q", 8), 0x0B: ("<Q", 8),
+    0x0C: ("<f", 4), 0x0D: ("<d", 8),
+}
+
+FIELD_STATIC = 0x0010
+FIELD_LITERAL = 0x0040
+FIELD_HAS_DEFAULT = 0x8000
+
+
+def _decode_constant(asm, ctype, blob):
+    reader = _CONST_READERS.get(ctype)
+    if reader is None:
+        if ctype == 0x0E:  # string
+            return blob.decode("utf-16-le", "replace")
+        return None
+    fmt, size = reader
+    if len(blob) < size:
+        return None
+    return struct.unpack_from(fmt, blob, 0)[0]
+
+
+def enum_members(asm, type_rid):
+    """Return [(name, value)] for an enum TypeDef, in declaration order.
+
+    Enum members are static literal fields whose value lives in the Constant
+    table, so they are invisible to a method-level scan.
+    """
+    if not hasattr(asm, "_constants"):
+        asm._constants = {}
+        for _rid, r in asm.iter_rows(CONSTANT):
+            tgt, trid = r["Parent"]
+            if tgt == FIELD:
+                asm._constants[trid] = (r["Type"], asm.blob(r["Value"]))
+    out = []
+    start, end = asm.type_field_range(type_rid)
+    for f in range(start, end):
+        row = asm.row(FIELD, f)
+        if not row:
+            continue
+        flags = row["Flags"]
+        if not (flags & FIELD_STATIC and flags & FIELD_LITERAL):
+            continue
+        name = asm.string(row["Name"])
+        const = asm._constants.get(f)
+        value = _decode_constant(asm, const[0], const[1]) if const else None
+        out.append((name, value))
+    return out
+
+
+def is_enum(asm, type_rid):
+    base = asm.typedefref_name(asm.row(TYPEDEF, type_rid)["Extends"])
+    return base == "System.Enum"
+
+
+# --- embedded manifest resources -------------------------------------------
+
+def manifest_resource_blob(asm, name):
+    """Return the bytes of an embedded manifest resource, or None.
+
+    Embedded resources live in the section the CLI header's Resources
+    directory points at, each prefixed with its own 4-byte length. Resources
+    linked from another file have an Implementation and no local bytes.
+    """
+    for _rid, r in asm.iter_rows(MANIFESTRESOURCE):
+        if asm.string(r["Name"]) != name:
+            continue
+        if r["Implementation"][1] != 0:
+            return None  # lives in another file
+        base = asm.pe.rva_to_offset(asm.resources_rva)
+        if base is None:
+            return None
+        at = base + r["Offset"]
+        size = struct.unpack_from("<I", asm.data, at)[0]
+        return asm.data[at + 4:at + 4 + size]
+    return None
+
+
+def manifest_resource_names(asm):
+    return [asm.string(r["Name"]) for _rid, r in asm.iter_rows(MANIFESTRESOURCE)]
