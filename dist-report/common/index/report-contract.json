@@ -1,0 +1,721 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/index/semantic-contract.json → propertyContracts.report"
+ },
+ "anonymousContracts": [
+  {
+   "factory": "RawJson",
+   "kind": "RawJson",
+   "note": "The RawJson factory takes no property name, so this contract covers a raw JSON payload rather than a named property.",
+   "runtimeSource": "Report.JsonProperty",
+   "writer": "AiReportModel.ApplyReportPatch"
+  }
+ ],
+ "confidence": "Verified",
+ "groupingBasis": "Property names and the enums they line up with. No dist/ document states this partition.",
+ "groupingConfidence": "Inferred",
+ "groups": [
+  {
+   "group": "identity",
+   "properties": [
+    {
+     "kind": null,
+     "property": "name",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "description",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "systemId",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "What the report is called and where it belongs."
+  },
+  {
+   "group": "shape",
+   "properties": [
+    {
+     "kind": null,
+     "property": "reportType",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "typeView",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "parameterEntity",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Which kind of report this is, and what it renders over."
+  },
+  {
+   "group": "data",
+   "properties": [
+    {
+     "kind": null,
+     "property": "columns",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "customSql",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "additionalWhere",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "extraQueryTemplate",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "alternateRootTable",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "rootTableAlias",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "joinAliases",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "isDistinct",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "top",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "includeDeleted",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "oracleHint",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "ignoreColumns",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Where the rows come from."
+  },
+  {
+   "group": "filtering",
+   "properties": [
+    {
+     "kind": null,
+     "property": "condition",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "treeCondition",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "useHierarchyConditionForRoot",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "ignoreAdvancedSecurityCondition",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Which rows survive."
+  },
+  {
+   "group": "shaping",
+   "properties": [
+    {
+     "kind": null,
+     "property": "sorting",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "grouping",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "sqlGrouping",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "matrix",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "useSummaryRow",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "How rows are ordered, grouped and aggregated."
+  },
+  {
+   "group": "presentation",
+   "properties": [
+    {
+     "kind": null,
+     "property": "gridViewStyle",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridLines",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridHideLines",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridGrouping",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridShowGroupBox",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridShowSelectionChecks",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridCustomKey",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "gridHideColumnsWhenGrouped",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "freeColumnSizing",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "alternateRowMode",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "disableColumnHeaders",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "hideHeader",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "hideRowIcon",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "hideToolbar",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "showRowNumber",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "calendar",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "formatConditions",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "showRecordSignFormatting",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "showWpfChart",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "How the result looks."
+  },
+  {
+   "group": "paging",
+   "properties": [
+    {
+     "kind": null,
+     "property": "pagingType",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "pageSize",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "dontExecuteCount",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "How many rows at a time."
+  },
+  {
+   "group": "permissions",
+   "properties": [
+    {
+     "kind": null,
+     "property": "allowView",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowEdit",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowAddNew",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowRemove",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowInlineEdit",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "autoInlineEdit",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowAddToList",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowRemoveFromList",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "allowGridColumnSort",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "useAdvancedAccess",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "What a viewer may do with a row."
+  },
+  {
+   "group": "preview",
+   "properties": [
+    {
+     "kind": null,
+     "property": "previewField",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "showPreviewField",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "previewState",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "The preview pane."
+  },
+  {
+   "group": "insideView",
+   "properties": [
+    {
+     "kind": null,
+     "property": "insideViewActive",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "insideViewHeight",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "insideViewRelatedField",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "listEditView",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "The report embedded inside another form."
+  },
+  {
+   "group": "behaviour",
+   "properties": [
+    {
+     "kind": null,
+     "property": "immediateExecute",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "sharedScope",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "logExecutions",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "preserveUserViewState",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "disableOptimizeForDisplay",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "dontUseChildParentReport",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "selfReferencingField",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Runtime behaviour that is not presentation."
+  },
+  {
+   "group": "tree",
+   "properties": [
+    {
+     "kind": null,
+     "property": "treeAutoOpenLevels",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Tree-shaped reports."
+  },
+  {
+   "group": "parameters",
+   "properties": [
+    {
+     "kind": null,
+     "property": "parameters",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "parameterPanelHeight",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Operator-supplied parameters."
+  },
+  {
+   "group": "composition",
+   "properties": [
+    {
+     "kind": null,
+     "property": "subReports",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "Reports built from other reports."
+  },
+  {
+   "group": "other",
+   "properties": [
+    {
+     "kind": null,
+     "property": "forum",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "commandDisplayMode",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    },
+    {
+     "kind": null,
+     "property": "alternateEditObjectColumn",
+     "referenceTargetType": null,
+     "writableOnCreate": true,
+     "writableOnUpdate": true
+    }
+   ],
+   "purpose": "No grouping could be justified from the name alone."
+  }
+ ],
+ "nonWritable": [
+  {
+   "classification": "ReadOnly",
+   "kind": "Enum",
+   "property": "$type",
+   "runtimeSource": "AiSemanticV15ExportPostProcessor semantic object discriminator"
+  },
+  {
+   "classification": "ReadOnly",
+   "kind": "Reference",
+   "property": "entity",
+   "runtimeSource": "Report.TypeDefId"
+  },
+  {
+   "classification": "ReadOnly",
+   "kind": "Embedded",
+   "property": "parameterLayout",
+   "runtimeSource": "Report parameter XML layout is out of Semantic v15 reconstruction scope in v190"
+  },
+  {
+   "classification": "ReadOnly",
+   "kind": "Reference",
+   "property": "system",
+   "runtimeSource": "Report.SystemId"
+  }
+ ],
+ "objectContract": {
+  "applyClass": "Hardcoded",
+  "confidence": "Verified",
+  "evidence": "SemanticContractRegistry..cctor -> Obj(...)",
+  "hasOrderingSemantics": false,
+  "identitySemantics": "Report.Id under entity",
+  "objectType": "report",
+  "runtimeAdapterKey": "report:semantic",
+  "structuralOrder": 120,
+  "supportedOperations": [
+   "Create",
+   "Update",
+   "Delete"
+  ]
+ },
+ "objectType": "report",
+ "propertyWriterNote": "Every writable property is applied by the writer named in `writer` below; the per-row value was identical on all of them and is stated once rather than 80 times.",
+ "provenance": "dist/index/semantic-contract.json -> propertyContracts.report",
+ "writableCount": 80,
+ "writer": [
+  "AiReportModel.ApplyReportPatch"
+ ]
+}

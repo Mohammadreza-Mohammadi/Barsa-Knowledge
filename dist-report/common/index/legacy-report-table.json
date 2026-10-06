@@ -1,0 +1,98 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/formats/report-format.md"
+ },
+ "columns": [
+  {
+   "column": "Name",
+   "nullable": "yes",
+   "reading": "Report name.",
+   "xsdType": "string"
+  },
+  {
+   "column": "SearchObjectId",
+   "nullable": "yes",
+   "reading": "Object the report searches over.",
+   "xsdType": "long"
+  },
+  {
+   "column": "Descrioption",
+   "nullable": "yes",
+   "reading": "Description. Misspelling is Barsa's, preserved here.",
+   "xsdType": "string"
+  },
+  {
+   "column": "SecurityDescriptor",
+   "nullable": "yes",
+   "reading": "Access control payload — contents Unknown.",
+   "xsdType": "string"
+  },
+  {
+   "column": "AccessLevel",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "int"
+  },
+  {
+   "column": "ReportData",
+   "nullable": "yes",
+   "reading": "Opaque blob — contents Unknown.",
+   "xsdType": "base64Binary"
+  },
+  {
+   "column": "activityDefId",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "long"
+  },
+  {
+   "column": "reportType",
+   "nullable": "yes",
+   "reading": "Discriminator — value set Unknown.",
+   "xsdType": "long"
+  },
+  {
+   "column": "iconName",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "string"
+  },
+  {
+   "column": "iconImage",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "base64Binary"
+  },
+  {
+   "column": "systemId",
+   "nullable": "yes",
+   "reading": "Owning MET_METASYSTEM row.",
+   "xsdType": "long"
+  },
+  {
+   "column": "scopeType",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "int"
+  },
+  {
+   "column": "isInsideView",
+   "nullable": "yes",
+   "reading": null,
+   "xsdType": "boolean"
+  },
+  {
+   "column": "ID",
+   "nullable": "yes",
+   "reading": "Primary key.",
+   "xsdType": "long"
+  }
+ ],
+ "confidence": "Verified",
+ "provenance": "dist/formats/report-format.md",
+ "table": "met_Report"
+}

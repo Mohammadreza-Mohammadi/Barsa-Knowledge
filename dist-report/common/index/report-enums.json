@@ -1,0 +1,234 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/index/ai-export-properties.json → enums"
+ },
+ "availableInDist": 54,
+ "droppedCount": 40,
+ "enums": {
+  "Barsa.Meta.AggreationTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 9,
+   "members": {
+    "1": "Count",
+    "10": "First",
+    "2": "Sum",
+    "3": "Min",
+    "4": "Max",
+    "5": "Avg",
+    "7": "StringConcat",
+    "8": "Exists",
+    "9": "Not_Exists"
+   },
+   "relevance": "aggregation in grouping and summary rows"
+  },
+  "Barsa.Meta.CalendarTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 3,
+   "members": {
+    "0": "Default",
+    "1": "HijriShamsi",
+    "2": "Gregorian"
+   },
+   "relevance": "the calendar property"
+  },
+  "Barsa.Meta.ChartTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 3,
+   "members": {
+    "0": "Columns",
+    "1": "ColumnsInverse",
+    "2": "Pie"
+   },
+   "relevance": "charts on a dashboard report"
+  },
+  "Barsa.Meta.CombinationOperator": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 2,
+   "members": {
+    "0": "All",
+    "1": "Any"
+   },
+   "relevance": "how condition clauses combine"
+  },
+  "Barsa.Meta.ComparisonOperator": {
+   "caveat": "One member only (AdvancedTextSearch2). Far too few for a condition engine, so the real operator set is almost certainly elsewhere and the profile maps just this one. Treat the operator vocabulary as Unknown.",
+   "confidence": "Verified",
+   "memberCount": 1,
+   "members": {
+    "0": "AdvancedTextSearch2"
+   },
+   "relevance": "how a single condition clause compares"
+  },
+  "Barsa.Meta.DisplayTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 2,
+   "members": {
+    "1": "Toolbar",
+    "2": "Button"
+   },
+   "relevance": "how a value is displayed"
+  },
+  "Barsa.Meta.FieldInfoTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 50,
+   "members": {
+    "0": "IntInfo",
+    "10": "CommandInfo",
+    "11": "PicturesInfo",
+    "12": "RelationInfo",
+    "13": "HistoryInfo",
+    "14": "RelationInfoReverse_AksListi",
+    "15": "CreatorUserInfo",
+    "16": "CreationDateInfo",
+    "17": "LastUpdateDateInfo",
+    "18": "ReminderInfo",
+    "19": "RichStringInfo",
+    "2": "StringInfo",
+    "20": "ConvertCommandInfo",
+    "21": "RelationInfoSingleReverse_AksTakiListi",
+    "22": "DialCommandInfo",
+    "23": "FindContactCommandInfo",
+    "24": "SequenceCommandInfo",
+    "25": "CurrencyInfo",
+    "26": "SinglePictureInfo",
+    "27": "WordReportCommandInfo",
+    "28": "HierarchicalInfo",
+    "29": "TimeSpanInfo",
+    "3": "DateInfo",
+    "30": "ReportInfo",
+    "31": "FileInfo",
+    "32": "WordFileInfo",
+    "33": "PictureFileInfo",
+    "34": "GaugeInfo",
+    "35": "CodeInfo",
+    "36": "WorkCenterInfo",
+    "37": "IsDeletedInfo",
+    "38": "RowNumberInfo",
+    "39": "BinaryInfo",
+    "40": "ReverseMetaObjectInfo_AksTakiTaki",
+    "41": "ColorInfo",
+    "42": "IconInfo",
+    "43": "RefreshFieldCommandInfo",
+    "44": "ReferenceFieldInfo",
+    "45": "SearchCommandInfo",
+    "46": "OrderInfo",
+    "5": "BoolInfo",
+    "55": "InheritanceInfo",
+    "56": "InterfaceInfo",
+    "57": "InheritanceChildInfo",
+    "58": "CustomFieldInfo",
+    "59": "RecordSignInfo",
+    "6": "EnumInfo",
+    "7": "UserInfo",
+    "8": "CategoryInfo",
+    "9": "MetaObjectInfo"
+   },
+   "relevance": "what a field is, when choosing columns"
+  },
+  "Barsa.Meta.FolderType": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 4,
+   "members": {
+    "0": "MainRoot",
+    "12": "ReportFolder",
+    "3": "ReportRoot",
+    "9": "Report"
+   },
+   "relevance": "where a report is placed in the navigator"
+  },
+  "Barsa.Meta.GridAlternateRowModeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 2,
+   "members": {
+    "0": "None",
+    "1": "OneSpace"
+   },
+   "relevance": "the alternateRowMode property"
+  },
+  "Barsa.Meta.GridViewStyleEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 3,
+   "members": {
+    "-1": "Default",
+    "0": "ListView",
+    "1": "CardView"
+   },
+   "relevance": "the gridViewStyle property"
+  },
+  "Barsa.Meta.GroupStyle2": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 7,
+   "members": {
+    "0": "Default",
+    "1": "SmallImages",
+    "2": "SmallImagesWithText",
+    "3": "LargeImages",
+    "4": "LargeImagesWithText",
+    "5": "LargeImagesWithTextBelow",
+    "6": "ControlContainer"
+   },
+   "relevance": "grouping presentation"
+  },
+  "Barsa.Meta.ReportPagingType": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 4,
+   "members": {
+    "0": "Default",
+    "1": "None",
+    "2": "Always",
+    "3": "Automatic"
+   },
+   "relevance": "the pagingType property"
+  },
+  "Barsa.Meta.ReportTypeEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 12,
+   "members": {
+    "0": "ViewResults",
+    "1": "Statistics",
+    "10": "ForumView",
+    "11": "Dashboard",
+    "2": "TreeView",
+    "3": "MatrixView",
+    "4": "CalendarView",
+    "5": "PrintView",
+    "6": "HetrogeniousTree",
+    "7": "HetrogeniousTree_NoneGraphical",
+    "8": "GauntView",
+    "9": "FormView"
+   },
+   "relevance": "the kind of report"
+  },
+  "Barsa.Meta.RightToLeftEnum": {
+   "caveat": null,
+   "confidence": "Verified",
+   "memberCount": 3,
+   "members": {
+    "0": "Inherit",
+    "1": "Yes",
+    "2": "No"
+   },
+   "relevance": "column direction"
+  }
+ },
+ "keptCount": 14,
+ "notInDist": [],
+ "provenance": "dist/index/ai-export-properties.json -> enums, which the Extractor read from the embedded AI export profile",
+ "selectionBasis": "Hand-picked for the report-authoring task. The selection is a judgement about relevance, not a fact about Barsa."
+}

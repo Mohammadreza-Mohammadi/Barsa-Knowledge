@@ -1,0 +1,303 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/models/normalized-samples/"
+ },
+ "authorable": true,
+ "authorableBasis": "An AiExport artifact for this system is present, so selectors are known.",
+ "captions": [
+  "بارکد",
+  "باركد"
+ ],
+ "complete": true,
+ "completenessNote": "Every contributing sample was carried whole.",
+ "confidence": "Verified",
+ "contributingSamples": [
+  {
+   "format": "Barsa.AiExport",
+   "sample": "ai-باركد (05-07-11 20;08).json",
+   "systemsInSample": 1
+  },
+  {
+   "format": "Barsa.LegacyMetaExport",
+   "sample": "legacy-باركد (05-02-02 11;14).json",
+   "systemsInSample": 1
+  }
+ ],
+ "entities": [
+  {
+   "caption": "BarcodeReader",
+   "dbName": "dyn_244",
+   "defaultReportId": "0",
+   "id": "1011413500000000143",
+   "inAiExport": true,
+   "inLegacy": true,
+   "isDynamic": false,
+   "parentId": "0",
+   "selector": "#BarcodeReader"
+  },
+  {
+   "caption": "بازدید گیت",
+   "dbName": "dyn_246",
+   "defaultReportId": "0",
+   "id": "1011413500000000144",
+   "inAiExport": true,
+   "inLegacy": true,
+   "isDynamic": false,
+   "parentId": "0",
+   "selector": "#بازدید گیت"
+  },
+  {
+   "caption": "تنظیمات بارکدخوان",
+   "dbName": "dyn_262",
+   "defaultReportId": "0",
+   "id": "1011413500000000184",
+   "inAiExport": true,
+   "inLegacy": true,
+   "isDynamic": false,
+   "parentId": "0",
+   "selector": "#تنظیمات بارکدخوان"
+  },
+  {
+   "caption": "گیت",
+   "dbName": "dyn_247",
+   "defaultReportId": "0",
+   "id": "1011413500000000145",
+   "inAiExport": true,
+   "inLegacy": true,
+   "isDynamic": false,
+   "parentId": "0",
+   "selector": "#گیت"
+  }
+ ],
+ "fields": [
+  {
+   "caption": "Value",
+   "dbName": "Value",
+   "entityCaption": "BarcodeReader",
+   "entityId": "1011413500000000143",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "string",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000272",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 1,
+   "selector": "#Value",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "Camera",
+   "dbName": "Camera",
+   "entityCaption": "BarcodeReader",
+   "entityId": "1011413500000000143",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "command",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000273",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 2,
+   "selector": "#Camera",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "فرمت",
+   "dbName": "F1",
+   "entityCaption": "BarcodeReader",
+   "entityId": "1011413500000000143",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "enum",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000498",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 3,
+   "selector": "#فرمت",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "بارکدخوان",
+   "dbName": "F1",
+   "entityCaption": "بازدید گیت",
+   "entityId": "1011413500000000144",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "customField",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000274",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 1,
+   "selector": "#بارکدخوان",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "گيت",
+   "dbName": "F2",
+   "entityCaption": "بازدید گیت",
+   "entityId": "1011413500000000144",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": null,
+   "fieldTypeSource": null,
+   "id": "1011413510000000278",
+   "inAiExport": false,
+   "inLegacy": true,
+   "orderNumber": 2,
+   "selector": null,
+   "usableAsColumn": false,
+   "usableAsColumnBasis": "A column entry needs a field selector."
+  },
+  {
+   "caption": "توضیحات",
+   "dbName": "F3",
+   "entityCaption": "بازدید گیت",
+   "entityId": "1011413500000000144",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "string",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000279",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 3,
+   "selector": "#توضیحات",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "فرمت",
+   "dbName": "F2",
+   "entityCaption": "تنظیمات بارکدخوان",
+   "entityId": "1011413500000000184",
+   "entitySelector": "#تنظیمات بارکدخوان",
+   "fieldType": "enum",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000501",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 2,
+   "selector": "#فرمت",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  },
+  {
+   "caption": "عنوان",
+   "dbName": "F1",
+   "entityCaption": "گیت",
+   "entityId": "1011413500000000145",
+   "entitySelector": "#گیت",
+   "fieldType": "string",
+   "fieldTypeSource": "AiExport dataType",
+   "id": "1011413510000000277",
+   "inAiExport": true,
+   "inLegacy": true,
+   "orderNumber": 1,
+   "selector": "#عنوان",
+   "usableAsColumn": true,
+   "usableAsColumnBasis": null
+  }
+ ],
+ "navigationRowCount": 13,
+ "provenance": "dist/models/normalized-samples/",
+ "relationDefs": [
+  {
+   "_aiType": "relation",
+   "_ownerId": "1011413500000000144",
+   "_provenance": {
+    "confidence": "Verified",
+    "evidence": [],
+    "format": "Barsa.AiExport",
+    "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $.MetaFieldDef[*]",
+    "source": "باركد (05-07-11 20;08).zip"
+   },
+   "caption": "گیت",
+   "dbName": "F2",
+   "id": "1011413510000000278",
+   "name": "F2",
+   "orderNumber": 2,
+   "relationType": "singleRelation",
+   "selector": "#گیت",
+   "targetSelector": "#گیت"
+  }
+ ],
+ "reports": [
+  {
+   "id": "1011413530000000132",
+   "inAiExport": true,
+   "inLegacy": true,
+   "legacyName": "BarcodeReaders",
+   "legacyReportTypeValue": "0",
+   "name": "BarcodeReaders",
+   "reportType": "list",
+   "selector": "#BarcodeReaders",
+   "systemId": "1011413550000000100"
+  },
+  {
+   "id": "1011413530000000133",
+   "inAiExport": true,
+   "inLegacy": true,
+   "legacyName": "بازديد گيت ها",
+   "legacyReportTypeValue": "0",
+   "name": "بازدید گیت ها",
+   "reportType": "list",
+   "selector": "#بازدید گیت ها",
+   "systemId": "1011413550000000100"
+  },
+  {
+   "id": "1011413530000000136",
+   "inAiExport": true,
+   "inLegacy": true,
+   "legacyName": "گيت ها",
+   "legacyReportTypeValue": "0",
+   "name": "گیت ها",
+   "reportType": "list",
+   "selector": "#گیت ها",
+   "systemId": "1011413550000000100"
+  }
+ ],
+ "selectors": [
+  "#بارکد"
+ ],
+ "systemId": "1011413550000000100",
+ "truncation": {},
+ "views": [
+  {
+   "_aiType": "view",
+   "_provenance": {
+    "confidence": "Verified",
+    "evidence": [],
+    "format": "Barsa.LegacyMetaExport",
+    "path": "$.MET_TYPEVIEWENTITY[*]",
+    "source": "باركد (05-02-02 11;14).metaexport"
+   },
+   "caption": "نمای 1",
+   "entityId": "1011413500000000144",
+   "id": "1011413700000000110",
+   "name": "نماي 1",
+   "parentId": "0",
+   "selector": "#نمای 1"
+  },
+  {
+   "_aiType": "view",
+   "_provenance": {
+    "confidence": "Verified",
+    "evidence": [],
+    "format": "Barsa.LegacyMetaExport",
+    "path": "$.MET_TYPEVIEWENTITY[*]",
+    "source": "باركد (05-02-02 11;14).metaexport"
+   },
+   "caption": "نمای اصلی",
+   "entityId": "1011413500000000143",
+   "id": "1011413700000000109",
+   "name": "نمای اصلی",
+   "parentId": "0",
+   "selector": "#نمای اصلی"
+  }
+ ]
+}

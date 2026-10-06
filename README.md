@@ -33,10 +33,11 @@ python3 tools/lint_change_batch.py --schema          # JSON Schema
 ## Layout
 
 ```
-source/   inputs: Barsa DLLs/EXEs, configs, .metaexport packages, resources
-tools/    the extractor (pure Python, standard library only)
-dist/     the generated knowledge pack
-specs/    the specifications this implements
+source/       inputs: Barsa DLLs/EXEs, configs, .metaexport packages, resources
+tools/        the extractor and the report compiler (pure Python, stdlib only)
+dist/         the generated knowledge pack
+dist-report/  the report-authoring pack, compiled from dist/
+specs/        the specifications this implements
 ```
 
 ## Running it
@@ -93,13 +94,44 @@ schema and diffgram are read straight out of the byte stream. Embedded profile
 resources are likewise read as bytes, not loaded as assemblies. Credential-shaped
 strings and sensitive-looking columns are redacted before they reach `dist/`.
 
+## The report-authoring pack
+
+`dist/` is about Barsa. `dist-report/` is about building one report in Barsa:
+a 140 KB pack compiled out of the 58 MB one, for an agent that has to produce
+an `AiChangeBatch` and get it accepted.
+
+```bash
+python3 tools/report_compiler.py --scope system=1011413550000000100
+python3 tools/report_compiler.py --scope contract      # no entity model
+python3 tools/report_compiler.py --check               # is the pack stale?
+```
+
+It reads `dist/` and never `source/` — the loader's allowlist is the
+enforcement point. The build fails, rather than growing or softening, if the
+pack goes over budget, a property escapes its one group, a recipe stops
+linting clean, a confidence is promoted, a file loses its provenance header,
+or the gap register comes out empty.
+
+```
+dist-report/README.md               start here
+dist-report/README-FA.md            the same, in Persian, for a human
+dist-report/MISSING-FROM-DIST.md    generated: every Unknown, and where to look
+dist-report/common/                 the contract, scope-independent
+dist-report/systems/<id>/           one system's entities, fields and selectors
+```
+
+The recipes in `common/RECIPES.md` are validated during the build by the same
+linter `tools/lint_change_batch.py` runs, against the contract recovered from
+the binary — so a recipe cannot drift from the contract without the build
+failing.
+
 ## Specifications
 
 | Spec | Scope | Status |
 |---|---|---|
 | `specs/Barsa-Knowledge-Extractor-Master-Spec.md` | v2: extract a knowledge pack from the binaries and legacy exports | implemented |
 | `specs/Barsa-Knowledge-Extractor-Master-Spec-v3.md` | v3: dual export families, AiExport, scope-gated comparison | implemented |
-| `specs/Barsa-Report-Designer-Knowledge-Compiler-Spec.md` | compile `dist/` down to a small report-authoring pack in `dist-report/` | **not yet implemented** |
+| `specs/Barsa-Report-Designer-Knowledge-Compiler-Spec.md` | compile `dist/` down to a small report-authoring pack in `dist-report/` | implemented |
 
 ## Confidence levels
 

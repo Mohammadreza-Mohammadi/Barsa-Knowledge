@@ -1,0 +1,122 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/models/normalized-samples/"
+ },
+ "count": 16,
+ "note": "Copy these strings verbatim. Arabic and Persian letter forms are mixed in this data and a mistyped yeh or kaf will not resolve.",
+ "selectors": [
+  {
+   "caption": "BarcodeReader",
+   "dbName": "dyn_244",
+   "objectType": "entity",
+   "selector": "#BarcodeReader"
+  },
+  {
+   "caption": "بازدید گیت",
+   "dbName": "dyn_246",
+   "objectType": "entity",
+   "selector": "#بازدید گیت"
+  },
+  {
+   "caption": "تنظیمات بارکدخوان",
+   "dbName": "dyn_262",
+   "objectType": "entity",
+   "selector": "#تنظیمات بارکدخوان"
+  },
+  {
+   "caption": "گیت",
+   "dbName": "dyn_247",
+   "objectType": "entity",
+   "selector": "#گیت"
+  },
+  {
+   "caption": "Camera",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "command",
+   "objectType": "field",
+   "selector": "#Camera"
+  },
+  {
+   "caption": "Value",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "string",
+   "objectType": "field",
+   "selector": "#Value"
+  },
+  {
+   "caption": "بارکدخوان",
+   "entityCaption": "بازدید گیت",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "customField",
+   "objectType": "field",
+   "selector": "#بارکدخوان"
+  },
+  {
+   "caption": "توضیحات",
+   "entityCaption": "بازدید گیت",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "string",
+   "objectType": "field",
+   "selector": "#توضیحات"
+  },
+  {
+   "caption": "عنوان",
+   "entityCaption": "گیت",
+   "entitySelector": "#گیت",
+   "fieldType": "string",
+   "objectType": "field",
+   "selector": "#عنوان"
+  },
+  {
+   "caption": "فرمت",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "enum",
+   "objectType": "field",
+   "selector": "#فرمت"
+  },
+  {
+   "caption": "فرمت",
+   "entityCaption": "تنظیمات بارکدخوان",
+   "entitySelector": "#تنظیمات بارکدخوان",
+   "fieldType": "enum",
+   "objectType": "field",
+   "selector": "#فرمت"
+  },
+  {
+   "caption": "BarcodeReaders",
+   "objectType": "report",
+   "reportType": "list",
+   "selector": "#BarcodeReaders"
+  },
+  {
+   "caption": "بازدید گیت ها",
+   "objectType": "report",
+   "reportType": "list",
+   "selector": "#بازدید گیت ها"
+  },
+  {
+   "caption": "گیت ها",
+   "objectType": "report",
+   "reportType": "list",
+   "selector": "#گیت ها"
+  },
+  {
+   "caption": "نمای 1",
+   "objectType": "view",
+   "selector": "#نمای 1"
+  },
+  {
+   "caption": "نمای اصلی",
+   "objectType": "view",
+   "selector": "#نمای اصلی"
+  }
+ ],
+ "systemId": "1011413550000000100"
+}

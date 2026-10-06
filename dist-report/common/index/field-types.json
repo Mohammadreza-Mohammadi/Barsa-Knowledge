@@ -1,0 +1,306 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-06",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
+  "scope": "system=1011413550000000100",
+  "source": "dist/index/semantic-contract.json → propertyContracts.field"
+ },
+ "columnReference": {
+  "basis": "columns[*].field is a string in every one of the 149 observed column rows; the field contract's identity is 'FieldDef.Id under entity'.",
+  "confidence": "Observed",
+  "resolvesTo": "a FieldDef under the report's own entity",
+  "shape": "columns[*].field is a semantic selector, not an id"
+ },
+ "confidence": "Verified",
+ "provenance": "dist/index/semantic-contract.json -> propertyContracts.field",
+ "relationColumns": {
+  "note": "Whether a column may name a field reached through a relation is not stated anywhere in dist/, and no observed column does so provably. Unknown, not unsupported.",
+  "status": "Unknown"
+ },
+ "sharedProperties": [
+  "caption",
+  "code",
+  "dbName",
+  "defaultValue",
+  "doNotUpdateInDb",
+  "fieldType",
+  "formula",
+  "hasEncryption",
+  "icon",
+  "isLeftToRight",
+  "isMandatory",
+  "isReadOnly",
+  "isUnique",
+  "sql"
+ ],
+ "subtypeCount": 24,
+ "subtypes": [
+  {
+   "ownProperties": [
+    "controlManageCode",
+    "falseDisplay",
+    "falseImage",
+    "showCheckInGrid",
+    "trueDisplay",
+    "trueImage",
+    "viewType"
+   ],
+   "subtype": "binary",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "falseDisplay",
+    "falseImage",
+    "showCheckInGrid",
+    "trueDisplay",
+    "trueImage",
+    "viewType"
+   ],
+   "subtype": "bool",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "codeLanguage",
+    "codeLayer",
+    "codeTemplate",
+    "codeType",
+    "helperDescriptionResolver",
+    "helperTypeDefResolver",
+    "isMinimized",
+    "isWordWrap"
+   ],
+   "subtype": "code",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "disableWhenReadonly",
+    "displayType",
+    "executeTarget",
+    "hideWhenDisabled",
+    "listStateAlways",
+    "listStateMultiSelect",
+    "listStateSingleSelect",
+    "menuName"
+   ],
+   "subtype": "command",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "behindField",
+    "definitionId",
+    "settingsId"
+   ],
+   "subtype": "customField",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "calendarType",
+    "dateFormat",
+    "relativeFormat",
+    "timeFormat"
+   ],
+   "subtype": "date",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "enumType",
+    "iconDisplayType",
+    "values",
+    "viewType"
+   ],
+   "subtype": "enum",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "acceptableFileExtensions",
+    "checkOutDefaultPathCode",
+    "isMultiSelect",
+    "maxFileCount",
+    "maxFileSizeKb",
+    "maxTotalFileSizeKb",
+    "setTextContent",
+    "showFileExtension",
+    "supportSourceControl",
+    "viewType"
+   ],
+   "subtype": "file",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "direction",
+    "gaugeType",
+    "labelPosition",
+    "maxValue",
+    "maxValue2",
+    "minValue",
+    "minValue2",
+    "numericDotPlace",
+    "showNumber"
+   ],
+   "subtype": "gauge",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "maxValue",
+    "minValue",
+    "numericDotPlace",
+    "showNumericSeparator",
+    "totalDigits"
+   ],
+   "subtype": "int",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "richInfoType"
+   ],
+   "subtype": "longText",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "displayUnit",
+    "maxValue",
+    "minValue",
+    "numericDotPlace",
+    "showNumericSeparator",
+    "totalDigits"
+   ],
+   "subtype": "money",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "image",
+    "sizeMode"
+   ],
+   "subtype": "picture",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "nullImage",
+    "showBarsaImageLibrary",
+    "sizeMode"
+   ],
+   "subtype": "pictureFile",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "groups",
+    "maxFileSizeKb",
+    "maxPictureCount",
+    "maxTotalFileSizeKb"
+   ],
+   "subtype": "pictures",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "isChained",
+    "salt",
+    "selectedFields"
+   ],
+   "subtype": "recordSign",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "isConditional",
+    "operator",
+    "targetField"
+   ],
+   "subtype": "referenceField",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "fields"
+   ],
+   "subtype": "refreshCommand",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "enableAdvanceReminders",
+    "enableMediaSelect",
+    "enableSelectBeforeInterval",
+    "remindDescriptionFormula",
+    "remindEmailFormula",
+    "remindSmsFormula",
+    "remindTimeFormula",
+    "remindUserIdFormula"
+   ],
+   "subtype": "reminder",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "allowedStringChars",
+    "autoCompleteReportId",
+    "isMultiline",
+    "isPassword",
+    "isTranslatable",
+    "maximumLength",
+    "minimumLength",
+    "nullText",
+    "onlyAcceptCurrentCulture",
+    "regularExpression",
+    "templateDefinitionId",
+    "useAutoComplete",
+    "useFullTextIndex"
+   ],
+   "subtype": "string",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "format",
+    "maxValue",
+    "minValue",
+    "numericDotPlace",
+    "showNullText"
+   ],
+   "subtype": "timeSpan",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "fieldSelectTargetType",
+    "hideSelectFields"
+   ],
+   "subtype": "wordFile",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "reportId",
+    "reportType",
+    "wordReportFile"
+   ],
+   "subtype": "wordReportCommand",
+   "usableAsReportColumn": "Unknown"
+  },
+  {
+   "ownProperties": [
+    "cannotSelectOrganizationUnit",
+    "showPositions",
+    "startWorkCenter"
+   ],
+   "subtype": "workCenter",
+   "usableAsReportColumn": "Unknown"
+  }
+ ],
+ "usableAsReportColumnBasis": "Unknown for every subtype, and stated once here rather than per row: the contract classifies field properties and says nothing about which field subtypes may be a report column, and no artifact in dist/ pairs a column with its field's subtype."
+}
