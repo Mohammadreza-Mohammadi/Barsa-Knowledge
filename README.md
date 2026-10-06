@@ -36,7 +36,7 @@ python3 tools/lint_change_batch.py --schema          # JSON Schema
 source/   inputs: Barsa DLLs/EXEs, configs, .metaexport packages, resources
 tools/    the extractor (pure Python, standard library only)
 dist/     the generated knowledge pack
-specs/    the master specifications this implements (v2 and v3)
+specs/    the specifications this implements
 ```
 
 ## Running it
@@ -92,6 +92,14 @@ deserializes a package — `BinaryFormatter` input is untrusted, so the embedded
 schema and diffgram are read straight out of the byte stream. Embedded profile
 resources are likewise read as bytes, not loaded as assemblies. Credential-shaped
 strings and sensitive-looking columns are redacted before they reach `dist/`.
+
+## Specifications
+
+| Spec | Scope | Status |
+|---|---|---|
+| `specs/Barsa-Knowledge-Extractor-Master-Spec.md` | v2: extract a knowledge pack from the binaries and legacy exports | implemented |
+| `specs/Barsa-Knowledge-Extractor-Master-Spec-v3.md` | v3: dual export families, AiExport, scope-gated comparison | implemented |
+| `specs/Barsa-Report-Designer-Knowledge-Compiler-Spec.md` | compile `dist/` down to a small report-authoring pack in `dist-report/` | **not yet implemented** |
 
 ## Confidence levels
 
