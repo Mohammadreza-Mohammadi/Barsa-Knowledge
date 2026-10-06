@@ -37,7 +37,7 @@ CrossVerified > Verified > Observed > Inferred > Unknown
 - **اینکه کدام property برای کدام نوع گزارش معنا دارد.**
 - **selector پوشه‌ها**، که در `dist/` هیچ کدام نیست؛ پس جای‌گذاری گزارش در navigator از این بسته قابل تکمیل نیست.
 
-11 شکاف در `MISSING-FROM-DIST.md` ثبت شده، با آدرس دقیق اینکه Extractor کجا باید دنبالشان برود.
+12 شکاف در `MISSING-FROM-DIST.md` ثبت شده، با آدرس دقیق اینکه Extractor کجا باید دنبالشان برود.
 
 ## از کجا شروع کنیم
 
@@ -55,4 +55,4 @@ CrossVerified > Verified > Observed > Inferred > Unknown
 
 ## scope این بسته
 
-سیستم `1011413550000000100` — بارکد. مدل کامل است.
+سیستم `1011413550000000100` — باركد. مدل کامل است.

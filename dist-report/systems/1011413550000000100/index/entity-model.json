@@ -4,26 +4,26 @@
   "compiler": "tools/report_compiler.py",
   "distCommit": "427c93cf67edea701b8874a816924f4c31a8d2bb",
   "scope": "system=1011413550000000100",
-  "source": "dist/models/normalized-samples/"
+  "source": "dist/index/systems/1011413550000000100/semantic.json"
  },
  "authorable": true,
  "authorableBasis": "An AiExport artifact for this system is present, so selectors are known.",
  "captions": [
-  "بارکد",
-  "باركد"
+  "باركد",
+  "بارکد"
  ],
  "complete": true,
- "completenessNote": "Every contributing sample was carried whole.",
+ "completenessNote": "Every assignable row in the canonical system index was carried.",
  "confidence": "Verified",
  "contributingSamples": [
   {
-   "format": "Barsa.AiExport",
-   "sample": "ai-باركد (05-07-11 20;08).json",
+   "format": "Barsa.LegacyMetaExport",
+   "sample": "index/systems/1011413550000000100/semantic.json",
    "systemsInSample": 1
   },
   {
-   "format": "Barsa.LegacyMetaExport",
-   "sample": "legacy-باركد (05-02-02 11;14).json",
+   "format": "Barsa.AiExport",
+   "sample": "index/systems/1011413550000000100/semantic.json",
    "systemsInSample": 1
   }
  ],
@@ -37,6 +37,22 @@
    "inLegacy": true,
    "isDynamic": false,
    "parentId": "0",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#BarcodeReader"
   },
   {
@@ -48,6 +64,22 @@
    "inLegacy": true,
    "isDynamic": false,
    "parentId": "0",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#بازدید گیت"
   },
   {
@@ -59,6 +91,22 @@
    "inLegacy": true,
    "isDynamic": false,
    "parentId": "0",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/تنظيمات باركدخوان/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#تنظیمات بارکدخوان"
   },
   {
@@ -70,6 +118,22 @@
    "inLegacy": true,
    "isDynamic": false,
    "parentId": "0",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/گيت/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#گیت"
   }
  ],
@@ -86,6 +150,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 1,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#Value",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -102,6 +182,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 2,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#Camera",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -118,6 +214,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 3,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#فرمت",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -134,6 +246,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 1,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#بارکدخوان",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -150,6 +278,15 @@
    "inAiExport": false,
    "inLegacy": true,
    "orderNumber": 2,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": null,
    "usableAsColumn": false,
    "usableAsColumnBasis": "A column entry needs a field selector."
@@ -166,6 +303,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 3,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#توضیحات",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -182,6 +335,22 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 2,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/تنظيمات باركدخوان/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#فرمت",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
@@ -198,13 +367,197 @@
    "inAiExport": true,
    "inLegacy": true,
    "orderNumber": 1,
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "selector": "#عنوان",
    "usableAsColumn": true,
    "usableAsColumnBasis": null
   }
  ],
+ "folders": [
+  {
+   "authorableReference": false,
+   "caption": "سيستم باركد",
+   "kind": null,
+   "name": "سيستم باركد",
+   "objectType": "folder",
+   "parentPath": null,
+   "path": "-100-101-126-",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FOLDER[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": null,
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "پايه",
+   "kind": null,
+   "name": "پايه",
+   "objectType": "folder",
+   "parentPath": null,
+   "path": "-100-101-126-127-",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FOLDER[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": null,
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "باركد",
+   "kind": null,
+   "name": "باركد",
+   "objectType": "folder",
+   "parentPath": null,
+   "path": "-100-101-126-127-128-",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FOLDER[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": null,
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "Test",
+   "kind": null,
+   "name": "Test",
+   "objectType": "folder",
+   "parentPath": null,
+   "path": "-100-101-126-127-141-",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FOLDER[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": null,
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "پایه",
+   "kind": null,
+   "name": "پایه",
+   "objectType": "folder",
+   "parentPath": null,
+   "path": "پایه",
+   "provenance": [
+    {
+     "confidence": "Observed",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/بازدید گیت ها.json",
+     "source": "باركد (05-07-11 20;08).zip"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": {
+    "kind": "navigationPath",
+    "path": "پایه",
+    "systemId": "1011413550000000100"
+   },
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "Test",
+   "kind": null,
+   "name": "Test",
+   "objectType": "folder",
+   "parentPath": "پایه",
+   "path": "پایه/Test",
+   "provenance": [
+    {
+     "confidence": "Observed",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/بازدید گیت ها.json",
+     "source": "باركد (05-07-11 20;08).zip"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": {
+    "kind": "navigationPath",
+    "path": "پایه/Test",
+    "systemId": "1011413550000000100"
+   },
+   "systemId": "1011413550000000100"
+  },
+  {
+   "authorableReference": false,
+   "caption": "بارکد",
+   "kind": null,
+   "name": "بارکد",
+   "objectType": "folder",
+   "parentPath": "پایه",
+   "path": "پایه/بارکد",
+   "provenance": [
+    {
+     "confidence": "Observed",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/بارکد/BarcodeReaders.json",
+     "source": "باركد (05-07-11 20;08).zip"
+    }
+   ],
+   "referenceEvidence": "dist/index/references.json: AiSemanticReferenceResolver.Resolve delegates to SemanticRules.ResolveObject; its observed cases omit folder",
+   "selector": null,
+   "stableReference": {
+    "kind": "navigationPath",
+    "path": "پایه/بارکد",
+    "systemId": "1011413550000000100"
+   },
+   "systemId": "1011413550000000100"
+  }
+ ],
  "navigationRowCount": 13,
- "provenance": "dist/models/normalized-samples/",
+ "provenance": "dist/index/systems/1011413550000000100/semantic.json",
  "relationDefs": [
   {
    "_aiType": "relation",
@@ -234,6 +587,22 @@
    "legacyName": "BarcodeReaders",
    "legacyReportTypeValue": "0",
    "name": "BarcodeReaders",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/بارکد/BarcodeReaders.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "reportType": "list",
    "selector": "#BarcodeReaders",
    "systemId": "1011413550000000100"
@@ -245,6 +614,22 @@
    "legacyName": "بازديد گيت ها",
    "legacyReportTypeValue": "0",
    "name": "بازدید گیت ها",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/بازدید گیت ها.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "reportType": "list",
    "selector": "#بازدید گیت ها",
    "systemId": "1011413550000000100"
@@ -256,6 +641,22 @@
    "legacyName": "گيت ها",
    "legacyReportTypeValue": "0",
    "name": "گیت ها",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/گیت ها.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
    "reportType": "list",
    "selector": "#گیت ها",
    "systemId": "1011413550000000100"
@@ -272,14 +673,14 @@
    "_provenance": {
     "confidence": "Verified",
     "evidence": [],
-    "format": "Barsa.LegacyMetaExport",
-    "path": "$.MET_TYPEVIEWENTITY[*]",
-    "source": "باركد (05-02-02 11;14).metaexport"
+    "format": "Barsa.AiExport",
+    "path": "باركد/[موجوديت]/بازديد گيت/نماي 1.json :: $",
+    "source": "باركد (05-07-11 20;08).zip"
    },
    "caption": "نمای 1",
    "entityId": "1011413500000000144",
    "id": "1011413700000000110",
-   "name": "نماي 1",
+   "name": "نمای 1",
    "parentId": "0",
    "selector": "#نمای 1"
   },
@@ -288,9 +689,9 @@
    "_provenance": {
     "confidence": "Verified",
     "evidence": [],
-    "format": "Barsa.LegacyMetaExport",
-    "path": "$.MET_TYPEVIEWENTITY[*]",
-    "source": "باركد (05-02-02 11;14).metaexport"
+    "format": "Barsa.AiExport",
+    "path": "باركد/[موجوديت]/BarcodeReader/نمای اصلی.json :: $",
+    "source": "باركد (05-07-11 20;08).zip"
    },
    "caption": "نمای اصلی",
    "entityId": "1011413500000000143",

@@ -41,7 +41,7 @@ Exactly two things in this pack are **Inferred**, both this compiler's own addit
 
 1. *Can I create a list report?* Yes — `common/RECIPES.md` R1, with 80 writable properties documented in `common/REPORT-CONTRACT.md`.
 2. *Can I change which entity a report runs over?* No. `entity` is ReadOnly; it is fixed by the create command's `parent`. `common/LIMITS.md`.
-3. *Which fields can be columns on this entity?* In a system-scoped pack, `systems/<id>/ENTITY-MODEL.md` lists every field with a selector; whether a given field *type* may be a column is Unknown.
+3. *Which fields can be columns on this entity?* In a system-scoped pack, search the full `dist/` system index with `tools/report_retrieve.py`; whether a given field *type* may be a column is Unknown.
 4. *What order do commands go in?* `report` is structuralOrder 120 and `folder` is 130, so the report is created before the folder that points at it. `common/PLACEMENT.md`.
 5. *What do you not know?* `MISSING-FROM-DIST.md`, and the Unknown section of `common/LIMITS.md`. The short list: condition operators, parameter semantics, panel layout, the type × property matrix.
 6. *What is the exact selector for a field?* `systems/<id>/index/selectors.json` — copy the string, do not retype it.
@@ -51,6 +51,8 @@ Exactly two things in this pack are **Inferred**, both this compiler's own addit
 This pack was compiled at scope `system=1011413550000000100`.
 
 It carries the entity model for system `1011413550000000100`.
+
+The full canonical index is `dist/index/systems/1011413550000000100/semantic.json`. Retrieve a bounded field candidate set with `python tools/report_retrieve.py --system 1011413550000000100 --kind field --query <name-or-id>`. Search results retain provenance; check the owning entity before using a selector.
 
 ## Staleness
 

@@ -5,6 +5,7 @@ import os
 import time
 
 from .docs import BANNER, _j, _jl, _table, _write, _yn
+from . import system_index
 
 LEGACY_LABEL = "Barsa.LegacyMetaExport"
 AI_LABEL = "Barsa.AiExport"
@@ -1167,6 +1168,16 @@ def _v3_indexes(x, d):
         name = os.path.splitext(env["_source"]["file"])[0]
         _write(d, "models/normalized-samples/ai-%s.json" % name,
                _j(_trim_env(env)))
+
+    # Samples above remain short for review. The canonical index below is
+    # generated from the full in-memory envelopes, before sample trimming.
+    systems = system_index.build(x.normalized_legacy, x.normalized_ai)
+    _write(d, "index/systems/manifest.json", _j({
+        "schemaVersion": "1.0", "systemIds": sorted(systems),
+        "indexPath": "index/systems/<system-id>/semantic.json",
+    }))
+    for sid, index in sorted(systems.items()):
+        _write(d, "index/systems/%s/semantic.json" % sid, _j(index))
 
 
 def _trim_env(env, per_collection=25):

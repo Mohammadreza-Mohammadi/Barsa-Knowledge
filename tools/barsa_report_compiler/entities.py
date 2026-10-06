@@ -1,18 +1,4 @@
-"""Per-system entity model, assembled from dist/'s normalized samples.
-
-Two things make this delicate.
-
-First, the Extractor truncates each normalized sample to 25 rows per
-collection, so a large system's model is partial. The samples carry
-`_truncated_<collection>` markers, which are read here and surfaced rather than
-ignored -- a model that silently showed 25 of 2285 fields would be worse than
-no model.
-
-Second, only the AiExport side carries selectors, and a selector is the only
-way an authored batch can refer to an existing object. So a system is
-report-authorable only when an AiExport artifact for it exists. Legacy-only
-systems still get a model, marked as not authorable.
-"""
+"""Per-system entity model, assembled from dist/'s full semantic indexes."""
 
 COLLECTIONS = ("entities", "fields", "relationDefs", "reports", "views",
                "navigation")
@@ -21,7 +7,7 @@ COLLECTIONS = ("entities", "fields", "relationDefs", "reports", "views",
 def discover_systems(dist):
     """Every system id mentioned by any normalized sample, with its sources."""
     systems = {}
-    for name, doc in dist.samples:
+    for name, doc in _documents(dist):
         fmt = (doc.get("_source") or {}).get("format")
         for s in (doc.get("system") or ()):
             sid = s.get("id")
@@ -62,7 +48,7 @@ def build(dist, system_id):
     truncation = {}
     contributing = []
 
-    for name, doc in dist.samples:
+    for name, doc in _documents(dist, system_id):
         fmt = (doc.get("_source") or {}).get("format")
         sample_systems = [s.get("id") for s in (doc.get("system") or ())]
         if system_id not in sample_systems:
@@ -104,6 +90,8 @@ def build(dist, system_id):
                 (ai_reports if is_ai else legacy_reports)[str(r["id"])] = r
 
         for v in (doc.get("views") or ()):
+            if not single and str(v.get("entityId") or v.get("_ownerId")) not in ent_ids:
+                continue
             if v.get("id"):
                 views.setdefault(str(v["id"]), {}).update(
                     {k: v2 for k, v2 in v.items() if v2 is not None})
@@ -138,16 +126,68 @@ def build(dist, system_id):
         "relationDefs": sorted(relations.values(),
                                key=lambda r: str(r.get("id"))),
         "navigationRowCount": len(navigation),
+        "folders": _folders(navigation, system_id),
         "truncation": truncation,
         "complete": not truncation,
         "completenessNote": (
-            "Every contributing sample was carried whole." if not truncation
+            "Every assignable row in the canonical system index was carried."
+            if not truncation
             else ("The Extractor truncates normalized samples to 25 rows per "
                   "collection, so this model is PARTIAL. The counts below are "
                   "what dist/ carries, not what the system contains.")),
         "confidence": "Verified",
-        "provenance": "dist/models/normalized-samples/",
+        "provenance": "dist/index/systems/%s/semantic.json" % system_id,
     }
+
+
+def _documents(dist, system_id=None):
+    """Expose full index rows as source envelopes for the existing merger."""
+    out = []
+    for sid, index in sorted(dist.systems.items()):
+        if system_id and sid != system_id:
+            continue
+        for src in index.get("sources", []):
+            name = src.get("file")
+            fmt = src.get("format")
+            doc = {"_source": {"file": name, "format": fmt},
+                   "system": [s for s in index["systems"]
+                              if (s.get("_provenance") or {}).get("source") == name]}
+            for coll, rows in index["collections"].items():
+                doc[coll] = [r for r in rows
+                             if (r.get("_provenance") or {}).get("source") == name
+                             and (r.get("_provenance") or {}).get("format") == fmt]
+            out.append(("index/systems/%s/semantic.json" % sid, doc))
+    return out
+
+
+def _folders(navigation, system_id):
+    out = []
+    for row in navigation:
+        if row.get("isReportPlacement") or row.get("_aiType") == "navigationReport":
+            continue
+        if row.get("_aiType") == "navigationRoot":
+            continue
+        if row.get("folderType") and row.get("folderType") != "12":
+            continue
+        out.append({
+            "objectType": "folder", "systemId": system_id,
+            "selector": row.get("selector"),
+            "name": row.get("name"), "caption": row.get("caption") or row.get("name"),
+            "kind": row.get("kind"), "path": row.get("path"),
+            "parentPath": row.get("parentPath"),
+            "stableReference": ({"kind": "navigationPath", "systemId": system_id,
+                                 "path": row["path"]}
+                                if row.get("path") and
+                                (row.get("_provenance") or {}).get("format")
+                                == "Barsa.AiExport" else None),
+            "authorableReference": False,
+            "referenceEvidence": (
+                "dist/index/references.json: "
+                "AiSemanticReferenceResolver.Resolve delegates to "
+                "SemanticRules.ResolveObject; its observed cases omit folder"),
+            "provenance": [row["_provenance"]] if row.get("_provenance") else [],
+        })
+    return out
 
 
 def _merge_reports(ai, legacy):
@@ -164,6 +204,8 @@ def _merge_reports(ai, legacy):
         out.append({
             "id": rid,
             "selector": a.get("selector"),
+            "provenance": [p for p in (a.get("_provenance"),
+                                       l.get("_provenance")) if p],
             # The AiExport caption is the one a selector is built from; the
             # legacy name may be spelled with different Arabic letter forms.
             "name": a.get("caption") or a.get("name"),
@@ -184,6 +226,8 @@ def _merge_entities(ai, legacy):
         a, l = ai.get(eid, {}), legacy.get(eid, {})
         out[eid] = {
             "id": eid,
+            "provenance": [p for p in (a.get("_provenance"),
+                                       l.get("_provenance")) if p],
             # Only AiExport carries a selector, and it is what an authored
             # batch needs; legacy supplies the physical names.
             "selector": a.get("selector"),
@@ -207,6 +251,8 @@ def _merge_fields(ai, legacy, entities):
         owner = str(l.get("entityId") or a.get("_ownerId") or "") or None
         out.append({
             "id": fid,
+            "provenance": [p for p in (a.get("_provenance"),
+                                       l.get("_provenance")) if p],
             "selector": a.get("selector"),
             "caption": a.get("caption") or l.get("caption"),
             "dbName": a.get("dbName") or l.get("dbName"),
