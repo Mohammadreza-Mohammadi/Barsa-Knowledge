@@ -1,0 +1,30 @@
+# انتخاب provider برای هر نقش. برای سوییچ کل workflow فقط defaultProvider را عوض کن.
+schemaVersion: 1
+defaultProvider: manual
+
+roles:
+  intake:
+    provider: default
+  architect:
+    provider: default
+  implementer:
+    provider: default
+  reviewer:
+    provider: default
+
+providers:
+  # manual: Manager هیچ agent صدا نمی‌زند. گیت‌ها، قفل‌ها و verification را
+  # اداره می‌کند و می‌گوید نقش بعدی دقیقاً چه فایلی باید بنویسد. وقتی آن فایل‌ها
+  # نوشته شدند، `run` بعدی مصرفشان می‌کند و transition می‌دهد.
+  manual:
+    enabled: true
+  # claude: مثل run-agent.js خودت — هر transition یک agent headless اجرا می‌کند.
+  # عمداً خاموش: هر اجرا توکن مصرف می‌کند، و روشن‌کردنش تصمیم صاحب مخزن است.
+  claude:
+    enabled: false
+    command: claude
+    effort:
+      intake: medium
+      architect: high
+      implementer: medium
+      reviewer: high

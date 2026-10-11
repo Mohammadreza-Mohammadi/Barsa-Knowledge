@@ -1,0 +1,184 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-11",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
+  "scope": "system=1011413550000000100",
+  "source": "the compiler itself; inputs hashed from dist/"
+ },
+ "budget": {
+  "contractOnly": 122880,
+  "largestFile": 153600,
+  "perSystemExempt": [
+   "index/entity-model.json",
+   "index/selectors.json"
+  ],
+  "total": 512000
+ },
+ "checks": {
+  "budget": {
+   "contractOnlyBytes": 121987,
+   "exemptBytes": 29469,
+   "fileCount": 28,
+   "largestFile": [
+    "systems/1011413550000000100/index/entity-model.json",
+    19576
+   ],
+   "totalBytes": 147178
+  },
+  "confidence": {
+   "published": "Verified",
+   "sourceLevel": "Verified"
+  },
+  "gaps": {
+   "gaps": 10,
+   "rendered": 12
+  },
+  "grouping": {
+   "drift": 0,
+   "duplicated": 0,
+   "grouped": 80,
+   "writable": 80
+  },
+  "inference": {
+   "groupedRows": 80,
+   "typesWithAffinity": 9
+  },
+  "provenance": {
+   "files": 27
+  },
+  "recipes-contract": {
+   "clean": 6,
+   "recipes": 6
+  },
+  "recipes-system": {
+   "clean": 6,
+   "recipes": 6
+  }
+ },
+ "compiledAt": "2026-10-11",
+ "compiler": "tools/report_compiler.py",
+ "compilerAdditions": [
+  {
+   "confidence": "Inferred",
+   "what": "the grouping of writable report properties"
+  },
+  {
+   "confidence": "Inferred",
+   "what": "the report type × property affinity, and the AiExport ↔ ReportTypeEnum mapping"
+  }
+ ],
+ "compilerVersion": "1.0",
+ "confidenceOrder": [
+  "Unknown",
+  "Inferred",
+  "Observed",
+  "Verified",
+  "CrossVerified"
+ ],
+ "contractOnlyBytes": 121987,
+ "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
+ "exemptBytes": 29469,
+ "fileCount": 28,
+ "inputs": [
+  {
+   "path": "dist/formats/ai-export-single-json.md",
+   "sha256": "c0233374247334c22556521eeac11647bec9bc5578035ce6267a97f815b15613"
+  },
+  {
+   "path": "dist/formats/report-format.md",
+   "sha256": "a0b59d6ccafe395a87fadd4405538eb1b078a95a04673d5f9ffaeb31157c574d"
+  },
+  {
+   "path": "dist/index/ai-export-properties.json",
+   "sha256": "15f3d6565cf582506eb2f498927f2cfb6c059af7bbf1b4c4db4306eca73c33e3"
+  },
+  {
+   "path": "dist/index/export-formats.json",
+   "sha256": "22f7339d7a1892cc00d7318f97aecd06479f925b8dfc5b4da8e3edcb3aa64eb2"
+  },
+  {
+   "path": "dist/index/knowledge-index.json",
+   "sha256": "a427b37b4d4bc0d76cc06bb7f8df9bbfcfa6c42e584eaa9cffc00f2e101045a9"
+  },
+  {
+   "path": "dist/index/semantic-contract.json",
+   "sha256": "6de61fdc7bc6f2d636aeab664d169306d67c00338e800ec3643f29ac354ffcef"
+  },
+  {
+   "path": "dist/index/systems/1001513550000000100/semantic.json",
+   "sha256": "d7bdfae8b936ce28a23b3e42efabd873599fd1cd831bfd8ee19da278b8464a80"
+  },
+  {
+   "path": "dist/index/systems/1008513550000000101/semantic.json",
+   "sha256": "feca26339b65e748ab484348ddfb2310f4a8f7cd5fd41655d8736d4afb049f35"
+  },
+  {
+   "path": "dist/index/systems/1011413550000000100/semantic.json",
+   "sha256": "f883280905007ab347795dcf152b366d9fadca04d77cdd47d6e27ab519204e29"
+  },
+  {
+   "path": "dist/index/systems/1013413550000000100/semantic.json",
+   "sha256": "f123ee25148c9f9d367d83aa5e9af0451dbae8c8d6aa425a438029cff410eff5"
+  },
+  {
+   "path": "dist/index/systems/1013413550000010104/semantic.json",
+   "sha256": "3ebb481da0996db81fc2ced0b2cf03e747c37416186875b77f6d6ecc408f4e14"
+  },
+  {
+   "path": "dist/index/systems/1043513550000000145/semantic.json",
+   "sha256": "294375703cc52560868977a79e23199c3fcc5cf15be13affba145940ea3f1e0c"
+  },
+  {
+   "path": "dist/index/systems/1101513550000000103/semantic.json",
+   "sha256": "629b40698ed8b1f7394287ac660b49a3af4a6252e9c3c2bb1c9bf40c733d1c63"
+  },
+  {
+   "path": "dist/index/systems/1101513550000000106/semantic.json",
+   "sha256": "c463e1edcf519911c5ca9bf1e8296f510b099276cd3f4692a1ffb523592f95ca"
+  },
+  {
+   "path": "dist/index/systems/7097413550000000101/semantic.json",
+   "sha256": "9f62b35900963058389d39b71cc0b2e128c243c9d411dd96d293b48c8a48663b"
+  },
+  {
+   "path": "dist/index/systems/manifest.json",
+   "sha256": "ea0ba27043f8b64c6e9fabaa3fcf415c00133e1b63d1971a5da848984b28d629"
+  },
+  {
+   "path": "dist/index/write-pipeline.json",
+   "sha256": "0faa6654189bfb4cada0ddf0da035abcb1154fb68ec62071ca8c03950bab9c7c"
+  },
+  {
+   "path": "dist/models/ai-change-batch.schema.json",
+   "sha256": "c7b68f8c8db02efc929851a08af8ee1dbfd71c73dc3f9023aae9218a7d7d6dc1"
+  },
+  {
+   "path": "dist/models/normalized-samples/ai-Push Notification (05-07-11 20;08).json",
+   "sha256": "0079a82d49c65e5811ef93d0f8cf4789b62c5b57ab869ede5af4ea38c786b7f0"
+  },
+  {
+   "path": "dist/models/normalized-samples/ai-باركد (05-07-11 20;08).json",
+   "sha256": "325e2a3e679f04e3fddce405b2cac19373dc984999b73ff6f537394287a05e6e"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-NewMeta01.json",
+   "sha256": "b3350b5061ece933a2edf8e936fba53b90f6eb318c29dc14086d1ce9f846ca82"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-NewMeta02.json",
+   "sha256": "d73d9b90dac4683c9a5e931309496279209c325096e564b472ee0a4fc6dcf217"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).json",
+   "sha256": "52a481bc56b805a34a42c44df9c1b13ca21a03dcaae57ca1bb7142676144df29"
+  },
+  {
+   "path": "dist/models/normalized-samples/legacy-باركد (05-02-02 11;14).json",
+   "sha256": "a8358e1149645cf91f33c6224299bee6ac50b84855774e48f58925adb6a33bc2"
+  }
+ ],
+ "missingInputs": [],
+ "scope": "system=1011413550000000100",
+ "sizeBytes": 147178
+}

@@ -1,0 +1,28 @@
+{
+  "profileVersion": 15,
+  "policy": {
+    "errorPolicy": "continueIndependent",
+    "ignoreUnsupported": false
+  },
+  "changes": [
+    {
+      "commandId": "0001-create-report",
+      "operation": "create",
+      "objectType": "report",
+      "parent": {
+        "objectType": "entity",
+        "selector": "#BarcodeReader"
+      },
+      "properties": {
+        "name": "بارکدخوان‌های فعال",
+        "reportType": "list",
+        "columns": [
+          { "field": "#Value", "alias": "مقدار بارکد" },
+          { "field": "#Camera", "alias": "دوربین" }
+        ],
+        "condition": { "all": [] },
+        "immediateExecute": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+schemaVersion: 1
+id: "0001"
+slug: بارکدخوان-های-فعال
+type: task
+title: روی موجودیت BarcodeReader در سیستم بارکد یک گزارش لیستی جدید لازم دارم که
+state: integrated
+stateSince: "2026-10-11T11:10:09.351Z"
+previousState: integrating
+createdAt: "2026-10-11T11:06:37.784Z"
+need:
+  kind: report.create
+  system: "1011413550000000100"
+spec:
+  requestHash: 7f54ac5952201c1c6e7f942b77cc0ddd4ca68665afae2d9a78ee8fdb2b80553a
+  taskHash: be6c2118016429d44253e0f682d8c418230dfd8c8f86791bb06c81cd607557d1
+awaitingHuman: null
+blocker: null
+source: null
+budget:
+  architectRuns:
+    used: 1
+    max: 4
+  attempts:
+    used: 4
+    max: 24
+  clarifications:
+    used: 0
+    max: 3
+  implementerRuns:
+    used: 1
+    max: 6
+  intakeRuns:
+    used: 1
+    max: 3
+  reviewerRuns:
+    used: 1
+    max: 4
+scope:
+  allow: ["entity:#BarcodeReader", "report:#بارکدخوان‌های فعال"]
+  deny: []
+gates: [lint, selectors, unknowns, scope, order]
+batch:
+  path: change-batch.json
+  sha256: 0d7549370db438ca0eb7e2c074816252ec72acfe50f0a6b6cba4a5b6b4053db4
+  commands: 1
+  verifiedAt: "2026-10-11T11:09:58.465Z"
+  approvedSha256: 0d7549370db438ca0eb7e2c074816252ec72acfe50f0a6b6cba4a5b6b4053db4
+  appliedAt: "2026-10-11T11:10:09.348Z"
+lastAttempt:
+  n: 4
+  role: reviewer
+  outcome: completed
+  at: "2026-10-11T11:09:58.453Z"
+git: null
+diff: null

@@ -1,0 +1,9 @@
+role: architect
+outcome: completed
+requestedTransition: ready
+proposal:
+  system: "1011413550000000100"
+  scope:
+    allow: ["entity:#BarcodeReader", "report:#بارکدخوان‌های فعال"]
+    deny: []
+  gates: [lint, selectors, unknowns, scope, order]

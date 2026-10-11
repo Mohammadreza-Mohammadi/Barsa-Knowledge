@@ -1,0 +1,54 @@
+schemaVersion: 1
+id: "0002"
+slug: ستون-فرمت-به-گزارش-گیت
+type: task
+title: به گزارش «گیت ها» یک ستون فرمت اضافه کن.
+state: cancelled
+stateSince: "2026-10-11T11:16:24.166Z"
+previousState: new
+createdAt: "2026-10-11T11:14:22.203Z"
+need:
+  kind: report.update
+  system: "1011413550000000100"
+spec:
+  requestHash: null
+  taskHash: null
+awaitingHuman: null
+blocker: null
+source: null
+budget:
+  architectRuns:
+    used: 0
+    max: 4
+  attempts:
+    used: 1
+    max: 24
+  clarifications:
+    used: 1
+    max: 3
+  implementerRuns:
+    used: 0
+    max: 6
+  intakeRuns:
+    used: 1
+    max: 3
+  reviewerRuns:
+    used: 0
+    max: 4
+scope:
+  allow: []
+  deny: []
+gates: [lint, selectors, unknowns, scope, order]
+batch:
+  path: null
+  sha256: null
+  commands: null
+  verifiedAt: null
+  approvedSha256: null
+lastAttempt:
+  n: 1
+  role: intake
+  outcome: needs_clarification
+  at: "2026-10-11T11:16:12.121Z"
+git: null
+diff: null

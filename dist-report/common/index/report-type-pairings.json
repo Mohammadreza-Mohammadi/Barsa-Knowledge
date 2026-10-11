@@ -1,0 +1,25 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-11",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
+  "scope": "system=1011413550000000100",
+  "source": "dist/models/normalized-samples/ → reports matched by id"
+ },
+ "caveat": "Matched by report id across artifacts that are not a same-build pair. A pairing is evidence, not proof: the two sides were exported months apart, so a report could have been edited in between.",
+ "confidence": "Observed",
+ "idsOnBothSides": 3,
+ "pairings": [
+  {
+   "aiExport": "list",
+   "legacyEnumValue": "0",
+   "matchCount": 3,
+   "reportIds": [
+    "1011413530000000132",
+    "1011413530000000133",
+    "1011413530000000136"
+   ]
+  }
+ ],
+ "provenance": "dist/models/normalized-samples/"
+}

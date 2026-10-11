@@ -1,0 +1,364 @@
+{
+ "_provenance": {
+  "compiledAt": "2026-10-11",
+  "compiler": "tools/report_compiler.py",
+  "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
+  "scope": "system=1011413550000000100",
+  "source": "dist/index/systems/1011413550000000100/semantic.json"
+ },
+ "count": 16,
+ "note": "Copy these strings verbatim. Arabic and Persian letter forms are mixed in this data and a mistyped yeh or kaf will not resolve.",
+ "selectors": [
+  {
+   "caption": "BarcodeReader",
+   "dbName": "dyn_244",
+   "objectType": "entity",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#BarcodeReader"
+  },
+  {
+   "caption": "بازدید گیت",
+   "dbName": "dyn_246",
+   "objectType": "entity",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#بازدید گیت"
+  },
+  {
+   "caption": "تنظیمات بارکدخوان",
+   "dbName": "dyn_262",
+   "objectType": "entity",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/تنظيمات باركدخوان/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#تنظیمات بارکدخوان"
+  },
+  {
+   "caption": "گیت",
+   "dbName": "dyn_247",
+   "objectType": "entity",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/گيت/entity.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_TYPEDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#گیت"
+  },
+  {
+   "caption": "Camera",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "command",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#Camera"
+  },
+  {
+   "caption": "Value",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "string",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#Value"
+  },
+  {
+   "caption": "بارکدخوان",
+   "entityCaption": "بازدید گیت",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "customField",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#بارکدخوان"
+  },
+  {
+   "caption": "توضیحات",
+   "entityCaption": "بازدید گیت",
+   "entitySelector": "#بازدید گیت",
+   "fieldType": "string",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#توضیحات"
+  },
+  {
+   "caption": "عنوان",
+   "entityCaption": "گیت",
+   "entitySelector": "#گیت",
+   "fieldType": "string",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/گيت/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#عنوان"
+  },
+  {
+   "caption": "فرمت",
+   "entityCaption": "BarcodeReader",
+   "entitySelector": "#BarcodeReader",
+   "fieldType": "enum",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#فرمت"
+  },
+  {
+   "caption": "فرمت",
+   "entityCaption": "تنظیمات بارکدخوان",
+   "entitySelector": "#تنظیمات بارکدخوان",
+   "fieldType": "enum",
+   "objectType": "field",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/تنظيمات باركدخوان/entity.json :: $.MetaFieldDef[*]",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.MET_FIELDDEF[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "selector": "#فرمت"
+  },
+  {
+   "caption": "BarcodeReaders",
+   "objectType": "report",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/بارکد/BarcodeReaders.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "reportType": "list",
+   "selector": "#BarcodeReaders"
+  },
+  {
+   "caption": "بازدید گیت ها",
+   "objectType": "report",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/بازدید گیت ها.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "reportType": "list",
+   "selector": "#بازدید گیت ها"
+  },
+  {
+   "caption": "گیت ها",
+   "objectType": "report",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[پوشه اصلی]/پایه/Test/گیت ها.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    },
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.LegacyMetaExport",
+     "path": "$.met_Report[*]",
+     "source": "باركد (05-02-02 11;14).metaexport"
+    }
+   ],
+   "reportType": "list",
+   "selector": "#گیت ها"
+  },
+  {
+   "caption": "نمای 1",
+   "objectType": "view",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/بازديد گيت/نماي 1.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    }
+   ],
+   "selector": "#نمای 1"
+  },
+  {
+   "caption": "نمای اصلی",
+   "objectType": "view",
+   "provenance": [
+    {
+     "confidence": "Verified",
+     "evidence": [],
+     "format": "Barsa.AiExport",
+     "path": "باركد/[موجوديت]/BarcodeReader/نمای اصلی.json :: $",
+     "source": "باركد (05-07-11 20;08).zip"
+    }
+   ],
+   "selector": "#نمای اصلی"
+  }
+ ],
+ "systemId": "1011413550000000100"
+}

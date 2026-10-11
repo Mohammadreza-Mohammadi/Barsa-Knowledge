@@ -1,0 +1,7 @@
+{"at": "2026-10-11T11:14:22.204Z", "event": "task.created", "slug": "ستون-فرمت-به-گزارش-گیت", "state": "new", "system": "1011413550000000100", "task": "0002"}
+{"at": "2026-10-11T11:14:22.308Z", "attempt": "001", "event": "attempt.started", "provider": "manual", "role": "intake", "task": "0002"}
+{"artifact": ".agent-work/tasks/0002-ستون-فرمت-به-گزارش-گیت/attempts/001/prompt.md", "at": "2026-10-11T11:14:22.311Z", "event": "gate.opened", "gate": "role:intake", "task": "0002"}
+{"at": "2026-10-11T11:16:12.124Z", "attempt": "001", "event": "attempt.consumed", "outcome": "needs_clarification", "requestedTransition": "needs-clarification", "role": "intake", "task": "0002"}
+{"artifact": "questions.md", "at": "2026-10-11T11:16:12.126Z", "event": "gate.opened", "gate": "clarification", "task": "0002"}
+{"at": "2026-10-11T11:16:12.190Z", "event": "clarification.answered", "respec": false, "task": "0002"}
+{"at": "2026-10-11T11:16:24.168Z", "event": "state.changed", "from": "new", "note": "درخواست‌دهنده در پاسخ clarification خودش نیاز را پس گرفت: گزارش «گیت ها» روی\nموجودیت گیت است و فیلدی به نام فرمت آنجا وجود ندارد، پس ستون معنا نداشت.\nبسته شد بدون هیچ تغییری؛ هیچ batch ای ساخته نشد.", "task": "0002", "to": "cancelled"}

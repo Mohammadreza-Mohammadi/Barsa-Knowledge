@@ -1,0 +1,63 @@
+{
+  "_note": "Illustrative document built from the first entity in Push Notification، الگو، پورتال برسانوين‌راي (05-07-08 13;42).metaexport. Values are structural; nothing personal is copied.",
+  "code": null,
+  "commands": null,
+  "entities": [
+    {
+      "caption": "RedirectReportNavigatorCommandُSetting",
+      "dbName": "dyn_230",
+      "fields": [
+        "1011413510000000211"
+      ],
+      "id": "1011413500000000130",
+      "isDeleted": false,
+      "isDynamic": false,
+      "name": "dyn_230",
+      "parentId": "0",
+      "relations": null,
+      "source": {
+        "barsaType": "Barsa.Meta.TypeDef",
+        "exportPath": "$.MET_TYPEDEF[*]",
+        "exportTable": "MET_TYPEDEF"
+      },
+      "systemId": "1013413550000000100"
+    }
+  ],
+  "fields": [
+    {
+      "caption": "ReportPageUrl",
+      "dataType": null,
+      "dbName": "ReportPageUrl",
+      "defaultValue": null,
+      "entityId": "1011413500000000130",
+      "id": "1011413510000000211",
+      "name": "ReportPageUrl",
+      "nullable": null,
+      "orderNumber": 1,
+      "source": {
+        "barsaType": "Barsa.Meta.FieldDef",
+        "exportPath": "$.MET_FIELDDEF[*]",
+        "exportTable": "MET_FIELDDEF"
+      }
+    }
+  ],
+  "folders": null,
+  "forms": null,
+  "relationDefs": null,
+  "relations": null,
+  "reports": null,
+  "schemaVersion": "2.0",
+  "system": {
+    "caption": "الگو",
+    "id": "1013413550000000100",
+    "name": null,
+    "source": {
+      "barsaType": "Barsa.Meta.MetaSystem",
+      "exportPath": "$.MET_METASYSTEM[*]",
+      "exportTable": "MET_METASYSTEM"
+    },
+    "version": "3.0.7"
+  },
+  "views": null,
+  "workflows": null
+}

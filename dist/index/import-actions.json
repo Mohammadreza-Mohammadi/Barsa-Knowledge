@@ -1,0 +1,166 @@
+[
+  {
+    "action": "DeserializePackage",
+    "confidence": "CrossVerified",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "string (file path)",
+    "requires": [
+      "ImportOptions.FirstFilePath"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "Barsa.Meta.DataExchange.SerializationHelper2::DeserializeDataSetFromFile",
+    "targetBarsaType": "System.Data.DataSet",
+    "updates": []
+  },
+  {
+    "action": "ReadHeader",
+    "confidence": "CrossVerified",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "string (file path)",
+    "requires": [],
+    "resolves": [
+      "$Header"
+    ],
+    "targetBarsaMethod": "NewImportManager::GetInfo",
+    "targetBarsaType": "Barsa.Meta.DataExchange.NewImportManager",
+    "updates": []
+  },
+  {
+    "action": "BuildPreviewTree",
+    "confidence": "Observed",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "Barsa.Meta.DataExchange.ImportOptions",
+    "requires": [
+      "A deserialized DataSet"
+    ],
+    "resolves": [
+      "$Selection",
+      "$RootSelection"
+    ],
+    "targetBarsaMethod": "NewImportManager::GetImportData",
+    "targetBarsaType": "Barsa.Meta.DataExchange.ExportDataSource",
+    "updates": []
+  },
+  {
+    "action": "RemapIds",
+    "confidence": "CrossVerified",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "System.Data.DataSet",
+    "requires": [
+      "A deserialized DataSet"
+    ],
+    "resolves": [
+      "$IdEmbeddingFields",
+      "$spl_EorgType",
+      "$spl_EorgCenter"
+    ],
+    "targetBarsaMethod": "FixIdForImport::Init + FixIdForImport::FixAll",
+    "targetBarsaType": "Barsa.Meta.DataExchange.Helpers.FixIdForImport",
+    "updates": [
+      "every table named in $IdEmbeddingFields"
+    ]
+  },
+  {
+    "action": "FixClonedNames",
+    "confidence": "Observed",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "System.Data.DataSet",
+    "requires": [
+      "ImportOptions.IsClone"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "ImportCloneManager::FixClonedRootObjectNames",
+    "targetBarsaType": "Barsa.Meta.DataExchange.Helpers.ImportCloneManager",
+    "updates": [
+      "root object names"
+    ]
+  },
+  {
+    "action": "FixClonedSequencers",
+    "confidence": "Observed",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "(none)",
+    "requires": [
+      "ImportOptions.IsClone"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "ImportCloneManager::FixClonedTypeDefSequencers",
+    "targetBarsaType": "Barsa.Meta.DataExchange.Helpers.ImportCloneManager",
+    "updates": [
+      "TypeDef sequencers"
+    ]
+  },
+  {
+    "action": "PostImportStructureFix",
+    "confidence": "Observed",
+    "creates": [],
+    "failureBehavior": "Unknown",
+    "inputDto": "System.Data.DataSet",
+    "requires": [
+      "Rows written"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "ImportManager_Structure::AfterImport",
+    "targetBarsaType": "Barsa.Meta.DataExchange.ImportManager_Structure",
+    "updates": [
+      "Unknown"
+    ]
+  },
+  {
+    "action": "RebuildObjectReferences",
+    "confidence": "Observed",
+    "creates": [
+      "object reference graph"
+    ],
+    "failureBehavior": "Unknown",
+    "inputDto": "(none)",
+    "requires": [
+      "AfterImport completed"
+    ],
+    "resolves": [
+      "met_Relation",
+      "MET_FOLDER"
+    ],
+    "targetBarsaMethod": "ObjectReferenceBuilder::RecreateForAll",
+    "targetBarsaType": "Barsa.Meta.DataExchange.ObjectReferenceBuilder",
+    "updates": []
+  },
+  {
+    "action": "ResolveMissedReferences",
+    "confidence": "Observed",
+    "creates": [
+      "placeholder references"
+    ],
+    "failureBehavior": "Unknown",
+    "inputDto": "(none)",
+    "requires": [
+      "ImportOptions.AddMissedReferences"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "MissedReferenceFinder::FindAll",
+    "targetBarsaType": "Barsa.Meta.DataExchange.MissedReferenceFinder",
+    "updates": []
+  },
+  {
+    "action": "RecordAudit",
+    "confidence": "Observed",
+    "creates": [
+      "one import audit metaobject"
+    ],
+    "failureBehavior": "Unknown",
+    "inputDto": "(none)",
+    "requires": [
+      "An active session"
+    ],
+    "resolves": [],
+    "targetBarsaMethod": "property setters for session/user/file/time",
+    "targetBarsaType": "Barsa.Meta.DataExchange.OutsideReferences.MO_عمليات_ورود_اطلاعات",
+    "updates": []
+  }
+]

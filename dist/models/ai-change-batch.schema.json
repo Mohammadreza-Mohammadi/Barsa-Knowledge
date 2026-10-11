@@ -1,0 +1,145 @@
+{
+  "$defs": {
+    "change": {
+      "additionalProperties": false,
+      "properties": {
+        "commandId": {
+          "description": "Unique within the batch; duplicates are rejected.",
+          "type": "string"
+        },
+        "objectType": {
+          "enum": [
+            "system",
+            "entity",
+            "field",
+            "relation",
+            "view",
+            "report",
+            "folder",
+            "workflow",
+            "businessRule",
+            "uniqueConstraint",
+            "dynamicObject",
+            "dynamicCommand"
+          ]
+        },
+        "operation": {
+          "enum": [
+            "create",
+            "update",
+            "delete"
+          ]
+        },
+        "parent": {
+          "$ref": "#/$defs/objectReference"
+        },
+        "properties": {
+          "description": "The object's properties, in the same vocabulary an AiExport projection uses for that $type. Unknown properties raise unsupportedProperty.",
+          "type": "object"
+        },
+        "target": {
+          "$ref": "#/$defs/objectReference"
+        },
+        "tempId": {
+          "description": "Declares a handle for an object this command creates. Only valid on a create, and only once per batch.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commandId",
+        "operation",
+        "objectType"
+      ],
+      "type": "object"
+    },
+    "objectReference": {
+      "additionalProperties": false,
+      "description": "How a command points at an object. Use selector, or tempId for something created earlier in the same batch. The id property exists on the CLR type but is forbidden in an authored document.",
+      "properties": {
+        "caption": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "objectType": {
+          "enum": [
+            "system",
+            "entity",
+            "field",
+            "relation",
+            "view",
+            "report",
+            "folder",
+            "workflow",
+            "businessRule",
+            "uniqueConstraint",
+            "dynamicObject",
+            "dynamicCommand"
+          ]
+        },
+        "selector": {
+          "$ref": "#/$defs/selector"
+        },
+        "tempId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "errorPolicy": {
+          "description": "AiBatchErrorPolicy also defines StopBatch, but an authored batch may only use ContinueIndependent.",
+          "enum": [
+            "continueIndependent"
+          ]
+        },
+        "ignoreUnsupported": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "selector": {
+      "description": "A semantic selector as SemanticSelectorCodec writes it: '#Name', or a bracketed escaped key list when a component needs escaping.",
+      "pattern": "^#",
+      "type": "string"
+    }
+  },
+  "$id": "https://barsa.local/schemas/ai-change-batch.v15.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "The document BixWriteHelper.ParseBatch accepts. Derived from the property tables and linter rules of Barsa.Meta.SemanticExchange, not from a supplied sample: no AiChangeBatch artifact was available. Treat it as Verified for shape and rules, Unknown for whatever the server enforces beyond them.",
+  "properties": {
+    "assetRoot": {
+      "description": "Base path for asset references. Related error codes: assetRootMissing, assetPathInvalid, assetHashInvalid.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "changes": {
+      "description": "Required and non-empty: 'AiChangeBatch must contain changes[].' Null or non-object entries are rejected by index.",
+      "items": {
+        "$ref": "#/$defs/change"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy": {
+      "$ref": "#/$defs/policy"
+    },
+    "profileVersion": {
+      "const": 15,
+      "description": "Hard-gated. ValidateBatch rejects anything else: 'Runtime accepts only explicit profileVersion=15 input.'"
+    }
+  },
+  "required": [
+    "profileVersion",
+    "changes"
+  ],
+  "title": "Barsa AiChangeBatch (profileVersion 15)",
+  "type": "object"
+}

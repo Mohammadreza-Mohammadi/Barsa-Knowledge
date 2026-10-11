@@ -1,0 +1,45 @@
+{
+ "batch": {
+  "commands": 1,
+  "path": "change-batch.json",
+  "sha256": "0d7549370db438ca0eb7e2c074816252ec72acfe50f0a6b6cba4a5b6b4053db4"
+ },
+ "checkedAt": "2026-10-11T11:10:09.344Z",
+ "findings": [],
+ "gates": [
+  "lint",
+  "selectors",
+  "unknowns",
+  "scope",
+  "order"
+ ],
+ "ok": true,
+ "summary": {
+  "lint": {
+   "errors": 0,
+   "passed": true,
+   "warnings": 0
+  },
+  "order": {
+   "errors": 0,
+   "passed": true,
+   "warnings": 0
+  },
+  "passed": true,
+  "scope": {
+   "errors": 0,
+   "passed": true,
+   "warnings": 0
+  },
+  "selectors": {
+   "errors": 0,
+   "passed": true,
+   "warnings": 0
+  },
+  "unknowns": {
+   "errors": 0,
+   "passed": true,
+   "warnings": 0
+  }
+ }
+}

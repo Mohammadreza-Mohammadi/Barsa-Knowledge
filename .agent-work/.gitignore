@@ -1,0 +1,3 @@
+logs/
+.manager.lock
+tasks/*/.transition.lock
