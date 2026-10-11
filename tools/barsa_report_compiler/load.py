@@ -88,7 +88,11 @@ class Dist:
                 path = os.path.join(sample_dir, name)
                 with open(path, "rb") as fh:
                     raw = fh.read()
-                rel = os.path.join(INPUT_DIRS["normalizedSamples"], name)
+                # Always a forward slash: this key goes into the pack
+                # manifest and is compared against on another machine. A
+                # pack compiled on Windows was reporting every sample as
+                # missing when checked on Linux.
+                rel = "%s/%s" % (INPUT_DIRS["normalizedSamples"], name)
                 self.hashes[rel] = hashlib.sha256(raw).hexdigest()
                 try:
                     self.samples.append((name, json.loads(raw.decode("utf-8"))))

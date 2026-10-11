@@ -1,8 +1,8 @@
 # Barsa report designer pack
 
 > **Source:** dist/, compiled by tools/report_compiler.py
-> **dist commit:** 427c93cf67edea701b8874a816924f4c31a8d2bb
-> **compiled:** 2026-10-06 · **scope:** system=1011413550000000100
+> **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
+> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
 
 A small pack about one task: **building and understanding a report in Barsa**. It is compiled from the general knowledge pack in `dist/` and contains nothing else -- no Barsa architecture, no format archaeology, no assembly inventory.
 

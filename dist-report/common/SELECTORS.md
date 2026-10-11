@@ -1,8 +1,8 @@
 # Selectors
 
 > **Source:** dist/formats/ai-export.md · dist/formats/ai-change-batch.md · dist/comparison/match-report.md
-> **dist commit:** 427c93cf67edea701b8874a816924f4c31a8d2bb
-> **compiled:** 2026-10-06 · **scope:** system=1011413550000000100
+> **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
+> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
 
 In an `AiChangeBatch`, a selector is the **only** way to refer to an object that already exists. Runtime identity is forbidden.
 

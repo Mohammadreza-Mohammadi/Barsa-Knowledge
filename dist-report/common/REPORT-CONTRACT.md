@@ -1,8 +1,8 @@
 # Report write contract
 
 > **Source:** dist/index/semantic-contract.json → propertyContracts.report
-> **dist commit:** 427c93cf67edea701b8874a816924f4c31a8d2bb
-> **compiled:** 2026-10-06 · **scope:** system=1011413550000000100
+> **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
+> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
 
 What may be written on a report object in an `AiChangeBatch`, taken from the write contract the Barsa binary builds at type-init. Classification, create and update flags are **Verified**; the grouping into sections is **Inferred** by this compiler and is the only thing here that dist/ does not state.
 

@@ -1,8 +1,8 @@
 # Limits
 
 > **Source:** dist/index/semantic-contract.json → propertyContracts.report · dist/formats/ai-export-single-json.md → Observed paths
-> **dist commit:** 427c93cf67edea701b8874a816924f4c31a8d2bb
-> **compiled:** 2026-10-06 · **scope:** system=1011413550000000100
+> **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
+> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
 
 What cannot be written, and what is not known. This is the most important file in the pack: a consumer that treats one of these as writable will produce a batch that fails, and one that fills an Unknown with a plausible value will produce a batch that is wrong without failing.
 
