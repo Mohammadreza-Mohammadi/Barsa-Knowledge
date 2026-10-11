@@ -703,9 +703,10 @@ def placement(pack, dist, enums, recipes, gaps):
         "## The two-command recipe",
         "",
         "`common/RECIPES.md` recipe R2. One caution carried from there: the "
-        "parent folder is named by a selector, and dist/ carries no folder "
-        "selectors at all, so that one value cannot be filled from this pack "
-        "even in a system scope. See `MISSING-FROM-DIST.md`.",
+        "parent folder is named by a selector. Observed exports carry "
+        "navigation paths but no folder selectors, and the inspected "
+        "SemanticRules resolver has no folder case. See "
+        "`MISSING-FROM-DIST.md`.",
         "",
     ]
     pack.md("common/PLACEMENT.md", "Placement in the navigator", [
@@ -715,18 +716,26 @@ def placement(pack, dist, enums, recipes, gaps):
         body)
 
     gaps.add(
-        "Folder selectors, and the semantic folder `kind` vocabulary",
+        "Existing-folder semantic reference support",
         "common/PLACEMENT.md and the R2 recipe: the parent folder cannot be "
-        "named, and `kind` must be omitted",
-        "The AiExport ZIP projection encodes navigation as directory "
-        "structure; the Extractor should carry a selector per folder node "
-        "into the normalized model, and the profile's folder output rule "
-        "should say what `kind` accepts.",
-        "No normalized sample carries a folder selector, and the navigation "
-        "collection records rows without one. The folder contract row for "
-        "`kind` states Enum with no member list.",
+        "named with a supported selector",
+        "Inspect a newer Barsa semantic resolver or obtain a runtime-proven "
+        "folder reference contract. The current SemanticRules.ResolveObject "
+        "supports system, entity, field, view, report and workflow only.",
+        "AiExport SingleJson navigation objects and ZIP directory paths "
+        "carry no folder selectors. AiSemanticReferenceResolver delegates "
+        "selectors to SemanticRules.ResolveObject, which has no folder case.",
         "A consumer cannot place a report under an existing folder without "
-        "being handed the selector.")
+        "a runtime-supported reference.")
+
+    gaps.add(
+        "Semantic folder kind vocabulary",
+        "common/PLACEMENT.md and R2: kind is omitted",
+        "Extract the accepted semantic values from "
+        "AiFolderChangeProvider.Validate and InferCreateKind into dist/.",
+        "The folder property contract only says Enum; no dist/ index carries "
+        "the accepted values.",
+        "A consumer cannot choose a folder kind from this pack.")
 
 
 # -- common/SELECTORS.md ---------------------------------------------------
@@ -949,6 +958,7 @@ def system_docs(pack, model, built, dist, gaps):
          ["fields carried", len(model["fields"])],
          ["existing reports carried", len(model["reports"])],
          ["views carried", len(model["views"])],
+         ["folder containers carried", len(model["folders"])],
          ["model complete", _yn(model["complete"])]])
     body += [model["authorableBasis"], "", model["completenessNote"], ""]
     if model["truncation"]:
@@ -970,11 +980,19 @@ def system_docs(pack, model, built, dist, gaps):
     body += ["## Files here", "",
              "- `ENTITY-MODEL.md` — entities and fields, with their selectors",
              "- `RECIPES.md` — the recipes with this system's selectors bound",
-             "- `index/entity-model.json` — the same model, machine-readable",
-             "- `index/selectors.json` — every selector in this scope, to copy",
+             "- `index/entity-model.json` — full rows when within the file "
+             "budget, otherwise a summary with a retrieval command",
+             "- `index/selectors.json` — selectors when within the file "
+             "budget, otherwise a retrieval command",
              "- `index/recipes.json` — the bound recipes", ""]
+    body += ["The complete searchable index is "
+             "`dist/index/systems/%s/semantic.json`. Search it through "
+             "`python tools/report_retrieve.py --system %s --kind field "
+             "--query <name-or-id>`. This returns bounded candidates with "
+             "provenance; it does not infer identity from a caption."
+             % (sid, sid), ""]
     pack.md(base + "/README.md", "System %s" % sid,
-            ["dist/models/normalized-samples/"], body)
+            ["dist/index/systems/%s/semantic.json" % sid], body)
 
     # ENTITY-MODEL.md
     ebody = [
@@ -1058,17 +1076,26 @@ def system_docs(pack, model, built, dist, gaps):
             [[v.get("name") or v.get("caption"),
               ("`%s`" % v["selector"]) if v.get("selector") else "— none"]
              for v in model["views"][:200]])
+    if model["folders"]:
+        ebody += ["## Navigation folders", "",
+                  "`path` is an observed navigation location for retrieval. "
+                  "It is not a supported AiChangeBatch selector.", ""]
+        ebody += _table(
+            ["name", "kind", "path", "selector"],
+            [[f.get("name"), f.get("kind") or UNKNOWN,
+              f.get("path"), f.get("selector") or "unresolved"]
+             for f in model["folders"][:100]])
     pack.md(base + "/ENTITY-MODEL.md", "Entity model: system %s" % sid,
-            ["dist/models/normalized-samples/"], ebody)
+            ["dist/index/systems/%s/semantic.json" % sid], ebody)
 
     recipes_doc(pack, built, dist, base + "/RECIPES.md",
                 "Scope: system `%s`. Placeholders are bound to this system's "
                 "real selectors where dist/ supplies them." % sid, gaps)
 
-    pack.json(base + "/index/entity-model.json", model,
-              "dist/models/normalized-samples/")
-    pack.json(base + "/index/selectors.json", _selector_index(model),
-              "dist/models/normalized-samples/")
+    pack.json(base + "/index/entity-model.json", _bounded_model(model),
+              "dist/index/systems/%s/semantic.json" % sid)
+    pack.json(base + "/index/selectors.json", _bounded_selectors(model),
+              "dist/index/systems/%s/semantic.json" % sid)
     pack.json(base + "/index/recipes.json", built,
               "written by this compiler, validated against "
               "dist/index/semantic-contract.json")
@@ -1088,17 +1115,54 @@ def system_docs(pack, model, built, dist, gaps):
             "must not conclude that a missing field does not exist.")
 
 
+def _bounded_model(model):
+    """Keep the context pack small; the uncut truth stays in dist/."""
+    if len(json.dumps(model, ensure_ascii=False).encode("utf-8")) <= 120000:
+        return model
+    sid = model["systemId"]
+    return {
+        "systemId": sid, "captions": model["captions"],
+        "authorable": model["authorable"], "complete": model["complete"],
+        "counts": {k: len(model[k]) for k in
+                   ("entities", "fields", "reports", "views", "folders",
+                    "relationDefs")},
+        "contextProjection": "summary; full rows are retrieved from dist/",
+        "fullIndexPath": "dist/index/systems/%s/semantic.json" % sid,
+        "retrievalCommand": ("python tools/report_retrieve.py --system %s "
+                             "--kind field --query <name-or-id>" % sid),
+        "contributingSamples": model["contributingSamples"],
+    }
+
+
+def _bounded_selectors(model):
+    index = _selector_index(model)
+    if len(json.dumps(index, ensure_ascii=False).encode("utf-8")) <= 120000:
+        return index
+    return {
+        "systemId": model["systemId"], "count": index["count"],
+        "contextProjection": "summary; full selectors are retrieved from dist/",
+        "fullIndexPath": "dist/index/systems/%s/semantic.json"
+                         % model["systemId"],
+        "retrievalCommand": ("python tools/report_retrieve.py --system %s "
+                             "--kind field --query <name-or-id>"
+                             % model["systemId"]),
+    }
+
+
 def _selector_index(model):
     out = {"systemId": model["systemId"], "selectors": []}
     for kind, coll, extra in (("entity", "entities", "dbName"),
                               ("field", "fields", "entityCaption"),
                               ("report", "reports", "reportType"),
-                              ("view", "views", None)):
+                              ("view", "views", None),
+                              ("folder", "folders", "path")):
         for row in model.get(coll) or ():
             if not row.get("selector"):
                 continue
             item = {"objectType": kind, "selector": row["selector"],
                     "caption": row.get("caption") or row.get("name")}
+            item["provenance"] = row.get("provenance") or (
+                [row["_provenance"]] if row.get("_provenance") else [])
             if extra and row.get(extra) is not None:
                 item[extra] = row[extra]
             if kind == "field":
@@ -1180,9 +1244,9 @@ def readme(pack, parts, meta, model):
              "is ReadOnly; it is fixed by the create command's `parent`. "
              "`common/LIMITS.md`.",
              "3. *Which fields can be columns on this entity?* In a "
-             "system-scoped pack, `systems/<id>/ENTITY-MODEL.md` lists every "
-             "field with a selector; whether a given field *type* may be a "
-             "column is Unknown.",
+             "system-scoped pack, search the full `dist/` system index with "
+             "`tools/report_retrieve.py`; whether a given field *type* may "
+             "be a column is Unknown.",
              "4. *What order do commands go in?* `report` is structuralOrder "
              "120 and `folder` is 130, so the report is created before the "
              "folder that points at it. `common/PLACEMENT.md`.",
@@ -1203,6 +1267,13 @@ def readme(pack, parts, meta, model):
                     "" if model["complete"] else
                     ", which dist/ only carries partially -- see that "
                     "system's README"), ""]
+        body += ["The full canonical index is "
+                 "`dist/index/systems/%s/semantic.json`. Retrieve a bounded "
+                 "field candidate set with "
+                 "`python tools/report_retrieve.py --system %s --kind field "
+                 "--query <name-or-id>`. Search results retain provenance; "
+                 "check the owning entity before using a selector."
+                 % (model["systemId"], model["systemId"]), ""]
     else:
         body += ["Contract only: no entity model, so every selector in the "
                  "recipes is a placeholder. Recompile with "

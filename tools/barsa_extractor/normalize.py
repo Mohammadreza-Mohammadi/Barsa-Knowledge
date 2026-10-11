@@ -79,7 +79,7 @@ def empty_envelope():
 def from_legacy(pkg, row_limit=None):
     """Legacy .metaexport DataSet -> normalized model (spec section 43)."""
     env = empty_envelope()
-    src = pkg.path.split("/")[-1]
+    src = pkg.path.replace("\\", "/").rsplit("/", 1)[-1]
     fmt = "Barsa.LegacyMetaExport"
 
     def present(table):
@@ -338,16 +338,18 @@ def from_ai_export(artifact, profile=None):
     same scope.
     """
     env = empty_envelope()
-    src = artifact.path.split("/")[-1]
+    src = artifact.path.replace("\\", "/").rsplit("/", 1)[-1]
     fmt = "Barsa.AiExport"
 
     buckets = {}
     unmapped = {}
+    nav_locations = {}
     for src_file, doc in artifact.files.items():
         if src_file == "_assets":
             continue
         if os.path.basename(src_file).lower() == "manifest.json":
             continue
+        nav_locations.update(_navigation_locations(doc))
         for obj, path, owner in _iter_ai_objects_with_path(doc, "$"):
             t = obj.get("$type")
             if not isinstance(t, str):
@@ -403,6 +405,11 @@ def from_ai_export(artifact, profile=None):
                     if isinstance(cols, list) else None)
                 node["query"] = ("decoded" if obj.get("condition") is not None
                                  else None)
+            elif coll == "navigation":
+                node["objectType"] = "folder"
+                node["kind"] = obj.get("kind")
+                node["reportSelector"] = obj.get("report")
+                node.update(nav_locations.get(id(obj), {}))
             env[coll].append(node)
 
     # The ZIP variant encodes navigation as directory structure rather than as
@@ -472,6 +479,34 @@ def from_ai_export(artifact, profile=None):
 _GROUP_SEGMENT = re.compile(r"^\[.*\]$")
 
 
+def _navigation_locations(doc):
+    """Carry the observed navigation hierarchy without creating selectors."""
+    locations = {}
+
+    def walk(value, parents=()):
+        if isinstance(value, dict):
+            kind = value.get("$type")
+            next_parents = parents
+            if kind in ("navigationRoot", "navigationPage",
+                        "navigationGroup", "navigationReport"):
+                name = value.get("name")
+                if kind == "navigationReport":
+                    name = value.get("report")
+                next_parents = parents + ((name,) if name else ())
+                locations[id(value)] = {
+                    "path": "/".join(next_parents) or None,
+                    "parentPath": "/".join(parents) or None,
+                }
+            for child in value.values():
+                walk(child, next_parents)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child, parents)
+
+    walk(doc)
+    return locations
+
+
 def _navigation_from_paths(artifact, fmt, src):
     """Reconstruct navigation nodes from a ZIP package's directory layout."""
     if artifact.variant != "AiExport.ZipJsonPackage":
@@ -501,9 +536,14 @@ def _navigation_from_paths(artifact, fmt, src):
             nav.append({
                 "id": None,
                 "selector": None,
+                "objectType": "folder",
                 "caption": label,
                 "name": label,
                 "path": "/".join(chain[:depth + 1]),
+                "parentPath": "/".join(chain[:depth]) or None,
+                "reportSelector": (artifact.files.get(name) or {}).get("selector")
+                if is_leaf and isinstance(artifact.files.get(name), dict)
+                else None,
                 "isReportPlacement": is_leaf,
                 "_derivedFrom": "packageDirectoryStructure",
                 "_provenance": _prov(

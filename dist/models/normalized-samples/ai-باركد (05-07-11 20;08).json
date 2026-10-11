@@ -409,7 +409,10 @@
       "id": null,
       "isReportPlacement": false,
       "name": "پایه",
+      "objectType": "folder",
+      "parentPath": null,
       "path": "پایه",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -425,7 +428,10 @@
       "id": null,
       "isReportPlacement": false,
       "name": "Test",
+      "objectType": "folder",
+      "parentPath": "پایه",
       "path": "پایه/Test",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -441,7 +447,10 @@
       "id": null,
       "isReportPlacement": true,
       "name": "بازدید گیت ها",
+      "objectType": "folder",
+      "parentPath": "پایه/Test",
       "path": "پایه/Test/بازدید گیت ها.json",
+      "reportSelector": "#بازدید گیت ها",
       "selector": null
     },
     {
@@ -457,7 +466,10 @@
       "id": null,
       "isReportPlacement": true,
       "name": "گیت ها",
+      "objectType": "folder",
+      "parentPath": "پایه/Test",
       "path": "پایه/Test/گیت ها.json",
+      "reportSelector": "#گیت ها",
       "selector": null
     },
     {
@@ -473,7 +485,10 @@
       "id": null,
       "isReportPlacement": false,
       "name": "بارکد",
+      "objectType": "folder",
+      "parentPath": "پایه",
       "path": "پایه/بارکد",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -489,7 +504,10 @@
       "id": null,
       "isReportPlacement": true,
       "name": "BarcodeReaders",
+      "objectType": "folder",
+      "parentPath": "پایه/بارکد",
       "path": "پایه/بارکد/BarcodeReaders.json",
+      "reportSelector": "#BarcodeReaders",
       "selector": null
     }
   ],

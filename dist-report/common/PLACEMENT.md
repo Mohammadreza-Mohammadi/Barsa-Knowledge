@@ -39,4 +39,4 @@ Use the member name, not the number. Both are in dist/ and the name is harder to
 
 ## The two-command recipe
 
-`common/RECIPES.md` recipe R2. One caution carried from there: the parent folder is named by a selector, and dist/ carries no folder selectors at all, so that one value cannot be filled from this pack even in a system scope. See `MISSING-FROM-DIST.md`.
+`common/RECIPES.md` recipe R2. One caution carried from there: the parent folder is named by a selector. Observed exports carry navigation paths but no folder selectors, and the inspected SemanticRules resolver has no folder case. See `MISSING-FROM-DIST.md`.

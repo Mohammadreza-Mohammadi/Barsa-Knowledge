@@ -88,7 +88,7 @@
       "representation": null,
       "representations": null
     },
-    "sha256": "650fe4b2f75c6b98f9bfda8c32b662918030153732e283131edb470b6d93a98e",
+    "sha256": "ea0b027f22b6c7d29058192c707f97434238e90bf0682c60ff9507f68b1a6fdd",
     "typeCatalog": [
       "Barsa.Meta.MetaCode",
       "BarsaFormSideContentSetting",
@@ -1284,7 +1284,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "root",
       "name": null,
+      "objectType": "folder",
+      "parentPath": null,
+      "path": null,
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1299,7 +1304,12 @@
       },
       "caption": "Push Notification",
       "id": null,
+      "kind": "page",
       "name": "Push Notification",
+      "objectType": "folder",
+      "parentPath": null,
+      "path": "Push Notification",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1314,7 +1324,12 @@
       },
       "caption": "Base",
       "id": null,
+      "kind": "group",
       "name": "Base",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/Base",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1329,7 +1344,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Base",
+      "path": "Push Notification/Base/#IMessage",
+      "reportSelector": "#IMessage",
       "selector": null
     },
     {
@@ -1344,7 +1364,12 @@
       },
       "caption": "Messages",
       "id": null,
+      "kind": "group",
       "name": "Messages",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/Messages",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1359,7 +1384,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Messages",
+      "path": "Push Notification/Messages/#NotificationMessage",
+      "reportSelector": "#NotificationMessage",
       "selector": null
     },
     {
@@ -1374,7 +1404,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Messages",
+      "path": "Push Notification/Messages/#SmsMessage",
+      "reportSelector": "#SmsMessage",
       "selector": null
     },
     {
@@ -1389,7 +1424,12 @@
       },
       "caption": "Settings",
       "id": null,
+      "kind": "group",
       "name": "Settings",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/Settings",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1404,7 +1444,12 @@
       },
       "caption": "Services",
       "id": null,
+      "kind": "group",
       "name": "Services",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/Services",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1419,7 +1464,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Services",
+      "path": "Push Notification/Services/#یافتن کاربرآنلاین",
+      "reportSelector": "#یافتن کاربرآنلاین",
       "selector": null
     },
     {
@@ -1434,7 +1484,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Services",
+      "path": "Push Notification/Services/#در انتظار ارسال",
+      "reportSelector": "#در انتظار ارسال",
       "selector": null
     },
     {
@@ -1449,7 +1504,12 @@
       },
       "caption": "SendDemo",
       "id": null,
+      "kind": "group",
       "name": "SendDemo",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/SendDemo",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1464,7 +1524,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/SendDemo",
+      "path": "Push Notification/SendDemo/#SenderDemo",
+      "reportSelector": "#SenderDemo",
       "selector": null
     },
     {
@@ -1479,7 +1544,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/SendDemo",
+      "path": "Push Notification/SendDemo/#نوتیفیکشن",
+      "reportSelector": "#نوتیفیکشن",
       "selector": null
     },
     {
@@ -1494,7 +1564,12 @@
       },
       "caption": "PushNotification",
       "id": null,
+      "kind": "group",
       "name": "PushNotification",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/PushNotification",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1509,7 +1584,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/PushNotification",
+      "path": "Push Notification/PushNotification/#PushNotificationOption",
+      "reportSelector": "#PushNotificationOption",
       "selector": null
     },
     {
@@ -1524,7 +1604,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/PushNotification",
+      "path": "Push Notification/PushNotification/#UserSubscription",
+      "reportSelector": "#UserSubscription",
       "selector": null
     },
     {
@@ -1539,7 +1624,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/PushNotification",
+      "path": "Push Notification/PushNotification/#SubscriptionKey",
+      "reportSelector": "#SubscriptionKey",
       "selector": null
     },
     {
@@ -1554,7 +1644,12 @@
       },
       "caption": "Remove_Reports",
       "id": null,
+      "kind": "group",
       "name": "Remove_Reports",
+      "objectType": "folder",
+      "parentPath": "Push Notification",
+      "path": "Push Notification/Remove_Reports",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1569,7 +1664,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Remove_Reports",
+      "path": "Push Notification/Remove_Reports/#_RemoveAll_NotificationMessage",
+      "reportSelector": "#_RemoveAll_NotificationMessage",
       "selector": null
     },
     {
@@ -1584,7 +1684,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Remove_Reports",
+      "path": "Push Notification/Remove_Reports/#_RemoveAll_ExceptToday_NotificationMessage",
+      "reportSelector": "#_RemoveAll_ExceptToday_NotificationMessage",
       "selector": null
     },
     {
@@ -1599,7 +1704,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Remove_Reports",
+      "path": "Push Notification/Remove_Reports/#_RemoveAll_ExceptThisWeek_NotificationMessage",
+      "reportSelector": "#_RemoveAll_ExceptThisWeek_NotificationMessage",
       "selector": null
     },
     {
@@ -1614,7 +1724,12 @@
       },
       "caption": null,
       "id": null,
+      "kind": "report",
       "name": null,
+      "objectType": "folder",
+      "parentPath": "Push Notification/Remove_Reports",
+      "path": "Push Notification/Remove_Reports/#_FindNotificationByRelatedMoAndReciever",
+      "reportSelector": "#_FindNotificationByRelatedMoAndReciever",
       "selector": null
     },
     {
@@ -1629,7 +1744,12 @@
       },
       "caption": "Whatsapp",
       "id": null,
+      "kind": "page",
       "name": "Whatsapp",
+      "objectType": "folder",
+      "parentPath": null,
+      "path": "Whatsapp",
+      "reportSelector": null,
       "selector": null
     },
     {
@@ -1644,7 +1764,12 @@
       },
       "caption": "پایه",
       "id": null,
+      "kind": "group",
       "name": "پایه",
+      "objectType": "folder",
+      "parentPath": "Whatsapp",
+      "path": "Whatsapp/پایه",
+      "reportSelector": null,
       "selector": null
     }
   ],

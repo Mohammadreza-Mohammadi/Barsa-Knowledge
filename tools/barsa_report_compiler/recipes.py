@@ -97,9 +97,10 @@ def definitions():
                  "`folder` and its semantic value vocabulary is Unknown -- no "
                  "dist/ document lists the values the AiExport side uses. If "
                  "the server requires it, it has to be supplied."),
-                ("The parent folder selector is a placeholder even in a "
-                 "system-scoped pack: dist/ carries no folder selectors. See "
-                 "MISSING-FROM-DIST.md."),
+                ("The parent folder reference remains a placeholder. The "
+                 "observed exports carry navigation paths, but no folder "
+                 "selector; the inspected SemanticRules resolver also has no "
+                 "folder selector case. See MISSING-FROM-DIST.md."),
             ],
             "batch": _batch(
                 {
@@ -296,9 +297,9 @@ def _pick_bindings(model):
                      "delete recipes keep their placeholders.")
 
     notes.append(
-        "Folder selectors are never bound: dist/ carries none, because the "
-        "AiExport ZIP projection encodes navigation as directory structure "
-        "without selectors.")
+        "Folder selectors are not bound: the observed navigation paths are "
+        "identities for retrieval, but the SemanticRules resolver has no "
+        "folder selector case. A path cannot be used as a batch selector.")
     return bindings, notes
 
 
@@ -359,7 +360,7 @@ def _known_selectors(model):
     if not model:
         return None
     sels = set()
-    for coll in ("entities", "fields", "reports", "views"):
+    for coll in ("entities", "fields", "reports", "views", "folders"):
         for row in model.get(coll) or ():
             if row.get("selector"):
                 sels.add(row["selector"])

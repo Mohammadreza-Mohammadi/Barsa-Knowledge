@@ -1,6 +1,6 @@
 # Entity model: system 1011413550000000100
 
-> **Source:** dist/models/normalized-samples/
+> **Source:** dist/index/systems/1011413550000000100/semantic.json
 > **dist commit:** 427c93cf67edea701b8874a816924f4c31a8d2bb
 > **compiled:** 2026-10-06 · **scope:** system=1011413550000000100
 
@@ -54,5 +54,19 @@ A `form` report names a view through `typeView`.
 
 | name | selector |
 |---|---|
-| نماي 1 | `#نمای 1` |
+| نمای 1 | `#نمای 1` |
 | نمای اصلی | `#نمای اصلی` |
+
+## Navigation folders
+
+`path` is an observed navigation location for retrieval. It is not a supported AiChangeBatch selector.
+
+| name | kind | path | selector |
+|---|---|---|---|
+| سيستم باركد | **Unknown** | -100-101-126- | unresolved |
+| پايه | **Unknown** | -100-101-126-127- | unresolved |
+| باركد | **Unknown** | -100-101-126-127-128- | unresolved |
+| Test | **Unknown** | -100-101-126-127-141- | unresolved |
+| پایه | **Unknown** | پایه | unresolved |
+| Test | **Unknown** | پایه/Test | unresolved |
+| بارکد | **Unknown** | پایه/بارکد | unresolved |

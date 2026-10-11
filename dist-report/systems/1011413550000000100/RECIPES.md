@@ -22,7 +22,7 @@ The placeholders below were replaced with real selectors from this scope:
 
 Notes on binding:
 
-- Folder selectors are never bound: dist/ carries none, because the AiExport ZIP projection encodes navigation as directory structure without selectors.
+- Folder selectors are not bound: the observed navigation paths are identities for retrieval, but the SemanticRules resolver has no folder selector case. A path cannot be used as a batch selector.
 
 ## R1 — A list report on an existing entity
 
@@ -135,7 +135,7 @@ Why it looks like this:
 - Two commands, and the order matters: report is structuralOrder 120 and folder is 130, so the report is created first. The planner sorts by dependency anyway, but writing them in this order matches what it will do.
 - A placement is a `folder` object whose `report` points at the report. In the legacy tables that is a MET_FOLDER row with FolderType=Report (9) under a FolderType=ReportFolder (12) container.
 - `kind` is deliberately omitted. It is a create-only enum on `folder` and its semantic value vocabulary is Unknown -- no dist/ document lists the values the AiExport side uses. If the server requires it, it has to be supplied.
-- The parent folder selector is a placeholder even in a system-scoped pack: dist/ carries no folder selectors. See MISSING-FROM-DIST.md.
+- The parent folder reference remains a placeholder. The observed exports carry navigation paths, but no folder selector; the inspected SemanticRules resolver also has no folder selector case. See MISSING-FROM-DIST.md.
 
 Not verified:
 

@@ -10,27 +10,45 @@ This file is **generated**: every place a renderer had to write Unknown register
 
 A row here is a gap in the Extractor, never a licence to guess. Until a row is filled, the corresponding part of the pack says Unknown and a consumer must stop there.
 
-11 gaps.
+12 gaps.
 
-## 1. Folder selectors, and the semantic folder `kind` vocabulary
+## 1. Existing-folder semantic reference support
 
 **Where this pack says Unknown**
 
-- common/PLACEMENT.md and the R2 recipe: the parent folder cannot be named, and `kind` must be omitted
+- common/PLACEMENT.md and the R2 recipe: the parent folder cannot be named with a supported selector
 
 **Where to look**
 
-The AiExport ZIP projection encodes navigation as directory structure; the Extractor should carry a selector per folder node into the normalized model, and the profile's folder output rule should say what `kind` accepts.
+Inspect a newer Barsa semantic resolver or obtain a runtime-proven folder reference contract. The current SemanticRules.ResolveObject supports system, entity, field, view, report and workflow only.
 
 **Why we can say it is absent, not merely unseen**
 
-No normalized sample carries a folder selector, and the navigation collection records rows without one. The folder contract row for `kind` states Enum with no member list.
+AiExport SingleJson navigation objects and ZIP directory paths carry no folder selectors. AiSemanticReferenceResolver delegates selectors to SemanticRules.ResolveObject, which has no folder case.
 
 **What a consumer cannot do until it is filled**
 
-A consumer cannot place a report under an existing folder without being handed the selector.
+A consumer cannot place a report under an existing folder without a runtime-supported reference.
 
-## 2. The comparison operator vocabulary in a condition clause
+## 2. Semantic folder kind vocabulary
+
+**Where this pack says Unknown**
+
+- common/PLACEMENT.md and R2: kind is omitted
+
+**Where to look**
+
+Extract the accepted semantic values from AiFolderChangeProvider.Validate and InferCreateKind into dist/.
+
+**Why we can say it is absent, not merely unseen**
+
+The folder property contract only says Enum; no dist/ index carries the accepted values.
+
+**What a consumer cannot do until it is filled**
+
+A consumer cannot choose a folder kind from this pack.
+
+## 3. The comparison operator vocabulary in a condition clause
 
 **Where this pack says Unknown**
 
@@ -48,7 +66,7 @@ The observed-path table records keys and JSON types by design and carries no val
 
 A consumer cannot write any filtering at all; it can only create reports with an empty condition.
 
-## 3. The contents of met_Report.ReportData
+## 4. The contents of met_Report.ReportData
 
 **Where this pack says Unknown**
 
@@ -66,7 +84,7 @@ dist/formats/report-format.md marks the column base64Binary with contents Unknow
 
 A legacy .metaexport cannot be used to understand an existing report's definition, only to know it exists.
 
-## 4. The print template format (PrintView / Stimulsoft .mrt)
+## 5. The print template format (PrintView / Stimulsoft .mrt)
 
 **Where this pack says Unknown**
 
@@ -84,7 +102,7 @@ dist/formats/report-format.md calls ReportData an opaque blob and says an .mrt p
 
 Nothing in print layout can be authored or explained.
 
-## 5. The report parameter panel layout
+## 6. The report parameter panel layout
 
 **Where this pack says Unknown**
 
@@ -102,7 +120,7 @@ The contract row's own runtimeSource text states the exclusion.
 
 Panel arrangement cannot be written or read back; it is a designer task.
 
-## 6. The semantics of a report parameter entry
+## 7. The semantics of a report parameter entry
 
 **Where this pack says Unknown**
 
@@ -120,7 +138,7 @@ dist/ carries the keys (12 parameter entries observed) and no values, and no doc
 
 A consumer cannot author a parameterized report.
 
-## 7. Value kinds for the RegisterWritableSet properties
+## 8. Value kinds for the RegisterWritableSet properties
 
 **Where this pack says Unknown**
 
@@ -138,7 +156,7 @@ The contract rows carry kind=null, which the Extractor writes only when the fact
 
 A consumer can know a property is writable but not what value to put in it.
 
-## 8. Whether the legacy ReportData carries the same information as the AiExport projection
+## 9. Whether the legacy ReportData carries the same information as the AiExport projection
 
 **Where this pack says Unknown**
 
@@ -156,7 +174,7 @@ The two families were compared at object level, never inside a report's definiti
 
 A consumer cannot tell whether a property absent from an AiExport artifact is absent from the report or merely not projected.
 
-## 9. Which field subtypes may be a report column
+## 10. Which field subtypes may be a report column
 
 **Where this pack says Unknown**
 
@@ -174,7 +192,7 @@ dist/ carries the column rows and the field subtypes but nothing joining them: t
 
 A consumer may offer a field that cannot be a column.
 
-## 10. Which properties are meaningful for which reportType
+## 11. Which properties are meaningful for which reportType
 
 **Where this pack says Unknown**
 
@@ -192,7 +210,7 @@ No dist/ document contains a type-to-property relation of any kind; the matrix i
 
 A consumer may set a property that the type ignores, with no error.
 
-## 11. reportType vocabulary mapping: AiExport strings ↔ ReportTypeEnum
+## 12. reportType vocabulary mapping: AiExport strings ↔ ReportTypeEnum
 
 **Where this pack says Unknown**
 

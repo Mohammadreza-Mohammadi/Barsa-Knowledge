@@ -35,6 +35,7 @@ _PATH_ROW = re.compile(
 # Directories read as a set rather than a single file.
 INPUT_DIRS = {
     "normalizedSamples": "models/normalized-samples",
+    "systemIndexes": "index/systems",
 }
 
 
@@ -58,7 +59,8 @@ class Dist:
                 self.missing.append(rel)
                 self.docs[key] = None
                 continue
-            raw = open(path, "rb").read()
+            with open(path, "rb") as fh:
+                raw = fh.read()
             self.hashes[rel] = hashlib.sha256(raw).hexdigest()
             try:
                 self.docs[key] = json.loads(raw.decode("utf-8"))
@@ -72,7 +74,8 @@ class Dist:
                 self.missing.append(rel)
                 self.text[key] = None
                 continue
-            raw = open(path, "rb").read()
+            with open(path, "rb") as fh:
+                raw = fh.read()
             self.hashes[rel] = hashlib.sha256(raw).hexdigest()
             self.text[key] = raw.decode("utf-8")
 
@@ -83,7 +86,8 @@ class Dist:
                 if not name.endswith(".json"):
                     continue
                 path = os.path.join(sample_dir, name)
-                raw = open(path, "rb").read()
+                with open(path, "rb") as fh:
+                    raw = fh.read()
                 rel = os.path.join(INPUT_DIRS["normalizedSamples"], name)
                 self.hashes[rel] = hashlib.sha256(raw).hexdigest()
                 try:
@@ -93,12 +97,39 @@ class Dist:
         else:
             self.missing.append(INPUT_DIRS["normalizedSamples"])
 
+        self.systems = {}
+        systems_dir = os.path.join(self.root, INPUT_DIRS["systemIndexes"])
+        manifest_path = os.path.join(systems_dir, "manifest.json")
+        if os.path.isfile(manifest_path):
+            manifest = self._read_system_json(manifest_path)
+            for sid in manifest.get("systemIds", []):
+                if not re.fullmatch(r"[0-9]+", sid):
+                    raise DistError("invalid system id in index manifest: %r" % sid)
+                path = os.path.join(systems_dir, sid, "semantic.json")
+                if not os.path.isfile(path):
+                    raise DistError("system index missing: %s" % path)
+                self.systems[sid] = self._read_system_json(path)
+        else:
+            raise DistError(
+                "index/systems/manifest.json is required for full system "
+                "scope. Run tools/extract.py first.")
+
         if self.docs.get("semanticContract") is None:
             raise DistError(
                 "index/semantic-contract.json is required and missing. "
                 "Run tools/extract.py first.")
 
     # -- convenience accessors ---------------------------------------------
+
+    def _read_system_json(self, path):
+        with open(path, "rb") as fh:
+            raw = fh.read()
+        rel = os.path.relpath(path, self.root).replace("\\", "/")
+        self.hashes[rel] = hashlib.sha256(raw).hexdigest()
+        try:
+            return json.loads(raw.decode("utf-8"))
+        except ValueError as exc:
+            raise DistError("%s is not valid JSON: %s" % (rel, exc))
 
     @property
     def contract(self):
