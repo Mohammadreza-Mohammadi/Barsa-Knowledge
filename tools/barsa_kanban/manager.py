@@ -20,6 +20,7 @@ import os
 import shutil
 import subprocess
 
+from . import barsa_host
 from . import config as config_mod
 from . import prompts, verify
 from .states import (
@@ -971,13 +972,21 @@ class Manager:
                                     extra={"batch": batch})
         self._open_gate(task_dir, manifest, GATE_APPLY_APPROVAL,
                         "change-batch.json")
-        log("گیت apply-approval باز است. این batch را روی بارسا اعمال کن:")
+        applied_by = (self.config["repository"].get("integration") or {}).get(
+            "appliedBy", "human")
+        log("گیت apply-approval باز است:")
         log("  %s" % os.path.relpath(
             os.path.join(task_dir, "change-batch.json"), self.repo_root))
         log("  sha256 %s · %s فرمان" % (batch["sha256"][:16],
                                         batch["commands"]))
-        log("بعد از اعمال: python3 tools/manager.py answer %s --approve"
-            % manifest["id"])
+        if applied_by == "barsa-host":
+            log("تأیید تو یعنی «اعمالش کن»؛ Manager خودش به Barsa.Ai.Host "
+                "می‌دهد: python3 tools/manager.py answer %s --approve"
+                % manifest["id"])
+        else:
+            log("این batch را خودت روی بارسا اعمال کن، بعد: "
+                "python3 tools/manager.py answer %s --approve"
+                % manifest["id"])
         return "wait"
 
     def _step_rejected(self, task_dir, manifest, log):
@@ -1196,10 +1205,9 @@ class Manager:
         if not approve:
             raise ManagerError("یکی از --approve یا --reject لازم است.")
 
-        # `--approve` here means "I applied it". The human's word alone is not
-        # accepted: the manager proves mechanically that the batch is the one
-        # the gate opened on, and that it still passes every gate.
-        batch = manifest.get("batch") or {}
+        # Whoever applies it, the same proof comes first: this is still the
+        # batch the gate opened on, and it still passes every gate.
+        batch = dict(manifest.get("batch") or {})
         report = self.verify_task(manifest["id"])
         if not report["ok"]:
             raise ManagerError(
@@ -1210,17 +1218,87 @@ class Manager:
                 "batch بعد از باز شدن گیت عوض شده است (%s → %s). تأیید قبلی "
                 "باطل است؛ run بزن تا دوباره داوری شود."
                 % (batch["sha256"][:16], report["batch"]["sha256"][:16]))
-        batch = dict(batch)
+
+        applied_by = (self.config["repository"].get("integration") or {}).get(
+            "appliedBy", "human")
+        if applied_by == "barsa-host":
+            batch = self._apply_through_host(task_dir, manifest, batch, log)
+        else:
+            # `--approve` means "I applied it". There is nothing further to
+            # prove from here: this repository cannot see the installation.
+            batch["appliedBy"] = "human"
+
         batch["approvedSha256"] = report["batch"]["sha256"]
         batch["appliedAt"] = now()
         manifest = self._set(task_dir, manifest, awaitingHuman=None,
                              batch=batch)
         self.store.append_event(task_dir, manifest["id"], {
             "event": "gate.approved", "gate": GATE_APPLY_APPROVAL,
+            "appliedBy": batch.get("appliedBy"),
+            "planId": batch.get("planId"),
             "sha256": batch["approvedSha256"][:16]})
         self._transition(task_dir, manifest, "integrated")
         log("تسک بسته شد. قفل scope آزاد شد.")
-        return {"ok": True, "integrated": True}
+        return {"ok": True, "integrated": True,
+                "appliedBy": batch.get("appliedBy"),
+                "planId": batch.get("planId")}
+
+    def _apply_through_host(self, task_dir, manifest, batch, log):
+        """Hand the batch to Barsa.Ai.Host and wait for a real verdict.
+
+        The task closes on the host's own answer. If the host refuses, or
+        finishes in any state but applied, nothing is closed: the gate stays
+        open and the refusal is written down where the next role will read it.
+        """
+        client, settings = barsa_host.from_config(self.config)
+        batch_path = os.path.join(task_dir, "change-batch.json")
+        with open(batch_path, encoding="utf-8") as fh:
+            document = json.load(fh)
+
+        log("اعمال از طریق Barsa.Ai.Host: %s" % client.prefix)
+        try:
+            health = client.health()
+        except barsa_host.HostError as exc:
+            raise ManagerError("host در دسترس نیست.\n%s" % exc.detail())
+        database = health.get("database") or {}
+        if database:
+            log("  دیتابیس: %s / %s" % (database.get("server"),
+                                        database.get("name")))
+        log("  اثر انگشت runtime: %s" % health.get("runtimeFingerprint"))
+
+        try:
+            outcome = client.plan_and_apply(
+                document,
+                require_clean=settings.get("requireCleanPlan", True) is not False,
+                max_wait=int(settings.get("maxWaitSeconds") or 600),
+                log=lambda m: log("  " + m))
+        except barsa_host.HostError as exc:
+            self._record_rejection(task_dir, "implementer",
+                                   _host_rejection(exc))
+            self.store.write_text(task_dir, "apply-failure.md",
+                                  _host_rejection(exc))
+            self.store.append_event(task_dir, manifest["id"], {
+                "event": "apply.failed", "route": exc.route,
+                "status": exc.status})
+            raise ManagerError(
+                "بارسا این batch را اعمال نکرد، پس تسک بسته نشد. گیت باز "
+                "مانده و دلیل در apply-failure.md است.\n%s" % exc.detail())
+
+        self.store.write_text(
+            task_dir, "apply-result.json",
+            json.dumps(outcome, ensure_ascii=False, indent=1,
+                       sort_keys=True) + "\n")
+        plan = outcome["plan"]
+        batch["appliedBy"] = "barsa-host"
+        batch["planId"] = plan.get("planId")
+        batch["hostPrefix"] = client.prefix
+        batch["runtimeFingerprint"] = (
+            (outcome["apply"].get("runtimeFingerprint")
+             or health.get("runtimeFingerprint")))
+        batch["hostState"] = outcome["status"].get("state")
+        log("بارسا اعمال کرد. plan %s، state %s."
+            % (batch["planId"], batch["hostState"]))
+        return batch
 
     # -- the synchronous side commands ------------------------------------
 
@@ -1319,6 +1397,23 @@ class Manager:
                 "unlock": True,
             },
         }
+
+
+def _host_rejection(exc):
+    return "\n".join([
+        "# بارسا این batch را اعمال نکرد",
+        "",
+        "این متن از خودِ host آمده، نه از این ابزار.",
+        "",
+        "```text",
+        exc.detail(),
+        "```",
+        "",
+        "اگر دلیلش یک خطای واقعی در batch است، اصلاحش کن. اگر host می‌گوید "
+        "plan تمیز اعمال نمی‌شود، نقشه را بازبینی کن — این یک گیت نیست که "
+        "دورش زد.",
+        "",
+    ])
 
 
 class _BudgetExhausted(Exception):

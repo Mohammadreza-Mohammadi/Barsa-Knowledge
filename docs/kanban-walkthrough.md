@@ -333,6 +333,42 @@ python3 tools/manager.py answer 0001 --approve
 
 ---
 
+## وقتی می‌خواهی Manager خودش اعمال کند
+
+تا اینجا `appliedBy: human` بود. اگر `Barsa.Ai.Host` بالا باشد، این خط را در
+`.agent-work/config/repository.yaml` عوض کن:
+
+```yaml
+integration:
+  appliedBy: barsa-host
+```
+
+و کلید را از محیط بده (هرگز داخل فایل):
+
+```bash
+export BARSA_AI_HOST_KEY=...
+python3 tools/manager.py host --health      # اول خشک امتحان کن
+python3 tools/manager.py host --plan 0001   # plan می‌سازد، اعمال نمی‌کند
+```
+
+حالا همان `answer 0001 --approve` معنایش «اعمالش کن» است:
+
+```text
+اعمال از طریق Barsa.Ai.Host: http://127.0.0.1:17840/
+  دیتابیس: SQL01 / BarsaProd
+  اثر انگشت runtime: ...
+  plan plan-001: 1 command(s), 0 error(s)
+  apply accepted; waiting for the host to finish
+بارسا اعمال کرد. plan plan-001، state applied.
+تسک بسته شد. قفل scope آزاد شد.
+```
+
+اگر host بگوید نه — هر جای زنجیره — تسک **بسته نمی‌شود**، گیت باز می‌ماند، و
+متن خودِ host در `apply-failure.md` و در `previous-rejection.md` تلاش بعدی
+می‌نشیند. جزئیات: [`kanban.md`](kanban.md)، بخش «اعمال خودکار روی بارسا».
+
+---
+
 ## همین سناریو، از داخل کنسول
 
 ```bash
@@ -379,7 +415,6 @@ transition را برمی‌گرداند. `cancel` تسک را می‌بندد. �
 **تست‌ها.**
 
 ```bash
-python3 tools/test_kanban.py
+python3 tools/test_kanban.py        # ۲۶ تست: گیت‌ها، store، پیمایش کامل
+python3 tools/test_kanban_host.py   # ۱۵ تست: مسیر Barsa.Ai.Host
 ```
-
-۲۶ تست، شامل حالت منفی هر پنج گیت و یک پیمایش کامل.
