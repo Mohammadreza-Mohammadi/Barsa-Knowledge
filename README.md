@@ -155,9 +155,13 @@ index), `unknowns` (nothing the knowledge pack marks Unknown may be authored),
 `scope` (only objects the task holds a lock on) and `order` (structuralOrder,
 parents first).
 
-The last gate hands the batch to a human: this repository never connects to a
-Barsa installation. `answer --approve` means "I applied it", and it is refused
-unless the batch is still byte-for-byte the one the gate opened on.
+The last gate decides where the batch goes. With `appliedBy: human` it is
+handed to a person and `answer --approve` means "I applied it". With
+`appliedBy: barsa-host` the manager posts it to `Barsa.Ai.Host` itself --
+`/plan`, then `/apply`, then `/apply-status` until the host gives a real
+verdict -- and the task closes on the host's answer, not on anyone's word.
+Either way approval is refused unless the batch is still byte-for-byte the one
+the gate opened on.
 
 A worked run, command by command, with the real output: `docs/kanban-walkthrough.md`. How it works: `docs/kanban.md`. Protocol state lives in `.agent-work/`.
 

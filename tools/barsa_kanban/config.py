@@ -56,12 +56,27 @@ budget:
 
 integration:
   # چه کسی batch تأییدشده را روی بارسا اعمال می‌کند.
-  #   human → تنها مقدار مجاز فعلاً. این مخزن هرگز به بارسا وصل نمی‌شود و
-  #           هرگز کد بارسا را اجرا نمی‌کند؛ پس اعمال کار انسان است و
-  #           `answer <id> --approve` معنایش «من اعمال کردم» است. Manager
-  #           قبل از بستن تسک مکانیکی اثبات می‌کند batch همان چیزی است که
-  #           گیت رویش باز شد و هنوز از همهٔ گیت‌ها رد می‌شود.
+  #   human      → `answer <id> --approve` یعنی «من خودم اعمال کردم». Manager
+  #                قبل از بستن تسک مکانیکی اثبات می‌کند batch همان چیزی است
+  #                که گیت رویش باز شد و هنوز از همهٔ گیت‌ها رد می‌شود.
+  #   barsa-host → تأیید تو یعنی «اعمالش کن». Manager خودش batch را به
+  #                Barsa.Ai.Host می‌دهد: POST /plan، بررسی disposition،
+  #                POST /apply، و انتظار برای یک حکم واقعی از /apply-status.
+  #                تسک فقط با پاسخ خودِ بارسا بسته می‌شود، نه با حرف کسی.
   appliedBy: human
+
+  # فقط وقتی appliedBy: barsa-host معنا دارد.
+  host:
+    prefix: "http://127.0.0.1:17840/"   # AiHost.HttpPrefix
+    # کلید هرگز در این فایل نیست — نام متغیر محیطی است که مقدار
+    # AiHost.ApiKey را نگه می‌دارد.
+    apiKeyEnv: BARSA_AI_HOST_KEY
+    timeoutSeconds: 180
+    # اگر host بگوید این plan تمیز اعمال نمی‌شود، اعمال نکن. false کردنش
+    # یعنی اعمال نیمه‌کاره را می‌پذیری؛ خط لوله عمداً atomic نیست.
+    requireCleanPlan: true
+    maxWaitSeconds: 600
+
   # درست مثل autoMerge در آن workflow: عمداً false. اعتماد باید کسب شود.
   autoApply: false
 """
@@ -125,12 +140,25 @@ def _load_one(store, name):
 def _validate_repository(doc):
     if doc.get("schemaVersion") != 1:
         raise StoreError("repository.yaml needs schemaVersion: 1")
-    applied_by = ((doc.get("integration") or {}).get("appliedBy"))
-    if applied_by != "human":
+    integration = doc.get("integration") or {}
+    applied_by = integration.get("appliedBy")
+    if applied_by not in ("human", "barsa-host"):
         raise StoreError(
-            "integration.appliedBy must be 'human': this repository never "
-            "connects to a Barsa installation and never executes Barsa code, "
-            "so nothing here can apply a batch. Got %r." % (applied_by,))
+            "integration.appliedBy must be 'human' (you apply the batch and "
+            "say so) or 'barsa-host' (the manager hands it to "
+            "Barsa.Ai.Host). Got %r." % (applied_by,))
+    if applied_by == "barsa-host":
+        host = integration.get("host") or {}
+        if not host.get("prefix"):
+            raise StoreError(
+                "integration.host.prefix is required when appliedBy is "
+                "barsa-host. The host's default is http://127.0.0.1:17840/ "
+                "(AiHost.HttpPrefix).")
+        if "apiKey" in host:
+            raise StoreError(
+                "integration.host.apiKey must not be in this file. Name the "
+                "environment variable in apiKeyEnv instead; a key in a "
+                "committed config is a key that leaks.")
     gates = ((doc.get("verification") or {}).get("gates")) or []
     from .verify import GATES
     unknown = [g for g in gates if g not in GATES]

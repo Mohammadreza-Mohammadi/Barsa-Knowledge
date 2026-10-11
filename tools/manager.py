@@ -113,6 +113,14 @@ def main(argv=None):
         if name == "unlock":
             p.add_argument("--force", action="store_true")
 
+    p = sub.add_parser("host", help="talk to Barsa.Ai.Host without applying")
+    p.add_argument("--health", action="store_true")
+    p.add_argument("--systems", action="store_true")
+    p.add_argument("--lint", metavar="TASK")
+    p.add_argument("--plan", metavar="TASK",
+                   help="build a plan for the task's batch and print the "
+                        "host's disposition; applies nothing")
+
     sub.add_parser("board", help="regenerate BOARD.md")
 
     args = ap.parse_args(argv)
@@ -218,12 +226,45 @@ def _dispatch(manager, args):
         manager.unlock(args.task, _read_reason(args), force=args.force)
         return 0
 
+    if cmd == "host":
+        return _host_command(manager, args)
+
     if cmd == "board":
         path = manager.render_board()
         print("نوشته شد: %s" % os.path.relpath(path, manager.repo_root))
         return 0
 
     raise ManagerError("فرمان ناشناس: %s" % cmd)
+
+
+def _host_command(manager, args):
+    """A dry run against the host: nothing here can change anything."""
+    from barsa_kanban import barsa_host
+    client, settings = barsa_host.from_config(manager.config)
+    print("host: %s" % client.prefix)
+    if not client.api_key:
+        print("  هشدار: کلیدی در محیط نیست (%s). اگر host کلید می‌خواهد، "
+              "پاسخ 401 می‌گیری."
+              % ((settings.get("apiKeyEnv")) or "BARSA_AI_HOST_KEY"))
+    try:
+        if args.health or not (args.systems or args.lint or args.plan):
+            _emit(client.health())
+        if args.systems:
+            _emit(client.systems())
+        for task_id, call in ((args.lint, client.lint),
+                              (args.plan, client.plan)):
+            if not task_id:
+                continue
+            task_dir = manager.store.task_dir_or_fail(task_id)
+            raw = manager.store.read_text(task_dir, "change-batch.json")
+            if raw is None:
+                raise ManagerError("تسک %s هنوز change-batch.json ندارد."
+                                   % task_id)
+            _emit(call(json.loads(raw)))
+    except barsa_host.HostError as exc:
+        print(exc.detail(), file=sys.stderr)
+        return 1
+    return 0
 
 
 def _import_payload(args):

@@ -57,16 +57,104 @@ folder.kind    → واژگان مقدار Unknown است
 به‌عنوان `task.md` مهر می‌زند و hash درخواست و spec را ثبت می‌کند. هیچ طراحی‌ای
 روی یک spec تأییدنشده انجام نمی‌شود.
 
-**apply-approval** — آخرین گیت، جای merge. این مخزن هیچ‌وقت به نصب بارسا وصل
-نمی‌شود و هیچ‌وقت کد بارسا را اجرا نمی‌کند، پس **اعمال کار انسان است**.
-`answer <id> --approve` یعنی «من اعمال کردم»، و حرف انسان بدون شاهد پذیرفته
-نمی‌شود: Manager مکانیکی ثابت می‌کند batch همان چیزی است که گیت رویش باز شد
-(مقایسهٔ sha256) و هنوز از هر پنج گیت رد می‌شود.
+**apply-approval** — آخرین گیت، جای merge. دو حالت دارد، و در هر دو حالت
+Manager اول مکانیکی ثابت می‌کند batch همان چیزی است که گیت رویش باز شد
+(مقایسهٔ sha256) و هنوز از هر پنج گیت رد می‌شود:
 
 ```console
 $ python3 tools/manager.py answer 0001 --approve
 خطا: batch بعد از باز شدن گیت عوض شده است (0d75493… → e7f0d95…).
 ```
+
+| `integration.appliedBy` | `--approve` یعنی |
+|---|---|
+| `human` | «من خودم اعمال کردم». Manager به بارسا دست نمی‌زند. |
+| `barsa-host` | «اعمالش کن». Manager خودش batch را به Barsa.Ai.Host می‌دهد. |
+
+## اعمال خودکار روی بارسا
+
+`Barsa.Ai.Host.exe` یک HTTP listener است که جلوی مسیر نوشتن معنایی نشسته.
+مسیرها و هدرش از IL خودِ همان assembly بیرون آمده، نه از حدس:
+
+```text
+GET  /health                 بالا هست؟ روی کدام دیتابیس؟ runtimeFingerprint
+GET  /systems                سیستم‌هایی که می‌بیند
+POST /lint      <batch>      linter ساختاری، سمت سرور
+POST /plan      <batch>      → planId + disposition
+POST /apply     {planId}     همان plan را اعمال می‌کند
+GET  /apply-status ?planId=  → state، result، error
+
+هدر   X-Barsa-Ai-Key
+پیش‌فرض http://127.0.0.1:17840/   (کلید تنظیم: AiHost.HttpPrefix)
+```
+
+تنظیمش در `repository.yaml`:
+
+```yaml
+integration:
+  appliedBy: barsa-host
+  host:
+    prefix: "http://127.0.0.1:17840/"
+    apiKeyEnv: BARSA_AI_HOST_KEY   # نام متغیر محیطی، نه خود کلید
+    timeoutSeconds: 180
+    requireCleanPlan: true
+    maxWaitSeconds: 600
+```
+
+کلید **هرگز** در این فایل نیست؛ اگر `apiKey` در آن بگذاری، config رد می‌شود.
+مقدارش را از محیط بگذار:
+
+```bash
+export BARSA_AI_HOST_KEY=...      # ویندوز: $env:BARSA_AI_HOST_KEY = "..."
+```
+
+با این تنظیم، `answer <id> --approve` این دنباله را اجرا می‌کند:
+
+```text
+۱. verify دوباره — پنج گیت، و sha256 برابر با چیزی که گیت رویش باز شد
+۲. GET  /health        → اگر host نیست، همین‌جا می‌ایستد؛ هیچ چیز بسته نمی‌شود
+۳. POST /plan          → planId و disposition
+۴. اگر isValid=false یا canApplyCleanly=false → اعمال نمی‌شود
+۵. POST /apply         → اگر status=rejected، اعمال نشد
+۶. GET  /apply-status  → تا رسیدن به یک state پایانی
+۷. فقط اگر state=applied → تسک integrated می‌شود
+```
+
+هر «نه» در این زنجیره تسک را باز نگه می‌دارد، متن خودِ host را در
+`apply-failure.md` می‌نویسد، و همان را به `previous-rejection.md` تلاش بعدیِ
+implementer می‌دهد. چیزی دور زده نمی‌شود.
+
+بعد از موفقیت، manifest این‌ها را نگه می‌دارد:
+
+```yaml
+batch:
+  appliedBy: barsa-host
+  planId: plan-001
+  hostState: applied
+  runtimeFingerprint: ...
+  approvedSha256: ...
+```
+
+قبل از اینکه به این مسیر اعتماد کنی، ارتباط را خشک امتحان کن — این فرمان‌ها
+هیچ چیزی را عوض نمی‌کنند:
+
+```bash
+python3 tools/manager.py host --health
+python3 tools/manager.py host --systems
+python3 tools/manager.py host --lint 0001     # linter سمت سرور
+python3 tools/manager.py host --plan 0001     # plan می‌سازد، اعمال نمی‌کند
+```
+
+### چه چیزی اینجا تأیید نشده
+
+هیچ host واقعی از ماشینی که این کد روی آن نوشته شد در دسترس نبود. شکل
+درخواست‌ها و پاسخ‌ها از باینری خوانده شده و client در برابر یک stub که
+دقیقاً همان‌ها را پیاده می‌کند تست شده
+(`tools/test_kanban_host.py`، ۱۵ تست). این یعنی منطق client درست است، نه
+اینکه بازسازی قرارداد صددرصد با سرور واقعی می‌خواند. اولین اجرای واقعی ممکن
+است یک کلید را متفاوت ببیند؛ آن یک یافته دربارهٔ `barsa_host.py` است، نه
+دلیلی برای شل کردن یک گیت. `host --health` و `host --plan` دقیقاً برای همین
+هستند: قبل از اولین اعمال واقعی، قرارداد را با چشم خودت ببین.
 
 ## قفل scope
 
