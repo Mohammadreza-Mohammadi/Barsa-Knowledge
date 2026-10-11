@@ -81,6 +81,11 @@ scope:
 می‌کرد که کدام batch اول اعمال شود. قفل فقط در `integrated`/`cancelled`/
 `abandoned` آزاد می‌شود — `blocked` همچنان نگهش می‌دارد.
 
+## یک تست کامل
+
+اگر می‌خواهی خودت یک بار از صفر اجرا کنی، با دستورها و خروجی‌های واقعی:
+[`kanban-walkthrough.md`](kanban-walkthrough.md).
+
 ## اجرا
 
 ```bash

@@ -159,7 +159,7 @@ The last gate hands the batch to a human: this repository never connects to a
 Barsa installation. `answer --approve` means "I applied it", and it is refused
 unless the batch is still byte-for-byte the one the gate opened on.
 
-Details: `docs/kanban.md`. Protocol state lives in `.agent-work/`.
+A worked run, command by command, with the real output: `docs/kanban-walkthrough.md`. How it works: `docs/kanban.md`. Protocol state lives in `.agent-work/`.
 
 ## Specifications
 
