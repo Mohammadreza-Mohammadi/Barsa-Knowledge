@@ -34,11 +34,15 @@ python3 tools/lint_change_batch.py --schema          # JSON Schema
 
 ```
 source/       inputs: Barsa DLLs/EXEs, configs, .metaexport packages, resources
-tools/        the extractor and the report compiler (pure Python, stdlib only)
+tools/        the extractor, the report compiler and the agent protocol
 dist/         the generated knowledge pack
 dist-report/  the report-authoring pack, compiled from dist/
+.agent-work/  the kanban: tasks, manifests, attempts, events, board
+docs/         how the kanban works
 specs/        the specifications this implements
 ```
+
+Everything is pure Python, standard library only — no npm, no build step.
 
 ## Running it
 
@@ -124,6 +128,38 @@ The recipes in `common/RECIPES.md` are validated during the build by the same
 linter `tools/lint_change_batch.py` runs, against the contract recovered from
 the binary — so a recipe cannot drift from the contract without the build
 failing.
+
+## From a request to a change: the kanban
+
+`dist-report/` tells an agent how to build a report. The kanban is what walks
+one real need through to a verified change, with the same seven lanes, the same
+state machine and the same two human gates as the BarsaAgent workflow:
+
+```text
+ورودی → طراحی → آماده → پیاده‌سازی → بازبینی → آماده اعمال → تمام
+new    architecture  ready  implementing  review   approved…    integrated
+```
+
+```bash
+python3 tools/manager.py init --system 1011413550000000100
+python3 tools/manager.py import-issue --slug my-report --kind report.create \
+    --request-file need.txt
+python3 tools/manager.py run 0001        # advances to the first gate
+python3 tools/kanban_server.py           # the board, at 127.0.0.1:4310
+```
+
+Implementation here produces an `AiChangeBatch`, not code, so build/lint/test
+are replaced by five gates the manager runs itself: `lint` (the contract
+linter, zero findings), `selectors` (every name resolves in the scope's
+index), `unknowns` (nothing the knowledge pack marks Unknown may be authored),
+`scope` (only objects the task holds a lock on) and `order` (structuralOrder,
+parents first).
+
+The last gate hands the batch to a human: this repository never connects to a
+Barsa installation. `answer --approve` means "I applied it", and it is refused
+unless the batch is still byte-for-byte the one the gate opened on.
+
+Details: `docs/kanban.md`. Protocol state lives in `.agent-work/`.
 
 ## Specifications
 

@@ -1,0 +1,186 @@
+"""Configuration — what belongs to the repository owner, not to the tool.
+
+Two files, both under `.agent-work/config/`, both read strictly:
+
+  repository.yaml    which Barsa systems may be worked on, which verification
+                     gates run, and who applies a finished batch
+  agent-runtime.yaml which provider runs each role
+
+A missing file is not a silent default: the manager writes a starter pair on
+`init` and refuses to run without them.
+"""
+
+import os
+
+from . import yamlite
+from .store import StoreError
+
+REPOSITORY_FILE = "repository.yaml"
+RUNTIME_FILE = "agent-runtime.yaml"
+
+DEFAULT_BUDGET = {
+    "intakeRuns": 3,
+    "architectRuns": 4,
+    "implementerRuns": 6,
+    "reviewerRuns": 4,
+    "clarifications": 3,
+    "attempts": 24,
+}
+
+REPOSITORY_TEMPLATE = """\
+# چه چیزی مال صاحب مخزن است، نه ابزار. این فایل را دستی ویرایش کن.
+schemaVersion: 1
+
+# بستهٔ دانش که هر نقش از آن می‌خواند. Compiler گزارش این‌ها را می‌سازد.
+knowledge:
+  dist: dist
+  pack: dist-report
+
+# سیستم‌هایی که کار روی آن‌ها مجاز است. یک سیستم بدون selector index
+# (یعنی بدون artifact AiExport) قابل authoring نیست.
+systems:
+  allow: ["{system}"]
+
+# گیت‌های verification. هیچ‌کدام را خالی نگذار مگر دلیلش را همین‌جا بنویسی —
+# یک گیت غیرفعال در پنل apply-approval هشدار می‌دهد.
+verification:
+  gates: [lint, selectors, unknowns, scope, order]
+
+budget:
+  intakeRuns: {intakeRuns}
+  architectRuns: {architectRuns}
+  implementerRuns: {implementerRuns}
+  reviewerRuns: {reviewerRuns}
+  clarifications: {clarifications}
+  attempts: {attempts}
+
+integration:
+  # چه کسی batch تأییدشده را روی بارسا اعمال می‌کند.
+  #   human → تنها مقدار مجاز فعلاً. این مخزن هرگز به بارسا وصل نمی‌شود و
+  #           هرگز کد بارسا را اجرا نمی‌کند؛ پس اعمال کار انسان است و
+  #           `answer <id> --approve` معنایش «من اعمال کردم» است. Manager
+  #           قبل از بستن تسک مکانیکی اثبات می‌کند batch همان چیزی است که
+  #           گیت رویش باز شد و هنوز از همهٔ گیت‌ها رد می‌شود.
+  appliedBy: human
+  # درست مثل autoMerge در آن workflow: عمداً false. اعتماد باید کسب شود.
+  autoApply: false
+"""
+
+RUNTIME_TEMPLATE = """\
+# انتخاب provider برای هر نقش. برای سوییچ کل workflow فقط defaultProvider را عوض کن.
+schemaVersion: 1
+defaultProvider: manual
+
+roles:
+  intake:
+    provider: default
+  architect:
+    provider: default
+  implementer:
+    provider: default
+  reviewer:
+    provider: default
+
+providers:
+  # manual: Manager هیچ agent صدا نمی‌زند. گیت‌ها، قفل‌ها و verification را
+  # اداره می‌کند و می‌گوید نقش بعدی دقیقاً چه فایلی باید بنویسد. وقتی آن فایل‌ها
+  # نوشته شدند، `run` بعدی مصرفشان می‌کند و transition می‌دهد.
+  manual:
+    enabled: true
+  # claude: مثل run-agent.js خودت — هر transition یک agent headless اجرا می‌کند.
+  # عمداً خاموش: هر اجرا توکن مصرف می‌کند، و روشن‌کردنش تصمیم صاحب مخزن است.
+  claude:
+    enabled: false
+    command: claude
+    effort:
+      intake: medium
+      architect: high
+      implementer: medium
+      reviewer: high
+"""
+
+
+def load(store):
+    """Both config files, or a StoreError naming what to do about it."""
+    repo = _load_one(store, REPOSITORY_FILE)
+    runtime = _load_one(store, RUNTIME_FILE)
+    _validate_repository(repo)
+    _validate_runtime(runtime)
+    return {"repository": repo, "runtime": runtime}
+
+
+def _load_one(store, name):
+    path = os.path.join(store.config_dir, name)
+    if not os.path.isfile(path):
+        raise StoreError(
+            "%s is missing. Run: python3 tools/manager.py init"
+            % os.path.join(".agent-work", "config", name))
+    with open(path, encoding="utf-8") as fh:
+        try:
+            return yamlite.loads(fh.read())
+        except yamlite.YamlError as exc:
+            raise StoreError("%s is malformed: %s" % (name, exc))
+
+
+def _validate_repository(doc):
+    if doc.get("schemaVersion") != 1:
+        raise StoreError("repository.yaml needs schemaVersion: 1")
+    applied_by = ((doc.get("integration") or {}).get("appliedBy"))
+    if applied_by != "human":
+        raise StoreError(
+            "integration.appliedBy must be 'human': this repository never "
+            "connects to a Barsa installation and never executes Barsa code, "
+            "so nothing here can apply a batch. Got %r." % (applied_by,))
+    gates = ((doc.get("verification") or {}).get("gates")) or []
+    from .verify import GATES
+    unknown = [g for g in gates if g not in GATES]
+    if unknown:
+        raise StoreError("repository.yaml names unknown verification gates: %s"
+                         % ", ".join(unknown))
+
+
+def _validate_runtime(doc):
+    if doc.get("schemaVersion") != 1:
+        raise StoreError("agent-runtime.yaml needs schemaVersion: 1")
+    default = doc.get("defaultProvider")
+    providers = doc.get("providers") or {}
+    if default not in providers:
+        raise StoreError("defaultProvider %r is not in providers" % (default,))
+
+
+def provider_for(config, role):
+    """Which provider runs this role, and its settings."""
+    runtime = config["runtime"]
+    roles = runtime.get("roles") or {}
+    name = ((roles.get(role) or {}).get("provider")) or "default"
+    if name == "default":
+        name = runtime.get("defaultProvider")
+    settings = (runtime.get("providers") or {}).get(name) or {}
+    if not settings.get("enabled"):
+        raise StoreError(
+            "provider %r for role %r is not enabled in agent-runtime.yaml. "
+            "Enable it there, or leave the role on 'manual'." % (name, role))
+    return name, settings
+
+
+def budget_limits(config):
+    out = dict(DEFAULT_BUDGET)
+    out.update({k: v for k, v in (config["repository"].get("budget") or
+                                  {}).items() if isinstance(v, int)})
+    return out
+
+
+def write_templates(store, system_id):
+    """Starter config, written once by `init`; never overwritten."""
+    written = []
+    for name, text in ((REPOSITORY_FILE,
+                        REPOSITORY_TEMPLATE.format(system=system_id or "",
+                                                   **DEFAULT_BUDGET)),
+                       (RUNTIME_FILE, RUNTIME_TEMPLATE)):
+        path = os.path.join(store.config_dir, name)
+        if os.path.isfile(path):
+            continue
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(text)
+        written.append(path)
+    return written

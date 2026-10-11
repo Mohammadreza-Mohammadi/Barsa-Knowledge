@@ -1,0 +1,8 @@
+role: reviewer
+outcome: completed
+requestedTransition: approved
+decision: approved
+evidence:
+  acceptance: [{ac: "AC-1", verdict: pass, basis: "changes[0].parent.selector=#BarcodeReader، و properties بدون entity/system"}, {ac: "AC-2", verdict: pass, basis: "properties.name"}, {ac: "AC-3", verdict: pass, basis: "columns[0..1].field = #Value, #Camera"}, {ac: "AC-4", verdict: pass, basis: "condition={all:[]}"}, {ac: "AC-5", verdict: pass, basis: "immediateExecute=true"}, {ac: "AC-6", verdict: pass, basis: "reportType=list"}]
+  testCoverage: [{case: "T-1", verdict: pass, basis: "len(changes)==1"}, {case: "T-2", verdict: pass, basis: "parent، نه property"}, {case: "T-3", verdict: pass, basis: "properties.name"}, {case: "T-4", verdict: pass, basis: "ترتیب columns"}, {case: "T-5", verdict: pass, basis: "condition خالی"}, {case: "T-6", verdict: pass, basis: "immediateExecute"}, {case: "T-7", verdict: pass, basis: "reportType"}, {case: "T-8", verdict: pass, basis: "پنج کلید properties، هیچ‌کدام بیرون نیاز"}]
+  additionalChecks: [{check: "پنج گیت Manager", verdict: pass, basis: "verify.json summary.passed=true"}, {check: "resolve شدن #Camera", verdict: pass, basis: "selectors.json همین scope"}, {check: "ریسک R-1 ستون روی فیلد command", verdict: partial, basis: "در بستهٔ دانش Unknown است؛ تصمیم انسان در گیت apply"}, {check: "جای‌گذاری navigator", verdict: partial, basis: "عمداً خارج از scope، R-2"}]

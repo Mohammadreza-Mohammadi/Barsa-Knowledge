@@ -1,0 +1,36 @@
+# چه چیزی مال صاحب مخزن است، نه ابزار. این فایل را دستی ویرایش کن.
+schemaVersion: 1
+
+# بستهٔ دانش که هر نقش از آن می‌خواند. Compiler گزارش این‌ها را می‌سازد.
+knowledge:
+  dist: dist
+  pack: dist-report
+
+# سیستم‌هایی که کار روی آن‌ها مجاز است. یک سیستم بدون selector index
+# (یعنی بدون artifact AiExport) قابل authoring نیست.
+systems:
+  allow: ["1011413550000000100"]
+
+# گیت‌های verification. هیچ‌کدام را خالی نگذار مگر دلیلش را همین‌جا بنویسی —
+# یک گیت غیرفعال در پنل apply-approval هشدار می‌دهد.
+verification:
+  gates: [lint, selectors, unknowns, scope, order]
+
+budget:
+  intakeRuns: 3
+  architectRuns: 4
+  implementerRuns: 6
+  reviewerRuns: 4
+  clarifications: 3
+  attempts: 24
+
+integration:
+  # چه کسی batch تأییدشده را روی بارسا اعمال می‌کند.
+  #   human → تنها مقدار مجاز فعلاً. این مخزن هرگز به بارسا وصل نمی‌شود و
+  #           هرگز کد بارسا را اجرا نمی‌کند؛ پس اعمال کار انسان است و
+  #           `answer <id> --approve` معنایش «من اعمال کردم» است. Manager
+  #           قبل از بستن تسک مکانیکی اثبات می‌کند batch همان چیزی است که
+  #           گیت رویش باز شد و هنوز از همهٔ گیت‌ها رد می‌شود.
+  appliedBy: human
+  # درست مثل autoMerge در آن workflow: عمداً false. اعتماد باید کسب شود.
+  autoApply: false

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کانبان بارسا</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>کانبان بارسا</h1>
+  <div class="meta">
+    <span id="repo">…</span>
+    <span id="contract" class="pill"></span>
+    <span id="health" class="pill">در حال بررسی…</span>
+  </div>
+  <button id="newTask">نیاز تازه</button>
+</header>
+
+<section id="waiting" class="waiting hidden">
+  <strong>منتظر تو</strong>
+  <div id="waitingList"></div>
+</section>
+
+<main id="board" class="board"></main>
+
+<div id="drawer" class="drawer hidden">
+  <div class="drawer-head">
+    <strong id="drawerTitle"></strong>
+    <div>
+      <button id="runTask">اجرا</button>
+      <button id="closeDrawer">بستن</button>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button data-tab="overview" class="on">نمای کلی</button>
+    <button data-tab="gate">گیت</button>
+    <button data-tab="artifacts">فایل‌ها</button>
+    <button data-tab="events">رویدادها</button>
+    <button data-tab="log">لاگ</button>
+  </nav>
+  <div id="tab-overview" class="tab on"></div>
+  <div id="tab-gate" class="tab"></div>
+  <div id="tab-artifacts" class="tab"></div>
+  <div id="tab-events" class="tab"></div>
+  <div id="tab-log" class="tab"><pre id="logBox"></pre></div>
+</div>
+
+<div id="createModal" class="modal hidden">
+  <div class="modal-box">
+    <h2>نیاز تازه</h2>
+    <label>نام کوتاه (slug)<input id="c-slug" placeholder="گزارش-بازدید-گیت"></label>
+    <label>نوع نیاز<select id="c-kind"></select></label>
+    <label>سیستم<input id="c-system" placeholder="1011413550000000100"></label>
+    <label>متن درخواست، عیناً به request.md می‌رود
+      <textarea id="c-text" rows="7" placeholder="روی موجودیت … یک گزارش لیستی لازم دارم که …"></textarea></label>
+    <label class="row"><input type="checkbox" id="c-start" checked> بعد از ساخت، اجرا را شروع کن</label>
+    <p class="hint">این کنسول هیچ AC یا قالبی به متن اضافه نمی‌کند؛ نوشتن AC کار نقش Intake است.</p>
+    <div class="modal-actions">
+      <button id="c-cancel">انصراف</button>
+      <button id="c-create" class="primary">بساز</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>

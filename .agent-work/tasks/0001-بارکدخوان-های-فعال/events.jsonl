@@ -1,0 +1,25 @@
+{"at": "2026-10-11T11:06:37.785Z", "event": "task.created", "slug": "بارکدخوان-های-فعال", "state": "new", "system": "1011413550000000100", "task": "0001"}
+{"at": "2026-10-11T11:06:37.861Z", "attempt": "001", "event": "attempt.started", "provider": "manual", "role": "intake", "task": "0001"}
+{"artifact": ".agent-work/tasks/0001-بارکدخوان-های-فعال/attempts/001/prompt.md", "at": "2026-10-11T11:06:37.865Z", "event": "gate.opened", "gate": "role:intake", "task": "0001"}
+{"at": "2026-10-11T11:07:01.437Z", "attempt": "001", "event": "attempt.consumed", "outcome": "completed", "requestedTransition": "architecture", "role": "intake", "task": "0001"}
+{"artifact": "proposed-task.md", "at": "2026-10-11T11:07:01.442Z", "event": "gate.opened", "gate": "spec-approval", "task": "0001"}
+{"at": "2026-10-11T11:07:06.315Z", "event": "gate.approved", "gate": "spec-approval", "task": "0001", "taskHash": "be6c2118016429d4"}
+{"at": "2026-10-11T11:07:06.317Z", "event": "state.changed", "from": "new", "note": null, "task": "0001", "to": "architecture"}
+{"at": "2026-10-11T11:07:06.384Z", "attempt": "002", "event": "attempt.started", "provider": "manual", "role": "architect", "task": "0001"}
+{"artifact": ".agent-work/tasks/0001-بارکدخوان-های-فعال/attempts/002/prompt.md", "at": "2026-10-11T11:07:06.386Z", "event": "gate.opened", "gate": "role:architect", "task": "0001"}
+{"at": "2026-10-11T11:08:35.104Z", "attempt": "002", "event": "attempt.consumed", "outcome": "completed", "requestedTransition": "ready", "role": "architect", "task": "0001"}
+{"at": "2026-10-11T11:08:35.109Z", "event": "state.changed", "from": "architecture", "note": null, "task": "0001", "to": "ready"}
+{"at": "2026-10-11T11:08:35.113Z", "event": "state.changed", "from": "ready", "note": null, "task": "0001", "to": "implementing"}
+{"at": "2026-10-11T11:08:35.119Z", "attempt": "003", "event": "attempt.started", "provider": "manual", "role": "implementer", "task": "0001"}
+{"artifact": ".agent-work/tasks/0001-بارکدخوان-های-فعال/attempts/003/prompt.md", "at": "2026-10-11T11:08:35.120Z", "event": "gate.opened", "gate": "role:implementer", "task": "0001"}
+{"at": "2026-10-11T11:09:08.655Z", "attempt": "003", "event": "attempt.consumed", "outcome": "completed", "requestedTransition": "review", "role": "implementer", "task": "0001"}
+{"at": "2026-10-11T11:09:08.660Z", "attempt": "003", "errors": 0, "event": "verify.ran", "passed": true, "task": "0001"}
+{"at": "2026-10-11T11:09:08.662Z", "event": "state.changed", "from": "implementing", "note": null, "task": "0001", "to": "review"}
+{"at": "2026-10-11T11:09:08.668Z", "attempt": "004", "event": "attempt.started", "provider": "manual", "role": "reviewer", "task": "0001"}
+{"artifact": ".agent-work/tasks/0001-بارکدخوان-های-فعال/attempts/004/prompt.md", "at": "2026-10-11T11:09:08.672Z", "event": "gate.opened", "gate": "role:reviewer", "task": "0001"}
+{"at": "2026-10-11T11:09:58.457Z", "attempt": "004", "event": "attempt.consumed", "outcome": "completed", "requestedTransition": "approved", "role": "reviewer", "task": "0001"}
+{"at": "2026-10-11T11:09:58.459Z", "event": "state.changed", "from": "review", "note": null, "task": "0001", "to": "approved"}
+{"at": "2026-10-11T11:09:58.469Z", "event": "state.changed", "from": "approved", "note": null, "task": "0001", "to": "integrating"}
+{"artifact": "change-batch.json", "at": "2026-10-11T11:09:58.475Z", "event": "gate.opened", "gate": "apply-approval", "task": "0001"}
+{"at": "2026-10-11T11:10:09.351Z", "event": "gate.approved", "gate": "apply-approval", "sha256": "0d7549370db438ca", "task": "0001"}
+{"at": "2026-10-11T11:10:09.352Z", "event": "state.changed", "from": "integrating", "note": null, "task": "0001", "to": "integrated"}
