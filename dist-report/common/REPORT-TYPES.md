@@ -2,7 +2,7 @@
 
 > **Source:** dist/index/ai-export-properties.json → enums · dist/models/normalized-samples/ → reports[].reportType
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 Barsa has two report-type vocabularies, and they are not the same words. Getting this wrong is the single easiest way to write a batch that is accepted and wrong.
 

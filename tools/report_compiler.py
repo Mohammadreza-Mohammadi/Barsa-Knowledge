@@ -70,6 +70,7 @@ def collect(dist, system_id, log):
     parts["enums"] = enums_mod.build(dist)
     parts["shapes"] = shapes_mod.build(dist, parts["contract"])
     parts["legacyTable"] = shapes_mod.legacy_report_columns(dist)
+    parts["vocabulary"] = dist.docs.get("hostVocabulary")
     parts["recipes"] = recipes_mod.build(dist, None)
 
     model = None

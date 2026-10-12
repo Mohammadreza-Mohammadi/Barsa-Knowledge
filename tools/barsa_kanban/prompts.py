@@ -187,12 +187,17 @@ proposal:
   `report:#<همان name>`.
 - `gates` را کم نکن مگر دلیلش را در `risks.md` بنویسی.
 
+## واژگانی که مجازی از آن بنویسی
+
+<VOCABULARY>
+
 ## قواعد سخت این دامنه
 
 - `entity` و `system` روی گزارش ReadOnly هستند: موجودیت هدف یک گزارش با update
   عوض نمی‌شود. در زمان create از `parent` می‌آید.
-- شرط غیرخالی ننویس. واژگان عملگر Unknown است.
-- `parameters` ننویس. معنای کلیدهایش Unknown است.
+- شرط می‌توانی بنویسی، ولی فقط با عملگرهای بالا. شکلش:
+  `{"all":[{"field":"#نام","operator":"equal","value":"x"}]}`، تودرتو هم
+  می‌شود. شرط خالی `{"all":[]}` همیشه مجاز است.
 - selector را از `systems/<SYSTEM_ID>/index/selectors.json` **کپی** کن، تایپ
   نکن — شکل‌های `ي`/`ی` و `ك`/`ک` در این داده‌ها در هم به کار رفته‌اند.
 - اگر چیزی که نیاز داری در بستهٔ دانش Unknown است، `needs_clarification` بده یا
@@ -240,6 +245,10 @@ Attempt dir: <ATTEMPT_DIR>
 }
 ```
 
+## واژگانی که مجازی از آن بنویسی
+
+<VOCABULARY>
+
 ## چیزی که Manager خودش می‌سنجد (پس خودت قبلش بسنج)
 
 بعد از تو، Manager پنج گیت را مستقل اجرا می‌کند و حرف `result.yaml` را برای
@@ -247,7 +256,8 @@ Attempt dir: <ATTEMPT_DIR>
 
 1. `lint` — همان linter قرارداد، صفر finding (warning هم شکست است)
 2. `selectors` — هر selector باید در index این scope باشد یا tempId همین batch
-3. `unknowns` — شرط غیرخالی، `parameters` و `folder.kind` ممنوع‌اند
+3. `unknowns` — هر `operator`، `nullBehavior` و `folder.kind` باید در واژگان
+   بالا باشد؛ هر کلید ناشناخته در یک clause هم رد می‌شود
 4. `scope` — فقط اشیائی که تسک قفلشان را دارد
 5. `order` — ترتیب structuralOrder، و والد پیش از فرزند
 

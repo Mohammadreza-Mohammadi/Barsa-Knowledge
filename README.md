@@ -33,7 +33,8 @@ python3 tools/lint_change_batch.py --schema          # JSON Schema
 ## Layout
 
 ```
-source/       inputs: Barsa DLLs/EXEs, configs, .metaexport packages, resources
+source/       inputs: Barsa DLLs/EXEs, configs, .metaexport packages, the
+              Host's startup payload
 tools/        the extractor, the report compiler and the agent protocol
 dist/         the generated knowledge pack
 dist-report/  the report-authoring pack, compiled from dist/
@@ -65,6 +66,7 @@ the extractor parses ECMA-335 metadata itself.
 | 6 | `*.metaexport` | legacy package structure, schema, row counts |
 | 6b | every candidate artifact | content-based physical/logical format detection |
 | 7 | embedded resources + enums | the AiExport profile, API→format map, version gates |
+| 7c | `source/barsa-ai-host/startup/` | the vocabularies the Host's own reference documents state |
 | 8 | both families | normalized model per artifact, scope equivalence, comparison |
 | 9 | all of the above | cross-source validation and conflict detection |
 | 10–12 | cross-validated facts | reconstruction order, format-aware capabilities |
@@ -85,6 +87,11 @@ the extractor parses ECMA-335 metadata itself.
 - `scenarios/semantic-write-pipeline.md` — batch → lint → plan → apply → mutation → verify
 - `formats/legacy-metaexport.md` — the legacy on-disk container
 - `scenarios/import-system-legacy.md` — how a system is rebuilt from a package
+- `index/host-vocabulary.json` — what the Host's own reference documents state
+  outright: the comparison operators, `nullBehavior`, the folder kinds, the
+  keys of a report parameter. A different kind of evidence from the rest of
+  the pack — the vendor describing the contract rather than this tool
+  inferring it — and labelled `Documented` so the two are never confused.
 - `evidence/cross-validation.md` — what two or more independent sources confirm
 - `CONFIDENCE-REPORT.md` — how far to trust each area, and why
 - `RUNTIME-GAPS.md` / `MISSING-INPUTS.md` — what is still unproven

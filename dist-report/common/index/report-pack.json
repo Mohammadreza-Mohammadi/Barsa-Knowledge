@@ -1,6 +1,6 @@
 {
  "_provenance": {
-  "compiledAt": "2026-10-11",
+  "compiledAt": "2026-10-12",
   "compiler": "tools/report_compiler.py",
   "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
   "scope": "system=1011413550000000100",
@@ -17,22 +17,22 @@
  },
  "checks": {
   "budget": {
-   "contractOnlyBytes": 121987,
+   "contractOnlyBytes": 122864,
    "exemptBytes": 29469,
    "fileCount": 28,
    "largestFile": [
     "systems/1011413550000000100/index/entity-model.json",
     19576
    ],
-   "totalBytes": 147178
+   "totalBytes": 149038
   },
   "confidence": {
    "published": "Verified",
    "sourceLevel": "Verified"
   },
   "gaps": {
-   "gaps": 10,
-   "rendered": 12
+   "gaps": 8,
+   "rendered": 10
   },
   "grouping": {
    "drift": 0,
@@ -56,7 +56,7 @@
    "recipes": 6
   }
  },
- "compiledAt": "2026-10-11",
+ "compiledAt": "2026-10-12",
  "compiler": "tools/report_compiler.py",
  "compilerAdditions": [
   {
@@ -76,7 +76,7 @@
   "Verified",
   "CrossVerified"
  ],
- "contractOnlyBytes": 121987,
+ "contractOnlyBytes": 122864,
  "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
  "exemptBytes": 29469,
  "fileCount": 28,
@@ -98,8 +98,12 @@
    "sha256": "22f7339d7a1892cc00d7318f97aecd06479f925b8dfc5b4da8e3edcb3aa64eb2"
   },
   {
+   "path": "dist/index/host-vocabulary.json",
+   "sha256": "608a00d8f3dcfecff676b3d2d2c01e14a2d042395b9a3e34cc1aed9dea7299b7"
+  },
+  {
    "path": "dist/index/knowledge-index.json",
-   "sha256": "a427b37b4d4bc0d76cc06bb7f8df9bbfcfa6c42e584eaa9cffc00f2e101045a9"
+   "sha256": "c7d1173b95ae8165cfd8e4a4931bc601ee04c14e726b92f5aac646ca049c999f"
   },
   {
    "path": "dist/index/semantic-contract.json",
@@ -139,7 +143,7 @@
   },
   {
    "path": "dist/index/systems/7097413550000000101/semantic.json",
-   "sha256": "9f62b35900963058389d39b71cc0b2e128c243c9d411dd96d293b48c8a48663b"
+   "sha256": "11136cec8106223f155ff5af4905104848f1e6917f5fdb55099d22eb026e11bf"
   },
   {
    "path": "dist/index/systems/manifest.json",
@@ -155,7 +159,7 @@
   },
   {
    "path": "dist/models/normalized-samples/ai-Push Notification (05-07-11 20;08).json",
-   "sha256": "0079a82d49c65e5811ef93d0f8cf4789b62c5b57ab869ede5af4ea38c786b7f0"
+   "sha256": "12d05eae1ffb561588a742b50514f729ab6554792814df7210a644a56a2054f1"
   },
   {
    "path": "dist/models/normalized-samples/ai-باركد (05-07-11 20;08).json",
@@ -180,5 +184,5 @@
  ],
  "missingInputs": [],
  "scope": "system=1011413550000000100",
- "sizeBytes": 147178
+ "sizeBytes": 149038
 }

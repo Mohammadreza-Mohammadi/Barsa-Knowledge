@@ -126,6 +126,7 @@ class Extractor:
         self.phase6_exports()
         self.phase6b_formats()
         self.phase7_exchange_model()
+        self.phase7c_host_docs()
         self.phase8_normalize_and_compare()
         self.phase9_crossvalidate()
         self.phase10_normalized_model()
@@ -382,6 +383,26 @@ class Extractor:
         self.log("phase7: %d profiles, %d answer enums, %d api rows"
                  % (len(self.profiles), len(self.answer_enums),
                     len(self.api_formats)))
+
+    def phase7c_host_docs(self):
+        """The Host's own reference documents, where it ships them.
+
+        A separate phase because it is a separate kind of evidence: the
+        vendor stating the contract, rather than this tool inferring it from
+        IL. Absent docs are not an error -- the vocabularies simply stay
+        Unknown, exactly as they were before.
+        """
+        from . import host_docs
+        self.host_vocabulary = host_docs.build(self.source)
+        if not self.host_vocabulary:
+            self.log("phase7c: no Host startup payload under source/%s"
+                     % host_docs.ROOT.replace(os.sep, "/"))
+            return
+        named = [k for k, v in self.host_vocabulary.items()
+                 if isinstance(v, dict) and v.get("values")]
+        self.log("phase7c: %d vocabularies from %d Host documents (%s)"
+                 % (len(named), len(self.host_vocabulary["documents"]),
+                    ", ".join(sorted(named))))
 
     def phase8_normalize_and_compare(self):
         """Spec v3 sections 39-54: normalize both families, then compare."""

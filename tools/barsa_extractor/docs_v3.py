@@ -1141,6 +1141,10 @@ def _v3_indexes(x, d):
         "observedInArtifacts": [a.summary() for a in x.ai_artifacts],
     }))
 
+    host = getattr(x, "host_vocabulary", None)
+    if host:
+        _write(d, "index/host-vocabulary.json", _j(host))
+
     _write(d, "index/normalized-model.json", _j({
         "schemaVersion": "3.0",
         "collections": x.normalized,

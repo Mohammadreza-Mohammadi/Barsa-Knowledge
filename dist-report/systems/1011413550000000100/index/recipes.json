@@ -1,6 +1,6 @@
 {
  "_provenance": {
-  "compiledAt": "2026-10-11",
+  "compiledAt": "2026-10-12",
   "compiler": "tools/report_compiler.py",
   "distCommit": "79df8282d328dd5b18ff6dbcaa105d6e18ffdf79",
   "scope": "system=1011413550000000100",
@@ -14,6 +14,7 @@
   "#<existing-report>": "#BarcodeReaders",
   "#<field2>": "#Camera",
   "#<field>": "#Value",
+  "#<system>": "#بارکد",
   "#<view>": "#نمای 1"
  },
  "recipes": [
@@ -104,17 +105,49 @@
       "tempId": "tmpReport"
      },
      {
+      "commandId": "r2-create-page",
+      "objectType": "folder",
+      "operation": "create",
+      "parent": {
+       "objectType": "system",
+       "selector": "#بارکد"
+      },
+      "properties": {
+       "kind": "page",
+       "name": "Gate",
+       "order": 1
+      },
+      "tempId": "tmpPage"
+     },
+     {
+      "commandId": "r2-create-group",
+      "objectType": "folder",
+      "operation": "create",
+      "parent": {
+       "objectType": "folder",
+       "tempId": "tmpPage"
+      },
+      "properties": {
+       "kind": "group",
+       "name": "Gate lists",
+       "order": 1
+      },
+      "tempId": "tmpGroup"
+     },
+     {
       "commandId": "r2-place-report",
       "objectType": "folder",
       "operation": "create",
       "parent": {
        "objectType": "folder",
-       "selector": "#<parent-folder>"
+       "tempId": "tmpGroup"
       },
       "properties": {
+       "kind": "report",
        "name": "Gate list",
        "order": 1,
        "report": {
+        "objectType": "report",
         "tempId": "tmpReport"
        }
       }
@@ -133,26 +166,24 @@
     "warnings": []
    },
    "notes": [
-    "Two commands, and the order matters: report is structuralOrder 120 and folder is 130, so the report is created first. The planner sorts by dependency anyway, but writing them in this order matches what it will do.",
-    "A placement is a `folder` object whose `report` points at the report. In the legacy tables that is a MET_FOLDER row with FolderType=Report (9) under a FolderType=ReportFolder (12) container.",
-    "`kind` is deliberately omitted. It is a create-only enum on `folder` and its semantic value vocabulary is Unknown -- no dist/ document lists the values the AiExport side uses. If the server requires it, it has to be supplied.",
-    "The parent folder reference remains a placeholder. The observed exports carry navigation paths, but no folder selector; the inspected SemanticRules resolver also has no folder selector case. See MISSING-FROM-DIST.md."
+    "The canonical path is System -> Page -> Group -> Report placement, and the Host's folder reference states it. Page and Group are both FolderType.ReportFolder at runtime; the hierarchy carries the semantics, not the runtime type.",
+    "One wave, not four. The planner collects tempIds from `target`, `parent` and recursively from `properties`, so every dependency here is expressible with a temporary reference. Split a batch only when the contract needs a persisted id read back.",
+    "A same-batch reference carries both `objectType` and `tempId`. A bare `{\"tempId\": ...}` is not the documented shape.",
+    "`kind` is a create-only enum; its values are documented. See common/PLACEMENT.md.",
+    "Page and Group names come from the requirement. The Host does not invent them, so these two are the rows to edit.",
+    "Reuse before you create: if a suitable Page or Group already exists, placing under it needs a folder selector, which this pack still cannot supply. See MISSING-FROM-DIST.md."
    ],
-   "purpose": "A report nobody can navigate to is invisible. This adds the placement row.",
-   "selectorsBound": false,
+   "purpose": "A report nobody can navigate to is invisible. This builds the placement path with it, in one wave.",
+   "selectorsBound": true,
    "selectorsNotInIndex": [],
-   "selectorsUnbound": [
-    "#<parent-folder>"
-   ],
+   "selectorsUnbound": [],
    "selectorsUsed": [
-    "#<parent-folder>",
     "#BarcodeReader",
-    "#Value"
+    "#Value",
+    "#بارکد"
    ],
-   "title": "A list report, placed under an existing folder",
-   "unverified": [
-    "Encoding a same-batch reference as `{\"tempId\": \"...\"}` inside a Reference property is not demonstrated by any supplied artifact. The linter accepts it and the tempId resolves within the batch, but whether the provider reads that shape is Unknown. The command order and structure are sound; this one encoding may need adjusting."
-   ]
+   "title": "A list report, delivered with its navigation",
+   "unverified": []
   },
   {
    "batch": {

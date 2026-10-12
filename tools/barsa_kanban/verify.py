@@ -9,8 +9,10 @@ are the reason this pipeline is worth having at all:
   selectors  every selector the batch names exists in the scope's index, or is
              a tempId created earlier in the same batch
   unknowns   the batch does not author anything the knowledge pack marks
-             Unknown. This is the no-guessing gate, and it is the one that
-             stops a plausible-looking batch from being quietly wrong
+             Unknown, and every value it does author is drawn from a
+             vocabulary the pack can name. This is the no-guessing gate, and
+             it is the one that stops a plausible-looking batch from being
+             quietly wrong
   scope      the batch touches only the objects the task holds a lock on
   order      commands are ordered by structuralOrder, and a parent is created
              before its child
@@ -31,28 +33,37 @@ from barsa_extractor import change_batch as cb
 
 GATES = ("lint", "selectors", "unknowns", "scope", "order")
 
-# Properties the report pack marks Unknown. Authoring one of them produces a
-# batch that lints clean and does the wrong thing, which is the failure mode
-# the whole knowledge pack exists to prevent.
+# Properties nothing in the pack can describe, at any level.
 UNKNOWN_PROPERTIES = {
-    "parameters": ("The semantics of a parameter entry are Unknown: dist/ "
-                   "carries the observed key set and no value vocabulary. "
-                   "Create the report without parameters and let a human add "
-                   "them."),
     "parameterLayout": ("ReadOnly, and declared out of Semantic v15 "
                         "reconstruction scope in v190."),
 }
 
-# A condition clause carries an `operator` whose value vocabulary is Unknown,
-# so an empty condition is the only authorable one.
 CONDITION_KEYS = ("condition", "treeCondition")
 
-# Enum-valued properties whose semantic vocabulary dist/ does not list.
-UNKNOWN_ENUM_PROPERTIES = {
-    ("folder", "kind"): ("The semantic folder kind vocabulary is Unknown: no "
-                         "dist/ document lists the values the AiExport side "
-                         "uses. Omit it; if the server requires it, it has to "
-                         "come from outside the pack."),
+# What a condition clause may carry. Keys beyond these are refused rather
+# than passed through: an unrecognised key is either a typo or a part of the
+# contract this pack does not know, and both are reasons to stop.
+# `path` and `items` are substructure of `field`, not keys of a clause, so
+# they are not listed here. The legacy shape (`type`/`group`/`conditions`/
+# `valueType`) is refused on purpose: the document says only the compact
+# shape is canonical for anything written.
+CLAUSE_KEYS = ("field", "operator", "value", "parameter", "nullBehavior",
+               "customSql", "enabled", "ignoreCase", "autoSetInNew",
+               "dateComparisonMode")
+
+# Without a vocabulary from the pack, these stay closed. The gate is only as
+# permissive as the evidence it was given.
+_CLOSED = {
+    "operator": ("The comparison operator vocabulary is not in the pack, so "
+                 "no filled condition can be checked. Write an empty "
+                 "condition, or build dist/ with the Host's reference docs "
+                 "under source/barsa-ai-host/."),
+    "parameters": ("The shape of a report parameter is not in the pack. "
+                   "Create the report without parameters and let a human add "
+                   "them."),
+    "kind": ("The folder kind vocabulary is not in the pack. Omit it; if the "
+             "server requires it, it has to come from outside the pack."),
 }
 
 
@@ -117,44 +128,179 @@ def gate_selectors(batch, index):
     return out
 
 
-def gate_unknowns(batch):
-    """Refuse to author what the knowledge pack says is not known."""
+def gate_unknowns(batch, vocabulary=None):
+    """Refuse to author what the pack cannot name.
+
+    With no vocabulary this is the old rule: no filled condition, no
+    parameters, no folder kind. With one, those become real checks -- every
+    operator, nullBehavior and folder kind must be a value the pack can
+    point at in a source document. Permissiveness here only ever comes from
+    evidence, never from the absence of it.
+    """
     out = []
+    vocabulary = vocabulary or {}
+    operators = _values(vocabulary, "comparisonOperators")
+    null_behaviors = _values(vocabulary, "nullBehaviors")
+    folder_kinds = _values(vocabulary, "folderKinds")
+    parameter_keys = _values(vocabulary, "reportParameterKeys")
+    temp_ref_keys = _values(vocabulary, "tempIdReferenceEncoding")
+
     for i, change in enumerate(batch.get("changes") or ()):
         props = change.get("properties") or {}
         otype = change.get("objectType")
+        where = "changes[%d].properties" % i
+
         for name, why in UNKNOWN_PROPERTIES.items():
             if name in props:
                 out.append(finding(
                     "unknowns", "error",
                     "%s is written here, but its shape is Unknown" % name,
-                    "changes[%d].properties.%s" % (i, name), why))
+                    "%s.%s" % (where, name), why))
+
         for key in CONDITION_KEYS:
             if key in props:
-                clauses = _condition_clauses(props[key])
-                if clauses is None:
-                    out.append(finding(
-                        "unknowns", "error",
-                        "%s is not an empty all/any condition" % key,
-                        "changes[%d].properties.%s" % (i, key),
-                        "Only {\"all\": []} or {\"any\": []} is authorable: "
-                        "the comparison operator vocabulary is Unknown."))
-                elif clauses:
-                    out.append(finding(
-                        "unknowns", "error",
-                        "%s carries %d clause(s); the operator vocabulary is "
-                        "Unknown" % (key, len(clauses)),
-                        "changes[%d].properties.%s" % (i, key),
-                        "Write an empty condition and let a human add the "
-                        "filter in the designer."))
-        for (want_type, name), why in UNKNOWN_ENUM_PROPERTIES.items():
-            if otype == want_type and name in props:
+                out += _check_condition(props[key], "%s.%s" % (where, key),
+                                        operators, null_behaviors)
+
+        if "parameters" in props:
+            out += _check_parameters(props["parameters"],
+                                     "%s.parameters" % where, parameter_keys)
+
+        if temp_ref_keys:
+            out += _check_temp_refs(props, where, temp_ref_keys)
+
+        if otype == "folder" and "kind" in props:
+            kind = props["kind"]
+            if not folder_kinds:
+                out.append(finding("unknowns", "error",
+                                   "folder.kind is written here",
+                                   "%s.kind" % where, _CLOSED["kind"]))
+            elif kind not in folder_kinds:
                 out.append(finding(
                     "unknowns", "error",
-                    "%s.%s is written here, but its value vocabulary is "
-                    "Unknown" % (want_type, name),
-                    "changes[%d].properties.%s" % (i, name), why))
+                    "folder kind %r is not one the pack knows" % (kind,),
+                    "%s.kind" % where,
+                    "The pack lists: %s." % ", ".join(folder_kinds)))
     return out
+
+
+def _check_temp_refs(value, where, required):
+    """A same-batch reference must carry every key the document shows.
+
+    The Host's folder reference writes one out as an object carrying both
+    `objectType` and `tempId`. A bare `{"tempId": ...}` lints clean against
+    the contract and is not the documented shape, so it is caught here
+    rather than at apply time.
+    """
+    out = []
+    if isinstance(value, dict):
+        if "tempId" in value:
+            missing = [k for k in required if k not in value]
+            if missing:
+                out.append(finding(
+                    "unknowns", "error",
+                    "%s is a same-batch reference missing %s"
+                    % (where, ", ".join(missing)),
+                    where,
+                    "The Host's reference writes one as an object carrying "
+                    "%s. Add the missing key(s)." % ", ".join(required)))
+            return out
+        for k, v in value.items():
+            out += _check_temp_refs(v, "%s.%s" % (where, k), required)
+    elif isinstance(value, list):
+        for i, v in enumerate(value):
+            out += _check_temp_refs(v, "%s[%d]" % (where, i), required)
+    return out
+
+
+def _check_condition(value, where, operators, null_behaviors):
+    """An empty condition always passes; a filled one must be checkable."""
+    clauses = _condition_clauses(value)
+    if clauses is None:
+        return [finding(
+            "unknowns", "error", "%s is not an all/any condition" % where,
+            where,
+            'A condition is {"all": [...]} or {"any": [...]}, nested '
+            'recursively.')]
+    if not clauses:
+        return []
+    if not operators:
+        return [finding(
+            "unknowns", "error",
+            "%s carries %d clause(s) and the operator vocabulary is not in "
+            "the pack" % (where, len(clauses)), where, _CLOSED["operator"])]
+
+    out = []
+    for j, clause in enumerate(clauses):
+        at = "%s[%d]" % (where, j)
+        if not isinstance(clause, dict):
+            out.append(finding("unknowns", "error",
+                               "a clause must be an object", at))
+            continue
+        # A clause may itself be a nested group.
+        if _condition_clauses(clause) is not None:
+            out += _check_condition(clause, at, operators, null_behaviors)
+            continue
+        operator = clause.get("operator")
+        if operator is None:
+            out.append(finding("unknowns", "error",
+                               "a clause without an operator", at))
+        elif operator not in operators:
+            out.append(finding(
+                "unknowns", "error",
+                "operator %r is not one the pack knows" % (operator,),
+                "%s.operator" % at,
+                "The pack lists %d: %s." % (len(operators),
+                                            ", ".join(operators))))
+        behavior = clause.get("nullBehavior")
+        if behavior is not None and null_behaviors \
+                and behavior not in null_behaviors:
+            out.append(finding(
+                "unknowns", "error",
+                "nullBehavior %r is not one the pack knows" % (behavior,),
+                "%s.nullBehavior" % at,
+                "The pack lists: %s." % ", ".join(null_behaviors)))
+        for key in clause:
+            if key not in CLAUSE_KEYS:
+                out.append(finding(
+                    "unknowns", "error",
+                    "a clause key the pack does not know: %r" % key,
+                    "%s.%s" % (at, key),
+                    "Known keys: %s." % ", ".join(CLAUSE_KEYS)))
+    return out
+
+
+def _check_parameters(value, where, parameter_keys):
+    if not parameter_keys:
+        return [finding("unknowns", "error",
+                        "parameters are written here", where,
+                        _CLOSED["parameters"])]
+    if not isinstance(value, list):
+        return [finding("unknowns", "error",
+                        "parameters must be a list", where)]
+    out = []
+    for j, row in enumerate(value):
+        at = "%s[%d]" % (where, j)
+        if not isinstance(row, dict):
+            out.append(finding("unknowns", "error",
+                               "a parameter must be an object", at))
+            continue
+        if not row.get("name"):
+            out.append(finding("unknowns", "error",
+                               "a parameter without a name", at))
+        for key in row:
+            if key not in parameter_keys:
+                out.append(finding(
+                    "unknowns", "error",
+                    "a parameter key the pack does not know: %r" % key,
+                    "%s.%s" % (at, key),
+                    "The pack lists: %s." % ", ".join(parameter_keys)))
+    return out
+
+
+def _values(vocabulary, name):
+    row = (vocabulary or {}).get(name)
+    return tuple(row.get("values") or ()) if isinstance(row, dict) else ()
 
 
 def gate_scope(batch, scope):
@@ -226,7 +372,7 @@ def gate_order(batch, contract):
 
 # -- running them all ------------------------------------------------------
 
-def run(batch, contract, scope, index, gates=GATES):
+def run(batch, contract, scope, index, gates=GATES, vocabulary=None):
     """Run the gates and return (findings, summary)."""
     findings = []
     if "lint" in gates:
@@ -234,7 +380,7 @@ def run(batch, contract, scope, index, gates=GATES):
     if "selectors" in gates:
         findings += gate_selectors(batch, index)
     if "unknowns" in gates:
-        findings += gate_unknowns(batch)
+        findings += gate_unknowns(batch, vocabulary)
     if "scope" in gates:
         findings += gate_scope(batch, scope)
     if "order" in gates:
@@ -258,6 +404,15 @@ def load_selector_index(repo_root, system_id, pack="dist-report"):
         return None
     path = os.path.join(repo_root, pack, "systems", str(system_id), "index",
                         "selectors.json")
+    if not os.path.isfile(path):
+        return None
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def load_vocabulary(repo_root, dist="dist"):
+    """The vocabularies the Host's own documents state, if dist/ has them."""
+    path = os.path.join(repo_root, dist, "index", "host-vocabulary.json")
     if not os.path.isfile(path):
         return None
     with open(path, encoding="utf-8") as fh:

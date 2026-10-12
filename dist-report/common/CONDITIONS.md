@@ -2,7 +2,7 @@
 
 > **Source:** dist/formats/ai-export-single-json.md → Observed paths · dist/index/ai-export-properties.json → enums · dist/index/semantic-contract.json → propertyContracts.report
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 ## How clauses combine
 
@@ -40,13 +40,21 @@ So a clause carries a `field` (a selector, or an object with an `items` list whe
 
 These keys are **Observed** -- 16 clauses in the supplied artifacts carried them.
 
-## But the operator values are Unknown
+## The operator values
 
-This is the wall. `operator` is a string in all 16 observed clauses, and dist/ records that the key exists and its type, never the strings themselves.
+The profile's `Barsa.Meta.ComparisonOperator` has 1 member: `AdvancedTextSearch2` -- far too few for a condition engine that also carries `nullBehavior` and multi-field clauses. The real vocabulary is elsewhere, and where it is settles below.
 
-The profile's `Barsa.Meta.ComparisonOperator` has 1 member: `AdvancedTextSearch2`. That is far too few for a condition engine that also carries `nullBehavior` and multi-field clauses, so the real operator vocabulary is elsewhere and the profile maps only this one.
+The Host's own reference document names them, so this is no longer a guess. 18 operators:
 
-**Therefore: do not author a non-empty condition.** A clause with a guessed operator name is a batch that lints clean and does the wrong thing. Write `{"all": []}` and let a human add the condition in the designer, or supply the operator string from a source outside this pack.
+`none`, `equal`, `notEqual`, `greaterThan`, `lessThan`, `greaterThanOrEqual`, `lessThanOrEqual`, `contains`, `doesNotContain`, `startsWith`, `doesNotStartWith`, `isNull`, `isNotNull`, `between`, `inList`, `notInList`, `advancedTextSearch`, `advancedTextSearch2`.
+
+`nullBehavior` takes `ignoreCondition`, `checkNullValue`, `dontIgnore`, and nothing else.
+
+**Confidence: Documented.** This is the vendor stating the contract, not this compiler inferring it from a binary -- a different kind of evidence from everything else in this pack, and recorded as such. Source: `barsa-ai-host/startup/dataexchange/10-condition-reference.fa.md`.
+
+One thing the document says that a reader must not miss: it names `DoseNotContain` as an internal typo that does **not** enter the AI contract. A name appearing in that document is not automatically a value you may write; only the list above is.
+
+A clause may also carry `value`, `parameter`, `nullBehavior`, `customSql`, `enabled`, `ignoreCase` and `autoSetInNew`. Groups nest: a member of `all` may itself be an `all`/`any`.
 
 ## treeCondition
 

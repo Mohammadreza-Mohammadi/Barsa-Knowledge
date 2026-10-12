@@ -304,6 +304,108 @@ class DatabaseGuard(unittest.TestCase):
             shutil.rmtree(root, ignore_errors=True)
 
 
+class ConditionVocabulary(unittest.TestCase):
+    """The gate is exactly as permissive as the evidence it was handed."""
+
+    VOCAB = {
+        "comparisonOperators": {"values": ["equal", "greaterThan", "isNull"],
+                                "document": "doc.md"},
+        "nullBehaviors": {"values": ["ignoreCondition", "dontIgnore"]},
+        "folderKinds": {"values": ["page", "group", "report"]},
+        "reportParameterKeys": {"values": ["name", "caption", "input"]},
+    }
+
+    def batch(self, properties, object_type="report"):
+        return {"profileVersion": 15,
+                "changes": [{"commandId": "c1", "operation": "create",
+                             "objectType": object_type,
+                             "properties": properties}]}
+
+    def findings(self, properties, vocabulary=None, object_type="report"):
+        return verify.gate_unknowns(self.batch(properties, object_type),
+                                    vocabulary)
+
+    # -- with no vocabulary, nothing filled may be written -----------------
+
+    def test_without_a_vocabulary_a_filled_condition_is_refused(self):
+        out = self.findings({"condition": {"all": [{"field": "#a",
+                                                    "operator": "equal"}]}})
+        self.assertTrue(out)
+        self.assertIn("not in the pack", out[0]["message"])
+
+    def test_without_a_vocabulary_an_empty_condition_still_passes(self):
+        self.assertEqual(self.findings({"condition": {"all": []}}), [])
+
+    def test_without_a_vocabulary_parameters_are_refused(self):
+        self.assertTrue(self.findings({"parameters": [{"name": "p"}]}))
+
+    # -- with one, the values are checked rather than the feature banned ---
+
+    def test_a_documented_operator_passes(self):
+        self.assertEqual(
+            self.findings({"condition": {"all": [
+                {"field": "#a", "operator": "equal", "value": 1}]}},
+                self.VOCAB), [])
+
+    def test_an_operator_outside_the_list_is_refused(self):
+        out = self.findings({"condition": {"all": [
+            {"field": "#a", "operator": "IsNotNull"}]}}, self.VOCAB)
+        self.assertTrue(out)
+        self.assertIn("IsNotNull", out[0]["message"])
+
+    def test_the_documents_own_counter_example_is_refused(self):
+        """The condition reference names DoseNotContain as a typo that does
+        not enter the contract; a gate that let it through would be quoting
+        the document against itself."""
+        out = self.findings({"condition": {"all": [
+            {"field": "#a", "operator": "DoseNotContain"}]}}, self.VOCAB)
+        self.assertTrue(out)
+
+    def test_a_nested_group_is_checked_too(self):
+        out = self.findings({"condition": {"all": [
+            {"any": [{"field": "#a", "operator": "nope"}]}]}}, self.VOCAB)
+        self.assertTrue(out)
+        self.assertIn("nope", out[0]["message"])
+
+    def test_an_unknown_clause_key_is_refused(self):
+        out = self.findings({"condition": {"all": [
+            {"field": "#a", "operator": "equal", "fantasy": 1}]}}, self.VOCAB)
+        self.assertTrue(any("fantasy" in f["message"] for f in out))
+
+    def test_a_clause_without_an_operator_is_refused(self):
+        self.assertTrue(self.findings(
+            {"condition": {"all": [{"field": "#a"}]}}, self.VOCAB))
+
+    def test_a_bad_null_behavior_is_refused(self):
+        out = self.findings({"condition": {"all": [
+            {"field": "#a", "operator": "equal",
+             "nullBehavior": "whenever"}]}}, self.VOCAB)
+        self.assertTrue(any("whenever" in f["message"] for f in out))
+
+    def test_a_documented_folder_kind_passes(self):
+        self.assertEqual(self.findings({"name": "x", "kind": "report"},
+                                       self.VOCAB, "folder"), [])
+
+    def test_an_undocumented_folder_kind_is_refused(self):
+        self.assertTrue(self.findings({"name": "x", "kind": "reportFolder"},
+                                      self.VOCAB, "folder"))
+
+    def test_a_documented_parameter_passes(self):
+        self.assertEqual(self.findings(
+            {"parameters": [{"name": "امسال", "caption": "امسال",
+                             "input": False}]}, self.VOCAB), [])
+
+    def test_a_parameter_key_outside_the_list_is_refused(self):
+        out = self.findings({"parameters": [{"name": "p", "widget": "x"}]},
+                            self.VOCAB)
+        self.assertTrue(any("widget" in f["message"] for f in out))
+
+    def test_parameter_layout_stays_refused_at_every_level(self):
+        """Declared out of reconstruction scope: no vocabulary changes it."""
+        self.assertTrue(self.findings({"parameterLayout": "<xml/>"},
+                                      self.VOCAB))
+
+
 class StoreRules(unittest.TestCase):
     def setUp(self):
         self.root = tempfile.mkdtemp(prefix="kanban-store-")
@@ -413,7 +515,13 @@ class FullWalk(unittest.TestCase):
                                     "selector": "#BarcodeReader"},
                          "properties": {"name": "گزارش تست",
                                         "reportType": "list",
-                                        "parameters": [{"name": "p"}]}}]},
+                                        # `name` is a documented parameter
+                                        # key; `sourceOperator` is not one
+                                        # any source names, so the gate
+                                        # refuses to author it.
+                                        "parameters": [{"name": "p",
+                                                        "sourceOperator":
+                                                        "eq"}]}}]},
             ensure_ascii=False))
         self.write("implementation-report.md", "report")
         self.write("attempts/003/result.yaml",
