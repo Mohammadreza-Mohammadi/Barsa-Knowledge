@@ -68,6 +68,11 @@ th { color: var(--dim); font-weight: 600; }
 pre { background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
   padding: 10px; overflow-x: auto; max-height: 420px; font-size: 12px;
   direction: ltr; text-align: left; }
+/* A Persian artifact is prose, not code: inside an LTR <pre> it reads
+   backwards and clips at the margin. */
+pre.rtl { direction: rtl; text-align: right; white-space: pre-wrap;
+  word-break: break-word; font-family: inherit; font-size: 13px;
+  line-height: 1.8; }
 code { direction: ltr; unicode-bidi: embed; }
 .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
 .dim { color: var(--dim); }

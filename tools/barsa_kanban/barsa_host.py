@@ -186,14 +186,15 @@ class HostClient:
             if exc.code == 401:
                 raise HostError(
                     "the host refused the key. Set the environment variable "
-                    "named by integration.host.apiKeyEnv to the value of "
-                    "AiHost.ApiKey.", status=401, body=raw, route=route)
+                    "named by host.apiKeyEnv in connection.yaml to the value "
+                    "of AiHost.ApiKey.", status=401, body=raw, route=route)
             raise HostError("the host returned an error", status=exc.code,
                             body=raw, route=route)
         except urllib.error.URLError as exc:
             raise HostError(
                 "cannot reach Barsa.Ai.Host at %s (%s). Start the host, or "
-                "correct integration.host.prefix." % (self.prefix, exc.reason),
+                "correct host.prefix in .agent-work/config/connection.yaml."
+                % (self.prefix, exc.reason),
                 route=route)
         try:
             return json.loads(raw) if raw.strip() else {}

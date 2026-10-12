@@ -18,7 +18,8 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from barsa_kanban import config as config_mod
-from barsa_kanban import states, verify, yamlite
+from barsa_kanban import connection as connection_mod
+from barsa_kanban import states, systems as systems_mod, verify, yamlite
 from barsa_kanban.manager import Manager, ManagerError
 from barsa_kanban.store import Store, StoreError
 
@@ -210,6 +211,97 @@ class WindowsStdio(unittest.TestCase):
         self.assertEqual(out.returncode, 0)
         self.assertEqual(json.loads(out.stdout.decode("utf-8"))["contract"],
                          "barsa-agent-manager")
+
+
+class SystemCatalogue(unittest.TestCase):
+    def setUp(self):
+        self.rows = systems_mod.catalogue(REPO)
+        if not self.rows:
+            raise unittest.SkipTest("dist/index/systems is not built")
+
+    def test_every_system_in_the_pack_is_listed(self):
+        ids = {row["id"] for row in self.rows}
+        with open(os.path.join(REPO, "dist", "index", "systems",
+                               "manifest.json"), encoding="utf-8") as fh:
+            self.assertEqual(ids, set(json.load(fh)["systemIds"]))
+
+    def test_a_system_without_a_selector_pack_says_why(self):
+        for row in self.rows:
+            if not row["authorable"]:
+                self.assertIn("report_compiler", row["notAuthorableBecause"])
+                break
+        else:
+            self.skipTest("every system has a pack here")
+
+    def test_authorable_systems_come_first(self):
+        flags = [row["authorable"] for row in self.rows]
+        self.assertEqual(flags, sorted(flags, reverse=True))
+
+    def test_a_caption_resolves_whichever_yeh_was_typed(self):
+        row, _ = systems_mod.find(REPO, "بارکد")     # Farsi yeh/kaf
+        other, _ = systems_mod.find(REPO, "باركد")   # Arabic yeh/kaf
+        self.assertIsNotNone(row)
+        self.assertEqual(row["id"], other["id"])
+
+    def test_an_id_resolves_to_itself(self):
+        row, _ = systems_mod.find(REPO, "1011413550000000100")
+        self.assertEqual(row["id"], "1011413550000000100")
+
+    def test_an_ambiguous_name_resolves_to_nothing_and_offers_candidates(self):
+        row, candidates = systems_mod.find(REPO, "Meta")
+        self.assertIsNone(row)
+        self.assertGreater(len(candidates), 1)
+
+
+class DatabaseGuard(unittest.TestCase):
+    """connection.yaml names the database; the host says what it really is."""
+
+    def check(self, expected, actual):
+        return connection_mod.check_database(
+            {"database": expected}, {"database": actual})
+
+    def test_a_different_database_is_refused(self):
+        ok, message = self.check({"server": "SQL01", "name": "BarsaTest"},
+                                 {"server": "SQL01", "name": "BarsaProd"})
+        self.assertFalse(ok)
+        self.assertIn("BarsaProd", message)
+
+    def test_the_same_database_passes(self):
+        ok, _ = self.check({"server": "SQL01", "name": "BarsaTest"},
+                           {"server": "sql01", "name": "barsatest"})
+        self.assertTrue(ok)
+
+    def test_a_host_that_does_not_say_is_not_a_match(self):
+        ok, message = self.check({"name": "BarsaTest"}, {})
+        self.assertFalse(ok)
+        self.assertIn("host چیزی نگفت", message)
+
+    def test_an_empty_expectation_compares_nothing_and_says_so(self):
+        ok, message = self.check({"server": "", "name": ""},
+                                 {"server": "X", "name": "Y"})
+        self.assertTrue(ok)
+        self.assertIn("خالی", message)
+
+    def test_it_can_be_turned_off_explicitly(self):
+        ok, message = self.check(
+            {"server": "A", "name": "B", "enforce": False},
+            {"server": "C", "name": "D"})
+        self.assertTrue(ok)
+        self.assertIn("خاموش", message)
+
+    def test_a_committed_key_is_refused(self):
+        root = tempfile.mkdtemp(prefix="kanban-conn-")
+        try:
+            store = Store(root)
+            store.ensure()
+            with open(os.path.join(store.config_dir, "connection.yaml"), "w",
+                      encoding="utf-8") as fh:
+                fh.write('schemaVersion: 1\nhost:\n  apiKey: "secret"\n')
+            with self.assertRaises(StoreError) as cm:
+                connection_mod.load(store)
+            self.assertIn("apiKeyEnv", str(cm.exception))
+        finally:
+            shutil.rmtree(root, ignore_errors=True)
 
 
 class StoreRules(unittest.TestCase):

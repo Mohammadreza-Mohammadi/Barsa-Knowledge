@@ -97,7 +97,9 @@ def main(argv=None):
     p.add_argument("--file", help="JSON payload")
     p.add_argument("--slug")
     p.add_argument("--kind")
-    p.add_argument("--system")
+    p.add_argument("--system",
+                   help="id یا نام سیستم. ندهی، Intake باید از متن درخواست "
+                        "تشخیصش بدهد و اگر نتوانست سؤال می‌پرسد.")
     p.add_argument("--request-file")
     p.add_argument("request", nargs="?")
 
@@ -140,6 +142,9 @@ def main(argv=None):
     p.add_argument("--preflight", metavar="TASK",
                    help="every read-only check in order, against the real "
                         "host, before the first apply. Applies nothing.")
+
+    p = sub.add_parser("systems", help="the systems a request can be about")
+    p.add_argument("--json", action="store_true")
 
     sub.add_parser("board", help="regenerate BOARD.md")
 
@@ -246,6 +251,31 @@ def _dispatch(manager, args):
         manager.unlock(args.task, _read_reason(args), force=args.force)
         return 0
 
+    if cmd == "systems":
+        rows = manager.systems()
+        if args.json:
+            _emit({"systems": rows})
+            return 0
+        if not rows:
+            print("هیچ سیستمی در بسته نیست. اول tools/extract.py را اجرا کن.")
+            return 1
+        print("%-22s %-28s %8s %8s  %s"
+              % ("id", "نام", "موجودیت", "گزارش", "قابل authoring"))
+        for row in rows:
+            print("%-22s %-28s %8s %8s  %s"
+                  % (row["id"], (row["caption"] or "—")[:28],
+                     row["entities"], row["reports"],
+                     "بله (%s selector)" % row["selectorCount"]
+                     if row["authorable"] else "نه"))
+        missing = [r for r in rows if not r["authorable"]]
+        if missing:
+            print("")
+            print("برای اینکه سیستمی قابل authoring شود، بستهٔ گزارشش را "
+                  "بساز:")
+            print("  python3 tools/report_compiler.py --scope system=%s"
+                  % missing[0]["id"])
+        return 0
+
     if cmd == "host":
         return _host_command(manager, args)
 
@@ -260,7 +290,7 @@ def _dispatch(manager, args):
 def _host_command(manager, args):
     """A dry run against the host: nothing here can change anything."""
     from barsa_kanban import barsa_host
-    client, settings = barsa_host.from_config(manager.config)
+    client, settings = manager.host_client()
     if args.preflight:
         return _preflight(manager, client, settings, args.preflight)
     print("host: %s" % client.prefix)
@@ -299,6 +329,7 @@ def _preflight(manager, client, settings, task_id):
     from barsa_kanban import barsa_host
 
     integration = (manager.config["repository"].get("integration") or {})
+    expected = (manager.connection or {}).get("database") or {}
     checks = []
 
     def record(name, ok, detail):
@@ -312,8 +343,7 @@ def _preflight(manager, client, settings, task_id):
     record("appliedBy", applied_by == "barsa-host",
            applied_by + ("" if applied_by == "barsa-host"
                          else " — تأیید فعلاً چیزی را اعمال نمی‌کند"))
-    key_env = (integration.get("host") or {}).get("apiKeyEnv") \
-        or "BARSA_AI_HOST_KEY"
+    key_env = settings.get("apiKeyEnv") or "BARSA_AI_HOST_KEY"
     record("کلید", True,
            "از %s خوانده شد" % key_env if client.api_key
            else "تنظیم نشده — اگر host هم کلید ندارد، درش برای هر برنامه‌ای "
@@ -345,6 +375,11 @@ def _preflight(manager, client, settings, task_id):
            "%s · دیتابیس %s/%s · %s"
            % (health.get("status"), database.get("server"),
               database.get("name"), health.get("runtimeFingerprint")))
+
+    from barsa_kanban import connection as connection_mod
+    db_ok, db_message = connection_mod.check_database(manager.connection,
+                                                      health)
+    record("دیتابیس مورد انتظار", db_ok, db_message)
 
     system_id = str((manifest.get("need") or {}).get("system") or "")
     try:
