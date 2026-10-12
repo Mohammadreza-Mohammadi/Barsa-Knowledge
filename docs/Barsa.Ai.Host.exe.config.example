@@ -6,6 +6,11 @@
   کنار هر کدام پیش‌فرضِ همان کد است (نه حدس). این فایل باید کنار
   Barsa.Ai.Host.exe و با همان نام به‌علاوهٔ .config باشد.
 
+  نکتهٔ مهم دربارهٔ «خالی گذاشتن»: AiHostSettings.Get مقدار را Trim می‌کند و
+  اگر خالی یا فقط فاصله باشد، به پیش‌فرضِ کد برمی‌گردد. پس value="" یعنی
+  «پیش‌فرض را بگذار»، نه «هیچ». برای کلیدهایی که پیش‌فرضشان null است (مثل
+  ApiKey) این دو یکی است؛ برای Password نیست.
+
   پیش‌نیاز مهم: BarsaRuntime.Initialize اول دنبال فایل config خودِ بارسا
   می‌گردد (Barsa.Spl.FileUtil.ConfigPath) و اگر نباشد با «Barsa config file
   was not found» بالا نمی‌آید — یعنی این exe باید داخل پوشهٔ نصب بارسا
@@ -18,17 +23,25 @@
          پیش‌فرض کد: http://127.0.0.1:17840/ -->
     <add key="AiHost.HttpPrefix" value="http://127.0.0.1:17840/" />
 
-    <!-- اگر خالی بماند، احراز هویت کاملاً غیرفعال است: IsAuthorized وقتی
+    <!-- پیش‌فرضش null است، پس خالی‌گذاشتن یعنی واقعاً هیچ کلیدی.
+         اگر خالی بماند، احراز هویت کاملاً غیرفعال است: IsAuthorized وقتی
          کلید خالی باشد true برمی‌گرداند، پس هر برنامه‌ای روی این ماشین
          می‌تواند POST /apply بزند. روی هر محیطی جز یک ماشین کاملاً شخصی،
          پرش کن. -->
     <add key="AiHost.ApiKey" value="" />
 
-    <!-- کاربری که host با آن به بارسا login می‌کند. پیش‌فرض کد:
-         LocalAccount / كاربر محلي سكو . این کاربر باید اجازهٔ نوشتن
-         متامدل داشته باشد، وگرنه «Barsa login failed for AI Host user». -->
+    <!-- کاربری که host با آن به بارسا login می‌کند. این کاربر باید اجازهٔ
+         نوشتن متامدل داشته باشد، وگرنه «Barsa login failed for AI Host
+         user».
+
+         پیش‌فرض‌ها در ldstr خودِ AiHostSettings.Load جفت شده‌اند:
+             AiHost.UserName → LocalAccount
+             AiHost.Password → كاربر محلي سكو
+         یعنی «كاربر محلي سكو» پیش‌فرضِ *پسورد* است، نه نام کاربر. و چون
+         خالی‌گذاشتن به پیش‌فرض برمی‌گردد، value="" برای Password یعنی
+         همان پسورد پیش‌فرض، نه پسورد خالی. -->
     <add key="AiHost.UserName" value="LocalAccount" />
-    <add key="AiHost.Password" value="" />
+    <add key="AiHost.Password" value="كاربر محلي سكو" />
 
     <!-- پوشهٔ کاری host. زیرپوشه‌های current/exports/plans/results/snapshots
          را خودش می‌سازد. خالی بگذاری، زیر پوشهٔ کاربر با نام barsa-ai-host
