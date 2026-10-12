@@ -10,6 +10,7 @@ integrated task including both human gates.
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -170,6 +171,45 @@ class Gates(unittest.TestCase):
                                          "tempId": "ghost"}
         self.assertIn("selectors", self.gates_of(
             verify.run(batch, self.contract, self.scope, self.index)[0]))
+
+
+class WindowsStdio(unittest.TestCase):
+    """The CLI's JSON must survive a pipe whose encoding is not UTF-8.
+
+    A Windows console reported this as "خواندن برد ناموفق": Python there
+    gives a piped stdout the ANSI code page, so the first Persian slug in
+    `status --json` raised UnicodeEncodeError and the board never loaded.
+    The reproduction is one environment variable.
+    """
+
+    def run_cli(self, *args, encoding="cp1252"):
+        env = dict(os.environ)
+        env["PYTHONIOENCODING"] = encoding
+        return subprocess.run(
+            [sys.executable, os.path.join(REPO, "tools", "manager.py"),
+             "--repo", REPO] + list(args),
+            capture_output=True, env=env)
+
+    def test_status_json_survives_a_cp1252_pipe(self):
+        out = self.run_cli("status")
+        self.assertEqual(out.returncode, 0,
+                         out.stderr.decode("utf-8", "replace")[-600:])
+        doc = json.loads(out.stdout.decode("utf-8"))
+        self.assertTrue(any("ورودی" == lane["title"] for lane in doc["lanes"]))
+
+    def test_a_persian_slug_round_trips_through_the_pipe(self):
+        out = self.run_cli("status")
+        slugs = [t.get("slug") for t in json.loads(
+            out.stdout.decode("utf-8"))["tasks"]]
+        self.assertTrue(any(s and any("\u0600" <= ch <= "\u06FF" for ch in s)
+                            for s in slugs),
+                        "no Persian slug in the fixture board: %s" % slugs)
+
+    def test_capabilities_too(self):
+        out = self.run_cli("capabilities")
+        self.assertEqual(out.returncode, 0)
+        self.assertEqual(json.loads(out.stdout.decode("utf-8"))["contract"],
+                         "barsa-agent-manager")
 
 
 class StoreRules(unittest.TestCase):

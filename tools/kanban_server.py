@@ -39,8 +39,35 @@ _SECRET = re.compile(
     r"([^\s\"',}]{6,})")
 
 
+def force_utf8_stdio():
+    """Windows pipes default to the ANSI code page; Persian output dies there.
+
+    What this prints is a contract, not decoration: the console reads this
+    JSON through a pipe, and on Windows that pipe is cp1252 by default, so
+    the first Persian slug raises UnicodeEncodeError and the board never
+    loads. `errors="replace"` keeps a console that genuinely cannot render
+    Persian from crashing the run over it.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
 def mask(text):
     return _SECRET.sub(lambda m: m.group(1) + m.group(2) + "***", text or "")
+
+
+def child_env():
+    """The environment a manager subprocess runs in.
+
+    PYTHONIOENCODING covers the child even if it is an older interpreter that
+    does not reconfigure its own streams.
+    """
+    env = dict(os.environ)
+    env["PYTHONIOENCODING"] = "utf-8"
+    return env
 
 
 class RunQueue:
@@ -126,7 +153,8 @@ class RunQueue:
                 [sys.executable, MANAGER, "--repo", self.repo_root, "run",
                  task_id],
                 cwd=self.repo_root, stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT, text=True, bufsize=1)
+                stderr=subprocess.STDOUT, text=True, bufsize=1,
+                encoding="utf-8", errors="replace", env=child_env())
             for line in proc.stdout:
                 self._emit(task_id, line.rstrip("\n"))
             proc.wait()
@@ -165,7 +193,8 @@ class Console:
         """Call the manager CLI. The only way this console touches state."""
         argv = [sys.executable, MANAGER, "--repo", self.repo_root] + list(args)
         proc = subprocess.run(argv, cwd=self.repo_root, capture_output=True,
-                              text=True, input=text)
+                              text=True, input=text, encoding="utf-8",
+                              errors="replace", env=child_env())
         return proc.returncode, proc.stdout, proc.stderr
 
     def manager_json(self, *args):
@@ -492,6 +521,7 @@ def who_is_there(host, port):
 
 
 def main(argv=None):
+    force_utf8_stdio()
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--repo", default=".")
     ap.add_argument("--host", default="127.0.0.1")
