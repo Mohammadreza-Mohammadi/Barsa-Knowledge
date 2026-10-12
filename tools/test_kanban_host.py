@@ -190,19 +190,35 @@ class Client(HostHarness):
         with self.assertRaises(barsa_host.HostError):
             self.client.plan_and_apply(self.BATCH)
 
-    def test_a_failed_state_is_not_success(self):
-        StubHost.script["states"] = ["running", "failed"]
+    def test_a_faulted_apply_is_a_failure_not_a_wait(self):
+        """The state the Host actually uses when an apply fails."""
+        StubHost.script["states"] = ["applying", "faulted"]
         with self.assertRaises(barsa_host.HostError) as cm:
             self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
-        self.assertIn("failed", str(cm.exception))
+        self.assertIn("faulted", str(cm.exception))
 
-    def test_it_waits_for_a_terminal_state(self):
-        StubHost.script["states"] = ["running", "running", "applied"]
+    def test_unknown_is_terminal_and_forbids_an_automatic_retry(self):
+        """The Host cannot prove what the last run did; a retry is a human's
+        decision, so this must not look like 'still working'."""
+        StubHost.script["states"] = ["applying", "unknown"]
+        with self.assertRaises(barsa_host.HostError) as cm:
+            self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
+        self.assertIn("Do NOT re-apply", str(cm.exception))
+
+    def test_an_unrecognised_state_is_terminal_too(self):
+        """A state nobody listed must stop, not poll until the timeout."""
+        StubHost.script["states"] = ["applying", "something-new"]
+        with self.assertRaises(barsa_host.HostError) as cm:
+            self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
+        self.assertIn("something-new", str(cm.exception))
+
+    def test_it_waits_while_the_host_is_still_working(self):
+        StubHost.script["states"] = ["ready", "applying", "applied"]
         out = self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
         self.assertEqual(out["status"]["state"], "applied")
 
     def test_a_host_that_never_finishes_is_an_error_not_a_hang(self):
-        StubHost.script["states"] = ["running"]
+        StubHost.script["states"] = ["applying"]
         with self.assertRaises(barsa_host.HostError) as cm:
             self.client.plan_and_apply(self.BATCH, poll_seconds=0.01,
                                        max_wait=0.05)
