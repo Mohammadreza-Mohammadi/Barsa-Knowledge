@@ -668,8 +668,11 @@ class Manager:
         before = self._tracked_changes()
         log("اجرای provider %s برای نقش %s …" % (provider_name, role))
         try:
+            env = dict(os.environ)
+            env["PYTHONIOENCODING"] = "utf-8"
             proc = subprocess.run(
                 argv, cwd=self.repo_root, capture_output=True, text=True,
+                encoding="utf-8", errors="replace", env=env,
                 timeout=int(settings.get("timeoutSeconds") or 900))
         except subprocess.TimeoutExpired:
             raise ManagerError(
@@ -704,9 +707,12 @@ class Manager:
     def _tracked_changes(self):
         """`git status --porcelain` as a set, or None outside a repository."""
         try:
+            # -z also turns off git's path quoting, so a Persian task
+            # directory arrives as itself rather than as octal escapes.
             proc = subprocess.run(
                 ["git", "status", "--porcelain", "-z"], cwd=self.repo_root,
-                capture_output=True, text=True, timeout=60)
+                capture_output=True, text=True, encoding="utf-8",
+                errors="replace", timeout=60)
         except (OSError, subprocess.SubprocessError):
             return None
         if proc.returncode != 0:

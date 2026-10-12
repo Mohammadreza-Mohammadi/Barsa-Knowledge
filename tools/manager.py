@@ -31,6 +31,22 @@ from barsa_kanban.states import EXIT_LABELS
 from barsa_kanban.store import StoreError
 
 
+def force_utf8_stdio():
+    """Windows pipes default to the ANSI code page; Persian output dies there.
+
+    What this prints is a contract, not decoration: the console reads this
+    JSON through a pipe, and on Windows that pipe is cp1252 by default, so
+    the first Persian slug raises UnicodeEncodeError and the board never
+    loads. `errors="replace"` keeps a console that genuinely cannot render
+    Persian from crashing the run over it.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
 def _emit(doc):
     print(json.dumps(doc, ensure_ascii=False, indent=1, sort_keys=True))
 
@@ -55,6 +71,7 @@ def _read_reason(args):
 
 
 def main(argv=None):
+    force_utf8_stdio()
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--repo", default=".", help="repository root")
     sub = ap.add_subparsers(dest="cmd", required=True)

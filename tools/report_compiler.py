@@ -32,6 +32,22 @@ from barsa_report_compiler import (
 from barsa_report_compiler import __version__
 
 
+def force_utf8_stdio():
+    """Windows pipes default to the ANSI code page; Persian output dies there.
+
+    What this prints is a contract, not decoration: the console reads this
+    JSON through a pipe, and on Windows that pipe is cp1252 by default, so
+    the first Persian slug raises UnicodeEncodeError and the board never
+    loads. `errors="replace"` keeps a console that genuinely cannot render
+    Persian from crashing the run over it.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
 def parse_scope(value):
     if value in (None, "contract"):
         return None
@@ -143,6 +159,7 @@ def main(argv=None):
     ap.add_argument("--budget-bytes", type=int, default=audit.BUDGET_TOTAL)
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args(argv)
+    force_utf8_stdio()
 
     def log(msg):
         if not args.quiet:
