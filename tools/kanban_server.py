@@ -20,6 +20,7 @@ import json
 import os
 import queue
 import re
+import socket
 import subprocess
 import sys
 import threading
@@ -455,6 +456,41 @@ class Handler(BaseHTTPRequestHandler):
             self.console.runs.unsubscribe(task_id, q)
 
 
+class Server(ThreadingHTTPServer):
+    # Python's HTTPServer sets SO_REUSEADDR, which on Windows lets a second
+    # process bind a port another one is already serving. Two consoles on one
+    # port, and the browser talks to whichever the OS picks -- exactly the
+    # confusion this check exists to prevent.
+    allow_reuse_address = os.name != "nt"
+
+
+def port_is_taken(host, port):
+    probe = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    probe.settimeout(1.0)
+    try:
+        return probe.connect_ex((host, port)) == 0
+    finally:
+        probe.close()
+
+
+def who_is_there(host, port):
+    """A one-line guess at what already answers on that port."""
+    import urllib.error
+    import urllib.request
+    url = "http://%s:%d/api/repos" % (host, port)
+    try:
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        with opener.open(url, timeout=2) as response:
+            body = response.read(400).decode("utf-8", "replace")
+        if "barsa-agent-manager" in body:
+            return "یک کنسول کانبان (همین برنامه) از قبل اینجاست."
+        return "یک سرویس دیگر با /api/repos جواب می‌دهد: %s" % body[:120]
+    except urllib.error.HTTPError as exc:
+        return "چیزی اینجا هست و با HTTP %s جواب می‌دهد." % exc.code
+    except Exception:
+        return "چیزی روی این پورت گوش می‌دهد ولی /api/repos را نمی‌شناسد."
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--repo", default=".")
@@ -466,11 +502,29 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     repo_root = os.path.abspath(args.repo)
+    if not os.path.isdir(os.path.join(repo_root, ".agent-work")):
+        print("در %s هیچ .agent-work/ نیست. اول: python tools/manager.py init "
+              "--system <id>" % repo_root, file=sys.stderr)
+        return 2
+    if port_is_taken(args.host, args.port):
+        print("پورت %d از قبل گرفته شده است." % args.port, file=sys.stderr)
+        print("  %s" % who_is_there(args.host, args.port), file=sys.stderr)
+        print("  اگر BarsaAgent روی همین پورت بالاست (پیش‌فرض خودش هم 4310 "
+              "است)، این کنسول را روی پورت دیگری بیاور:", file=sys.stderr)
+        print("  python tools/kanban_server.py --port %d" % (args.port + 1),
+              file=sys.stderr)
+        return 2
+
     runs = RunQueue(repo_root, args.max_concurrent)
     Handler.console = Console(repo_root, runs,
                               auto_start=not args.no_auto_start,
                               auto_resume=not args.no_auto_resume)
-    server = ThreadingHTTPServer((args.host, args.port), Handler)
+    try:
+        server = Server((args.host, args.port), Handler)
+    except OSError as exc:
+        print("نمی‌توان روی %s:%d گوش داد: %s"
+              % (args.host, args.port, exc), file=sys.stderr)
+        return 2
     print("کنسول کانبان: http://%s:%d/" % (args.host, args.port))
     print("مخزن: %s" % repo_root)
     print("manager: %s" % MANAGER)

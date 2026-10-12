@@ -22,13 +22,41 @@ new    architecture  ready  implementing  review   approved…    integrated
 
 ```bash
 git clone <این مخزن> && cd Barsa-Knowledge
-python3 tools/kanban_server.py            # ویندوز: python tools\kanban_server.py
+python3 tools/kanban_server.py
 ```
 
 ```text
 کنسول کانبان: http://127.0.0.1:4310/
 مخزن: /path/to/Barsa-Knowledge
+manager: /path/to/Barsa-Knowledge/tools/manager.py
 ```
+
+این سه خط باید چاپ شوند و terminal **مسدود بماند**. اگر بلافاصله به prompt
+برگشت و چیزی چاپ نشد، سرور بالا نیامده.
+
+### روی ویندوز
+
+دو چیز که وقت می‌گیرند اگر از قبل ندانی:
+
+```powershell
+python tools\kanban_server.py            # نه python3
+```
+
+`python3` روی ویندوز معمولاً همان stub فروشگاه مایکروسافت است: ساکت بیرون
+می‌آید، بدون خطا و بدون سرور. `python` یا `py -3` درست است.
+
+**تداخل پورت با BarsaAgent:** پیش‌فرض هر دو `4310` است. اگر BarsaAgent بالا
+باشد، مرورگر با *او* حرف می‌زند نه با این کنسول — و چون UI انگولارش build
+نشده، جواب می‌دهد `{"error":"UI build پیدا نشد. ابتدا npm run build را اجرا
+کنید."}`. آن پیام از BarsaAgent است، نه از اینجا؛ این کنسول اصلاً npm لازم
+ندارد. راهش:
+
+```powershell
+python tools\kanban_server.py --port 4311
+```
+
+از این نسخه به بعد خود سرور تشخیص می‌دهد و می‌گوید چه کسی روی پورت نشسته،
+به‌جای اینکه ساکت در سایهٔ او بالا بیاید.
 
 مرورگر را روی همان آدرس باز کن. `.agent-work/` از قبل در مخزن هست، پس برد
 خالی نیست: تسک ۰۰۰۱ (تمام‌شده) و ۰۰۰۲ (لغوشده) به‌عنوان دو مثال واقعی
