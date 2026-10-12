@@ -9,7 +9,7 @@ strings, the header name, the request and response keys -- not guessed:
     POST /lint          <batch>      the structural linter, server side
     POST /plan          <batch>      -> planId + a disposition
     POST /apply         {planId}     -> applies that plan
-    GET  /apply-status  ?planId=     -> state, result, error
+    GET  /apply-status  ?planId=     -> ready|applying|applied|faulted|unknown
 
     header  X-Barsa-Ai-Key
     prefix  http://127.0.0.1:17840/   (AiHost.HttpPrefix)
@@ -19,11 +19,18 @@ not applicable by another: "Plan is not available in this Host process. Build
 the plan again." That is why apply always re-plans here rather than reusing a
 planId from an earlier session.
 
-**What is not verified:** no real host was reachable from the machine this was
-written on. The shapes come from the binary and the client is tested against a
-stub that implements exactly them (`tools/test_kanban_host.py`). The first run
-against a real host may still find a key this reconstruction has wrong -- treat
-a mismatch as a finding about this file, not as a reason to loosen a gate.
+**How much of this is confirmed:** the routes, the header and the payload keys
+were read out of the binary, and later checked against the Host's own API
+reference (`startup/host-api.fa.md`), which corrected the `/apply-status`
+state set. No real host has answered this client yet: it is tested against a
+stub implementing the same contract (`tools/test_kanban_host.py`). The first
+real run may still find something this reconstruction has wrong -- treat a
+mismatch as a finding about this file, not as a reason to loosen a gate.
+
+One place this client is deliberately stricter than the Host: its reference
+says plan diagnostics are non-blocking and a parsed plan may enter Apply
+anyway. `require_clean` refuses that by default. That is our policy, not the
+Host's rule, and `requireCleanPlan: false` turns it off.
 """
 
 import json
@@ -37,10 +44,22 @@ DEFAULT_PREFIX = "http://127.0.0.1:17840/"
 API_KEY_HEADER = "X-Barsa-Ai-Key"
 CONTENT_TYPE = "application/json; charset=utf-8"
 
-# Terminal states of a stored plan, as PlanStore reports them through
-# /apply-status. Anything else means still running.
-TERMINAL_STATES = ("applied", "failed", "rejected", "completed", "error")
-SUCCESS_STATES = ("applied", "completed")
+# The states /apply-status reports, from the Host's own API reference:
+#
+#   ready | applying | applied | faulted | unknown
+#
+# An earlier version of this file guessed `failed`/`completed`/`error` from
+# the binary's strings and had no `faulted` at all, so a genuinely failed
+# apply looked like one still running and was polled until the timeout.
+#
+# `unknown` is the dangerous one: the Host uses it when it cannot prove what
+# the previous run did, and its reference says an automatic re-apply is
+# forbidden in that state. It is terminal here for exactly that reason -- a
+# retry is a decision for a person with the Host's log in front of them.
+NON_TERMINAL_STATES = ("ready", "applying")
+SUCCESS_STATES = ("applied",)
+FAILURE_STATES = ("faulted",)
+UNPROVABLE_STATES = ("unknown",)
 
 
 class HostError(Exception):
@@ -135,6 +154,13 @@ class HostClient:
 
         status = self.wait(plan_id, poll_seconds, max_wait, say)
         state = str(status.get("state", "")).lower()
+        if state in UNPROVABLE_STATES:
+            raise HostError(
+                "the host reports state 'unknown': it cannot prove what the "
+                "previous apply did. Do NOT re-apply automatically -- read "
+                "the Host log for plan %s and decide by hand." % plan_id,
+                body={"status": status, "apply": applied},
+                route="apply-status")
         if state not in SUCCESS_STATES:
             raise HostError(
                 "the host finished in state %r" % state,
@@ -149,9 +175,12 @@ class HostClient:
         while waited <= max_wait:
             last = self.apply_status(plan_id)
             state = str(last.get("state", "")).lower()
-            if state in TERMINAL_STATES:
+            # Anything the reference does not list as in-flight is terminal.
+            # Treating an unrecognised state as "keep waiting" is how a
+            # failure turns into a timeout.
+            if state and state not in NON_TERMINAL_STATES:
                 return last
-            say("  state=%s …" % (state or "unknown"))
+            say("  state=%s …" % (state or "—"))
             time.sleep(poll_seconds)
             waited += poll_seconds
         raise HostError(
