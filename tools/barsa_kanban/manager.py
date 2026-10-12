@@ -641,18 +641,44 @@ class Manager:
                           encoding="utf-8", newline="\n") as fh:
                     fh.write(verify_doc)
 
+    # Tools a role needs and nothing more. A role reads the pack and writes
+    # its own artifacts; it has no reason to run commands.
+    DEFAULT_AGENT_TOOLS = "Read Write Edit Glob Grep"
+
     def _run_provider(self, provider_name, settings, role, adir, log):
         if provider_name != "claude":
             raise ManagerError("provider %r is not implemented"
                                % (provider_name,))
         command = settings.get("command") or "claude"
-        prompt_path = os.path.join(adir, "prompt.md")
-        with open(prompt_path, encoding="utf-8") as fh:
+        with open(os.path.join(adir, "prompt.md"), encoding="utf-8") as fh:
             prompt = fh.read()
-        argv = [command, "-p", prompt]
+
+        argv = [command, "-p", prompt,
+                "--permission-mode",
+                settings.get("permissionMode") or "acceptEdits",
+                "--allowedTools"]
+        argv += (settings.get("allowedTools")
+                 or self.DEFAULT_AGENT_TOOLS).split()
+        model = (settings.get("model") or {})
+        if isinstance(model, dict):
+            model = model.get(role)
+        if model:
+            argv += ["--model", str(model)]
+
+        before = self._tracked_changes()
         log("اجرای provider %s برای نقش %s …" % (provider_name, role))
-        proc = subprocess.run(argv, cwd=self.repo_root, capture_output=True,
-                              text=True)
+        try:
+            proc = subprocess.run(
+                argv, cwd=self.repo_root, capture_output=True, text=True,
+                timeout=int(settings.get("timeoutSeconds") or 900))
+        except subprocess.TimeoutExpired:
+            raise ManagerError(
+                "provider %s برای نقش %s در مهلت تمام نشد. attempt باز مانده؛ "
+                "یا مهلت را زیاد کن یا نقش را دستی بنویس."
+                % (provider_name, role))
+        except OSError as exc:
+            raise ManagerError("provider %s اجرا نشد: %s"
+                               % (provider_name, exc))
         with open(os.path.join(adir, "agent-transcript.log"), "w",
                   encoding="utf-8", newline="\n") as fh:
             fh.write(proc.stdout or "")
@@ -660,8 +686,44 @@ class Manager:
                 fh.write("\n--- stderr ---\n")
                 fh.write(proc.stderr)
         if proc.returncode != 0:
-            raise ManagerError("provider %s exited %d; see agent-transcript.log"
-                               % (provider_name, proc.returncode))
+            raise ManagerError(
+                "provider %s با کد %d تمام شد؛ agent-transcript.log را ببین."
+                % (provider_name, proc.returncode))
+
+        # File ownership, enforced rather than requested: a role writes inside
+        # its own task directory. Anything else it touched is reported here,
+        # not discovered later in a diff nobody read.
+        stray = self._stray_writes(before, adir)
+        if stray:
+            raise ManagerError(
+                "نقش %s بیرون از پوشهٔ تسک نوشت: %s\n"
+                "این transition انجام نشد. فایل‌ها را خودت بررسی کن — هیچ "
+                "چیزی برگردانده نشده."
+                % (role, "، ".join(sorted(stray)[:20])))
+
+    def _tracked_changes(self):
+        """`git status --porcelain` as a set, or None outside a repository."""
+        try:
+            proc = subprocess.run(
+                ["git", "status", "--porcelain", "-z"], cwd=self.repo_root,
+                capture_output=True, text=True, timeout=60)
+        except (OSError, subprocess.SubprocessError):
+            return None
+        if proc.returncode != 0:
+            return None
+        return {row[3:] for row in proc.stdout.split("\0") if len(row) > 3}
+
+    def _stray_writes(self, before, adir):
+        if before is None:
+            return set()
+        after = self._tracked_changes()
+        if after is None:
+            return set()
+        task_rel = os.path.relpath(os.path.dirname(adir.rstrip(os.sep)),
+                                   self.repo_root).replace(os.sep, "/")
+        task_rel = task_rel.rsplit("/attempts", 1)[0] + "/"
+        return {path for path in (after - before)
+                if not path.startswith(task_rel)}
 
     def _record_rejection(self, task_dir, role, text):
         self.store.write_text(task_dir, ".last-rejection-%s.md" % role, text)

@@ -16,6 +16,94 @@ new    architecture  ready  implementing  review   approved…    integrated
 همان چیزی است که در workflow موجود شما کار می‌کند؛ آنچه عوض شده **جنس کار**
 است: اینجا چیزی compile نمی‌شود، پس به‌جای build/lint/test پنج گیت دیگر هست.
 
+## سه دقیقه تا اولین برد
+
+لازم: فقط **Python 3.8 یا بالاتر**. نه npm، نه build، نه پکیج بیرونی.
+
+```bash
+git clone <این مخزن> && cd Barsa-Knowledge
+python3 tools/kanban_server.py            # ویندوز: python tools\kanban_server.py
+```
+
+```text
+کنسول کانبان: http://127.0.0.1:4310/
+مخزن: /path/to/Barsa-Knowledge
+```
+
+مرورگر را روی همان آدرس باز کن. `.agent-work/` از قبل در مخزن هست، پس برد
+خالی نیست: تسک ۰۰۰۱ (تمام‌شده) و ۰۰۰۲ (لغوشده) به‌عنوان دو مثال واقعی
+آنجا هستند.
+
+**درخواست دادن:** دکمهٔ «نیاز تازه» بالا راست → slug، نوع نیاز، شناسهٔ سیستم،
+و متن درخواست به زبان خودت → «بساز». کارت در لِین «ورودی» ظاهر می‌شود و اجرا
+خودکار شروع می‌شود.
+
+**دیدن خروجی:** روی کارت بزن. کشو باز می‌شود با پنج تب:
+
+```text
+نمای کلی   وضعیت، قفل scope، بودجهٔ هر نقش، نتیجهٔ پنج گیت، جدول شواهد داوری
+گیت        هر کاری که الان با توست: تأیید spec، پاسخ ابهام، تأیید اعمال
+فایل‌ها     هر artifact — از proposed-task.md تا change-batch.json
+رویدادها   کل تاریخچهٔ تغییرناپذیر، با زمان
+لاگ        خروجی زندهٔ run روی SSE
+```
+
+خروجی نهایی همیشه یک فایل است: `change-batch.json` در پوشهٔ تسک، که از تب
+«فایل‌ها» هم قابل دیدن است.
+
+### بدون کنسول هم می‌شود
+
+کنسول فقط یک پوسته روی CLI است؛ هر کاری از خط فرمان هم انجام می‌شود:
+
+```bash
+python3 tools/manager.py import-issue --slug نیاز-من --kind report.create \
+    --request-file need.txt
+python3 tools/manager.py run 0003        # تا اولین ایست جلو می‌رود
+python3 tools/manager.py status          # برد، JSON
+python3 tools/manager.py artifact 0003 --path change-batch.json
+```
+
+### چه کسی نقش‌ها را بنویسد
+
+پیش‌فرض `manual` است: هر `run` می‌ایستد و می‌گوید نقش بعدی دقیقاً چه فایلی
+باید بنویسد. یعنی یا خودت می‌نویسی، یا `prompt.md` همان attempt را به یک agent
+می‌دهی.
+
+برای اینکه خودکار برود، در `.agent-work/config/agent-runtime.yaml`:
+
+```yaml
+defaultProvider: claude
+providers:
+  claude:
+    enabled: true
+```
+
+از آن به بعد هر `run` خودش نقش را اجرا می‌کند (`claude -p`, با
+`--permission-mode acceptEdits` و ابزار محدود به خواندن/نوشتن). عمداً خاموشِ
+پیش‌فرض است: هر اجرا توکن مصرف می‌کند.
+
+دو گیت انسانی سر جایشان می‌مانند — خودکار شدن نقش‌ها یعنی نوشتن artifactها
+خودکار می‌شود، نه تأیید کردن.
+
+**محافظ:** بعد از هر اجرای agent، Manager با `git status` بررسی می‌کند که نقش
+چیزی بیرون پوشهٔ تسک ننوشته باشد؛ اگر نوشته باشد، transition انجام نمی‌شود و
+فایل‌ها نام برده می‌شوند.
+
+یک اجرای واقعی از همین مسیر، با `defaultProvider: claude` و بدون نوشتن هیچ
+فایلی به دست: چهار نقش پشت سر هم، هر پنج گیت پاس، مصرف بودجه ۱ از هر نقش،
+و توقف روی گیت اعمال:
+
+```text
+اجرای provider claude برای نقش architect …
+نقشه پذیرفته شد. scope قفل شد: entity:#BarcodeReader, report:#بارکدخوان‌ها
+اجرای provider claude برای نقش implementer …
+هر پنج گیت پاس شد — رفت به بازبینی.
+اجرای provider claude برای نقش reviewer …
+گیت apply-approval باز است:
+  .agent-work/tasks/0001-بارکدخوان-ها/change-batch.json
+  sha256 8265f5ef98564cfa · 1 فرمان
+```
+
 ## چه کسی چه چیزی می‌نویسد
 
 | نقش | state | خروجی |
@@ -229,36 +317,43 @@ python3 tools/manager.py status            # برد، JSON
 کد خروج `run` همان قرارداد است: `0` تمام · `10` منتظر انسان · `20` متوقف ·
 `30` بدون پیشرفت.
 
-### کنسول
+### مرز کنسول
 
-```bash
-python3 tools/kanban_server.py --port 4310
-```
-
-بعد `http://127.0.0.1:4310/`. بدون npm و بدون build — UI یک فایل است. کنسول
-هرگز `.agent-work/` را مستقیم نمی‌خواند یا نمی‌نویسد؛ هر چه نشان می‌دهد از یک
-فرمان Manager آمده، پس برد نمی‌تواند با store اختلاف پیدا کند.
+راه‌اندازی‌اش بالا آمد. نکتهٔ معماری‌اش این است: کنسول هرگز `.agent-work/` را
+مستقیم نمی‌خواند یا نمی‌نویسد — هر چه نشان می‌دهد از یک فرمان Manager آمده،
+پس برد نمی‌تواند با store اختلاف پیدا کند.
 
 مسیرهای API همان مسیرهای BarsaAgent است (`/api/repos`, `.../board`,
 `.../tasks/:id/run`, `.../answer`, `.../stream`, `/api/tasks/create`)، و
 `capabilities` قرارداد `barsa-agent-manager v1` را جواب می‌دهد — یعنی
 BarsaAgent موجود هم می‌تواند بدون تغییر به همین manager وصل شود.
 
-## provider نقش‌ها
+## provider نقش‌ها، با جزئیات
 
-`.agent-work/config/agent-runtime.yaml`:
+انتخاب بین `manual` و `claude` بالا آمد. چیزی که آنجا نیامد: provider به ازای
+**هر نقش** قابل تعیین است، و مدل هم همین‌طور — مثلاً طراحی و داوری روی مدل
+قوی‌تر، پیاده‌سازی روی مدل ارزان‌تر:
 
 ```yaml
-defaultProvider: manual     # Manager هیچ agent صدا نمی‌زند
+defaultProvider: claude
+roles:
+  intake:      { provider: default }
+  architect:   { provider: default }
+  implementer: { provider: default }
+  reviewer:    { provider: manual }    # داوری را خودم می‌کنم
 providers:
-  manual: { enabled: true }
-  claude: { enabled: false, command: claude }
+  claude:
+    enabled: true
+    allowedTools: "Read Write Edit Glob Grep"
+    permissionMode: acceptEdits
+    timeoutSeconds: 900
+    model:
+      architect: opus
+      implementer: sonnet
 ```
 
-با `manual`، هر `run` دقیقاً می‌گوید کدام نقش چه فایلی باید بنویسد و همان‌جا
-می‌ایستد؛ وقتی فایل‌ها نوشته شدند، `run` بعدی مصرفشان می‌کند. `claude` عمداً
-خاموش است: هر اجرا توکن مصرف می‌کند و روشن‌کردنش تصمیم صاحب مخزن است، نه
-پیش‌فرض ابزار.
+`allowedTools` عمداً باریک است: یک نقش بسته را می‌خواند و artifact خودش را
+می‌نویسد؛ دلیلی ندارد دستور اجرا کند.
 
 ## تست
 

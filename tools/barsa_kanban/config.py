@@ -107,11 +107,17 @@ providers:
   claude:
     enabled: false
     command: claude
-    effort:
-      intake: medium
-      architect: high
-      implementer: medium
-      reviewer: high
+    # ابزارهایی که نقش دارد. یک نقش بسته را می‌خواند و artifact خودش را
+    # می‌نویسد؛ دلیلی ندارد دستور اجرا کند.
+    allowedTools: "Read Write Edit Glob Grep"
+    permissionMode: acceptEdits
+    timeoutSeconds: 900
+    # اختیاری، به ازای نقش: مثلاً architect و reviewer روی مدل قوی‌تر.
+    model:
+      intake: null
+      architect: null
+      implementer: null
+      reviewer: null
 """
 
 
