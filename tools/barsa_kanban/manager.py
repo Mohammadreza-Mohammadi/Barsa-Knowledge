@@ -22,7 +22,8 @@ import subprocess
 
 from . import barsa_host
 from . import config as config_mod
-from . import prompts, verify
+from . import connection as connection_mod
+from . import prompts, systems as systems_mod, verify
 from .states import (
     EXIT_AWAITING_HUMAN, EXIT_NO_PROGRESS, EXIT_OK, EXIT_STOPPED,
     GATE_APPLY_APPROVAL, GATE_CLARIFICATION, GATE_SPEC_APPROVAL,
@@ -32,6 +33,8 @@ from .states import (
 from .store import Store, StoreError, now, sha256_file
 
 SCHEMA_VERSION = 1
+
+_UNSET = object()
 
 NEED_KINDS = ("report.create", "report.update", "report.delete",
               "entity.create", "field.add", "folder.place")
@@ -56,6 +59,7 @@ class Manager:
         self.repo_root = self.store.repo_root
         self._config = None
         self._contract = None
+        self._connection = _UNSET
 
     # -- lazily loaded context --------------------------------------------
 
@@ -89,10 +93,43 @@ class Manager:
 
     # -- init --------------------------------------------------------------
 
+    @property
+    def connection(self):
+        if self._connection is _UNSET:
+            self._connection = connection_mod.load(self.store)
+        return self._connection
+
+    def reload_config(self):
+        """Forget the cached config, so an edited file is picked up.
+
+        The console is long-running: someone editing connection.yaml should
+        not have to restart it to point at a different Barsa.
+        """
+        self._config = None
+        self._contract = None
+        self._connection = _UNSET
+        return self
+
+    def systems(self):
+        """Every system in the pack, with whether it can be authored."""
+        knowledge = self.config["repository"].get("knowledge") or {}
+        return systems_mod.catalogue(self.repo_root,
+                                     knowledge.get("dist", "dist"),
+                                     knowledge.get("pack", "dist-report"))
+
+    def resolve_system(self, needle):
+        knowledge = self.config["repository"].get("knowledge") or {}
+        return systems_mod.find(self.repo_root, needle,
+                                knowledge.get("dist", "dist"),
+                                knowledge.get("pack", "dist-report"))
+
     def init(self, system_id=None):
         self.store.ensure()
         written = config_mod.write_templates(self.store, system_id)
         written += prompts.write_templates(self.store)
+        made = connection_mod.write_template(self.store)
+        if made:
+            written.append(made)
         self.render_board()
         return written
 
@@ -120,7 +157,19 @@ class Manager:
                     "issue %s was already imported as task %s"
                     % (source["externalId"], dup))
 
-        system_id = payload.get("system") or self._default_system()
+        # No implicit default. If the request did not name a system, intake
+        # works it out from the text, or asks. A quiet default is how a task
+        # ends up planned against the wrong system's objects.
+        system_id = payload.get("system")
+        if system_id:
+            row, candidates = self.resolve_system(system_id)
+            if row is None:
+                raise ManagerError(
+                    "سیستم %r یکتا نیست. یکی از این‌ها را بده: %s"
+                    % (system_id, "، ".join(
+                        "%s (%s)" % (c["caption"], c["id"])
+                        for c in candidates[:8])))
+            system_id = row["id"]
         task_id = payload.get("id") or self.store.next_id()
         task_dir = self.store.create_task_dir(task_id, slug)
 
@@ -171,11 +220,6 @@ class Manager:
             if str(src.get("externalId") or "") == external_id:
                 return manifest.get("id")
         return None
-
-    def _default_system(self):
-        allow = (self.config["repository"].get("systems") or {}).get("allow") \
-            or []
-        return allow[0] if len(allow) == 1 else None
 
     # -- verification ------------------------------------------------------
 
@@ -244,6 +288,7 @@ class Manager:
                     "appliedBy", "human"),
             },
             "repository": {"health": self._repository_health()},
+            "barsa": self._barsa_target(),
             "lanes": [{"title": lane["title"], "states": list(lane["states"])}
                       for lane in LANES],
             "tasks": tasks,
@@ -365,6 +410,29 @@ class Manager:
         return {"transitionLock": lock, "dirtyPaths": [],
                 "stuck": bool(stuck_reasons), "stuckReasons": stuck_reasons,
                 "recovery": recovery}
+
+    def _barsa_target(self):
+        """Where this repository is pointed, as configured -- not as probed.
+
+        Deliberately no network call: `status` is read by the board every few
+        seconds, and a hanging host must never freeze the board. The console
+        asks for live health separately.
+        """
+        settings = connection_mod.host_settings(self.config, self.connection)
+        expected = (self.connection or {}).get("database") or {}
+        key_env = settings.get("apiKeyEnv") or "BARSA_AI_HOST_KEY"
+        return {
+            "label": (self.connection or {}).get("label"),
+            "appliedBy": (self.config["repository"].get("integration")
+                          or {}).get("appliedBy", "human"),
+            "prefix": settings.get("prefix"),
+            "apiKeyEnv": key_env,
+            "apiKeyPresent": bool(os.environ.get(key_env)),
+            "expectedDatabase": {k: expected.get(k)
+                                 for k in ("server", "name", "instance")},
+            "enforceDatabase": expected.get("enforce") is not False,
+            "configured": self.connection is not None,
+        }
 
     def _repository_health(self):
         lock = self.store.read_lock(self.store.manager_lock_path())
@@ -593,6 +661,19 @@ class Manager:
                 % (provider_name, name))
         return self._invoke_role(task_dir, manifest, role, log)
 
+    def _systems_table(self):
+        rows = self.systems()
+        if not rows:
+            return "_هیچ سیستمی در بسته نیست._"
+        out = ["| id | نام | موجودیت | گزارش | قابل authoring |",
+               "|---|---|---|---|---|"]
+        for row in rows:
+            out.append("| `%s` | %s | %s | %s | %s |" % (
+                row["id"], row["caption"] or "—", row["entities"],
+                row["reports"],
+                "بله" if row["authorable"] else "نه — بستهٔ selector ندارد"))
+        return "\n".join(out)
+
     def _report_pending(self, task_dir, adir, role, log):
         from .states import ROLE_OUTPUTS
         rel = os.path.relpath(adir, self.repo_root)
@@ -611,6 +692,7 @@ class Manager:
                 "ATTEMPT_DIR": os.path.relpath(adir, self.repo_root),
                 "PACK_DIR": self.pack_dir,
                 "SYSTEM_ID": system_id or "<no system>",
+                "SYSTEMS": self._systems_table(),
                 "TASK_ID": manifest.get("id")}
         with open(os.path.join(adir, "prompt.md"), "w", encoding="utf-8",
                   newline="\n") as fh:
@@ -827,6 +909,20 @@ class Manager:
             return "stop"
         self._require(task_dir, ["proposed-task.md", "release-note.md"],
                       "intake")
+
+        # The system intake settled, if it settled one. This is the only
+        # channel for that decision, exactly like the architect's proposal.
+        chosen = result.get("systemId")
+        if chosen:
+            row, candidates = self.resolve_system(chosen)
+            if row is None:
+                log("Intake سیستم %r را داد که یکتا نیست؛ نادیده گرفته شد."
+                    % chosen)
+            else:
+                need = dict(manifest.get("need") or {})
+                need["system"] = row["id"]
+                manifest = self._set(task_dir, manifest, need=need)
+                log("سیستم تعیین شد: %s (%s)" % (row["caption"], row["id"]))
         # The spec gate stands between a proposal and a plan: nothing is
         # designed against an unapproved spec.
         self._open_gate(task_dir, manifest, GATE_SPEC_APPROVAL,
@@ -1311,6 +1407,16 @@ class Manager:
                 "appliedBy": batch.get("appliedBy"),
                 "planId": batch.get("planId")}
 
+    def host_client(self):
+        """The host client, from connection.yaml when it is there."""
+        settings = connection_mod.host_settings(self.config, self.connection)
+        client = barsa_host.HostClient(
+            prefix=settings.get("prefix"),
+            api_key=os.environ.get(settings.get("apiKeyEnv")
+                                   or "BARSA_AI_HOST_KEY"),
+            timeout=int(settings.get("timeoutSeconds") or 180))
+        return client, settings
+
     def _apply_through_host(self, task_dir, manifest, batch, log):
         """Hand the batch to Barsa.Ai.Host and wait for a real verdict.
 
@@ -1318,7 +1424,7 @@ class Manager:
         finishes in any state but applied, nothing is closed: the gate stays
         open and the refusal is written down where the next role will read it.
         """
-        client, settings = barsa_host.from_config(self.config)
+        client, settings = self.host_client()
         batch_path = os.path.join(task_dir, "change-batch.json")
         with open(batch_path, encoding="utf-8") as fh:
             document = json.load(fh)
@@ -1333,6 +1439,19 @@ class Manager:
             log("  دیتابیس: %s / %s" % (database.get("server"),
                                         database.get("name")))
         log("  اثر انگشت runtime: %s" % health.get("runtimeFingerprint"))
+
+        # The one check worth stopping everything for: is this the Barsa we
+        # said we were pointed at?
+        ok, message = connection_mod.check_database(self.connection, health)
+        log("  %s" % message)
+        if not ok:
+            self.store.append_event(task_dir, manifest["id"], {
+                "event": "apply.refused", "reason": "database-mismatch"})
+            raise ManagerError(
+                "host به دیتابیسی وصل است که connection.yaml انتظارش را "
+                "ندارد، پس هیچ چیزی اعمال نشد.\n  %s\n"
+                "یا host را به دیتابیس درست ببر، یا connection.yaml را "
+                "اصلاح کن. این گیت برای همین روز نوشته شده." % message)
 
         try:
             outcome = client.plan_and_apply(

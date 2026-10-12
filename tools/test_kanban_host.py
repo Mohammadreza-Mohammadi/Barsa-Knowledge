@@ -190,19 +190,35 @@ class Client(HostHarness):
         with self.assertRaises(barsa_host.HostError):
             self.client.plan_and_apply(self.BATCH)
 
-    def test_a_failed_state_is_not_success(self):
-        StubHost.script["states"] = ["running", "failed"]
+    def test_a_faulted_apply_is_a_failure_not_a_wait(self):
+        """The state the Host actually uses when an apply fails."""
+        StubHost.script["states"] = ["applying", "faulted"]
         with self.assertRaises(barsa_host.HostError) as cm:
             self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
-        self.assertIn("failed", str(cm.exception))
+        self.assertIn("faulted", str(cm.exception))
 
-    def test_it_waits_for_a_terminal_state(self):
-        StubHost.script["states"] = ["running", "running", "applied"]
+    def test_unknown_is_terminal_and_forbids_an_automatic_retry(self):
+        """The Host cannot prove what the last run did; a retry is a human's
+        decision, so this must not look like 'still working'."""
+        StubHost.script["states"] = ["applying", "unknown"]
+        with self.assertRaises(barsa_host.HostError) as cm:
+            self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
+        self.assertIn("Do NOT re-apply", str(cm.exception))
+
+    def test_an_unrecognised_state_is_terminal_too(self):
+        """A state nobody listed must stop, not poll until the timeout."""
+        StubHost.script["states"] = ["applying", "something-new"]
+        with self.assertRaises(barsa_host.HostError) as cm:
+            self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
+        self.assertIn("something-new", str(cm.exception))
+
+    def test_it_waits_while_the_host_is_still_working(self):
+        StubHost.script["states"] = ["ready", "applying", "applied"]
         out = self.client.plan_and_apply(self.BATCH, poll_seconds=0.01)
         self.assertEqual(out["status"]["state"], "applied")
 
     def test_a_host_that_never_finishes_is_an_error_not_a_hang(self):
-        StubHost.script["states"] = ["running"]
+        StubHost.script["states"] = ["applying"]
         with self.assertRaises(barsa_host.HostError) as cm:
             self.client.plan_and_apply(self.BATCH, poll_seconds=0.01,
                                        max_wait=0.05)
@@ -231,18 +247,33 @@ class ThroughTheManager(HostHarness):
         shutil.rmtree(self.root, ignore_errors=True)
         os.environ.pop("BARSA_AI_HOST_KEY", None)
 
-    def _configure_host(self):
+    def _configure_host(self, database=None):
         path = os.path.join(self.root, ".agent-work", "config",
                             "repository.yaml")
         with open(path, encoding="utf-8") as fh:
             text = fh.read()
         text = text.replace("  appliedBy: human", "  appliedBy: barsa-host")
-        text = text.replace('    prefix: "http://127.0.0.1:17840/"',
-                            '    prefix: "%s"' % self.prefix)
-        # A test must never be able to wait three minutes on a socket.
-        text = text.replace("    timeoutSeconds: 180", "    timeoutSeconds: 5")
         with open(path, "w", encoding="utf-8") as fh:
             fh.write(text)
+
+        # connection.yaml is where the target lives now.
+        path = os.path.join(self.root, ".agent-work", "config",
+                            "connection.yaml")
+        rows = ["schemaVersion: 1", 'label: "تست"', "host:",
+                '  prefix: "%s"' % self.prefix,
+                "  apiKeyEnv: BARSA_AI_HOST_KEY",
+                # A test must never wait three minutes on a socket.
+                "  timeoutSeconds: 5", "  maxWaitSeconds: 30",
+                "  requireCleanPlan: true"]
+        if database is not None:
+            rows.append("database:")
+            for key, value in database.items():
+                rows.append('  %s: %s' % (key, json.dumps(value,
+                                                          ensure_ascii=False)
+                                          if not isinstance(value, bool)
+                                          else str(value).lower()))
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(rows) + "\n")
 
     def task_dir(self):
         return self.m.store.task_dir_or_fail("0001")
@@ -359,6 +390,22 @@ class ThroughTheManager(HostHarness):
             self.m.answer("0001", approve=True, log=lambda _m: None)
         self.assertIn("host", str(cm.exception).lower())
         self.assertEqual(self.state(), "integrating")
+
+    def test_the_wrong_database_stops_the_apply(self):
+        """The reason connection.yaml exists at all."""
+        self._configure_host({"server": "SQL01", "name": "BarsaProd"})
+        self.m.reload_config()  # re-read the file we just rewrote
+        with self.assertRaises(ManagerError) as cm:
+            self.m.answer("0001", approve=True, log=lambda _m: None)
+        self.assertIn("BarsaProd", str(cm.exception))
+        self.assertEqual(self.state(), "integrating")
+        self.assertNotIn("appliedPlanId", StubHost.script)
+
+    def test_the_right_database_lets_it_through(self):
+        self._configure_host({"server": "SQL01", "name": "BarsaTest"})
+        self.m.reload_config()
+        self.m.answer("0001", approve=True, log=lambda _m: None)
+        self.assertEqual(self.state(), "integrated")
 
     def test_a_tampered_batch_is_refused_before_the_host_is_called(self):
         path = os.path.join(self.task_dir(), "change-batch.json")

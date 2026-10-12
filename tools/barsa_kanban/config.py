@@ -36,10 +36,12 @@ knowledge:
   dist: dist
   pack: dist-report
 
-# سیستم‌هایی که کار روی آن‌ها مجاز است. یک سیستم بدون selector index
-# (یعنی بدون artifact AiExport) قابل authoring نیست.
+# سیستم‌هایی که کار روی آن‌ها مجاز است. خالی یعنی «هر سیستمی که در بسته
+# هست» — فهرست کامل را با `python tools/manager.py systems` ببین.
+# این یک allowlist است، نه یک پیش‌فرض: اگر درخواست سیستمی نگوید، Intake
+# باید از متن تشخیصش بدهد و اگر نتوانست سؤال می‌پرسد.
 systems:
-  allow: ["{system}"]
+  allow: []
 
 # گیت‌های verification. هیچ‌کدام را خالی نگذار مگر دلیلش را همین‌جا بنویسی —
 # یک گیت غیرفعال در پنل apply-approval هشدار می‌دهد.
