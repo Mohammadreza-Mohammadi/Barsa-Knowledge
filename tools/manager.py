@@ -120,6 +120,9 @@ def main(argv=None):
     p.add_argument("--plan", metavar="TASK",
                    help="build a plan for the task's batch and print the "
                         "host's disposition; applies nothing")
+    p.add_argument("--preflight", metavar="TASK",
+                   help="every read-only check in order, against the real "
+                        "host, before the first apply. Applies nothing.")
 
     sub.add_parser("board", help="regenerate BOARD.md")
 
@@ -241,6 +244,8 @@ def _host_command(manager, args):
     """A dry run against the host: nothing here can change anything."""
     from barsa_kanban import barsa_host
     client, settings = barsa_host.from_config(manager.config)
+    if args.preflight:
+        return _preflight(manager, client, settings, args.preflight)
     print("host: %s" % client.prefix)
     if not client.api_key:
         print("  هشدار: کلیدی در محیط نیست (%s). اگر host کلید می‌خواهد، "
@@ -264,6 +269,112 @@ def _host_command(manager, args):
     except barsa_host.HostError as exc:
         print(exc.detail(), file=sys.stderr)
         return 1
+    return 0
+
+
+def _preflight(manager, client, settings, task_id):
+    """Everything that can be checked without writing anything.
+
+    Deliberately ordered so the cheapest failure comes first: a wrong prefix
+    should not be discovered after a plan has been built. Nothing here calls
+    /apply, so the worst outcome is a plan left in the host's memory.
+    """
+    from barsa_kanban import barsa_host
+
+    integration = (manager.config["repository"].get("integration") or {})
+    checks = []
+
+    def record(name, ok, detail):
+        checks.append((name, ok, detail))
+        print("  %-22s %s  %s" % (name, "✓" if ok else "✗", detail))
+
+    print("preflight برای تسک %s" % task_id)
+    print("host: %s" % client.prefix)
+
+    applied_by = integration.get("appliedBy")
+    record("appliedBy", applied_by == "barsa-host",
+           applied_by + ("" if applied_by == "barsa-host"
+                         else " — تأیید فعلاً چیزی را اعمال نمی‌کند"))
+    key_env = (integration.get("host") or {}).get("apiKeyEnv") \
+        or "BARSA_AI_HOST_KEY"
+    record("کلید", True,
+           "از %s خوانده شد" % key_env if client.api_key
+           else "تنظیم نشده — اگر host هم کلید ندارد، درش برای هر برنامه‌ای "
+                "روی این ماشین باز است")
+
+    task_dir = manager.store.task_dir_or_fail(task_id)
+    manifest = manager.store.read_manifest(task_dir)
+    raw = manager.store.read_text(task_dir, "change-batch.json")
+    if raw is None:
+        record("batch", False, "تسک هنوز change-batch.json ندارد")
+        return 1
+    batch = json.loads(raw)
+    record("batch", True, "%d فرمان" % len(batch.get("changes") or ()))
+
+    report = manager.verify_task(task_id)
+    record("پنج گیت محلی", report["ok"],
+           "پاس" if report["ok"] else "رد — اول verify را درست کن")
+    if not report["ok"]:
+        return 1
+
+    try:
+        health = client.health()
+    except barsa_host.HostError as exc:
+        record("health", False, str(exc))
+        print(exc.detail(), file=sys.stderr)
+        return 1
+    database = health.get("database") or {}
+    record("health", str(health.get("status")) == "ready",
+           "%s · دیتابیس %s/%s · %s"
+           % (health.get("status"), database.get("server"),
+              database.get("name"), health.get("runtimeFingerprint")))
+
+    system_id = str((manifest.get("need") or {}).get("system") or "")
+    try:
+        systems = client.systems()
+        ids = {str(row.get("id")) for row in (systems.get("systems") or ())}
+        record("سیستم تسک", system_id in ids,
+               "%s %s %d سیستم"
+               % (system_id, "در" if system_id in ids else "نیست در", len(ids)))
+    except barsa_host.HostError as exc:
+        record("سیستم تسک", False, str(exc))
+
+    try:
+        lint = client.lint(batch)
+        record("lint سمت سرور", str(lint.get("status")) == "succeeded",
+               json.dumps(lint, ensure_ascii=False)[:140])
+    except barsa_host.HostError as exc:
+        record("lint سمت سرور", False, str(exc))
+        print(exc.detail(), file=sys.stderr)
+        return 1
+
+    try:
+        plan = client.plan(batch)
+    except barsa_host.HostError as exc:
+        record("plan", False, str(exc))
+        print(exc.detail(), file=sys.stderr)
+        return 1
+    clean = plan.get("isValid") is not False and \
+        plan.get("canApplyCleanly") is not False
+    record("plan", clean,
+           "planId=%s valid=%s clean=%s فرمان=%s خطا=%s"
+           % (plan.get("planId"), plan.get("isValid"),
+              plan.get("canApplyCleanly"), plan.get("commandCount"),
+              plan.get("errorCount")))
+    if plan.get("summary"):
+        print("\n%s" % plan["summary"])
+    diagnostics = (plan.get("diagnostics") or {}).get("items") or []
+    for row in diagnostics[:20]:
+        print("  · %s" % json.dumps(row, ensure_ascii=False)[:200])
+
+    failed = [name for name, ok, _ in checks if not ok]
+    print("")
+    print("هیچ چیزی اعمال نشد — این دستور فقط می‌خواند.")
+    if failed:
+        print("ناموفق: %s" % "، ".join(failed))
+        return 1
+    print("همه سبز. برای اعمال واقعی: python3 tools/manager.py answer %s "
+          "--approve" % task_id)
     return 0
 
 

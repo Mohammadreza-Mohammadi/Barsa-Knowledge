@@ -139,11 +139,51 @@ batch:
 هیچ چیزی را عوض نمی‌کنند:
 
 ```bash
+python3 tools/manager.py host --preflight 0001   # همهٔ بررسی‌ها، به ترتیب
 python3 tools/manager.py host --health
 python3 tools/manager.py host --systems
-python3 tools/manager.py host --lint 0001     # linter سمت سرور
-python3 tools/manager.py host --plan 0001     # plan می‌سازد، اعمال نمی‌کند
+python3 tools/manager.py host --lint 0001        # linter سمت سرور
+python3 tools/manager.py host --plan 0001        # plan می‌سازد، اعمال نمی‌کند
 ```
+
+`--preflight` همان چیزی است که قبل از اولین اعمال واقعی باید ببینی:
+
+```text
+  appliedBy              ✓  barsa-host
+  کلید                   ✓  از BARSA_AI_HOST_KEY خوانده شد
+  batch                  ✓  1 فرمان
+  پنج گیت محلی           ✓  پاس
+  health                 ✓  ready · دیتابیس SQL01/BarsaTest · <fingerprint>
+  سیستم تسک              ✓  1011413550000000100 در 9 سیستم
+  lint سمت سرور          ✓  {"status": "succeeded", "profileVersion": 15}
+  plan                   ✓  planId=… valid=True clean=True فرمان=1 خطا=0
+
+هیچ چیزی اعمال نشد — این دستور فقط می‌خواند.
+```
+
+### راه‌اندازی خود host
+
+`Barsa.Ai.Host.exe` قبل از بالا آمدن این‌ها را لازم دارد (از
+`BarsaRuntime.Initialize`):
+
+```text
+۱. فایل config خودِ بارسا کنارش باشد — Barsa.Spl.FileUtil.ConfigPath.
+   نباشد: «Barsa config file was not found». یعنی باید داخل پوشهٔ نصب
+   بارسا اجرا شود، نه جای دیگر.
+۲. دیتابیس در دسترس باشد — در حلقه صبر می‌کند و لاگ می‌دهد
+   «cannot connect to database; waiting for connection».
+۳. login موفق با AiHost.UserName/Password — وگرنه
+   «Barsa login failed for AI Host user: …».
+۴. بعد InitApplicationsRemoting، StartApplications و MetaService.Init2.
+۵. فقط یک نمونه هم‌زمان: «Barsa.Ai.Host is already running.»
+```
+
+نمونهٔ کامل appSettings با همهٔ کلیدها و پیش‌فرض‌هایشان:
+[`Barsa.Ai.Host.exe.config.example`](Barsa.Ai.Host.exe.config.example).
+
+**هشدار امنیتی:** اگر `AiHost.ApiKey` خالی باشد، `IsAuthorized` بدون هیچ
+بررسی‌ای `true` برمی‌گرداند — یعنی هر برنامه‌ای روی آن ماشین می‌تواند
+`POST /apply` بزند. روی هر محیطی جز یک ماشین کاملاً شخصی، کلید بگذار.
 
 ### چه چیزی اینجا تأیید نشده
 
