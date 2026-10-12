@@ -13,6 +13,7 @@
     <span id="repo">…</span>
     <span id="contract" class="pill"></span>
     <span id="health" class="pill">در حال بررسی…</span>
+    <span id="barsa" class="pill" title="بارسایی که اعمال روی آن انجام می‌شود">بارسا: —</span>
   </div>
   <button id="newTask">نیاز تازه</button>
 </header>
@@ -51,7 +52,10 @@
     <h2>نیاز تازه</h2>
     <label>نام کوتاه (slug)<input id="c-slug" placeholder="گزارش-بازدید-گیت"></label>
     <label>نوع نیاز<select id="c-kind"></select></label>
-    <label>سیستم<input id="c-system" placeholder="1011413550000000100"></label>
+    <label>سیستم
+      <select id="c-system"></select>
+      <span class="hint" id="c-system-hint"></span>
+    </label>
     <label>متن درخواست، عیناً به request.md می‌رود
       <textarea id="c-text" rows="7" placeholder="روی موجودیت … یک گزارش لیستی لازم دارم که …"></textarea></label>
     <label class="row"><input type="checkbox" id="c-start" checked> بعد از ساخت، اجرا را شروع کن</label>

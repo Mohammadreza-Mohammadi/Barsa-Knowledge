@@ -8,11 +8,21 @@ let BOARD = null;
 let RUNNING = {};
 let SELECTED = null;
 let STREAM = null;
+let SYSTEMS = [];
 const NEED_KINDS_FALLBACK = ["report.create", "report.update", "entity.create"];
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g,
   (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// Direction is a property of the text, not of the panel: questions.md is
+// Persian prose and change-batch.json is not.
+const PERSIAN = /[\u0600-\u06FF]/;
+function docHtml(text) {
+  const looksJson = /^\s*[[{]/.test(text);
+  const rtl = !looksJson && PERSIAN.test(text);
+  return `<pre class="${rtl ? "rtl" : ""}">${esc(text)}</pre>`;
+}
 
 function toast(text, bad) {
   const el = $("toast");
@@ -48,10 +58,72 @@ async function boot() {
     o.value = o.textContent = k;
     sel.appendChild(o);
   });
+  await loadSystems();
   await refresh();
   await health();
+  await barsaBadge();
   setInterval(refresh, 3000);
   setInterval(health, 30000);
+  setInterval(barsaBadge, 30000);
+}
+
+async function loadSystems() {
+  const box = $("c-system");
+  box.innerHTML = "";
+  // The first option is the real default: a request usually says which
+  // system it is about, and intake reads it better than a dropdown guess.
+  const auto = document.createElement("option");
+  auto.value = "";
+  auto.textContent = "— بگذار از متن درخواست تشخیص بدهد —";
+  box.appendChild(auto);
+  try {
+    const doc = await api("/api/systems");
+    SYSTEMS = doc.systems || [];
+    for (const row of SYSTEMS) {
+      const o = document.createElement("option");
+      o.value = row.id;
+      o.textContent = `${row.caption || row.id} — ${row.entities} موجودیت` +
+        (row.authorable ? "" : "  (بستهٔ selector ندارد)");
+      o.disabled = !row.authorable;
+      box.appendChild(o);
+    }
+    const blocked = SYSTEMS.filter((r) => !r.authorable).length;
+    $("c-system-hint").textContent = blocked
+      ? `${SYSTEMS.length - blocked} سیستم از ${SYSTEMS.length} قابل authoring است؛ بقیه بستهٔ selector ندارند.`
+      : `${SYSTEMS.length} سیستم`;
+  } catch (e) {
+    $("c-system-hint").textContent = "فهرست سیستم‌ها خوانده نشد: " + e.message;
+  }
+}
+
+async function barsaBadge() {
+  const el = $("barsa");
+  const target = (BOARD && BOARD.barsa) || null;
+  if (!target) { el.textContent = "بارسا: —"; return; }
+  const label = target.label ? `${target.label} · ` : "";
+  const expected = target.expectedDatabase || {};
+  const want = [expected.server, expected.name].filter(Boolean).join("/");
+  if (target.appliedBy !== "barsa-host") {
+    el.textContent = `بارسا: اعمال دستی${want ? " · انتظار " + want : ""}`;
+    el.className = "pill";
+    el.title = "appliedBy: human — Manager چیزی را اعمال نمی‌کند.";
+    return;
+  }
+  try {
+    const doc = await api(`/api/repos/${REPO.id}/barsa`);
+    const db = (doc.health && doc.health.database) || {};
+    const got = [db.server, db.name].filter(Boolean).join("/");
+    const match = !want || (got && got.toLowerCase() === want.toLowerCase());
+    el.textContent = `بارسا: ${label}${got || "در دسترس نیست"}`;
+    el.className = "pill " + (doc.ok && match ? "ok" : "bad");
+    el.title = doc.ok
+      ? (match ? "همان دیتابیسی که connection.yaml انتظار دارد."
+               : `هشدار: connection.yaml انتظار ${want} را دارد.`)
+      : doc.output || "host در دسترس نیست";
+  } catch (e) {
+    el.textContent = `بارسا: ${label}در دسترس نیست`;
+    el.className = "pill bad";
+  }
 }
 
 async function health() {
@@ -239,6 +311,8 @@ async function showArtifact(id, path) {
     const box = $("artifactBox");
     box.classList.remove("hidden");
     box.textContent = text;
+    const looksJson = /^\s*[[{]/.test(text);
+    box.className = (!looksJson && PERSIAN.test(text)) ? "rtl" : "";
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
   } catch (e) { toast(e.message, true); }
 }
@@ -284,17 +358,21 @@ function gatePanel(t) {
       برای خودکار شدن، provider این نقش را در agent-runtime.yaml عوض کن.</p></div>`;
   }
   if (kind === "clarification") {
-    return `<div class="gate-box"><h3>ابهام</h3>
-      <p>پرسش‌ها در <code>questions.md</code> است (تب فایل‌ها).</p>
-      <label>پاسخ تو<textarea id="clarifyText" rows="6"></textarea></label>
+    return `<div class="gate-box"><h3>این تسک سؤال دارد</h3>
+      <div id="questionsBox" class="dim">در حال خواندن questions.md…</div>
+      <label>پاسخ تو<textarea id="clarifyText" rows="7"
+        placeholder="به هر پرسش شماره‌دار جواب بده. متن عیناً به انتهای request.md اضافه می‌شود."></textarea></label>
       <label class="row"><input type="checkbox" id="respec">
         این پاسخ خودِ spec را عوض می‌کند (respec): گیت spec-approval دوباره باز می‌شود</label>
-      <div class="modal-actions"><button id="btnClarify" class="primary">ثبت پاسخ</button></div></div>`;
+      <div class="modal-actions">
+        <button id="btnClarify">فقط ثبت کن</button>
+        <button id="btnClarifyRun" class="primary">ثبت پاسخ و ادامهٔ اجرا</button>
+      </div></div>`;
   }
   if (kind === "spec-approval") {
     return `<div class="gate-box"><h3>تأیید spec</h3>
-      <p><code>proposed-task.md</code> را کنار <code>request.md</code> ببین
-      (تب فایل‌ها). با تأیید، Manager همان متن را به‌عنوان <code>task.md</code>
+      <div id="proposalBox" class="dim">در حال خواندن proposed-task.md…</div>
+      <p class=hint>با تأیید، Manager همان متن را به‌عنوان <code>task.md</code>
       مهر می‌زند و hash می‌گیرد.</p>
       <label>دلیل رد، اگر رد می‌کنی<textarea id="specReason" rows="3"></textarea></label>
       <div class="modal-actions">
@@ -345,18 +423,54 @@ function wireGate(t) {
   $("tab-gate").querySelectorAll("button.artifactLink").forEach((b) => {
     b.onclick = () => { tab("artifacts"); showArtifact(id, b.dataset.path); };
   });
+  if ($("proposalBox")) {
+    fetch(`/api/repos/${REPO.id}/tasks/${id}/artifact?path=proposed-task.md`)
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error("نیست"))))
+      .then((text) => {
+        const box = $("proposalBox");
+        box.className = "";
+        box.innerHTML = docHtml(text);
+      })
+      .catch(() => { $("proposalBox").textContent = "proposed-task.md خوانده نشد."; });
+  }
   on("btnSpecApprove", () => post("answer", { approve: true }, "spec تأیید شد"));
   on("btnSpecReject", () => {
     const reason = ($("specReason") || {}).value || "";
     if (!reason.trim()) return toast("دلیل رد اجباری است.", true);
     post("answer", { reject: true, reason }, "spec رد شد");
   });
-  on("btnClarify", () => {
+  const clarify = async (andRun) => {
     const text = ($("clarifyText") || {}).value || "";
     if (!text.trim()) return toast("پاسخ خالی است.", true);
-    post("answer", { clarify: text, respec: $("respec").checked },
-      "پاسخ ثبت شد");
-  });
+    await post("answer", { clarify: text, respec: $("respec").checked },
+      andRun ? "پاسخ ثبت شد؛ اجرا ادامه یافت" : "پاسخ ثبت شد");
+    if (andRun) {
+      try {
+        await api(`/api/repos/${REPO.id}/tasks/${id}/run`,
+          { method: "POST", body: "{}" });
+        tab("log");
+      } catch (e) {
+        // auto-resume may already have queued it; 409 is not a failure here
+        if (!String(e.message).includes("صف")) toast(e.message, true);
+      }
+    }
+  };
+  on("btnClarify", () => clarify(false));
+  on("btnClarifyRun", () => clarify(true));
+  if ($("questionsBox")) {
+    fetch(`/api/repos/${REPO.id}/tasks/${id}/artifact?path=questions.md`)
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error("questions.md نیست"))))
+      .then((text) => {
+        const box = $("questionsBox");
+        box.className = "";
+        box.innerHTML = docHtml(text);
+      })
+      .catch((e) => {
+        const box = $("questionsBox");
+        box.className = "warn";
+        box.textContent = "questions.md خوانده نشد: " + e.message;
+      });
+  }
   const ack = $("applyAck");
   if (ack) ack.onchange = () => { $("btnApplyApprove").disabled = !ack.checked; };
   on("btnCopy", () => {
@@ -414,7 +528,7 @@ $("c-create").onclick = async () => {
   const draft = {
     slug: $("c-slug").value.trim(),
     kind: $("c-kind").value,
-    system: $("c-system").value.trim(),
+    system: $("c-system").value,        // "" means: let intake work it out
     requestText: $("c-text").value,
     start: $("c-start").checked,
   };

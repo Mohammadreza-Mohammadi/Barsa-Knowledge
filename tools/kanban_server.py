@@ -188,6 +188,7 @@ class Console:
         self.runs = run_queue
         self.auto_start = auto_start
         self.auto_resume = auto_resume
+        self.barsa_cache = {}
 
     def manager(self, *args, text=None):
         """Call the manager CLI. The only way this console touches state."""
@@ -218,6 +219,8 @@ def _now():
 
 ROUTES = [
     ("GET", r"^/api/repos$", "repos"),
+    ("GET", r"^/api/systems$", "systems"),
+    ("GET", r"^/api/repos/([^/]+)/barsa$", "barsa"),
     ("GET", r"^/api/repos/([^/]+)/board$", "board"),
     ("GET", r"^/api/repos/([^/]+)/running$", "running"),
     ("GET", r"^/api/repos/([^/]+)/health$", "health"),
@@ -328,6 +331,33 @@ class Handler(BaseHTTPRequestHandler):
                     "autoStartOnCreate": self.console.auto_start,
                     "autoResumeAfterAnswer": self.console.auto_resume},
         }])
+
+    def _h_systems(self, parsed):
+        """The systems a request can be about, for the create form."""
+        self._json(200, self.console.manager_json("systems", "--json"))
+
+    def _h_barsa(self, parsed, repo):
+        """Live health of the configured Barsa, cached briefly.
+
+        Separate from the board on purpose: the board polls every few seconds
+        and must never wait on a host that is down.
+        """
+        cache = self.console.barsa_cache
+        now = time.time()
+        if cache.get("at", 0) > now - 15 and "doc" in cache:
+            self._json(200, cache["doc"])
+            return
+        code, out, err = self.console.manager("host", "--health")
+        doc = {"checkedAt": _now(), "ok": code == 0,
+               "output": mask((out or "") + (err or ""))}
+        brace = (out or "").find("{")
+        if brace >= 0:
+            try:
+                doc["health"] = json.loads(out[brace:])
+            except ValueError:
+                pass
+        cache.update({"at": now, "doc": doc})
+        self._json(200, doc)
 
     def _h_board(self, parsed, repo):
         self._json(200, self.console.manager_json("status"))
