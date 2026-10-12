@@ -64,6 +64,10 @@ class StubHost(BaseHTTPRequestHandler):
                              "runtimeFingerprint": "stub-fingerprint",
                              "database": {"server": "SQL01",
                                           "name": "BarsaTest"}})
+        elif parsed.path == "/systems":
+            self._send(200, {"status": "succeeded", "count": 1, "systems": [
+                {"id": "1011413550000000100", "caption": "بارکد",
+                 "name": "Barcode", "isInactive": False}]})
         elif parsed.path == "/apply-status":
             plan_id = (parse_qs(parsed.query).get("planId") or [""])[0]
             states = self.script.get("states") or ["applied"]
@@ -300,6 +304,20 @@ class ThroughTheManager(HostHarness):
                    "evidence:\n  acceptance: [{ac: \"AC-1\", verdict: pass, "
                    "basis: \"properties.name\"}]\n")
         self.m.run("0001", quiet)
+        self.assertEqual(self.state(), "integrating")
+
+    def test_preflight_reads_everything_and_applies_nothing(self):
+        """The command someone runs before trusting this path at all."""
+        import subprocess
+        out = subprocess.run(
+            [sys.executable, os.path.join(REPO, "tools", "manager.py"),
+             "--repo", self.root, "host", "--preflight", "0001"],
+            capture_output=True, text=True, env=dict(os.environ))
+        self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+        self.assertIn("هیچ چیزی اعمال نشد", out.stdout)
+        self.assertIn("plan-001", out.stdout)
+        # read-only means read-only: the host was planned against, not applied
+        self.assertNotIn("appliedPlanId", StubHost.script)
         self.assertEqual(self.state(), "integrating")
 
     def test_approve_sends_the_batch_and_closes_on_the_host_verdict(self):

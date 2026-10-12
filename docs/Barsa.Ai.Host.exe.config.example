@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  نمونهٔ appSettings برای Barsa.Ai.Host.exe
+
+  هر کلید زیر از خودِ AiHostSettings.Load در باینری خوانده شده، و مقدارِ
+  کنار هر کدام پیش‌فرضِ همان کد است (نه حدس). این فایل باید کنار
+  Barsa.Ai.Host.exe و با همان نام به‌علاوهٔ .config باشد.
+
+  پیش‌نیاز مهم: BarsaRuntime.Initialize اول دنبال فایل config خودِ بارسا
+  می‌گردد (Barsa.Spl.FileUtil.ConfigPath) و اگر نباشد با «Barsa config file
+  was not found» بالا نمی‌آید — یعنی این exe باید داخل پوشهٔ نصب بارسا
+  اجرا شود، نه جای دیگر.
+-->
+<configuration>
+  <appSettings>
+
+    <!-- آدرسی که HttpListener رویش می‌نشیند. حتماً با / تمام شود.
+         پیش‌فرض کد: http://127.0.0.1:17840/ -->
+    <add key="AiHost.HttpPrefix" value="http://127.0.0.1:17840/" />
+
+    <!-- اگر خالی بماند، احراز هویت کاملاً غیرفعال است: IsAuthorized وقتی
+         کلید خالی باشد true برمی‌گرداند، پس هر برنامه‌ای روی این ماشین
+         می‌تواند POST /apply بزند. روی هر محیطی جز یک ماشین کاملاً شخصی،
+         پرش کن. -->
+    <add key="AiHost.ApiKey" value="" />
+
+    <!-- کاربری که host با آن به بارسا login می‌کند. پیش‌فرض کد:
+         LocalAccount / كاربر محلي سكو . این کاربر باید اجازهٔ نوشتن
+         متامدل داشته باشد، وگرنه «Barsa login failed for AI Host user». -->
+    <add key="AiHost.UserName" value="LocalAccount" />
+    <add key="AiHost.Password" value="" />
+
+    <!-- پوشهٔ کاری host. زیرپوشه‌های current/exports/plans/results/snapshots
+         را خودش می‌سازد. خالی بگذاری، زیر پوشهٔ کاربر با نام barsa-ai-host
+         ساخته می‌شود. -->
+    <add key="AiHost.WorkspaceRoot" value="" />
+
+    <!-- فایل انتخاب پیش‌فرض برای /pull و /snapshot. اختیاری. -->
+    <add key="AiHost.DefaultSelectionFile" value="" />
+
+    <add key="AiHost.RemoveSecurityAccess" value="false" />
+
+    <!-- ناظر بستهٔ متادیتا؛ برای مسیر کانبان لازم نیست. -->
+    <add key="AiHost.MetadataPackageWatcher.Enabled" value="false" />
+    <add key="AiHost.MetadataPackageWatcher.WatchPath" value="" />
+    <add key="AiHost.MetadataPackageWatcher.PollSeconds" value="30" />
+    <add key="AiHost.MetadataPackageWatcher.ProcessExistingOnFirstStart" value="false" />
+
+    <add key="AiHost.ChatBridge.Enabled" value="false" />
+
+  </appSettings>
+</configuration>
