@@ -407,7 +407,7 @@ def _preflight(manager, client, settings, task_id):
     try:
         lint = client.lint(batch)
         record("lint سمت سرور", str(lint.get("status")) == "succeeded",
-               json.dumps(lint, ensure_ascii=False)[:140])
+               json.dumps(lint, ensure_ascii=False))
     except barsa_host.HostError as exc:
         record("lint سمت سرور", False, str(exc))
         print(exc.detail(), file=sys.stderr)
@@ -429,8 +429,12 @@ def _preflight(manager, client, settings, task_id):
     if plan.get("summary"):
         print("\n%s" % plan["summary"])
     diagnostics = (plan.get("diagnostics") or {}).get("items") or []
+    # Not truncated. A diagnostic is the host telling us exactly what it
+    # could not do, and the useful half of a semanticSelectorUnresolved
+    # message is at the end of it.
     for row in diagnostics[:20]:
-        print("  · %s" % json.dumps(row, ensure_ascii=False)[:200])
+        print("  · %s" % json.dumps(row, ensure_ascii=False, indent=2,
+                                    sort_keys=True).replace("\n", "\n    "))
 
     failed = [name for name, ok, _ in checks if not ok]
     print("")

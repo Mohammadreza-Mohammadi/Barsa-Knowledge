@@ -121,7 +121,24 @@ class HostClient:
         return None
 
     def systems(self):
-        return self._call("GET", "systems")
+        """The host's systems, with every id carried as a string.
+
+        The host answers `id` as a JSON number, and a real one is
+        1011413550000000100 -- a hundred times past 2**53, where a double
+        stops being able to hold consecutive integers. Python reads it
+        exactly, so nothing here is wrong today, but the moment such a
+        number is handed to a JSON parser backed by doubles (every browser,
+        so this console's own UI) it silently becomes
+        1011413550000000128: a different system, with no error anywhere.
+
+        Coercing here, at the one place host systems enter this codebase,
+        means that value can never leave as a number.
+        """
+        payload = self._call("GET", "systems")
+        for row in (payload.get("systems") or ()):
+            if isinstance(row, dict) and "id" in row:
+                row["id"] = str(row["id"])
+        return payload
 
     def lint(self, batch):
         return self._call("POST", "lint", body=batch)

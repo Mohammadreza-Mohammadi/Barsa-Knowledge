@@ -160,6 +160,29 @@ class ObservedHealth(unittest.TestCase):
         self.assertEqual(HostClient.profile_mismatch(moved),
                          (PROFILE_VERSION, 16))
 
+    def test_a_system_id_never_leaves_as_a_number(self):
+        """Observed: /systems answers id as a JSON number past 2**53.
+
+        1011413550000000100 is a real id from a live host. Read as a double
+        it becomes ...128 -- a different system, silently. The client coerces
+        every id to a string at the one door they come through.
+        """
+        real = 1011413550000000100
+        self.assertGreater(real, 2 ** 53)
+        self.assertNotEqual(int(float(real)), real)   # the corruption
+
+        from barsa_kanban.barsa_host import HostClient
+        client = HostClient.__new__(HostClient)
+        client._call = lambda *a, **k: {
+            "status": "succeeded",
+            "systems": [{"id": real, "name": "باركد"},
+                        {"id": 7097413550000000101, "name": "Push"}]}
+        rows = client.systems()["systems"]
+        self.assertEqual([r["id"] for r in rows],
+                         ["1011413550000000100", "7097413550000000101"])
+        for row in rows:
+            self.assertIsInstance(row["id"], str)
+
     def test_an_unreported_profile_is_not_a_disagreement(self):
         from barsa_kanban.barsa_host import HostClient
         quiet = dict(self.PAYLOAD, runtimeFingerprint={})
