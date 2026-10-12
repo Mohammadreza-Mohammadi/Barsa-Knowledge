@@ -93,6 +93,33 @@ class HostClient:
     def health(self):
         return self._call("GET", "health")
 
+    @staticmethod
+    def profile_mismatch(health):
+        """The host's semantic profile against the one we author for.
+
+        Observed on a live 4.1.203 host: /health reports
+        runtimeFingerprint.semanticProfileVersion, and every batch this
+        repository writes declares profileVersion. If the two ever disagree,
+        every batch is addressed to a contract the host no longer speaks --
+        and the five local gates cannot see that, because they validate
+        against the profile compiled into this repository, not the one
+        running. Returns (ours, theirs) on a mismatch, or None.
+        """
+        from barsa_extractor.change_batch import PROFILE_VERSION
+        finger = (health or {}).get("runtimeFingerprint")
+        if not isinstance(finger, dict):
+            return None          # nothing to compare, so no disagreement
+        theirs = finger.get("semanticProfileVersion")
+        if theirs is None:
+            return None          # not reported is not a disagreement
+        try:
+            theirs = int(theirs)
+        except (TypeError, ValueError):
+            return (PROFILE_VERSION, theirs)
+        if theirs != PROFILE_VERSION:
+            return (PROFILE_VERSION, theirs)
+        return None
+
     def systems(self):
         return self._call("GET", "systems")
 

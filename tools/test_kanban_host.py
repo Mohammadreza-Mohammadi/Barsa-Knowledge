@@ -60,10 +60,16 @@ class StubHost(BaseHTTPRequestHandler):
             return
         parsed = urlparse(self.path)
         if parsed.path == "/health":
+            # The fingerprint is an object, not a string: that is what a
+            # live 4.1.203 host answers. The stub said "stub-fingerprint"
+            # back when its shape was still unknown.
             self._send(200, {"status": "ready", "processId": 4242,
-                             "runtimeFingerprint": "stub-fingerprint",
+                             "runtimeFingerprint": {
+                                 "semanticProfileVersion": 15,
+                                 "socContractRevision": "v15-qtr-v217"},
                              "database": {"server": "SQL01",
-                                          "name": "BarsaTest"}})
+                                          "name": "BarsaTest",
+                                          "instance": "sqlcore"}})
         elif parsed.path == "/systems":
             self._send(200, {"status": "succeeded", "count": 1, "systems": [
                 {"id": "1011413550000000100", "caption": "بارکد",
@@ -107,7 +113,8 @@ class StubHost(BaseHTTPRequestHandler):
                                   "planId": body.get("planId"),
                                   "results": [{"commandId": "c1",
                                                "status": "succeeded"}],
-                                  "runtimeFingerprint": "stub-fingerprint"},
+                                  "runtimeFingerprint": {
+                                      "semanticProfileVersion": 15}},
                                  **(self.script.get("apply") or {})))
         else:
             self._send(404, {"error": "no route"})
@@ -359,7 +366,8 @@ class ThroughTheManager(HostHarness):
         self.assertEqual(batch["appliedBy"], "barsa-host")
         self.assertEqual(batch["planId"], "plan-001")
         self.assertEqual(batch["hostState"], "applied")
-        self.assertEqual(batch["runtimeFingerprint"], "stub-fingerprint")
+        self.assertEqual(batch["runtimeFingerprint"],
+                         {"semanticProfileVersion": 15})
         # the host saw the real batch, not a summary of it
         sent = StubHost.script["lastBatch"]
         self.assertEqual(sent["changes"][0]["properties"]["name"], "میزبان")

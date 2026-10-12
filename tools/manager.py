@@ -371,10 +371,23 @@ def _preflight(manager, client, settings, task_id):
         print(exc.detail(), file=sys.stderr)
         return 1
     database = health.get("database") or {}
+    # An older host, or a stub, may answer a bare string here.
+    finger = health.get("runtimeFingerprint")
+    finger = finger if isinstance(finger, dict) else {}
     record("health", str(health.get("status")) == "ready",
-           "%s · دیتابیس %s/%s · %s"
+           "%s · دیتابیس %s/%s · پروفایل %s · قرارداد %s"
            % (health.get("status"), database.get("server"),
-              database.get("name"), health.get("runtimeFingerprint")))
+              database.get("name"),
+              finger.get("semanticProfileVersion"),
+              finger.get("socContractRevision")))
+
+    mismatch = barsa_host.HostClient.profile_mismatch(health)
+    record("نسخهٔ پروفایل", mismatch is None,
+           "هر دو %s" % finger.get("semanticProfileVersion")
+           if mismatch is None else
+           "ما برای %s می‌نویسیم و host %s را اجرا می‌کند — هر batch به "
+           "قراردادی آدرس دارد که host دیگر صحبت نمی‌کند"
+           % mismatch)
 
     from barsa_kanban import connection as connection_mod
     db_ok, db_message = connection_mod.check_database(manager.connection,
