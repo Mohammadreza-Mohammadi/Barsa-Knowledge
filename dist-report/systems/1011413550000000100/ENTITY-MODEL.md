@@ -2,7 +2,7 @@
 
 > **Source:** dist/index/systems/1011413550000000100/semantic.json
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 Entities and fields in this system, as dist/ carries them. The selector column is the one that matters for authoring: it is what a batch uses to name the object. Copy it, do not type it -- see `../../common/SELECTORS.md` on the Arabic/Persian letter forms.
 

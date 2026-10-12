@@ -2,7 +2,7 @@
 
 > **Source:** dist/formats/ai-export-single-json.md → Observed paths · dist/index/semantic-contract.json → propertyContracts.field · dist/formats/report-format.md
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 A report's columns are the part a consumer changes most, and the one the legacy export cannot see at all.
 

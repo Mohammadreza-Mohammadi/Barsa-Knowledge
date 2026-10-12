@@ -16,6 +16,10 @@ INPUTS = {
     "writePipeline": "index/write-pipeline.json",
     "knowledgeIndex": "index/knowledge-index.json",
     "changeBatchSchema": "models/ai-change-batch.schema.json",
+    # Stated by the Host's own reference documents rather than inferred from
+    # a binary. Optional: a dist/ built without them leaves the vocabularies
+    # Unknown and the pack says so.
+    "hostVocabulary": "index/host-vocabulary.json",
 }
 
 # Generated dist/ documents read for their tables rather than as JSON. The

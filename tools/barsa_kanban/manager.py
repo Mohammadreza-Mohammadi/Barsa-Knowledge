@@ -60,6 +60,7 @@ class Manager:
         self._config = None
         self._contract = None
         self._connection = _UNSET
+        self._vocabulary = _UNSET
 
     # -- lazily loaded context --------------------------------------------
 
@@ -81,6 +82,15 @@ class Manager:
                     "be verified without the write contract. Run "
                     "tools/extract.py first." % dist)
         return self._contract
+
+    @property
+    def vocabulary(self):
+        """What the Host's own documents say, when dist/ carries them."""
+        if self._vocabulary is _UNSET:
+            dist = (self.config["repository"].get("knowledge") or {}).get(
+                "dist", "dist")
+            self._vocabulary = verify.load_vocabulary(self.repo_root, dist)
+        return self._vocabulary
 
     @property
     def pack_dir(self):
@@ -108,6 +118,7 @@ class Manager:
         self._config = None
         self._contract = None
         self._connection = _UNSET
+        self._vocabulary = _UNSET
         return self
 
     def systems(self):
@@ -245,7 +256,7 @@ class Manager:
         gates = manifest.get("gates") or verify.GATES
         findings, summary = verify.run(
             batch, self.contract, manifest.get("scope"),
-            self.selector_index(system_id), gates)
+            self.selector_index(system_id), gates, self.vocabulary)
         result = {
             "ok": summary["passed"],
             "checkedAt": now(),
@@ -661,6 +672,43 @@ class Manager:
                 % (provider_name, name))
         return self._invoke_role(task_dir, manifest, role, log)
 
+    def _vocabulary_table(self):
+        """What a role may write, as the Host's own docs state it."""
+        vocab = self.vocabulary
+        if not vocab:
+            return ("_بستهٔ دانش واژگانی ندارد: شرط غیرخالی، `parameters` و "
+                    "`folder.kind` قابل نوشتن نیستند._")
+        rows = []
+        for key, title in (("comparisonOperators", "عملگرهای شرط"),
+                           ("nullBehaviors", "nullBehavior"),
+                           ("folderKinds", "folder.kind"),
+                           ("reportParameterKeys", "کلیدهای parameter")):
+            item = vocab.get(key)
+            if isinstance(item, dict) and item.get("values"):
+                rows.append("- **%s**: %s" % (
+                    title, "، ".join("`%s`" % v for v in item["values"])))
+                rows.append("  <br>منبع: `%s`" % item.get("document"))
+        chain = vocab.get("navigationChain")
+        if isinstance(chain, dict) and chain.get("values"):
+            rows.append("- **مسیر navigation**: %s" % " ← ".join(
+                "`%s` (زیرِ %s)" % (r["kind"], r["parent"])
+                for r in chain["values"]))
+            rows.append("  <br>منبع: `%s`" % chain.get("document"))
+        ref = vocab.get("tempIdReferenceEncoding")
+        if isinstance(ref, dict) and ref.get("values"):
+            rows.append("- **ارجاع درون‌بسته‌ای**: هر ارجاع به شیئی که در "
+                        "همین batch ساخته می‌شود باید %s را با هم داشته "
+                        "باشد؛ فقط `tempId` کافی نیست."
+                        % "، ".join("`%s`" % v for v in ref["values"]))
+            rows.append("  <br>منبع: `%s`" % ref.get("document"))
+        if not rows:
+            return "_هیچ واژگانی استخراج نشده._"
+        rows.append("")
+        rows.append("هر مقداری بیرون این فهرست‌ها از گیت `unknowns` رد "
+                    "می‌شود. فهرست را گسترش نده — اگر چیزی لازم داری که "
+                    "اینجا نیست، در `questions.md` بنویس.")
+        return "\n".join(rows)
+
     def _systems_table(self):
         rows = self.systems()
         if not rows:
@@ -693,6 +741,7 @@ class Manager:
                 "PACK_DIR": self.pack_dir,
                 "SYSTEM_ID": system_id or "<no system>",
                 "SYSTEMS": self._systems_table(),
+                "VOCABULARY": self._vocabulary_table(),
                 "TASK_ID": manifest.get("id")}
         with open(os.path.join(adir, "prompt.md"), "w", encoding="utf-8",
                   newline="\n") as fh:

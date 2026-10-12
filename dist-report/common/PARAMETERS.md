@@ -2,7 +2,7 @@
 
 > **Source:** dist/index/semantic-contract.json → propertyContracts.report · dist/index/write-pipeline.json · dist/formats/ai-export-single-json.md → Observed paths
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 Parameters exist, are referenced, and are not authorable from this pack. The short version:
 
@@ -43,8 +43,12 @@ The verifier carries `BuildReportParameterIdMap` and `NormalizeReportParameterRe
 | `parameters[*].value.warning` | string | 1 | no |
 | `parameters[*].valueFieldInfoType` | number | 3 | no |
 
+## And the keys the Host's reference states
+
+`name`, `caption`, `input`, `external`, `fromParent`, `mandatory`, `notAutoRemove`.
+
+**Confidence: Documented** -- the vendor naming the keys, not this compiler counting them in two artifacts. A parameter may be authored with these keys and no others. What each one *means* is still only partly described, and the value of a date parameter is a named runtime token (`امسال`, `اين ماه`, …) rather than a literal, so a parameter copied from a sample is likelier to be right than one composed from scratch.
+
 Two of those keys deserve attention: `value.unsupported` (boolean) and `value.warning` (string). The exporter itself marks a parameter value it could not represent. So some parameter values are known to be outside what the semantic projection can carry -- which means a round trip through this format is not guaranteed to preserve them.
 
 **This key set is not a specification.** It is what two systems happened to contain. What `kind` accepts, how `sourceOperator` relates to a condition's `operator`, whether `external` and `input` are independent, and which keys are required are all **Unknown**.
-
-**Therefore: do not author `parameters`.** Decision: parameter shape stays Unknown until an artifact or the patch writer says otherwise. Create the report without parameters and let a human add them.

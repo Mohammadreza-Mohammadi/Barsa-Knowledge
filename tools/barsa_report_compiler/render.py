@@ -451,7 +451,55 @@ def columns(pack, ftypes, shapes, gaps):
 
 # -- common/CONDITIONS.md --------------------------------------------------
 
-def conditions(pack, shapes, enums, gaps):
+def _operator_section(vocabulary):
+    """What the Host's own reference states, or the wall where it does not."""
+    row = (vocabulary or {}).get("comparisonOperators")
+    values = (row or {}).get("values") or []
+    if not values:
+        return [
+            "**Unknown, and therefore not authorable.** dist/ records that "
+            "the key exists and its type, never the strings themselves. A "
+            "clause with a guessed operator name is a batch that lints clean "
+            "and does the wrong thing, so write `{\"all\": []}` and let a "
+            "human add the condition in the designer.",
+            "",
+            "To close this: build dist/ with the Host's startup payload under "
+            "`source/barsa-ai-host/`, which states the list outright.",
+            "",
+        ]
+    behaviors = ((vocabulary or {}).get("nullBehaviors") or {}).get("values") \
+        or []
+    out = [
+        "The Host's own reference document names them, so this is no longer "
+        "a guess. %d operators:" % len(values),
+        "",
+        ", ".join("`%s`" % v for v in values) + ".",
+        "",
+    ]
+    if behaviors:
+        out += ["`nullBehavior` takes " + ", ".join("`%s`" % v
+                                                    for v in behaviors)
+                + ", and nothing else.", ""]
+    out += [
+        "**Confidence: Documented.** This is the vendor stating the contract, "
+        "not this compiler inferring it from a binary -- a different kind of "
+        "evidence from everything else in this pack, and recorded as such. "
+        "Source: `%s`." % (row.get("document") or "the Host startup payload"),
+        "",
+        "One thing the document says that a reader must not miss: it names "
+        "`DoseNotContain` as an internal typo that does **not** enter the AI "
+        "contract. A name appearing in that document is not automatically a "
+        "value you may write; only the list above is.",
+        "",
+        "A clause may also carry `value`, `parameter`, `nullBehavior`, "
+        "`customSql`, `enabled`, `ignoreCase` and `autoSetInNew`. Groups "
+        "nest: a member of `all` may itself be an `all`/`any`.",
+        "",
+    ]
+    return out
+
+
+def conditions(pack, shapes, enums, gaps, vocabulary=None):
     cond = next((s for s in shapes["shapes"] if s["property"] == "condition"),
                 None)
     comb = (enums["enums"].get("Barsa.Meta.CombinationOperator") or {})
@@ -488,29 +536,19 @@ def conditions(pack, shapes, enums, gaps):
             "These keys are **Observed** -- 16 clauses in the supplied "
             "artifacts carried them.",
             "",
-            "## But the operator values are Unknown",
-            "",
-            "This is the wall. `operator` is a string in all 16 observed "
-            "clauses, and dist/ records that the key exists and its type, "
-            "never the strings themselves.",
+            "## The operator values",
             "",
             "The profile's `Barsa.Meta.ComparisonOperator` has "
-            "%d member%s: %s. That is far too few for a condition engine that "
-            "also carries `nullBehavior` and multi-field clauses, so the real "
-            "operator vocabulary is elsewhere and the profile maps only this "
-            "one." % (comp.get("memberCount", 0),
-                      "" if comp.get("memberCount") == 1 else "s",
-                      ", ".join("`%s`" % v for v in
-                                (comp.get("members") or {}).values())
-                      or "none"),
-            "",
-            "**Therefore: do not author a non-empty condition.** A clause "
-            "with a guessed operator name is a batch that lints clean and "
-            "does the wrong thing. Write `{\"all\": []}` and let a human add "
-            "the condition in the designer, or supply the operator string "
-            "from a source outside this pack.",
+            "%d member%s: %s -- far too few for a condition engine that also "
+            "carries `nullBehavior` and multi-field clauses. The real "
+            "vocabulary is elsewhere, and where it is settles below."
+            % (comp.get("memberCount", 0),
+               "" if comp.get("memberCount") == 1 else "s",
+               ", ".join("`%s`" % v for v in
+                         (comp.get("members") or {}).values()) or "none"),
             "",
         ]
+        body += _operator_section(vocabulary)
     else:
         body += ["No artifact in dist/ carries a populated condition, so the "
                  "clause shape is " + UNKNOWN + ".", ""]
@@ -535,25 +573,26 @@ def conditions(pack, shapes, enums, gaps):
         "dist/index/ai-export-properties.json → enums",
         "dist/index/semantic-contract.json → propertyContracts.report"], body)
 
-    gaps.add(
-        "The comparison operator vocabulary in a condition clause",
-        "common/CONDITIONS.md: `operator` is a string whose accepted values "
-        "are Unknown, which blocks every non-empty condition",
-        "The condition builder, or the full comparison-operator enum -- the "
-        "profile maps only AdvancedTextSearch2. An index of the string values "
-        "observed in artifacts (not just the keys) would settle it from data "
-        "already in source/.",
-        "The observed-path table records keys and JSON types by design and "
-        "carries no values, and the profile's enum has a single member, which "
-        "cannot be the whole operator set of an engine that also supports "
-        "nullBehavior and multi-field clauses.",
-        "A consumer cannot write any filtering at all; it can only create "
-        "reports with an empty condition.")
+    if not ((vocabulary or {}).get("comparisonOperators") or {}).get("values"):
+        gaps.add(
+            "The comparison operator vocabulary in a condition clause",
+            "common/CONDITIONS.md: `operator` is a string whose accepted "
+            "values are Unknown, which blocks every non-empty condition",
+            "The Host ships it: build dist/ with its startup payload under "
+            "source/barsa-ai-host/, whose condition reference names the "
+            "operators outright. Failing that, the condition builder in the "
+            "binary, or an index of the string values observed in artifacts.",
+            "The observed-path table records keys and JSON types by design "
+            "and carries no values, and the profile's enum has a single "
+            "member, which cannot be the whole operator set of an engine "
+            "that also supports nullBehavior and multi-field clauses.",
+            "A consumer cannot write any filtering at all; it can only "
+            "create reports with an empty condition.")
 
 
 # -- common/PARAMETERS.md --------------------------------------------------
 
-def parameters(pack, shapes, gaps):
+def parameters(pack, shapes, gaps, vocabulary=None):
     par = next((s for s in shapes["shapes"] if s["property"] == "parameters"),
                None)
     body = [
@@ -594,6 +633,24 @@ def parameters(pack, shapes, gaps):
                        [["`%s`" % k["path"], ", ".join(k["types"]),
                          k["occurrences"], _yn(k["nullable"])]
                         for k in par["keys"]])
+        documented = ((vocabulary or {}).get("reportParameterKeys")
+                      or {}).get("values") or []
+        if documented:
+            body += [
+                "## And the keys the Host's reference states",
+                "",
+                ", ".join("`%s`" % v for v in documented) + ".",
+                "",
+                "**Confidence: Documented** -- the vendor naming the keys, "
+                "not this compiler counting them in two artifacts. A "
+                "parameter may be authored with these keys and no others. "
+                "What each one *means* is still only partly described, and "
+                "the value of a date parameter is a named runtime token "
+                "(`امسال`, `اين ماه`, …) rather than a literal, so a "
+                "parameter copied from a sample is likelier to be right "
+                "than one composed from scratch.",
+                "",
+            ]
         body += [
             "Two of those keys deserve attention: `value.unsupported` "
             "(boolean) and `value.warning` (string). The exporter itself "
@@ -608,10 +665,6 @@ def parameters(pack, shapes, gaps):
             "`input` are independent, and which keys are required are all " +
             UNKNOWN + ".",
             "",
-            "**Therefore: do not author `parameters`.** Decision: parameter "
-            "shape stays Unknown until an artifact or the patch writer says "
-            "otherwise. Create the report without parameters and let a human "
-            "add them.",
             "",
         ]
     else:
@@ -622,10 +675,15 @@ def parameters(pack, shapes, gaps):
         "dist/index/write-pipeline.json",
         "dist/formats/ai-export-single-json.md → Observed paths"], body)
 
+    documented = ((vocabulary or {}).get("reportParameterKeys")
+                  or {}).get("values") or []
     gaps.add(
         "The semantics of a report parameter entry",
-        "common/PARAMETERS.md: the key set is Observed but every key's "
-        "meaning and value vocabulary is Unknown",
+        ("common/PARAMETERS.md: the Host's reference names the keys, but "
+         "what each one means is still only partly described"
+         if documented else
+         "common/PARAMETERS.md: the key set is Observed but every key's "
+         "meaning and value vocabulary is Unknown"),
         "AiReportModel.ApplyReportPatch for the accepted shape, and "
         "AiRuntimeVerifier.BuildReportParameterIdMap for how a parameter is "
         "identified. An artifact whose parameters exercise each `kind` would "
@@ -648,7 +706,39 @@ def parameters(pack, shapes, gaps):
 
 # -- common/PLACEMENT.md ---------------------------------------------------
 
-def placement(pack, dist, enums, recipes, gaps):
+def _folder_kind_section(vocabulary):
+    """`folder.kind` from the Host's own reference, or the wall where absent."""
+    row = (vocabulary or {}).get("folderKinds")
+    values = (row or {}).get("values") or []
+    if not values:
+        return [
+            "`kind` is an Enum, writable on create only, and its value "
+            "vocabulary is " + UNKNOWN + ": no dist/ document lists the "
+            "strings the semantic side uses for a folder kind. The recipes "
+            "omit it. If the server requires it, it has to come from "
+            "outside this pack.",
+            "",
+            "To close this: build dist/ with the Host's startup payload "
+            "under `source/barsa-ai-host/`, which states the list outright.",
+            "",
+        ]
+    return [
+        "`kind` is an Enum, writable on create only. The Host's own folder "
+        "reference names its values, so it is authorable: " +
+        ", ".join("`%s`" % v for v in values) + ", and nothing else.",
+        "",
+        "**Confidence: Documented** -- the vendor stating the contract, not "
+        "this compiler inferring it from a binary. Source: `%s`."
+        % (row.get("document") or "the Host startup payload"),
+        "",
+        "It says nothing about *where* the folder goes: reusing an "
+        "existing parent still needs a selector the resolver does not "
+        "have. See `MISSING-FROM-DIST.md`.",
+        "",
+    ]
+
+
+def placement(pack, dist, enums, recipes, gaps, vocabulary=None):
     folder_obj = dist.object_contract("folder") or {}
     report_obj = dist.object_contract("report") or {}
     ftype = (enums["enums"].get("Barsa.Meta.FolderType") or {})
@@ -695,18 +785,12 @@ def placement(pack, dist, enums, recipes, gaps):
         "`report` is a Reference to a report, and `order` carries ordering "
         "semantics, so sibling order is writable.",
         "",
-        "`kind` is an Enum, writable on create only, and its value "
-        "vocabulary is " + UNKNOWN + ": no dist/ document lists the strings "
-        "the semantic side uses for a folder kind. The recipes omit it. If "
-        "the server requires it, it has to come from outside this pack.",
+    ]
+    body += _folder_kind_section(vocabulary)
+    body += [
+        "## The recipe",
         "",
-        "## The two-command recipe",
-        "",
-        "`common/RECIPES.md` recipe R2. One caution carried from there: the "
-        "parent folder is named by a selector. Observed exports carry "
-        "navigation paths but no folder selectors, and the inspected "
-        "SemanticRules resolver has no folder case. See "
-        "`MISSING-FROM-DIST.md`.",
+        "`common/RECIPES.md` recipe R2 builds the whole path in one wave.",
         "",
     ]
     pack.md("common/PLACEMENT.md", "Placement in the navigator", [
@@ -728,14 +812,17 @@ def placement(pack, dist, enums, recipes, gaps):
         "A consumer cannot place a report under an existing folder without "
         "a runtime-supported reference.")
 
-    gaps.add(
-        "Semantic folder kind vocabulary",
-        "common/PLACEMENT.md and R2: kind is omitted",
-        "Extract the accepted semantic values from "
-        "AiFolderChangeProvider.Validate and InferCreateKind into dist/.",
-        "The folder property contract only says Enum; no dist/ index carries "
-        "the accepted values.",
-        "A consumer cannot choose a folder kind from this pack.")
+    if not ((vocabulary or {}).get("folderKinds") or {}).get("values"):
+        gaps.add(
+            "Semantic folder kind vocabulary",
+            "common/PLACEMENT.md and R2: kind is omitted",
+            "Build dist/ with the Host's startup payload under "
+            "`source/barsa-ai-host/`, whose folder reference states the "
+            "accepted values; or extract them from "
+            "AiFolderChangeProvider.Validate and InferCreateKind.",
+            "The folder property contract only says Enum; no dist/ index "
+            "carries the accepted values.",
+            "A consumer cannot choose a folder kind from this pack.")
 
 
 # -- common/SELECTORS.md ---------------------------------------------------
@@ -1398,9 +1485,11 @@ def build(dist, parts, meta, gaps):
     limits(pack, contract, parts["shapes"], gaps)
     report_types(pack, parts["types"], parts["pairings"], gaps)
     columns(pack, parts["fieldTypes"], parts["shapes"], gaps)
-    conditions(pack, parts["shapes"], parts["enums"], gaps)
-    parameters(pack, parts["shapes"], gaps)
-    placement(pack, dist, parts["enums"], parts["recipes"], gaps)
+    conditions(pack, parts["shapes"], parts["enums"], gaps,
+               parts.get("vocabulary"))
+    parameters(pack, parts["shapes"], gaps, parts.get("vocabulary"))
+    placement(pack, dist, parts["enums"], parts["recipes"], gaps,
+              parts.get("vocabulary"))
     selectors(pack, parts["cb"], gaps)
     recipes_doc(pack, parts["recipes"], dist, "common/RECIPES.md",
                 "Scope: `%s`." % meta["scope"]

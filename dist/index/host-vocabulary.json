@@ -1,0 +1,131 @@
+{
+  "applyStates": {
+    "document": "barsa-ai-host/startup/host-api.fa.md",
+    "line": 104,
+    "sha256": "a9e69060e6549a905379b35140a0870682604d30901ee3ed25917e79c1b2dece",
+    "values": [
+      "ready",
+      "applying",
+      "applied",
+      "faulted",
+      "unknown"
+    ]
+  },
+  "comparisonOperators": {
+    "document": "barsa-ai-host/startup/dataexchange/10-condition-reference.fa.md",
+    "line": 75,
+    "sha256": "dfadc3ce5f160c93ea9173f1537ff5912a36a070b3390250af01cd4066204d57",
+    "values": [
+      "none",
+      "equal",
+      "notEqual",
+      "greaterThan",
+      "lessThan",
+      "greaterThanOrEqual",
+      "lessThanOrEqual",
+      "contains",
+      "doesNotContain",
+      "startsWith",
+      "doesNotStartWith",
+      "isNull",
+      "isNotNull",
+      "between",
+      "inList",
+      "notInList",
+      "advancedTextSearch",
+      "advancedTextSearch2"
+    ]
+  },
+  "conditionCombinators": {
+    "document": "barsa-ai-host/startup/dataexchange/10-condition-reference.fa.md",
+    "line": null,
+    "sha256": "dfadc3ce5f160c93ea9173f1537ff5912a36a070b3390250af01cd4066204d57",
+    "values": [
+      "all",
+      "any"
+    ]
+  },
+  "confidence": "Documented",
+  "documents": [
+    {
+      "path": "barsa-ai-host/startup/dataexchange/10-condition-reference.fa.md",
+      "sha256": "dfadc3ce5f160c93ea9173f1537ff5912a36a070b3390250af01cd4066204d57"
+    },
+    {
+      "path": "barsa-ai-host/startup/dataexchange/05-report-folder-reference.fa.md",
+      "sha256": "9fac1f51b470f99b1b130de0545a4844ddfdb242b3d1b17e82780e733d9d120b"
+    },
+    {
+      "path": "barsa-ai-host/startup/host-api.fa.md",
+      "sha256": "a9e69060e6549a905379b35140a0870682604d30901ee3ed25917e79c1b2dece"
+    }
+  ],
+  "folderKinds": {
+    "document": "barsa-ai-host/startup/dataexchange/05-report-folder-reference.fa.md",
+    "line": 505,
+    "sha256": "9fac1f51b470f99b1b130de0545a4844ddfdb242b3d1b17e82780e733d9d120b",
+    "values": [
+      "page",
+      "group",
+      "report"
+    ]
+  },
+  "navigationChain": {
+    "document": "barsa-ai-host/startup/dataexchange/05-report-folder-reference.fa.md",
+    "line": 505,
+    "note": "The report placement is a folder of kind `report` whose `report` property points at the report. Page and Group are both FolderType.ReportFolder at runtime; the hierarchy, not the runtime type, carries the semantics.",
+    "sha256": "9fac1f51b470f99b1b130de0545a4844ddfdb242b3d1b17e82780e733d9d120b",
+    "values": [
+      {
+        "kind": "page",
+        "parent": "system"
+      },
+      {
+        "kind": "group",
+        "parent": "page"
+      },
+      {
+        "kind": "report",
+        "parent": "group"
+      }
+    ]
+  },
+  "note": "These values are stated by the Host's own reference documents. That is a different kind of evidence from a string recovered out of IL: it is the vendor describing the contract rather than this tool inferring it. Treat a disagreement between the two as a finding, not as a tie.",
+  "nullBehaviors": {
+    "document": "barsa-ai-host/startup/dataexchange/10-condition-reference.fa.md",
+    "line": 87,
+    "sha256": "dfadc3ce5f160c93ea9173f1537ff5912a36a070b3390250af01cd4066204d57",
+    "values": [
+      "ignoreCondition",
+      "checkNullValue",
+      "dontIgnore"
+    ]
+  },
+  "reportParameterKeys": {
+    "document": "barsa-ai-host/startup/dataexchange/05-report-folder-reference.fa.md",
+    "line": 275,
+    "sha256": "9fac1f51b470f99b1b130de0545a4844ddfdb242b3d1b17e82780e733d9d120b",
+    "values": [
+      "name",
+      "caption",
+      "input",
+      "external",
+      "fromParent",
+      "mandatory",
+      "notAutoRemove"
+    ]
+  },
+  "schemaVersion": 1,
+  "source": "Barsa.Ai.Host startup payload, under source/barsa-ai-host/startup",
+  "sourceKind": "VendorDocument",
+  "tempIdReferenceEncoding": {
+    "document": "barsa-ai-host/startup/dataexchange/05-report-folder-reference.fa.md",
+    "line": 523,
+    "note": "A reference to an object created earlier in the same batch is written as an object carrying both `objectType` and `tempId`. A bare `{\"tempId\": ...}` is not the documented shape.",
+    "sha256": "9fac1f51b470f99b1b130de0545a4844ddfdb242b3d1b17e82780e733d9d120b",
+    "values": [
+      "objectType",
+      "tempId"
+    ]
+  }
+}

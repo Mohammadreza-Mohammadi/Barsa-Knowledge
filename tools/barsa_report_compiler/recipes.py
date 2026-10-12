@@ -25,6 +25,7 @@ PLACEHOLDER_ENTITY = "#<entity>"
 PLACEHOLDER_FIELD = "#<field>"
 PLACEHOLDER_FIELD_2 = "#<field2>"
 PLACEHOLDER_FOLDER = "#<parent-folder>"
+PLACEHOLDER_SYSTEM = "#<system>"
 PLACEHOLDER_VIEW = "#<view>"
 PLACEHOLDER_REPORT = "#<existing-report>"
 
@@ -38,7 +39,161 @@ def _batch(*changes):
     }
 
 
-def definitions():
+def _r2(folder_kinds):
+    """The placement recipe, in whichever form the evidence supports.
+
+    With the Host's folder reference in dist/, the navigation chain and the
+    same-batch reference encoding are both stated outright, so the recipe can
+    build System -> Page -> Group -> placement in one wave and needs no
+    selector for a folder that does not exist yet. Without it, the older
+    form stands: a single placement row under a parent this pack cannot name.
+    """
+    if not set(("page", "group", "report")).issubset(set(folder_kinds or ())):
+        return _r2_undocumented()
+    return {
+        "id": "R2",
+        "title": "A list report, delivered with its navigation",
+        "purpose": ("A report nobody can navigate to is invisible. This "
+                    "builds the placement path with it, in one wave."),
+        "placeholders": ["entity", "field"],
+        "notes": [
+            ("The canonical path is System -> Page -> Group -> Report "
+             "placement, and the Host's folder reference states it. Page "
+             "and Group are both FolderType.ReportFolder at runtime; the "
+             "hierarchy carries the semantics, not the runtime type."),
+            ("One wave, not four. The planner collects tempIds from "
+             "`target`, `parent` and recursively from `properties`, so every "
+             "dependency here is expressible with a temporary reference. "
+             "Split a batch only when the contract needs a persisted id "
+             "read back."),
+            ("A same-batch reference carries both `objectType` and `tempId`. "
+             "A bare `{\"tempId\": ...}` is not the documented shape."),
+            ("`kind` is a create-only enum; its values are documented. "
+             "See common/PLACEMENT.md."),
+            ("Page and Group names come from the requirement. The Host does "
+             "not invent them, so these two are the rows to edit."),
+            ("Reuse before you create: if a suitable Page or Group already "
+             "exists, placing under it needs a folder selector, which this "
+             "pack still cannot supply. See MISSING-FROM-DIST.md."),
+        ],
+        "batch": _batch(
+            {
+                "commandId": "r2-create-report",
+                "operation": "create",
+                "objectType": "report",
+                "tempId": "tmpReport",
+                "parent": {"objectType": "entity",
+                           "selector": PLACEHOLDER_ENTITY},
+                "properties": {
+                    "name": "Gate list",
+                    "reportType": "list",
+                    "columns": [{"field": PLACEHOLDER_FIELD,
+                                 "alias": "Title"}],
+                    "condition": {"all": []},
+                },
+            },
+            {
+                "commandId": "r2-create-page",
+                "operation": "create",
+                "objectType": "folder",
+                "tempId": "tmpPage",
+                "parent": {"objectType": "system",
+                           "selector": PLACEHOLDER_SYSTEM},
+                "properties": {"name": "Gate", "kind": "page", "order": 1},
+            },
+            {
+                "commandId": "r2-create-group",
+                "operation": "create",
+                "objectType": "folder",
+                "tempId": "tmpGroup",
+                "parent": {"objectType": "folder", "tempId": "tmpPage"},
+                "properties": {"name": "Gate lists", "kind": "group",
+                               "order": 1},
+            },
+            {
+                "commandId": "r2-place-report",
+                "operation": "create",
+                "objectType": "folder",
+                "parent": {"objectType": "folder", "tempId": "tmpGroup"},
+                "properties": {
+                    "name": "Gate list",
+                    "kind": "report",
+                    "report": {"objectType": "report", "tempId": "tmpReport"},
+                    "order": 1,
+                },
+            },
+        ),
+        "unverified": [],
+    }
+
+
+def _r2_undocumented():
+    """R2 as it stood before the Host's folder reference was available."""
+    return {
+    "id": "R2",
+    "title": "A list report, placed under an existing folder",
+    "purpose": ("A report nobody can navigate to is invisible. This "
+                "adds the placement row."),
+    "placeholders": ["entity", "field", "parentFolder"],
+    "notes": [
+        ("Two commands, and the order matters: report is "
+         "structuralOrder 120 and folder is 130, so the report is "
+         "created first. The planner sorts by dependency anyway, but "
+         "writing them in this order matches what it will do."),
+        ("A placement is a `folder` object whose `report` points at "
+         "the report. In the legacy tables that is a MET_FOLDER row "
+         "with FolderType=Report (9) under a FolderType=ReportFolder "
+         "(12) container."),
+        ("`kind` is deliberately omitted. It is a create-only enum on "
+         "`folder` and its semantic value vocabulary is Unknown -- no "
+         "dist/ document lists the values the AiExport side uses. If "
+         "the server requires it, it has to be supplied."),
+        ("The parent folder reference remains a placeholder. The "
+         "observed exports carry navigation paths, but no folder "
+         "selector; the inspected SemanticRules resolver also has no "
+         "folder selector case. See MISSING-FROM-DIST.md."),
+    ],
+    "batch": _batch(
+        {
+            "commandId": "r2-create-report",
+            "operation": "create",
+            "objectType": "report",
+            "tempId": "tmpReport",
+            "parent": {"objectType": "entity",
+                       "selector": PLACEHOLDER_ENTITY},
+            "properties": {
+                "name": "Gate list",
+                "reportType": "list",
+                "columns": [{"field": PLACEHOLDER_FIELD,
+                             "alias": "Title"}],
+                "condition": {"all": []},
+            },
+        },
+        {
+            "commandId": "r2-place-report",
+            "operation": "create",
+            "objectType": "folder",
+            "parent": {"objectType": "folder",
+                       "selector": PLACEHOLDER_FOLDER},
+            "properties": {
+                "name": "Gate list",
+                "report": {"tempId": "tmpReport"},
+                "order": 1,
+            },
+        },
+    ),
+    "unverified": [
+        ("Encoding a same-batch reference as `{\"tempId\": \"...\"}` "
+         "inside a Reference property is not demonstrated by any "
+         "supplied artifact. The linter accepts it and the tempId "
+         "resolves within the batch, but whether the provider reads "
+         "that shape is Unknown. The command order and structure are "
+         "sound; this one encoding may need adjusting."),
+    ],
+}
+
+
+def definitions(folder_kinds=()):
     """The recipe set, with placeholders and per-recipe notes."""
     return [
         {
@@ -78,68 +233,7 @@ def definitions():
                 },
             }),
         },
-        {
-            "id": "R2",
-            "title": "A list report, placed under an existing folder",
-            "purpose": ("A report nobody can navigate to is invisible. This "
-                        "adds the placement row."),
-            "placeholders": ["entity", "field", "parentFolder"],
-            "notes": [
-                ("Two commands, and the order matters: report is "
-                 "structuralOrder 120 and folder is 130, so the report is "
-                 "created first. The planner sorts by dependency anyway, but "
-                 "writing them in this order matches what it will do."),
-                ("A placement is a `folder` object whose `report` points at "
-                 "the report. In the legacy tables that is a MET_FOLDER row "
-                 "with FolderType=Report (9) under a FolderType=ReportFolder "
-                 "(12) container."),
-                ("`kind` is deliberately omitted. It is a create-only enum on "
-                 "`folder` and its semantic value vocabulary is Unknown -- no "
-                 "dist/ document lists the values the AiExport side uses. If "
-                 "the server requires it, it has to be supplied."),
-                ("The parent folder reference remains a placeholder. The "
-                 "observed exports carry navigation paths, but no folder "
-                 "selector; the inspected SemanticRules resolver also has no "
-                 "folder selector case. See MISSING-FROM-DIST.md."),
-            ],
-            "batch": _batch(
-                {
-                    "commandId": "r2-create-report",
-                    "operation": "create",
-                    "objectType": "report",
-                    "tempId": "tmpReport",
-                    "parent": {"objectType": "entity",
-                               "selector": PLACEHOLDER_ENTITY},
-                    "properties": {
-                        "name": "Gate list",
-                        "reportType": "list",
-                        "columns": [{"field": PLACEHOLDER_FIELD,
-                                     "alias": "Title"}],
-                        "condition": {"all": []},
-                    },
-                },
-                {
-                    "commandId": "r2-place-report",
-                    "operation": "create",
-                    "objectType": "folder",
-                    "parent": {"objectType": "folder",
-                               "selector": PLACEHOLDER_FOLDER},
-                    "properties": {
-                        "name": "Gate list",
-                        "report": {"tempId": "tmpReport"},
-                        "order": 1,
-                    },
-                },
-            ),
-            "unverified": [
-                ("Encoding a same-batch reference as `{\"tempId\": \"...\"}` "
-                 "inside a Reference property is not demonstrated by any "
-                 "supplied artifact. The linter accepts it and the tempId "
-                 "resolves within the batch, but whether the provider reads "
-                 "that shape is Unknown. The command order and structure are "
-                 "sound; this one encoding may need adjusting."),
-            ],
-        },
+        _r2(folder_kinds),
         {
             "id": "R3",
             "title": "Change the columns of an existing report",
@@ -282,6 +376,13 @@ def _pick_bindings(model):
     else:
         notes.append("No entity in this system has a column-usable field.")
 
+    system_sel = next((x for x in (model.get("selectors") or []) if x), None)
+    if system_sel:
+        bindings[PLACEHOLDER_SYSTEM] = system_sel
+    else:
+        notes.append("The system itself has no selector in the index, so the "
+                     "navigation recipe keeps its system placeholder.")
+
     view = next((v for v in model["views"] if v.get("selector")), None)
     if view:
         bindings[PLACEHOLDER_VIEW] = view["selector"]
@@ -316,11 +417,13 @@ def _substitute(node, bindings):
 def build(dist, model=None):
     """Bind, validate and return the recipes. Validation is the build gate."""
     contract = dist.contract
+    folder_kinds = (((dist.docs.get("hostVocabulary") or {})
+                     .get("folderKinds") or {}).get("values") or [])
     bindings, binding_notes = _pick_bindings(model)
     known_selectors = _known_selectors(model)
 
     out = []
-    for spec in definitions():
+    for spec in definitions(folder_kinds):
         batch = _substitute(copy.deepcopy(spec["batch"]), bindings)
         used = sorted(_collect_selectors(batch))
         unbound = [s for s in used if s.startswith("#<")]

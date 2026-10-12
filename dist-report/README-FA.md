@@ -2,7 +2,7 @@
 
 > **Source:** dist/ — ساخته‌شده توسط tools/report_compiler.py
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 این تنها فایل فارسی بسته است و یک خلاصهٔ انسانی است، نه ترجمهٔ بسته. زبان رسمی خروجی انگلیسی است؛ دو زبان رسمی از هم واگرا می‌شوند.
 
@@ -37,7 +37,7 @@ CrossVerified > Verified > Observed > Inferred > Unknown
 - **اینکه کدام property برای کدام نوع گزارش معنا دارد.**
 - **selector پوشه‌ها**، که در `dist/` هیچ کدام نیست؛ پس جای‌گذاری گزارش در navigator از این بسته قابل تکمیل نیست.
 
-12 شکاف در `MISSING-FROM-DIST.md` ثبت شده، با آدرس دقیق اینکه Extractor کجا باید دنبالشان برود.
+10 شکاف در `MISSING-FROM-DIST.md` ثبت شده، با آدرس دقیق اینکه Extractor کجا باید دنبالشان برود.
 
 ## از کجا شروع کنیم
 

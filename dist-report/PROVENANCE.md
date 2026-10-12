@@ -2,7 +2,7 @@
 
 > **Source:** every input listed below
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 Every input this pack was compiled from, with the hash it had at compile time. If a hash no longer matches, the pack is stale: `python3 tools/report_compiler.py --check` says so and exits non-zero.
 
@@ -14,7 +14,8 @@ Every input this pack was compiled from, with the hash it had at compile time. I
 | `dist/formats/report-format.md` | a0b59d6ccafe395a… |
 | `dist/index/ai-export-properties.json` | 15f3d6565cf58250… |
 | `dist/index/export-formats.json` | 22f7339d7a1892cc… |
-| `dist/index/knowledge-index.json` | a427b37b4d4bc0d7… |
+| `dist/index/host-vocabulary.json` | 608a00d8f3dcfecf… |
+| `dist/index/knowledge-index.json` | c7d1173b95ae8165… |
 | `dist/index/semantic-contract.json` | 6de61fdc7bc6f2d6… |
 | `dist/index/systems/1001513550000000100/semantic.json` | d7bdfae8b936ce28… |
 | `dist/index/systems/1008513550000000101/semantic.json` | feca26339b65e748… |
@@ -24,11 +25,11 @@ Every input this pack was compiled from, with the hash it had at compile time. I
 | `dist/index/systems/1043513550000000145/semantic.json` | 294375703cc52560… |
 | `dist/index/systems/1101513550000000103/semantic.json` | 629b40698ed8b1f7… |
 | `dist/index/systems/1101513550000000106/semantic.json` | c463e1edcf519911… |
-| `dist/index/systems/7097413550000000101/semantic.json` | 9f62b35900963058… |
+| `dist/index/systems/7097413550000000101/semantic.json` | 11136cec8106223f… |
 | `dist/index/systems/manifest.json` | ea0ba27043f8b64c… |
 | `dist/index/write-pipeline.json` | 0faa6654189bfb4c… |
 | `dist/models/ai-change-batch.schema.json` | c7b68f8c8db02efc… |
-| `dist/models/normalized-samples/ai-Push Notification (05-07-11 20;08).json` | 0079a82d49c65e58… |
+| `dist/models/normalized-samples/ai-Push Notification (05-07-11 20;08).json` | 12d05eae1ffb5615… |
 | `dist/models/normalized-samples/ai-باركد (05-07-11 20;08).json` | 325e2a3e679f04e3… |
 | `dist/models/normalized-samples/legacy-NewMeta01.json` | b3350b5061ece933… |
 | `dist/models/normalized-samples/legacy-NewMeta02.json` | d73d9b90dac4683c… |

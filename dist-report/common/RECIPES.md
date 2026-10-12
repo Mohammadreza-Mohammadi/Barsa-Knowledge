@@ -2,7 +2,7 @@
 
 > **Source:** dist/index/semantic-contract.json (validated against) · dist/index/write-pipeline.json
 > **dist commit:** 79df8282d328dd5b18ff6dbcaa105d6e18ffdf79
-> **compiled:** 2026-10-11 · **scope:** system=1011413550000000100
+> **compiled:** 2026-10-12 · **scope:** system=1011413550000000100
 
 Complete `AiChangeBatch` documents for the common report tasks. Every one below was validated during the build by `barsa_extractor.change_batch.lint` -- the same code path `tools/lint_change_batch.py` runs, against the contract in `dist/index/semantic-contract.json`. The build fails on any error or warning, so a recipe in this file linted clean at compile time.
 
@@ -65,9 +65,9 @@ Placeholders still to fill: `#<entity>`, `#<field2>`, `#<field>`.
 
 Lint: 0 error(s), 0 warning(s).
 
-## R2 — A list report, placed under an existing folder
+## R2 — A list report, delivered with its navigation
 
-A report nobody can navigate to is invisible. This adds the placement row.
+A report nobody can navigate to is invisible. This builds the placement path with it, in one wave.
 
 ```json
 {
@@ -101,16 +101,48 @@ A report nobody can navigate to is invisible. This adds the placement row.
       }
     },
     {
+      "commandId": "r2-create-page",
+      "operation": "create",
+      "objectType": "folder",
+      "tempId": "tmpPage",
+      "parent": {
+        "objectType": "system",
+        "selector": "#<system>"
+      },
+      "properties": {
+        "name": "Gate",
+        "kind": "page",
+        "order": 1
+      }
+    },
+    {
+      "commandId": "r2-create-group",
+      "operation": "create",
+      "objectType": "folder",
+      "tempId": "tmpGroup",
+      "parent": {
+        "objectType": "folder",
+        "tempId": "tmpPage"
+      },
+      "properties": {
+        "name": "Gate lists",
+        "kind": "group",
+        "order": 1
+      }
+    },
+    {
       "commandId": "r2-place-report",
       "operation": "create",
       "objectType": "folder",
       "parent": {
         "objectType": "folder",
-        "selector": "#<parent-folder>"
+        "tempId": "tmpGroup"
       },
       "properties": {
         "name": "Gate list",
+        "kind": "report",
         "report": {
+          "objectType": "report",
           "tempId": "tmpReport"
         },
         "order": 1
@@ -122,16 +154,14 @@ A report nobody can navigate to is invisible. This adds the placement row.
 
 Why it looks like this:
 
-- Two commands, and the order matters: report is structuralOrder 120 and folder is 130, so the report is created first. The planner sorts by dependency anyway, but writing them in this order matches what it will do.
-- A placement is a `folder` object whose `report` points at the report. In the legacy tables that is a MET_FOLDER row with FolderType=Report (9) under a FolderType=ReportFolder (12) container.
-- `kind` is deliberately omitted. It is a create-only enum on `folder` and its semantic value vocabulary is Unknown -- no dist/ document lists the values the AiExport side uses. If the server requires it, it has to be supplied.
-- The parent folder reference remains a placeholder. The observed exports carry navigation paths, but no folder selector; the inspected SemanticRules resolver also has no folder selector case. See MISSING-FROM-DIST.md.
+- The canonical path is System -> Page -> Group -> Report placement, and the Host's folder reference states it. Page and Group are both FolderType.ReportFolder at runtime; the hierarchy carries the semantics, not the runtime type.
+- One wave, not four. The planner collects tempIds from `target`, `parent` and recursively from `properties`, so every dependency here is expressible with a temporary reference. Split a batch only when the contract needs a persisted id read back.
+- A same-batch reference carries both `objectType` and `tempId`. A bare `{"tempId": ...}` is not the documented shape.
+- `kind` is a create-only enum; its values are documented. See common/PLACEMENT.md.
+- Page and Group names come from the requirement. The Host does not invent them, so these two are the rows to edit.
+- Reuse before you create: if a suitable Page or Group already exists, placing under it needs a folder selector, which this pack still cannot supply. See MISSING-FROM-DIST.md.
 
-Not verified:
-
-- Encoding a same-batch reference as `{"tempId": "..."}` inside a Reference property is not demonstrated by any supplied artifact. The linter accepts it and the tempId resolves within the batch, but whether the provider reads that shape is Unknown. The command order and structure are sound; this one encoding may need adjusting.
-
-Placeholders still to fill: `#<entity>`, `#<field>`, `#<parent-folder>`.
+Placeholders still to fill: `#<entity>`, `#<field>`, `#<system>`.
 
 Lint: 0 error(s), 0 warning(s).
 
