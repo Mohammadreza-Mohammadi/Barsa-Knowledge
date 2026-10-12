@@ -11,6 +11,28 @@
   «پیش‌فرض را بگذار»، نه «هیچ». برای کلیدهایی که پیش‌فرضشان null است (مثل
   ApiKey) این دو یکی است؛ برای Password نیست.
 
+  این فایل دو دسته کلید دارد. کلیدهای AiHost.* را خودِ AiHostSettings.Load
+  می‌خواند. کلیدهای دستهٔ دوم را بارسا می‌خواند، از همین فایل، و بدون آنها
+  host بالا نمی‌آید:
+
+      DBProvider           System.Data.SqlClient
+      DBConnectionString   مقدار رمزشدهٔ بارسا — پایین را بخوان
+      RemotingUsage        None برای اتصال مستقیم به SQL
+
+  این سه کلید از قالب‌های خودِ بارسا (*.config.default) آمده‌اند، نه از IL:
+  رشته‌های Barsa.Spl.dll مبهم‌سازی شده‌اند و این نام‌ها در آن literal نیستند.
+  هر پنج قالبِ موجود این سه را دارند.
+
+  DBConnectionString را دستی نساز و از config برنامهٔ دیگری کپی نکن.
+  GlobalConnectionInfo.ParseText رشته را روی % به سه بخش می‌شکند و بعد
+  #l3c(text, Version) را صدا می‌زند؛ آن متد ConditionClass می‌سازد که
+  AllowedComputerName و NoDesigner دارد. یعنی یک رشتهٔ اتصال می‌تواند به یک
+  کامپیوتر مشخص مقید باشد، و نسخهٔ فرمت هم در خودش کدگذاری شده. رشتهٔ
+  نامناسب با Barsa.Spl.UnreachableCode رد می‌شود، نه با پیام خوانا.
+
+  راه درست: ConfigUtil.exe (ابزار خودِ بارسا، کنار همین باینری‌ها) مقدار را
+  برای همین ماشین و همین دیتابیس تولید می‌کند.
+
   پیش‌نیاز مهم: BarsaRuntime.Initialize اول دنبال فایل config خودِ بارسا
   می‌گردد (Barsa.Spl.FileUtil.ConfigPath) و اگر نباشد با «Barsa config file
   was not found» بالا نمی‌آید — یعنی این exe باید داخل پوشهٔ نصب بارسا
@@ -18,6 +40,15 @@
 -->
 <configuration>
   <appSettings>
+
+    <!-- دستهٔ اول: کلیدهایی که بارسا می‌خواند، نه AiHost.
+         بدون اینها Initialize در WaitUntilConnectionReady می‌ماند:
+         DefaultConfigMgr.ConnectionInfo تهی می‌شود (NullReferenceException)
+         یا رشتهٔ نامناسب با UnreachableCode رد می‌شود. -->
+    <add key="DBProvider" value="System.Data.SqlClient" />
+    <add key="DBConnectionString" value="" />
+    <add key="RemotingUsage" value="None" />
+
 
     <!-- آدرسی که HttpListener رویش می‌نشیند. حتماً با / تمام شود.
          پیش‌فرض کد: http://127.0.0.1:17840/ -->
