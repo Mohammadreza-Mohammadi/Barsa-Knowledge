@@ -141,12 +141,24 @@ new    architecture  ready  implementing  review   approved…    integrated
 ```
 
 ```bash
-python3 tools/manager.py init --system 1011413550000000100
-python3 tools/manager.py import-issue --slug my-report --kind report.create \
-    --request-file need.txt
-python3 tools/manager.py run 0001        # advances to the first gate
 python3 tools/kanban_server.py           # the board, at 127.0.0.1:4310
 ```
+
+Python 3.8+ and nothing else — no npm, no build step. The board opens with the
+two worked tasks already in `.agent-work/`; "نیاز تازه" takes a request in
+plain language and the card walks the lanes from there. The same thing from a
+terminal:
+
+```bash
+python3 tools/manager.py import-issue --slug my-report --kind report.create \
+    --request-file need.txt
+python3 tools/manager.py run 0003        # advances to the first stop
+python3 tools/manager.py status          # the board, as JSON
+```
+
+Each stop is either a human gate or a role that owes its artifacts. Set
+`defaultProvider: claude` in `.agent-work/config/agent-runtime.yaml` and the
+roles write themselves; the two human gates stay.
 
 Implementation here produces an `AiChangeBatch`, not code, so build/lint/test
 are replaced by five gates the manager runs itself: `lint` (the contract
